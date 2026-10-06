@@ -1,6 +1,6 @@
 # Stopping point — 2026-10-06
 
-**Increment 13 (cloud session):** per-domain reset-release module and stopped-clock bench pass with a failing unsafe negative control; connected suite replays 26/26 non-ROM cases under Verilator 5.052. Not yet wired into the bridge. See [increment-13](docs/design/expansion-adapter/increment-13.md). Use Verilator 5.052; 5.020 gives false failures in cases 25/26.
+**Increment 13 (cloud session):** per-domain reset-release module and stopped-clock bench pass with a failing unsafe negative control; connected suite replays 26/26 non-ROM cases under Verilator 5.052. Wired into candidate bridge in [increment 14](docs/design/expansion-adapter/increment-14.md): all 29 connected expectations incl. the 3 ROM cases pass. See [increment-13](docs/design/expansion-adapter/increment-13.md). Use Verilator 5.052; 5.020 gives false failures in cases 25/26.
 
 Current owner instruction: continue bounded increments until weekly usage is approximately 98% used, then preserve roughly 2% for the owner. **Stopped after increment 12 at 98% weekly usage (approximately 2% remaining).** No agent or build is running; no next increment was started. Luna workers previously reached their usage limit; the integrator completed these bounded increments. Resume only on a new owner instruction.
 

@@ -39,7 +39,9 @@ def main():
     p.add_argument('--report',type=Path)
     p.add_argument('--rom-images',type=Path,help='Verified ignored ROM fixture directory; select ROM-backed suite.')
     p.add_argument('--ram-loader',action='store_true',help='Use the separate registered-RAM candidate.')
-    a=p.parse_args(); increment=12 if a.ram_loader else 8
+    p.add_argument('--reset-sync',action='store_true',help='Increment 14: per-domain synchronized reset release (implies --ram-loader).')
+    a=p.parse_args(); a.ram_loader=a.ram_loader or a.reset_sync
+    increment=14 if a.reset_sync else 12 if a.ram_loader else 8
     a.run_dir=a.run_dir or ROOT/f'simulation/expansion_adapter/increment{increment:02d}'
     a.report=a.report or ROOT/f'docs/design/expansion-adapter/increment-{increment:02d}.json'
     out=a.run_dir.resolve(); out.mkdir(parents=True,exist_ok=True)
@@ -51,6 +53,18 @@ def main():
     baseline=ROOT/'sim/expansion_loader/exidy_expansion_loader.sv'
     assert sha(baseline_copy)==sha(baseline), 'baseline copy changed'
     bench=ROOT/'sim/expansion_adapter/tb_connected.sv'
+    extra=[]
+    if a.reset_sync:
+        # Derived copies: speech-domain reset port on the loader, rr bridge name in the bench.
+        text=loader.read_text()
+        for old,new in (('    input  logic        reset_n,\n','    input  logic        reset_n,\n    input  logic        cvsd_reset_n,\n'),
+                        ('always_ff @(posedge cvsd_clk or negedge reset_n) begin\n        if (!reset_n) begin','always_ff @(posedge cvsd_clk or negedge cvsd_reset_n) begin\n        if (!cvsd_reset_n) begin')):
+            assert text.count(old)==1, old; text=text.replace(old,new)
+        loader=out/'exidy_expansion_loader_rr.sv'; loader.write_text(text)
+        bridge=ROOT/'sim/expansion_adapter/exidy_expansion_bridge_rr.sv'
+        text=bench.read_text(); assert text.count('exidy_expansion_bridge bridge')==1
+        bench=out/'tb_connected_rr.sv'; bench.write_text(text.replace('exidy_expansion_bridge bridge','exidy_expansion_bridge_rr bridge'))
+        extra=[str(ROOT/'sim/expansion_adapter/exidy_reset_sync.sv')]
     main_repo=ROOT.parent/'Main_MiSTer'
     host_sources=[main_repo/p for p in ('fpga_io.cpp','spi.h','spi.cpp','user_io.cpp')]
     # Ordinary ROM download uses spi_write -> spi_b/spi_w -> fpga_spi,
@@ -61,7 +75,7 @@ def main():
     assert 'while (gpi & SSPI_ACK);' in host_sources[0].read_text()
     executable=out/'connected'
     r=subprocess.run(['verilator','--binary','--timing','-Wno-fatal','-j','2','--top-module','tb_connected',
-        '--Mdir',str(out/'obj'),str(generated),str(rtl),str(bridge),str(loader),str(bench),'-o',str(executable)],capture_output=True,text=True)
+        '--Mdir',str(out/'obj'),str(generated),str(rtl),*extra,str(bridge),str(loader),str(bench),'-o',str(executable)],capture_output=True,text=True)
     (out/'build.log').write_text(r.stdout+r.stderr)
     if r.returncode: raise RuntimeError('connected build failed')
     cases=[]
@@ -97,7 +111,7 @@ def main():
     mutant.write_text(bridge.read_text().replace(anchor,';'))
     negative=out/'negative-verdict'
     r=subprocess.run(['verilator','--binary','--timing','-Wno-fatal','-j','2','--top-module','tb_connected',
-        '--Mdir',str(out/'negative-obj'),str(generated),str(rtl),str(mutant),str(loader),str(bench),'-o',str(negative)],capture_output=True,text=True)
+        '--Mdir',str(out/'negative-obj'),str(generated),str(rtl),*extra,str(mutant),str(loader),str(bench),'-o',str(negative)],capture_output=True,text=True)
     (out/'negative-build.log').write_text(r.stdout+r.stderr)
     if r.returncode: raise RuntimeError('verdict negative build failed')
     r=subprocess.run([str(negative),'+CASE=27'],capture_output=True,text=True,timeout=30)
