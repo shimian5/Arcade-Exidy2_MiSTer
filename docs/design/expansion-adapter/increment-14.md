@@ -14,4 +14,6 @@ The `fit14` probe (top `exidy_expansion_bridge_rr`) completes the full Quartus 1
 
 An earlier owner run failed with `Top-level design entity "expansion_probe" is undefined` because it was started outside the generated project directory; run from inside `fit14` (the generator now prints the commands).
 
-Open: confirm `rst_meta`/`rst_sync` are recognized as synchronizers: from `fit14`, run `quartus_sta -t ..\..\..\tools\expansion_adapter\report_synchronizers.tcl` (or the repository's Tcl via the full Quartus path) and send `synchronizers.rpt`.
+Synchronizer check (owner-run `report_synchronizers.tcl`): 7 chains found, shortest 2 registers, 0 chains with incalculable MTBF, worst-case available settling time 32.603 ns. That is the five increment 12 chains plus the two new reset synchronizers (one per domain), so `rst_meta`/`rst_sync` are recognized. MTBF figures use the abstract probe assumptions and are not reliability acceptance.
+
+Still open: actual PLL-lock-derived reset sources, CPU/audio wiring and whole-core fit.

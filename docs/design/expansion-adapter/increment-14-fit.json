@@ -227,7 +227,16 @@
   "limits": [
     "Standalone bridge only; virtual data/control I/O have no board timing constraints.",
     "50MHz/10MHz abstract clocks and asynchronous groups; no physical CDC/reset signoff.",
-    "Synchronizer chain recognition (rst_meta/rst_sync) not yet confirmed: needs synchronizers.rpt from report_synchronizers.tcl.",
     "Not whole-core capacity."
-  ]
+  ],
+  "synchronizers": {
+    "chainsFound": 7,
+    "expectedFromIncrement12": 5,
+    "newResetChains": 2,
+    "shortestChainRegisters": 2,
+    "fractionNotCalculable": 0.0,
+    "worstCaseSettlingTimeNs": 32.603,
+    "worstCaseMtbfYears": "1e+09 (saturated display)",
+    "note": "Under abstract 50/10 MHz probe assumptions and default data-toggle rates; reported by owner-run report_metastability, 2026-10-06."
+  }
 }
