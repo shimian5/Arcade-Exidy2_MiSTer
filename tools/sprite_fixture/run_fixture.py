@@ -72,6 +72,10 @@ def extract_rtl(out: Path) -> tuple[str, list[str]]:
     flattened = []
     for item in picked:
         flattened.extend(item if isinstance(item, list) else [item])
+    # The fixture pins the baseline (interrupt profile 0) wiring: substitute the
+    # legacy expressions for the profile-selected names added in rtl/Exidy2.v.
+    legacy_eir = "!(nM01VDT|nM02VDT),1'b0,!((nSGCVID|nM01VDT)|CBLB)"
+    flattened = [line.replace("int_cause[4],int_cause[3],int_cause[2]", legacy_eir).replace("cDET_sel", "cDET") for line in flattened]
     text = "\n".join(flattened) + "\n"
     (out / "rtl_extracted.svh").write_text(text, encoding="utf-8", newline="\n")
     return text, flattened

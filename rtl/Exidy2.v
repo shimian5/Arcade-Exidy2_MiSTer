@@ -653,17 +653,29 @@ end
 //wire M1CHAR=!((nSGCVID|nM01VDT)|CBLB);
 //wire M1M2  =!(nM01VDT|nM02VDT);
 reg cDET,rCPU_IRQ,COINT;
+//Per-game collision wiring (pcb[7:6]): 0 = legacy fixed wiring, 1 = Venture/FAX, 2 = Pepper II/Hard Hat, 3 = Teeter Torture
+wire [4:2] int_cause;
+wire       int_coll_irq;
+exidyIntCause INT_CAUSE(
+	.profile(pcb[7:6]),
+	.m1m2(!(nM01VDT|nM02VDT)),
+	.m2char(!((nSGCVID|nM02VDT)|CBLB)),
+	.m1char(!((nSGCVID|nM01VDT)|CBLB)),
+	.cause(int_cause),
+	.irq(int_coll_irq)
+);
+wire cDET_sel = (pcb[7:6]==2'b00) ? cDET : (int_coll_irq & nCBLB);
 always @(*) cDET<=!((!((!(nM01VDT|nSGCVID))|(!(nM02VDT|nSGCVID))))|CBLB);//collision detection
 //wire cDET=1'b0;
 //trigger output is set by 1VL1 and cleared by reading EIR
 
 always @(posedge master_clock) COINT<=(!m_coina|!m_coinb);
-always @(negedge BCLK or negedge COINT or negedge nEIR) rCPU_IRQ = (rCPU_IRQ|VL1|COINT|cDET)&nEIR; //
+always @(negedge BCLK or negedge COINT or negedge nEIR) rCPU_IRQ = (rCPU_IRQ|VL1|COINT|cDET_sel)&nEIR; //
 //targ interrupt configuration
 //always @(posedge rCPU_IRQ) EIR <= {!vscnt[8],!m_coina,!m_coinb,5'b11111};//<5L256,COIN1,COIN2,VDLV,5CVID,5MO2VID,5MO1VID,HDLV
 //spectar interrupt configuration
 //always @(posedge rCPU_IRQ) EIR <= {!vscnt[8],!m_coina,!m_coinb,1'b1,1'b0,nM01VDT,2'b00};//<5L256,COIN1,COIN2,VDLV,5CVID,5MO2VID,5MO1VID,HDLV -- works with most
-always @(posedge rCPU_IRQ) EIR <= {!vscnt[8],!m_coina,!m_coinb,!(nM01VDT|nM02VDT),1'b0,!((nSGCVID|nM01VDT)|CBLB),2'b00};//<5L256,COIN1,COIN2,VDLV,5CVID,5MO2VID,5MO1VID,HDLV
+always @(posedge rCPU_IRQ) EIR <= {!vscnt[8],!m_coina,!m_coinb,int_cause[4],int_cause[3],int_cause[2],2'b00};//<5L256,COIN1,COIN2,VDLV,5CVID,5MO2VID,5MO1VID,HDLV
 
 wire VDLV=!(X5SRLD|vscnt[0]);
 //assign CPU_IRQn=!rCPU_IRQ; //VDLV
