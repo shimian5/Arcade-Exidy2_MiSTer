@@ -21,6 +21,11 @@ module exidyAB (
 	output signed [15:0] audio_r
 );
 
+//Reset for the audio-clock logic: RESET_n comes from the master clock domain
+//(and from hps_io download/status), so it is re-timed to audio_clk here.
+wire RESET_n_au;
+exidyResetSync audio_reset(.clk(audio_clk),.reset_n(RESET_n),.reset_n_sync(RESET_n_au));
+
 //clock enables
 reg [3:0] cencnt_au =4'd0;
 reg auCLK,auPH0,auPH0B;
@@ -41,7 +46,7 @@ end
 //Audio CPU running at 0.894886 MHz
 T65 A6502(
 	.mode(0),
-	.res_n(RESET_n),
+	.res_n(RESET_n_au),
 	.enable(auPH0),
 	.clk(audio_clk),
 	.rdy(~pause),
@@ -69,7 +74,7 @@ wire RIOT_IRQ;
 R6532 A6532_RIOT(
     .phi2(auPH0),	
     .rw_n(audio_nWRITE),
-	 .rst_n(RESET_n),
+	 .rst_n(RESET_n_au),
     .cs(!io08_0F),		
     .irq_n(RIOT_IRQ),
     .add(audio_addrbus[4:0]),
@@ -126,7 +131,7 @@ pia6821 PIA_9B( //MAIN CPU INTERFACE
 
 pia6821 PIA_8B( //AUDIO CPU INTERFACE
 	.clk(audio_clk), //
-	.rst(!RESET_n),
+	.rst(!RESET_n_au),
 	.cs(!io10_17),
 	.rw(audio_nWRITE),
 	.addr(audio_addrbus[1:0]),
@@ -161,7 +166,7 @@ wire signed [8:0] snd1,snd2,snd3;
 
 berzerk_sound_fx U3D_6840(
 	.clock(auPH0B), //auPH0
-	.reset(!RESET_n),
+	.reset(!RESET_n_au),
 	.cs(!io28_2F & !audio_nWRITE),
 	.vs(!io30_37 & !audio_nWRITE),
 	.addr({2'b00,audio_addrbus[2:0]}),
@@ -181,7 +186,7 @@ wire [2:0] i8253_snd = i8253_audio_out & i8253_active;
 
 k580vi53 i8253_2B
 (
-	.reset(!RESET_n),
+	.reset(!RESET_n_au),
 	.clk_sys(audio_clk),
 	.clk_timer({!auCLK,!auCLK,!auCLK}),
 	.addr(audio_addrbus[1:0]),
@@ -247,7 +252,7 @@ wire cen16, cen256;
 
 jt49_cen #(.CLKDIV(CLKDIV)) u_cen(
     .clk    ( audio_clk    ),
-    .rst_n  ( RESET_n   	),
+    .rst_n  ( RESET_n_au   	),
     .cen    ( auPH0  		),
     .sel    ( 1'b0     		),
     .cen16  ( cen16   		),
@@ -257,7 +262,7 @@ jt49_cen #(.CLKDIV(CLKDIV)) u_cen(
 //two main types of audio board pcb[4] = CPU based board with i8253 and MC6840
 
 jtframe_jt49_filters u_filters1(
-            .rst    ( !RESET_n    ),
+            .rst    ( !RESET_n_au    ),
             .clk    ( audio_clk   ),
             .din0   ( pcb[4] ? {4'b0000,i8253_audio_out[0],   5'b00000} : {4'b0000,MUSIC,   5'b00000}),
             .din1   ( pcb[4] ? {4'b0000,i8253_audio_out[1],   5'b00000} : {4'b0000,MUSIC,   5'b00000}), 
@@ -267,7 +272,7 @@ jtframe_jt49_filters u_filters1(
 );
 
 jtframe_jt49_filters u_filters2(
-            .rst    ( !RESET_n    ),
+            .rst    ( !RESET_n_au    ),
             .clk    ( audio_clk   ),
             .din0   ( pcb[4] ? snd1 : {4'b0000,TONE_out,5'b00000}),
             .din1   ( pcb[4] ? snd2 : {4'b0000,TONE_out,5'b00000}), 

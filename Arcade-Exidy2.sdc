@@ -267,3 +267,8 @@ set_multicycle_path -hold -end -to [get_keepers {*_osd|osd_vcnt*}] 1
 # master/audio crossings remain timed.
 set_false_path -from [get_keepers {*exidyAB:sound_board|pia6821:PIA_9B|*}] -to [get_keepers {*exidyAB:sound_board|pia6821:PIA_8B|* *exidyAB:sound_board|T65:A6502|*}]
 set_false_path -from [get_keepers {*exidyAB:sound_board|pia6821:PIA_8B|*}] -to [get_keepers {*exidyAB:sound_board|pia6821:PIA_9B|*}]
+
+# Audio-clock reset: RESET_n (master clock / hps_io) is re-timed in exidyResetSync.
+# Its first flop samples the cross-domain signal and is the synchronizer's
+# metastability stage, so it is exempt from setup/hold; the second flop is timed.
+set_false_path -to [get_keepers {*exidyAB:sound_board|exidyResetSync:audio_reset|rst_meta}]
