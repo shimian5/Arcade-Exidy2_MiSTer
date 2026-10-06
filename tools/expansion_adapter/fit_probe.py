@@ -76,4 +76,7 @@ derive_clock_uncertainty
                'Resource/result summaries must be added only after a completed full-flow build.'])
     (ROOT/f'docs/design/expansion-adapter/increment-{increment:02d}-project.json').write_text(json.dumps(report,indent=2)+'\n')
     print(str(OUT))
+    print('Run from INSIDE that directory (it holds expansion_probe.qpf/.qsf); from elsewhere Quartus creates a default project whose top entity is undefined:')
+    print('  cd '+str(OUT))
+    print('  & \'C:\\MiSTerDev\\intelFPGA_lite\\17.0\\quartus\\bin64\\quartus_sh.exe\' --flow compile expansion_probe')
 if __name__=='__main__':main()

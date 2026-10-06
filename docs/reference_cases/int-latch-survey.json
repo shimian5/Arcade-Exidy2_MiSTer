@@ -1,0 +1,100 @@
+{
+ "schema": "exidy2-int-latch-survey/v1",
+ "mame": "0.264 (Ubuntu package; pinned reference remains 0.288)",
+ "run": "tools/reference_cases/exidy_reference.lua, 3600 frames zero input, video/sound off",
+ "note": "Zero-input attract only; collision and gating coverage during gameplay is not established. No ROM bytes.",
+ "sets": [
+  {
+   "set": "targ",
+   "w5101": 0,
+   "distinct5101": {},
+   "sprite1_gated_writes": 0,
+   "r5103": 3728,
+   "values5103": {
+    "00": 3728
+   }
+  },
+  {
+   "set": "spectar",
+   "w5101": 0,
+   "distinct5101": {},
+   "sprite1_gated_writes": 0,
+   "r5103": 43460,
+   "values5103": {
+    "00": 43460
+   }
+  },
+  {
+   "set": "sidetrac",
+   "w5101": 0,
+   "distinct5101": {},
+   "sprite1_gated_writes": 0,
+   "r5103": 3594,
+   "values5103": {
+    "63": 3594
+   }
+  },
+  {
+   "set": "mtrap",
+   "w5101": 504,
+   "distinct5101": {
+    "5c": 504
+   },
+   "sprite1_gated_writes": 0,
+   "r5103": 3217,
+   "values5103": {
+    "00": 2141,
+    "84": 1076
+   }
+  },
+  {
+   "set": "pepper2",
+   "w5101": 1849,
+   "distinct5101": {
+    "1c": 3,
+    "5c": 1335,
+    "7c": 511
+   },
+   "sprite1_gated_writes": 0,
+   "r5103": 6931,
+   "values5103": {
+    "04": 1859,
+    "80": 5072
+   }
+  },
+  {
+   "set": "hardhat",
+   "w5101": 2984,
+   "distinct5101": {
+    "1c": 1034,
+    "5c": 1949,
+    "ff": 1
+   },
+   "sprite1_gated_writes": 0,
+   "r5103": 2438,
+   "values5103": {
+    "04": 2057,
+    "80": 381
+   }
+  },
+  {
+   "set": "teetert",
+   "w5101": 35218,
+   "distinct5101": {
+    "00": 1244,
+    "08": 1244,
+    "14": 14419,
+    "1c": 16755,
+    "34": 725,
+    "3c": 831
+   },
+   "sprite1_gated_writes": 0,
+   "r5103": 4767,
+   "values5103": {
+    "0c": 3477,
+    "84": 1282,
+    "88": 8
+   }
+  }
+ ]
+}

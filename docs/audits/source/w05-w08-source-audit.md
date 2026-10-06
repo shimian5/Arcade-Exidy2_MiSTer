@@ -16,6 +16,20 @@ Date 2026-10-06 (cloud, no simulation). Compared `rtl/Exidy2.v` (baseline `bfd1b
 
 Existing fixture findings (docs/design/sprite-fixture, sprite-serialization) already cover mask/polarity for Venture and graphic bit order; S1, S3–S6 are new.
 
+### MAME survey of `$5101` writes and `$5103` reads (attract, zero input)
+
+[Data](../../reference_cases/int-latch-survey.json); replay with `tools/reference_cases/survey_int_latch.py` over `exidy_reference.lua` captures. MAME 0.264 (package) was used because 0.288 is not installable here; ROM sets verified good. Venture is not yet captured.
+
+| Set | `$5103` values read (count) | `$5101` values written | Reading |
+| --- | --- | --- | --- |
+| targ, spectar | 00 | none | mask 0; no latch information in attract |
+| sidetrac | 63 | none | bits 0–1 (DIP) are 1 and coin bits 5–6 high; RTL ties bits 1:0 to 0 (S5) |
+| mtrap (14/00) | 00, 84 | 5c | 84 = bit7 + bit2 collision, positive polarity |
+| pepper2, hardhat (14/04) | 04 (vblank), 80 (collision) | 1c 5c 7c (+ff once hardhat) | bit 2 is **high at vblank, low on collision**; RTL gives the opposite (S2) |
+| teetert (0c/0c) | 0c (vblank), 84, 88 | 00 08 14 1c 34 3c | collisions clear bit 2 or bit 3 separately; RTL cannot produce the bit-3 case (S3) |
+
+No attract capture ever writes `$5101` with bit 7 set and bit 4 clear, so S1 (sprite-1 gating) is untested by these sets; it needs Venture gameplay (Venture is the first set where gating is reachable) or a deliberate write test.
+
 ## Shared audio (W08–W09)
 
 | # | Finding | Evidence | Confirming test | Related |
