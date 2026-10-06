@@ -1,0 +1,37 @@
+{
+  "schema": "exidy2-reset-release-increment/v1",
+  "increment": 15,
+  "accepted": false,
+  "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+  "cases": [
+    {
+      "case": "async-assert-sync-release-adversaries",
+      "expectationMet": true
+    },
+    {
+      "case": "negative-unsynchronized-release",
+      "expectedFailure": true,
+      "expectationMet": true,
+      "failures": 16
+    },
+    {
+      "case": "bridge-stopped-speech-clock-release",
+      "expectationMet": true
+    },
+    {
+      "case": "negative-bridge-unsynchronized-speech-reset",
+      "expectedFailure": true,
+      "expectationMet": true,
+      "failures": 3
+    }
+  ],
+  "sha256": {
+    "sim/expansion_adapter/exidy_reset_sync.sv": "a8fe9620f5a9ee1ac73c9d03fbc06946980e54121a14ac018925a156306db0ee",
+    "sim/expansion_adapter/tb_reset_release.sv": "6a1adc5c14b75a1d8b04a1236beaa11ead57b28049b1f97de98297d6cb4fa70f",
+    "sim/expansion_adapter/tb_bridge_reset.sv": "491153b39b7b7a8440700a1af16ff104e0782db9ded87148cabf99b4fe18f3ca",
+    "sim/expansion_adapter/exidy_expansion_bridge_rr.sv": "757fbb804a655300ec5f7234a55e0bb2b759d898aed955bf16b892381e756f1f"
+  },
+  "remaining": [
+    "Actual clocks/PLL lock-derived reset, CPU/audio wiring, QSF synchronizer assignments, whole-core fit."
+  ]
+}
