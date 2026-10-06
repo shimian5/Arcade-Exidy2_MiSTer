@@ -1,0 +1,23 @@
+{
+  "schema": "exidy2-sprite-serializer/v1",
+  "ttlSourceSha256": "ba26c3d21e9bb6b433d7afcc3fb566d3bbd73ebdb2e24c335f4dd9eb7ef45e9e",
+  "extractedFragmentSha256": "ecefe6316a4b303e964be6412a3f0d1da90c9a1b8e8af457f2a5e494e7ebcb71",
+  "testbenchSha256": "027f6b554dc1698bcf5da69cc14bbbe39d915dcd2a4fce2cbc9ec1b11cb89bbb",
+  "runs": [
+    {
+      "negative": false,
+      "exitCode": 0,
+      "pass": true
+    },
+    {
+      "negative": true,
+      "exitCode": 1,
+      "pass": true
+    }
+  ],
+  "limits": [
+    "Exact source primitive plus explicit scheduling; actual control-PROM/ROM-latency gated-clock chain remains uninstantiated.",
+    "64 decoded images pass MSB-first bit ordering, not full game rendering or clipping.",
+    "TI synchronous load differs from existing source asynchronous PE edge; board-level remedy needs scheduling evidence."
+  ]
+}

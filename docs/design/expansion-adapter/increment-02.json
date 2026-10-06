@@ -1,0 +1,64 @@
+{
+  "schema": "exidy2-expansion-adapter-increment/v1",
+  "increment": 2,
+  "accepted": false,
+  "cases": [
+    {
+      "case": "begin-index",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment02/case0.log"
+    },
+    {
+      "case": "skid-arrival",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment02/case1.log"
+    },
+    {
+      "case": "stale-ack",
+      "exitCode": 1,
+      "expectedFailure": true,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment02/case2.log"
+    },
+    {
+      "case": "upper-index-rejection",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment02/case3.log"
+    },
+    {
+      "case": "blocked-skid-overflow",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment02/case4.log"
+    }
+  ],
+  "sha256": {
+    "sys/hps_io.sv": "a5747b92d6ca1330730c045e4e8506b2ffc8567347f48e2b4483b4822ac09128",
+    "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+    "sim/expansion_adapter/exidy_transport_adapter.sv": "63a4208d42e2f8a293d7dfa68c058db873e0b76e0e8c596fa406a8a86cc39930",
+    "sim/expansion_adapter/tb_review.sv": "d56833bb2ab8e50a4dc8c4b55327bd49d1a2e116271a777d4d97eea8f10113a6"
+  },
+  "resolved": [
+    "Begin carries the new index on the downstream sampling edge.",
+    "Upper index bits reject start and concurrent first byte instead of aliasing.",
+    "Skid drain preserves simultaneous arrivals, including stop-edge and delayed end-pending bytes; six distinct bytes arrive exactly once in order.",
+    "A full blocked skid entry faults on another arrival and retains the oldest byte."
+  ],
+  "transportFacts": [
+    "hps_io has 27-bit addresses and 16-bit indices; core currently narrows to25/8; prior prototype uses24/8.",
+    "ioctl_wr delayed via internal wr register; wait routed to HPS_BUS37/sys_top acknowledgement.",
+    "Tests drive raw ioctl events; complete HPS SPI/ACK model is still required."
+  ],
+  "remaining": [
+    "Use fresh generation or low-then-high handshake before overwriting; stale high ack cannot authorize a new request.",
+    "Upper address rejection, full descriptor/order/length/FAX2 matrix, stopped/slow remote clocks, reset/fault quarantine and actual HPS backpressure remain unaccepted.",
+    "FAX additional fxl-12b PROM routing and banks24..31 parity remain open."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "exidy2-expansion-synchronizer-report/v1",
+  "increment": 11,
+  "chains": 5,
+  "minimumRegisters": 2,
+  "uncomputableFraction": 0.0,
+  "endpoints": [
+    "transport|ack_meta",
+    "transport|generation_meta",
+    "remote|req_meta",
+    "remote|gen_meta",
+    "loader|cvsd_ready_meta"
+  ],
+  "report": "simulation/expansion_adapter/fit11/synchronizers.rpt",
+  "reportSha256": "46e92612fd5b95e589788490e768a962f699150f0af29101e79652d9e3150018",
+  "timingAssumptions": "Standalone50MHz/10MHz clocks; tool-default toggle rates; no board/reset/whole-core signoff."
+}

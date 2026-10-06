@@ -1,0 +1,152 @@
+{
+  "schema": "exidy2-expansion-connected-increment/v1",
+  "increment": 6,
+  "accepted": false,
+  "cases": [
+    {
+      "case": "source-hps-two-speech-sessions",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/source-hps-two-speech-sessions.log"
+    },
+    {
+      "case": "source-hps-delayed-ack-consumer",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/source-hps-delayed-ack-consumer.log"
+    },
+    {
+      "case": "fax-full-question-image",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/fax-full-question-image.log"
+    },
+    {
+      "case": "fax2-full-question-image",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/fax2-full-question-image.log"
+    },
+    {
+      "case": "descriptor-magic",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/descriptor-magic.log"
+    },
+    {
+      "case": "descriptor-version",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/descriptor-version.log"
+    },
+    {
+      "case": "descriptor-mask",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/descriptor-mask.log"
+    },
+    {
+      "case": "descriptor-reserved",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/descriptor-reserved.log"
+    },
+    {
+      "case": "descriptor-profile",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/descriptor-profile.log"
+    },
+    {
+      "case": "descriptor-question-length",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/descriptor-question-length.log"
+    },
+    {
+      "case": "descriptor-marker-mismatch",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/descriptor-marker-mismatch.log"
+    },
+    {
+      "case": "base-before-descriptor",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/base-before-descriptor.log"
+    },
+    {
+      "case": "speech-before-base",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/speech-before-base.log"
+    },
+    {
+      "case": "speech-short",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/speech-short.log"
+    },
+    {
+      "case": "speech-long",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/speech-long.log"
+    },
+    {
+      "case": "duplicate-base",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/duplicate-base.log"
+    },
+    {
+      "case": "unknown-trailing-stream",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/unknown-trailing-stream.log"
+    },
+    {
+      "case": "descriptor-before-marker",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/descriptor-before-marker.log"
+    },
+    {
+      "case": "empty-marker",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/empty-marker.log"
+    },
+    {
+      "case": "descriptor-short",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/descriptor-short.log"
+    },
+    {
+      "case": "descriptor-long",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment06/descriptor-long.log"
+    }
+  ],
+  "sha256": {
+    "sys/hps_io.sv": "a5747b92d6ca1330730c045e4e8506b2ffc8567347f48e2b4483b4822ac09128",
+    "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+    "sim/expansion_adapter/exidy_transport_adapter.sv": "1d74e18a7a097ef613018145dba6f9eb118fbfac78d62b7c4682e1c38b13a7a2",
+    "sim/expansion_adapter/exidy_expansion_loader_baseline.sv": "b543b5431838d6b70e2a4ed2948e99d0cdf1a7e03db374a22084f80010ae7e9e",
+    "sim/expansion_adapter/tb_connected.sv": "cd3a87c900018f40d9095bd8cb757c088a486f5491a247288153cb877979a3db",
+    "simulation/expansion_adapter/increment06/source_transport.sv": "5afb42ed646553248fa844d86e85f1522c0e0d7789618de59214a802c2a9b581"
+  },
+  "hostSources": {
+    "/mnt/c/MiSTerDev/Main_MiSTer/fpga_io.cpp": "3a690b1a5c0c20b0994d44c4853c92c8c4c8698623589928f04a8ca6e333a127",
+    "/mnt/c/MiSTerDev/Main_MiSTer/spi.h": "a76120eceb3a2c0df2ec0d09509f3bc41c9de4eaa0301a4d22cef77557fd9a46",
+    "/mnt/c/MiSTerDev/Main_MiSTer/spi.cpp": "b2a2211ce83acda3a8e398ec379d6af7a96a94ea90bdcea4b38d49e8a6201459",
+    "/mnt/c/MiSTerDev/Main_MiSTer/user_io.cpp": "034e16907420a9c91575422ffaa7c93335d43da7ebfbb2ccf07a3c238806664c"
+  },
+  "boundary": "Original file-download always block and GPIO synchronizer/ACK bodies extracted unchanged; other hps_io commands and SoC MMIO execution excluded.",
+  "remaining": [
+    "ROM-backed connected images and missing descriptor/length/order permutations beyond this bounded matrix.",
+    "Fast block MMIO path, other HPS commands, physical CDC/reset/memory/Quartus gates."
+  ]
+}

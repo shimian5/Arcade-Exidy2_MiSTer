@@ -1,0 +1,82 @@
+{
+  "schema": "exidy2-expansion-adapter-increment/v1",
+  "increment": 3,
+  "accepted": false,
+  "cases": [
+    {
+      "case": "begin-index",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment03/begin-index.log"
+    },
+    {
+      "case": "skid-arrival",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment03/skid-arrival.log"
+    },
+    {
+      "case": "stale-ack",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment03/stale-ack.log"
+    },
+    {
+      "case": "upper-index-rejection",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment03/upper-index-rejection.log"
+    },
+    {
+      "case": "blocked-skid-overflow",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment03/blocked-skid-overflow.log"
+    },
+    {
+      "case": "remote-stale-high",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment03/remote-stale-high.log"
+    },
+    {
+      "case": "remote-outstanding-drain",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment03/remote-outstanding-drain.log"
+    },
+    {
+      "case": "negative-level-only-ack",
+      "exitCode": 1,
+      "expectedFailure": true,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment03/negative-level-only-ack.log"
+    }
+  ],
+  "sha256": {
+    "sys/hps_io.sv": "a5747b92d6ca1330730c045e4e8506b2ffc8567347f48e2b4483b4822ac09128",
+    "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+    "sim/expansion_adapter/exidy_transport_adapter.sv": "0ad9e2187e828fbabcde4c99a183429f49cf8b3e5b5feb3d6d4e027c9f13d901",
+    "sim/expansion_adapter/tb_review.sv": "1f51b980e3d52a429be7004af34bfff2b2521c908a8ac2b8c6c1afc5d9778d48",
+    "sim/expansion_adapter/tb_quarantine.sv": "8c199a00748b4125a520463753d5e7673f9e135360a8e6f543c7f74c995edf68"
+  },
+  "resolved": [
+    "Fresh generation acknowledgement gates speech writes; start asserts wait immediately.",
+    "Unacknowledged generations are reused rather than toggled back after an aborted transfer.",
+    "Remote revocation blocks reads and drains the configured read pipe before echoing the generation.",
+    "Two complete 16KiB streams preserve exact data/address order under slow and stopped remote clocks."
+  ],
+  "remaining": [
+    "Reset/fault session quarantine and abort/restart adversaries.",
+    "Actual HPS SPI/ACK model and connected baseline loader; upper address, descriptor/order/length/FAX2 matrix.",
+    "Physical CDC constraints/shared reset ownership, memory fit/timing and full-flow Quartus build.",
+    "FAX extra PROM routing and banks24..31 parity."
+  ]
+}

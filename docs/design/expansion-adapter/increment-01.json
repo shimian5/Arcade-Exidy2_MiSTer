@@ -1,0 +1,56 @@
+{
+  "schema": "exidy2-expansion-adapter-increment/v1",
+  "increment": 1,
+  "accepted": false,
+  "cases": [
+    {
+      "case": "begin-index",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment01/case0.log"
+    },
+    {
+      "case": "skid-arrival",
+      "exitCode": 1,
+      "expectedFailure": true,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment01/case1.log"
+    },
+    {
+      "case": "stale-ack",
+      "exitCode": 1,
+      "expectedFailure": true,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment01/case2.log"
+    },
+    {
+      "case": "upper-index-rejection",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment01/case3.log"
+    }
+  ],
+  "sha256": {
+    "sys/hps_io.sv": "a5747b92d6ca1330730c045e4e8506b2ffc8567347f48e2b4483b4822ac09128",
+    "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+    "sim/expansion_adapter/exidy_transport_adapter.sv": "7c696efd1caf2d900b720f8dfb30f943b831425cd92389f3d8a6b691d1bbaf76",
+    "sim/expansion_adapter/tb_review.sv": "80e8fe01f9effc3f569587c5ae182428f83b72da68db69c666b2e95baf50740c"
+  },
+  "resolved": [
+    "Begin carries the new index on the downstream sampling edge.",
+    "Upper index bits reject start and concurrent first byte instead of aliasing."
+  ],
+  "transportFacts": [
+    "hps_io has 27-bit addresses and 16-bit indices; core currently narrows to25/8; prior prototype uses24/8.",
+    "ioctl_wr delayed via internal wr register; wait routed to HPS_BUS37/sys_top acknowledgement.",
+    "Tests drive raw ioctl events; complete HPS SPI/ACK model is still required."
+  ],
+  "remaining": [
+    "Skid dequeue/enqueue must handle simultaneous arrival without losing bytes.",
+    "Use fresh generation or low-then-high handshake before overwriting; stale high ack cannot authorize a new request.",
+    "Upper address rejection, full descriptor/order/length/FAX2 matrix, stopped/slow remote clocks, reset/fault quarantine and actual HPS backpressure remain unaccepted.",
+    "FAX additional fxl-12b PROM routing and banks24..31 parity remain open."
+  ]
+}

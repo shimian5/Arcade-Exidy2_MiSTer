@@ -1,0 +1,212 @@
+{
+  "schema": "exidy2-expansion-connected-increment/v1",
+  "increment": 8,
+  "accepted": false,
+  "cases": [
+    {
+      "case": "source-hps-two-speech-sessions",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/source-hps-two-speech-sessions.log"
+    },
+    {
+      "case": "source-hps-delayed-ack-consumer",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/source-hps-delayed-ack-consumer.log"
+    },
+    {
+      "case": "fax-full-question-image",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/fax-full-question-image.log"
+    },
+    {
+      "case": "fax2-full-question-image",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/fax2-full-question-image.log"
+    },
+    {
+      "case": "descriptor-magic",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/descriptor-magic.log"
+    },
+    {
+      "case": "descriptor-version",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/descriptor-version.log"
+    },
+    {
+      "case": "descriptor-mask",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/descriptor-mask.log"
+    },
+    {
+      "case": "descriptor-reserved",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/descriptor-reserved.log"
+    },
+    {
+      "case": "descriptor-profile",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/descriptor-profile.log"
+    },
+    {
+      "case": "descriptor-question-length",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/descriptor-question-length.log"
+    },
+    {
+      "case": "descriptor-marker-mismatch",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/descriptor-marker-mismatch.log"
+    },
+    {
+      "case": "base-before-descriptor",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/base-before-descriptor.log"
+    },
+    {
+      "case": "speech-before-base",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/speech-before-base.log"
+    },
+    {
+      "case": "speech-short",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/speech-short.log"
+    },
+    {
+      "case": "speech-long",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/speech-long.log"
+    },
+    {
+      "case": "duplicate-base",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/duplicate-base.log"
+    },
+    {
+      "case": "unknown-trailing-stream",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/unknown-trailing-stream.log"
+    },
+    {
+      "case": "descriptor-before-marker",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/descriptor-before-marker.log"
+    },
+    {
+      "case": "empty-marker",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/empty-marker.log"
+    },
+    {
+      "case": "descriptor-short",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/descriptor-short.log"
+    },
+    {
+      "case": "descriptor-long",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/descriptor-long.log"
+    },
+    {
+      "case": "malformed-full-speech-read-quarantine",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/malformed-full-speech-read-quarantine.log"
+    },
+    {
+      "case": "extended-to-legacy-reload",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/extended-to-legacy-reload.log"
+    },
+    {
+      "case": "legacy-recovery-after-loader-fault",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/legacy-recovery-after-loader-fault.log"
+    },
+    {
+      "case": "mtrap-rom-speech",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/mtrap-rom-speech.log"
+    },
+    {
+      "case": "fax-rom-questions",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/fax-rom-questions.log"
+    },
+    {
+      "case": "fax2-rom-questions",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment08/fax2-rom-questions.log"
+    }
+  ],
+  "sha256": {
+    "sys/hps_io.sv": "a5747b92d6ca1330730c045e4e8506b2ffc8567347f48e2b4483b4822ac09128",
+    "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+    "sim/expansion_adapter/exidy_transport_adapter.sv": "1d74e18a7a097ef613018145dba6f9eb118fbfac78d62b7c4682e1c38b13a7a2",
+    "sim/expansion_adapter/exidy_expansion_bridge.sv": "e22ac8d9586fdb6a41df010d97dcecbfc8e11ce9c253e22cf42f543bff6d47a6",
+    "sim/expansion_adapter/exidy_expansion_loader_baseline.sv": "b543b5431838d6b70e2a4ed2948e99d0cdf1a7e03db374a22084f80010ae7e9e",
+    "sim/expansion_adapter/tb_connected.sv": "777e98a1ad7953acf2e4c304ef65aa8565495681a3e283dc70d77fae9481faeb",
+    "simulation/expansion_adapter/increment08/source_transport.sv": "5afb42ed646553248fa844d86e85f1522c0e0d7789618de59214a802c2a9b581"
+  },
+  "hostSources": {
+    "/mnt/c/MiSTerDev/Main_MiSTer/fpga_io.cpp": "3a690b1a5c0c20b0994d44c4853c92c8c4c8698623589928f04a8ca6e333a127",
+    "/mnt/c/MiSTerDev/Main_MiSTer/spi.h": "a76120eceb3a2c0df2ec0d09509f3bc41c9de4eaa0301a4d22cef77557fd9a46",
+    "/mnt/c/MiSTerDev/Main_MiSTer/spi.cpp": "b2a2211ce83acda3a8e398ec379d6af7a96a94ea90bdcea4b38d49e8a6201459",
+    "/mnt/c/MiSTerDev/Main_MiSTer/user_io.cpp": "034e16907420a9c91575422ffaa7c93335d43da7ebfbb2ccf07a3c238806664c"
+  },
+  "boundary": "Original file-download always block and GPIO synchronizer/ACK bodies extracted unchanged; other hps_io commands and SoC MMIO execution excluded.",
+  "romImages": {
+    "mtrap": {
+      "bytes": 16384,
+      "sha256": "96aabec1a71953afb98f4a28d090c9d2b3564cf7b487cf55604c96aaeba23bf0",
+      "hexFile": "simulation\\expansion_adapter\\rom-images\\mtrap.hex",
+      "emptyBanks": []
+    },
+    "fax": {
+      "bytes": 196608,
+      "sha256": "462bf48564d2e40647dfad3f35bc794bed6432f6d20da8282d0b9aa11145817a",
+      "hexFile": "simulation\\expansion_adapter\\rom-images\\fax.hex",
+      "emptyBanks": [
+        22,
+        23
+      ]
+    },
+    "fax2": {
+      "bytes": 196608,
+      "sha256": "9171f92c9a84e193bb875cd3b197634ef5803f48104a2028f9aed6b73ab892ae",
+      "hexFile": "simulation\\expansion_adapter\\rom-images\\fax2.hex",
+      "emptyBanks": []
+    }
+  },
+  "remaining": [
+    "Missing descriptor/length/order permutations beyond the bounded matrix; adapter faults require shared reset; full game/audio execution.",
+    "Fast block MMIO path, other HPS commands, physical CDC/reset/memory/Quartus gates."
+  ]
+}

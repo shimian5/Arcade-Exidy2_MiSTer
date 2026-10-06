@@ -1,0 +1,48 @@
+{
+  "schema": "exidy2-fifth-block-review/v1",
+  "baselineFilesChecked": 133,
+  "baselineChanged": [
+    ".gitignore"
+  ],
+  "productionBuildRun": false,
+  "reviewedArtifactHashes": {
+    "sim/expansion_loader/tb_exidy_expansion_loader.sv": "B8812FDE2E2F2CA595906B82C05F59F3C1348350BF34C7A9CBFCEB43CD8A8AB7",
+    "sim/sprite_fixture/Makefile": "31F3F0B2A3B6D5CD836B7BB5D065D507301C9B03533C8FBC9A82F84C683A33E0",
+    "tools/expansion_loader/run_sim.sh": "403D9EBC92C5BBE7C9307E615B177F265FE48F4524FDB85585091648F3403E0C",
+    "sim/expansion_loader/exidy_expansion_loader.sv": "B543B5431838D6B70E2A4ED2948E99D0CDF1A7E03DB374A22084F80010AE7E9E",
+    "sim/video_compat/tb.sv": "37AF508B7F02A1F85C82F60F627DA6FB9A897EFA5087897AE5C8D9C0DD345584",
+    "sim/sprite_fixture/tb_sprite_fixture.sv": "8A18EA2688CF39A1CF129759DFBD845FF6FA7522CD56C5773F904A8840391B30",
+    "tools/sprite_fixture/run_fixture.py": "6893F026756DDAB6BBB02E89734798284ED8E1BC22C9828FA694FD189665C5EC",
+    "tools/video_compat/measure.py": "A943423FD2EB39B54E306A5210631BE29643E27CC87187CE61A0599A2411D202"
+  },
+  "video": {
+    "replayMetricsMatch": true,
+    "runs": 8,
+    "nativeAlignmentAccepted": false,
+    "uniqueSourceCoordinates": 65280,
+    "missingColumn": 255,
+    "negativeControlDetected": true,
+    "log": "simulation/integrator_review/fifth-video-final.log"
+  },
+  "sprite": {
+    "positiveExitCode": 0,
+    "capturedWrites": 18,
+    "injectedExpectationExitCode": 2,
+    "negativeFirstEvent": "frame2400/address5100 expectedM1=0 actualM1=1",
+    "positiveLog": "simulation/integrator_review/fifth-sprite-final.log",
+    "negativeLog": "simulation/integrator_review/fifth-sprite-negative.log",
+    "fullRenderingAccepted": false
+  },
+  "loader": {
+    "finalExitCode": 0,
+    "simulatedMilliseconds": 8,
+    "questionBytes": 196608,
+    "cvsdBytes": 16384,
+    "rtlSha256": "B543B5431838D6B70E2A4ED2948E99D0CDF1A7E03DB374A22084F80010AE7E9E",
+    "fixtureSha256": "B8812FDE2E2F2CA595906B82C05F59F3C1348350BF34C7A9CBFCEB43CD8A8AB7",
+    "log": "simulation/integrator_review/fifth-loader-final-run.log",
+    "topIntegrated": false,
+    "physicalCdcAccepted": false,
+    "quartusFitAccepted": false
+  }
+}

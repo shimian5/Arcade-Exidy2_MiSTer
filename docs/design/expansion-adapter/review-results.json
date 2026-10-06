@@ -1,0 +1,42 @@
+{
+  "schema": "exidy2-expansion-adapter-review/v1",
+  "accepted": false,
+  "cases": [
+    {
+      "case": "begin-index",
+      "exitCode": 1,
+      "defectReproduced": true,
+      "log": "simulation/expansion_adapter/review/case0.log"
+    },
+    {
+      "case": "skid-arrival",
+      "exitCode": 1,
+      "defectReproduced": true,
+      "log": "simulation/expansion_adapter/review/case1.log"
+    },
+    {
+      "case": "stale-ack",
+      "exitCode": 1,
+      "defectReproduced": true,
+      "log": "simulation/expansion_adapter/review/case2.log"
+    }
+  ],
+  "sha256": {
+    "sys/hps_io.sv": "a5747b92d6ca1330730c045e4e8506b2ffc8567347f48e2b4483b4822ac09128",
+    "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+    "sim/expansion_adapter/exidy_transport_adapter.sv": "e83ace8ef65b2868e3fa5f0eb504ddfb3e60d05721cb3c2ac74e0ce323178416",
+    "sim/expansion_adapter/tb_review.sv": "0a5bb77949e4f8da68da5cb00f7c4b1e0f2e4a0eac86d1d6a1597a1ad87337fc"
+  },
+  "transportFacts": [
+    "hps_io has 27-bit addresses and 16-bit indices; core currently narrows to25/8; prior prototype uses24/8.",
+    "ioctl_wr delayed via internal wr register; wait routed to HPS_BUS37/sys_top acknowledgement.",
+    "Tests drive raw ioctl events; complete HPS SPI/ACK model is still required."
+  ],
+  "remaining": [
+    "Latch index with begin; forbid upper-bit aliases.",
+    "Skid dequeue/enqueue must handle simultaneous arrival without losing bytes.",
+    "Use fresh generation or low-then-high handshake before overwriting; stale high ack cannot authorize a new request.",
+    "Full descriptor/order/length/FAX2 matrix, stopped/slow remote clocks, reset/fault quarantine and actual HPS backpressure remain unaccepted.",
+    "FAX additional fxl-12b PROM routing and banks24..31 parity remain open."
+  ]
+}

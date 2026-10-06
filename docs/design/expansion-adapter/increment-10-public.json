@@ -1,0 +1,28 @@
+{
+  "schema": "exidy2-expansion-public-read/v1",
+  "increment": 10,
+  "cases": [
+    {
+      "case": "positive",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/public10/positive.log"
+    },
+    {
+      "case": "negative-late-read",
+      "exitCode": 1,
+      "expectedFailure": true,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/public10/negative-late-read.log"
+    }
+  ],
+  "sha256": {
+    "sim/expansion_adapter/exidy_expansion_loader_ram.sv": "46e0416baeb4722a85c49c26ed3a3add2ee180be80fb11c614b4de9492c78b8f",
+    "sim/expansion_loader/tb_exidy_expansion_loader.sv": "b8812fde2e2f2ca595906b82c05f59f3c1348350bf34c7a9cbfceb43cd8a8ab7"
+  },
+  "limits": [
+    "Baseline public-port fixture including provisional bank24 zero fill; no MAME bank24 parity claim.",
+    "64-master-clock registered T65 sampling fixture, not a full CPU/board implementation."
+  ]
+}

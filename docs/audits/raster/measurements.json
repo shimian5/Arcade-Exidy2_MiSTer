@@ -1,0 +1,1004 @@
+{
+  "schema": "exidy2-native-raster-measurement/v1",
+  "method": "Verilator simulation of automatically extracted counter/clock/sync/blank/VL1 RTL spans",
+  "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+  "sourceFiles": {
+    "rtl/Exidy2.v": "c8aa3946deda06f6d4e371cc4f64da7b6c99d6e599aa8f948c711aa60c0e51bd",
+    "Arcade-Exidy2.sv": "840dc8fa7e4b21913fa348b3d569c345a4c51c257f77f0604fb52861f689e7aa",
+    "rtl/pll.v": "184432600b35e9ef68db9623c04cf251a1228b9120ece2f2d33b9433bdfd74f9",
+    "rtl/pll/pll_0002.v": "7e5f656c55f4d5dd1fe963201c386bd1df46faa2cd2ddb3fe35cbef5180dfffd",
+    "rtl/pll.qip": "8dd225ffc2e8b174daf5c5b8a59e53dd81d8b04f38a79a6a8bc421fe7cb142a1"
+  },
+  "fixture": {
+    "source": "rtl/Exidy2.v",
+    "sourceSha256": "c8aa3946deda06f6d4e371cc4f64da7b6c99d6e599aa8f948c711aa60c0e51bd",
+    "extractedMarkers": [
+      "reg CLK22,CLK11;",
+      "assign core_pix_clk=BCLK;",
+      "reg [5:0] hscnt =6'd0;",
+      "wire BLANK = (V_BLANK|H_BLANK);"
+    ],
+    "generatedRtlSha256": "fef1b40eccaddad946588d4fe2c6ef736052bedc5b52ca231501c3ef51b850fb",
+    "testbenchTemplate": "sim/raster/tb.sv",
+    "testbenchSha256": "296175679132c7ea3b09e93b6c31a98d654ca5a82a83df12635a3b1fdf594ff1"
+  },
+  "pll": {
+    "wrapperDesiredOutput0MHz": 45.156,
+    "instantiatedGeneratedOutput0MHz": 45.153061,
+    "frequencyBasis": "45.153061 MHz from rtl/pll/pll_0002.v output_clock_frequency0; generated PLL configuration metadata, not a measured silicon frequency. Wrapper wizard GUI desired setting is 45.156 MHz and rtl/pll.v also contains a stale/inconsistent actual-output annotation of 10.079999 MHz."
+  },
+  "results": [
+    {
+      "mra": "releases/Hard Hat.mra",
+      "mraSha256": "8560a38c086a18c35132c110b0176025a7c167882a7b8da919992f80b2e74346",
+      "modShiftByteHex": "0x37",
+      "modShiftDecimal": 55,
+      "measurements": {
+        "samples": 250000,
+        "masterCyclesPerPixelClock": [
+          8
+        ],
+        "linePeriodsPixelClocks": [
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336
+        ],
+        "framePeriodsPixelClocks": [
+          94080
+        ],
+        "totalPixelClocksPerLine": 336,
+        "totalPixelClocksPerFrame": 94080,
+        "totalLinesPerFrame": 280,
+        "frameRateHzFromPll": 59.992906303146256,
+        "activePixelsPerActiveLineCounts": [
+          256
+        ],
+        "activeLinesPerFrame": 256,
+        "hsHighWidthsPixelClocks": [
+          16
+        ],
+        "vsHighWidthsPixelClocks": [
+          1681
+        ],
+        "hblankHighWidthsByLine": [
+          80
+        ],
+        "vblankHighWidthsPixelClocks": [
+          8065
+        ],
+        "vblankLineValues": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280
+        ],
+        "vl1HighWidthsPixelClocks": [
+          8
+        ],
+        "vl1StartCadencePixelClocks": [
+          94080
+        ],
+        "normalizedPhasesFromStableFrameOrigin": {
+          "HS": {
+            "withinFramePixelClocks": 7,
+            "withinFrameMasterCycles": 56,
+            "withinLinePixelClocks": 320,
+            "withinLineMasterCycles": 2560,
+            "pulseWidthPixelClocks": 16,
+            "pulseWidthMasterCycles": 128
+          },
+          "HB": {
+            "withinFramePixelClocks": 279,
+            "withinFrameMasterCycles": 2232,
+            "withinLinePixelClocks": 256,
+            "withinLineMasterCycles": 2048,
+            "pulseWidthPixelClocks": 80,
+            "pulseWidthMasterCycles": 640
+          },
+          "VS": {
+            "withinFramePixelClocks": 92399,
+            "withinFrameMasterCycles": 739192,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 1681,
+            "pulseWidthMasterCycles": 13448
+          },
+          "VB": {
+            "withinFramePixelClocks": 86015,
+            "withinFrameMasterCycles": 688120,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 8065,
+            "pulseWidthMasterCycles": 64520
+          },
+          "VL1": {
+            "withinFramePixelClocks": 86343,
+            "withinFrameMasterCycles": 690744,
+            "withinLinePixelClocks": 304,
+            "withinLineMasterCycles": 2432,
+            "pulseWidthPixelClocks": 8,
+            "pulseWidthMasterCycles": 64
+          }
+        },
+        "stableFrameOrigin": {
+          "pixelIndex": 94053,
+          "masterCycle": 752425,
+          "hscnt": 61,
+          "vscnt": 0,
+          "offsetWithinLinePixelClocks": 313
+        },
+        "initialCoordinates": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "firstFrameStartSample": 94053,
+        "firstLineStartSample": 332,
+        "hsAssertAt": 316,
+        "vsAssertAt": 92372,
+        "vl1AssertAt": 86316,
+        "independentMeasurementChecks": {
+          "uniform8MasterCyclesPerPixel": true,
+          "uniform336PixelClocksPerLine": true,
+          "uniform94080PixelClocksPerFrame": true,
+          "256ActivePixelsPerActiveLine": true,
+          "256ActiveLinesPerFrame": true
+        }
+      },
+      "rawCsv": "simulation/raster/Hard_Hat.csv"
+    },
+    {
+      "mra": "releases/Mouse Trap.mra",
+      "mraSha256": "f708811c2f32b93f9a7ec62948e2876065eebdc17e3a72fd132994fb96f57dea",
+      "modShiftByteHex": "0x37",
+      "modShiftDecimal": 55,
+      "measurements": {
+        "samples": 250000,
+        "masterCyclesPerPixelClock": [
+          8
+        ],
+        "linePeriodsPixelClocks": [
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336
+        ],
+        "framePeriodsPixelClocks": [
+          94080
+        ],
+        "totalPixelClocksPerLine": 336,
+        "totalPixelClocksPerFrame": 94080,
+        "totalLinesPerFrame": 280,
+        "frameRateHzFromPll": 59.992906303146256,
+        "activePixelsPerActiveLineCounts": [
+          256
+        ],
+        "activeLinesPerFrame": 256,
+        "hsHighWidthsPixelClocks": [
+          16
+        ],
+        "vsHighWidthsPixelClocks": [
+          1681
+        ],
+        "hblankHighWidthsByLine": [
+          80
+        ],
+        "vblankHighWidthsPixelClocks": [
+          8065
+        ],
+        "vblankLineValues": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280
+        ],
+        "vl1HighWidthsPixelClocks": [
+          8
+        ],
+        "vl1StartCadencePixelClocks": [
+          94080
+        ],
+        "normalizedPhasesFromStableFrameOrigin": {
+          "HS": {
+            "withinFramePixelClocks": 7,
+            "withinFrameMasterCycles": 56,
+            "withinLinePixelClocks": 320,
+            "withinLineMasterCycles": 2560,
+            "pulseWidthPixelClocks": 16,
+            "pulseWidthMasterCycles": 128
+          },
+          "HB": {
+            "withinFramePixelClocks": 279,
+            "withinFrameMasterCycles": 2232,
+            "withinLinePixelClocks": 256,
+            "withinLineMasterCycles": 2048,
+            "pulseWidthPixelClocks": 80,
+            "pulseWidthMasterCycles": 640
+          },
+          "VS": {
+            "withinFramePixelClocks": 92399,
+            "withinFrameMasterCycles": 739192,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 1681,
+            "pulseWidthMasterCycles": 13448
+          },
+          "VB": {
+            "withinFramePixelClocks": 86015,
+            "withinFrameMasterCycles": 688120,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 8065,
+            "pulseWidthMasterCycles": 64520
+          },
+          "VL1": {
+            "withinFramePixelClocks": 86343,
+            "withinFrameMasterCycles": 690744,
+            "withinLinePixelClocks": 304,
+            "withinLineMasterCycles": 2432,
+            "pulseWidthPixelClocks": 8,
+            "pulseWidthMasterCycles": 64
+          }
+        },
+        "stableFrameOrigin": {
+          "pixelIndex": 94053,
+          "masterCycle": 752425,
+          "hscnt": 61,
+          "vscnt": 0,
+          "offsetWithinLinePixelClocks": 313
+        },
+        "initialCoordinates": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "firstFrameStartSample": 94053,
+        "firstLineStartSample": 332,
+        "hsAssertAt": 316,
+        "vsAssertAt": 92372,
+        "vl1AssertAt": 86316,
+        "independentMeasurementChecks": {
+          "uniform8MasterCyclesPerPixel": true,
+          "uniform336PixelClocksPerLine": true,
+          "uniform94080PixelClocksPerFrame": true,
+          "256ActivePixelsPerActiveLine": true,
+          "256ActiveLinesPerFrame": true
+        }
+      },
+      "rawCsv": "simulation/raster/Mouse_Trap.csv"
+    },
+    {
+      "mra": "releases/Pepper II.mra",
+      "mraSha256": "14ad9b676c8213d3e34bfffe18356e71d37977ea0a2977ea44badd9ae55b5064",
+      "modShiftByteHex": "0x37",
+      "modShiftDecimal": 55,
+      "measurements": {
+        "samples": 250000,
+        "masterCyclesPerPixelClock": [
+          8
+        ],
+        "linePeriodsPixelClocks": [
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336
+        ],
+        "framePeriodsPixelClocks": [
+          94080
+        ],
+        "totalPixelClocksPerLine": 336,
+        "totalPixelClocksPerFrame": 94080,
+        "totalLinesPerFrame": 280,
+        "frameRateHzFromPll": 59.992906303146256,
+        "activePixelsPerActiveLineCounts": [
+          256
+        ],
+        "activeLinesPerFrame": 256,
+        "hsHighWidthsPixelClocks": [
+          16
+        ],
+        "vsHighWidthsPixelClocks": [
+          1681
+        ],
+        "hblankHighWidthsByLine": [
+          80
+        ],
+        "vblankHighWidthsPixelClocks": [
+          8065
+        ],
+        "vblankLineValues": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280
+        ],
+        "vl1HighWidthsPixelClocks": [
+          8
+        ],
+        "vl1StartCadencePixelClocks": [
+          94080
+        ],
+        "normalizedPhasesFromStableFrameOrigin": {
+          "HS": {
+            "withinFramePixelClocks": 7,
+            "withinFrameMasterCycles": 56,
+            "withinLinePixelClocks": 320,
+            "withinLineMasterCycles": 2560,
+            "pulseWidthPixelClocks": 16,
+            "pulseWidthMasterCycles": 128
+          },
+          "HB": {
+            "withinFramePixelClocks": 279,
+            "withinFrameMasterCycles": 2232,
+            "withinLinePixelClocks": 256,
+            "withinLineMasterCycles": 2048,
+            "pulseWidthPixelClocks": 80,
+            "pulseWidthMasterCycles": 640
+          },
+          "VS": {
+            "withinFramePixelClocks": 92399,
+            "withinFrameMasterCycles": 739192,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 1681,
+            "pulseWidthMasterCycles": 13448
+          },
+          "VB": {
+            "withinFramePixelClocks": 86015,
+            "withinFrameMasterCycles": 688120,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 8065,
+            "pulseWidthMasterCycles": 64520
+          },
+          "VL1": {
+            "withinFramePixelClocks": 86343,
+            "withinFrameMasterCycles": 690744,
+            "withinLinePixelClocks": 304,
+            "withinLineMasterCycles": 2432,
+            "pulseWidthPixelClocks": 8,
+            "pulseWidthMasterCycles": 64
+          }
+        },
+        "stableFrameOrigin": {
+          "pixelIndex": 94053,
+          "masterCycle": 752425,
+          "hscnt": 61,
+          "vscnt": 0,
+          "offsetWithinLinePixelClocks": 313
+        },
+        "initialCoordinates": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "firstFrameStartSample": 94053,
+        "firstLineStartSample": 332,
+        "hsAssertAt": 316,
+        "vsAssertAt": 92372,
+        "vl1AssertAt": 86316,
+        "independentMeasurementChecks": {
+          "uniform8MasterCyclesPerPixel": true,
+          "uniform336PixelClocksPerLine": true,
+          "uniform94080PixelClocksPerFrame": true,
+          "256ActivePixelsPerActiveLine": true,
+          "256ActiveLinesPerFrame": true
+        }
+      },
+      "rawCsv": "simulation/raster/Pepper_II.csv"
+    },
+    {
+      "mra": "releases/Spectar.mra",
+      "mraSha256": "7b62d8a4b6a71414484609d907bcf222749c2fbe3ce4958207ea584ed9729a9e",
+      "modShiftByteHex": "0x37",
+      "modShiftDecimal": 55,
+      "measurements": {
+        "samples": 250000,
+        "masterCyclesPerPixelClock": [
+          8
+        ],
+        "linePeriodsPixelClocks": [
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336
+        ],
+        "framePeriodsPixelClocks": [
+          94080
+        ],
+        "totalPixelClocksPerLine": 336,
+        "totalPixelClocksPerFrame": 94080,
+        "totalLinesPerFrame": 280,
+        "frameRateHzFromPll": 59.992906303146256,
+        "activePixelsPerActiveLineCounts": [
+          256
+        ],
+        "activeLinesPerFrame": 256,
+        "hsHighWidthsPixelClocks": [
+          16
+        ],
+        "vsHighWidthsPixelClocks": [
+          1681
+        ],
+        "hblankHighWidthsByLine": [
+          80
+        ],
+        "vblankHighWidthsPixelClocks": [
+          8065
+        ],
+        "vblankLineValues": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280
+        ],
+        "vl1HighWidthsPixelClocks": [
+          8
+        ],
+        "vl1StartCadencePixelClocks": [
+          94080
+        ],
+        "normalizedPhasesFromStableFrameOrigin": {
+          "HS": {
+            "withinFramePixelClocks": 7,
+            "withinFrameMasterCycles": 56,
+            "withinLinePixelClocks": 320,
+            "withinLineMasterCycles": 2560,
+            "pulseWidthPixelClocks": 16,
+            "pulseWidthMasterCycles": 128
+          },
+          "HB": {
+            "withinFramePixelClocks": 279,
+            "withinFrameMasterCycles": 2232,
+            "withinLinePixelClocks": 256,
+            "withinLineMasterCycles": 2048,
+            "pulseWidthPixelClocks": 80,
+            "pulseWidthMasterCycles": 640
+          },
+          "VS": {
+            "withinFramePixelClocks": 92399,
+            "withinFrameMasterCycles": 739192,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 1681,
+            "pulseWidthMasterCycles": 13448
+          },
+          "VB": {
+            "withinFramePixelClocks": 86015,
+            "withinFrameMasterCycles": 688120,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 8065,
+            "pulseWidthMasterCycles": 64520
+          },
+          "VL1": {
+            "withinFramePixelClocks": 86343,
+            "withinFrameMasterCycles": 690744,
+            "withinLinePixelClocks": 304,
+            "withinLineMasterCycles": 2432,
+            "pulseWidthPixelClocks": 8,
+            "pulseWidthMasterCycles": 64
+          }
+        },
+        "stableFrameOrigin": {
+          "pixelIndex": 94053,
+          "masterCycle": 752425,
+          "hscnt": 61,
+          "vscnt": 0,
+          "offsetWithinLinePixelClocks": 313
+        },
+        "initialCoordinates": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "firstFrameStartSample": 94053,
+        "firstLineStartSample": 332,
+        "hsAssertAt": 316,
+        "vsAssertAt": 92372,
+        "vl1AssertAt": 86316,
+        "independentMeasurementChecks": {
+          "uniform8MasterCyclesPerPixel": true,
+          "uniform336PixelClocksPerLine": true,
+          "uniform94080PixelClocksPerFrame": true,
+          "256ActivePixelsPerActiveLine": true,
+          "256ActiveLinesPerFrame": true
+        }
+      },
+      "rawCsv": "simulation/raster/Spectar.csv"
+    },
+    {
+      "mra": "releases/TARG.mra",
+      "mraSha256": "b5c0d3f598671b9f7d058b6fcb5dfad57aa7a59d7fa863c1002cfa3727f371eb",
+      "modShiftByteHex": "0x37",
+      "modShiftDecimal": 55,
+      "measurements": {
+        "samples": 250000,
+        "masterCyclesPerPixelClock": [
+          8
+        ],
+        "linePeriodsPixelClocks": [
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336
+        ],
+        "framePeriodsPixelClocks": [
+          94080
+        ],
+        "totalPixelClocksPerLine": 336,
+        "totalPixelClocksPerFrame": 94080,
+        "totalLinesPerFrame": 280,
+        "frameRateHzFromPll": 59.992906303146256,
+        "activePixelsPerActiveLineCounts": [
+          256
+        ],
+        "activeLinesPerFrame": 256,
+        "hsHighWidthsPixelClocks": [
+          16
+        ],
+        "vsHighWidthsPixelClocks": [
+          1681
+        ],
+        "hblankHighWidthsByLine": [
+          80
+        ],
+        "vblankHighWidthsPixelClocks": [
+          8065
+        ],
+        "vblankLineValues": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280
+        ],
+        "vl1HighWidthsPixelClocks": [
+          8
+        ],
+        "vl1StartCadencePixelClocks": [
+          94080
+        ],
+        "normalizedPhasesFromStableFrameOrigin": {
+          "HS": {
+            "withinFramePixelClocks": 7,
+            "withinFrameMasterCycles": 56,
+            "withinLinePixelClocks": 320,
+            "withinLineMasterCycles": 2560,
+            "pulseWidthPixelClocks": 16,
+            "pulseWidthMasterCycles": 128
+          },
+          "HB": {
+            "withinFramePixelClocks": 279,
+            "withinFrameMasterCycles": 2232,
+            "withinLinePixelClocks": 256,
+            "withinLineMasterCycles": 2048,
+            "pulseWidthPixelClocks": 80,
+            "pulseWidthMasterCycles": 640
+          },
+          "VS": {
+            "withinFramePixelClocks": 92399,
+            "withinFrameMasterCycles": 739192,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 1681,
+            "pulseWidthMasterCycles": 13448
+          },
+          "VB": {
+            "withinFramePixelClocks": 86015,
+            "withinFrameMasterCycles": 688120,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 8065,
+            "pulseWidthMasterCycles": 64520
+          },
+          "VL1": {
+            "withinFramePixelClocks": 86343,
+            "withinFrameMasterCycles": 690744,
+            "withinLinePixelClocks": 304,
+            "withinLineMasterCycles": 2432,
+            "pulseWidthPixelClocks": 8,
+            "pulseWidthMasterCycles": 64
+          }
+        },
+        "stableFrameOrigin": {
+          "pixelIndex": 94053,
+          "masterCycle": 752425,
+          "hscnt": 61,
+          "vscnt": 0,
+          "offsetWithinLinePixelClocks": 313
+        },
+        "initialCoordinates": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "firstFrameStartSample": 94053,
+        "firstLineStartSample": 332,
+        "hsAssertAt": 316,
+        "vsAssertAt": 92372,
+        "vl1AssertAt": 86316,
+        "independentMeasurementChecks": {
+          "uniform8MasterCyclesPerPixel": true,
+          "uniform336PixelClocksPerLine": true,
+          "uniform94080PixelClocksPerFrame": true,
+          "256ActivePixelsPerActiveLine": true,
+          "256ActiveLinesPerFrame": true
+        }
+      },
+      "rawCsv": "simulation/raster/TARG.csv"
+    },
+    {
+      "mra": "releases/Venture Revision 5.mra",
+      "mraSha256": "e7da0534a3872e66faf4322ca0f964355aba082dcf74d91685daa403810a7381",
+      "modShiftByteHex": "0x37",
+      "modShiftDecimal": 55,
+      "measurements": {
+        "samples": 250000,
+        "masterCyclesPerPixelClock": [
+          8
+        ],
+        "linePeriodsPixelClocks": [
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336,
+          336
+        ],
+        "framePeriodsPixelClocks": [
+          94080
+        ],
+        "totalPixelClocksPerLine": 336,
+        "totalPixelClocksPerFrame": 94080,
+        "totalLinesPerFrame": 280,
+        "frameRateHzFromPll": 59.992906303146256,
+        "activePixelsPerActiveLineCounts": [
+          256
+        ],
+        "activeLinesPerFrame": 256,
+        "hsHighWidthsPixelClocks": [
+          16
+        ],
+        "vsHighWidthsPixelClocks": [
+          1681
+        ],
+        "hblankHighWidthsByLine": [
+          80
+        ],
+        "vblankHighWidthsPixelClocks": [
+          8065
+        ],
+        "vblankLineValues": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280
+        ],
+        "vl1HighWidthsPixelClocks": [
+          8
+        ],
+        "vl1StartCadencePixelClocks": [
+          94080
+        ],
+        "normalizedPhasesFromStableFrameOrigin": {
+          "HS": {
+            "withinFramePixelClocks": 7,
+            "withinFrameMasterCycles": 56,
+            "withinLinePixelClocks": 320,
+            "withinLineMasterCycles": 2560,
+            "pulseWidthPixelClocks": 16,
+            "pulseWidthMasterCycles": 128
+          },
+          "HB": {
+            "withinFramePixelClocks": 279,
+            "withinFrameMasterCycles": 2232,
+            "withinLinePixelClocks": 256,
+            "withinLineMasterCycles": 2048,
+            "pulseWidthPixelClocks": 80,
+            "pulseWidthMasterCycles": 640
+          },
+          "VS": {
+            "withinFramePixelClocks": 92399,
+            "withinFrameMasterCycles": 739192,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 1681,
+            "pulseWidthMasterCycles": 13448
+          },
+          "VB": {
+            "withinFramePixelClocks": 86015,
+            "withinFrameMasterCycles": 688120,
+            "withinLinePixelClocks": 312,
+            "withinLineMasterCycles": 2496,
+            "pulseWidthPixelClocks": 8065,
+            "pulseWidthMasterCycles": 64520
+          },
+          "VL1": {
+            "withinFramePixelClocks": 86343,
+            "withinFrameMasterCycles": 690744,
+            "withinLinePixelClocks": 304,
+            "withinLineMasterCycles": 2432,
+            "pulseWidthPixelClocks": 8,
+            "pulseWidthMasterCycles": 64
+          }
+        },
+        "stableFrameOrigin": {
+          "pixelIndex": 94053,
+          "masterCycle": 752425,
+          "hscnt": 61,
+          "vscnt": 0,
+          "offsetWithinLinePixelClocks": 313
+        },
+        "initialCoordinates": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "firstFrameStartSample": 94053,
+        "firstLineStartSample": 332,
+        "hsAssertAt": 316,
+        "vsAssertAt": 92372,
+        "vl1AssertAt": 86316,
+        "independentMeasurementChecks": {
+          "uniform8MasterCyclesPerPixel": true,
+          "uniform336PixelClocksPerLine": true,
+          "uniform94080PixelClocksPerFrame": true,
+          "256ActivePixelsPerActiveLine": true,
+          "256ActiveLinesPerFrame": true
+        }
+      },
+      "rawCsv": "simulation/raster/Venture_Revision_5.csv"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "exidy2-expansion-fit-probe/v1",
+  "increment": 12,
+  "device": "5CSEBA6U23I7",
+  "project": "simulation\\expansion_adapter\\fit12",
+  "command": "Unsandboxed PowerShell: quartus_sh --flow compile expansion_probe",
+  "sourceSha256": {
+    "sim\\expansion_adapter\\exidy_transport_adapter.sv": "1d74e18a7a097ef613018145dba6f9eb118fbfac78d62b7c4682e1c38b13a7a2",
+    "sim\\expansion_adapter\\exidy_expansion_bridge.sv": "fb3642db07569034841b1dc296e0a222b6eb6a6a5f0fdf4e184f3aa5126e225f",
+    "sim\\expansion_adapter\\exidy_expansion_loader_ram.sv": "46e0416baeb4722a85c49c26ed3a3add2ee180be80fb11c614b4de9492c78b8f",
+    "Arcade-Exidy2.qsf": "d2f7a592c3674e9462b9e4d566f6aee8d93495799be26b3dc5640ed61b4e8b03"
+  },
+  "limits": [
+    "Standalone bridge only; no CPU/board/framework/PLL or whole-core capacity proof.",
+    "Virtual data/control pins; main 50MHz/speech 10MHz abstract targets.",
+    "Asynchronous clock groups intentionally exclude crossing timing; no CDC/reset/board signoff.",
+    "Resource/result summaries must be added only after a completed full-flow build."
+  ]
+}

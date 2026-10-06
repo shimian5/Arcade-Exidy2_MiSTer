@@ -1,0 +1,4685 @@
+{
+  "auditDate": "2026-10-06",
+  "mameVersion": "0.288 (mame0288)",
+  "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+  "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+  "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+  "romLibraryLabel": "MAME 0.257 ROMs (split)",
+  "rompathArgument": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split);C:\\MiSTerDev\\mame\\roms",
+  "flags": [
+    "-noreadconfig",
+    "-rompath <NAS;local>",
+    "-listxml <set>",
+    "-verifyroms <set>"
+  ],
+  "targetSetCount": 28,
+  "sets": [
+    {
+      "set": "sidetrac",
+      "nasZipPresent": true,
+      "nasZipBytes": 5513,
+      "cloneof": "",
+      "description": "Side Trak",
+      "romCount": 5,
+      "roms": [
+        {
+          "name": "stl8a-1",
+          "size": "2048",
+          "crc": "e41750ff",
+          "sha1": "3868a0d7e34a5118b39b31cff9e4fc839df541ff",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "stl7a-2",
+          "size": "2048",
+          "crc": "57fb28dc",
+          "sha1": "6addd633d655d6a56b3e509d18e5f7c0ab2d0fbb",
+          "region": "maincpu",
+          "offset": "3000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "stl6a-2",
+          "size": "2048",
+          "crc": "4226d469",
+          "sha1": "fd18b732b66082988b01e04adc2b1e5dae410c98",
+          "region": "maincpu",
+          "offset": "3800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "stl9c-1",
+          "size": "1024",
+          "crc": "08710a84",
+          "sha1": "4bff254a14af7c968656ccc85277d31ab5a8f0c4",
+          "region": "maincpu",
+          "offset": "4800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "stl11d",
+          "size": "512",
+          "crc": "3bd1acc1",
+          "sha1": "06f900cb8f56cd4215c5fbf58a852426d390e0c1",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset sidetrac is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "targ",
+      "nasZipPresent": true,
+      "nasZipBytes": 8180,
+      "cloneof": "",
+      "description": "Targ",
+      "romCount": 10,
+      "roms": [
+        {
+          "name": "hrl_10a1.10a",
+          "size": "2048",
+          "crc": "969744e1",
+          "sha1": "e123bdb02b3b5f6a59c1e7c9ef557fe6bb19c62c",
+          "region": "maincpu",
+          "offset": "1800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl_9a1.9a",
+          "size": "2048",
+          "crc": "a177a72d",
+          "sha1": "0e705e3e32021e55af4414fa0e2ccbc4980ee848",
+          "region": "maincpu",
+          "offset": "2000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl_8a1.8a",
+          "size": "2048",
+          "crc": "6e6928a5",
+          "sha1": "10c725b27225ac5aad8639b081df68dd61522cf2",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl_7a4.7a",
+          "size": "2048",
+          "crc": "e2f37f93",
+          "sha1": "b66743c296d3d4caba3bcbe6aa68cd6edd414816",
+          "region": "maincpu",
+          "offset": "3000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl_6a3.6a",
+          "size": "2048",
+          "crc": "a60a1bfc",
+          "sha1": "17c0e67e1a0b263b57d70a148cc5d5099fecbb40",
+          "region": "maincpu",
+          "offset": "3800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl_11d-1.11d",
+          "size": "1024",
+          "crc": "9f03513e",
+          "sha1": "aa4763e49df65e5686a96431543580b8d8285893",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl_5c-1.5c",
+          "size": "256",
+          "crc": "a24290d0",
+          "sha1": "5f2888d168de874021b51c5d19a62fb8165e4454",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "stl_6d-1.6d",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "100",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl_14h-1.14h",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "120",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hra2b-1",
+          "size": "32",
+          "crc": "38e8024b",
+          "sha1": "adf1c1770695f7614c95eceb803f662c5b096a76",
+          "region": "targ",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset targ is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "targc",
+      "nasZipPresent": true,
+      "nasZipBytes": 7128,
+      "cloneof": "targ",
+      "description": "Targ (cocktail?)",
+      "romCount": 10,
+      "roms": [
+        {
+          "name": "358_ctl_10a-1_tsv_11-10-80.10a",
+          "size": "2048",
+          "crc": "058b3983",
+          "sha1": "8079667613c9273e95131c3c68cd92ce34c18148",
+          "region": "maincpu",
+          "offset": "1800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "358_ctl_9a-1_tsv_11-10-80.9a",
+          "size": "2048",
+          "crc": "3ac44b6b",
+          "sha1": "8261ee7ee1c3cb05b2549464086bf6df09685743",
+          "region": "maincpu",
+          "offset": "2000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "358_ctl_8a-1_tsv_11-10-80.8a",
+          "size": "2048",
+          "crc": "5c470021",
+          "sha1": "3638fc6827640857848cd649f10c1493025014de",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "358_ctl_7a-1_tsv_11-10-80.7a",
+          "size": "2048",
+          "crc": "c774fd9b",
+          "sha1": "46272a64ad5cda0ff5ef3e9eeedefc555100a71a",
+          "region": "maincpu",
+          "offset": "3000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "358_ctl_6a-1_tsv_11-10-80.6a",
+          "size": "2048",
+          "crc": "3d020439",
+          "sha1": "ebde4c851c9ecc310f110c7643a80275d97dc02c",
+          "region": "maincpu",
+          "offset": "3800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl_11d-1.11d",
+          "size": "1024",
+          "crc": "9f03513e",
+          "sha1": "aa4763e49df65e5686a96431543580b8d8285893",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "hrl_11d-1.11d",
+          "status": "good"
+        },
+        {
+          "name": "hrl_5c-1.5c",
+          "size": "256",
+          "crc": "a24290d0",
+          "sha1": "5f2888d168de874021b51c5d19a62fb8165e4454",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl_5c-1.5c",
+          "status": "good"
+        },
+        {
+          "name": "stl_6d-1.6d",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "100",
+          "merge": "stl_6d-1.6d",
+          "status": "good"
+        },
+        {
+          "name": "hrl_14h-1.14h",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl_14h-1.14h",
+          "status": "good"
+        },
+        {
+          "name": "hra2b-1",
+          "size": "32",
+          "crc": "38e8024b",
+          "sha1": "adf1c1770695f7614c95eceb803f662c5b096a76",
+          "region": "targ",
+          "offset": "0",
+          "merge": "hra2b-1",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset targc [targ] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "spectar",
+      "nasZipPresent": true,
+      "nasZipBytes": 10189,
+      "cloneof": "",
+      "description": "Spectar (revision 3)",
+      "romCount": 10,
+      "roms": [
+        {
+          "name": "spl11a-3.11a",
+          "size": "2048",
+          "crc": "08880aff",
+          "sha1": "3becef348245ff4c8b0aae4a14751ab740b7d160",
+          "region": "maincpu",
+          "offset": "1000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl10a-2.10a",
+          "size": "2048",
+          "crc": "fca667c1",
+          "sha1": "168426f9e87c002d2673c0230fceac4d0831d594",
+          "region": "maincpu",
+          "offset": "1800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl9a-3.9a",
+          "size": "2048",
+          "crc": "9d4ce8ba",
+          "sha1": "2ef45c225fe704e49d10247c3eba1ef14141b3b7",
+          "region": "maincpu",
+          "offset": "2000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl8a-2.8a",
+          "size": "2048",
+          "crc": "cfacbadf",
+          "sha1": "77b27cf6f35e8e8dd2fd4f31bba2a96f3076163e",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl7a-2.7a",
+          "size": "2048",
+          "crc": "4c4741ff",
+          "sha1": "8de72613a385095253bb9e6da76493caec3115e4",
+          "region": "maincpu",
+          "offset": "3000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl6a-2.6a",
+          "size": "2048",
+          "crc": "0cb46b25",
+          "sha1": "65c5d2cc8df67225339dc8781dd29d4b57ded70c",
+          "region": "maincpu",
+          "offset": "3800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl11d-2.11d",
+          "size": "2048",
+          "crc": "c55b645d",
+          "sha1": "0c18277939d74e3e1281a7f114a34781d30c2baf",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl5c-2.5c",
+          "size": "256",
+          "crc": "9ca2e061",
+          "sha1": "4111325b00a1017042d55c59308d41e8333ba627",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl6d-1.6d",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "100",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h-1.14h",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "120",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset spectar is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "spectar1",
+      "nasZipPresent": true,
+      "nasZipBytes": 9872,
+      "cloneof": "spectar",
+      "description": "Spectar (revision 1?)",
+      "romCount": 11,
+      "roms": [
+        {
+          "name": "spl12a-1.12a",
+          "size": "2048",
+          "crc": "7002efb4",
+          "sha1": "fbb19ccd2aee49b78606eadcbef94e842e1be905",
+          "region": "maincpu",
+          "offset": "800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl11a-1.11a",
+          "size": "2048",
+          "crc": "8eb8526a",
+          "sha1": "0c42ee073fc73c89731dec4e3ecfc82c9b8301e9",
+          "region": "maincpu",
+          "offset": "1000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl10a-1.10a",
+          "size": "2048",
+          "crc": "9d169b3d",
+          "sha1": "bee9d029df6e2fba24a5ba41a76f1658e9038838",
+          "region": "maincpu",
+          "offset": "1800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl9a-1.9a",
+          "size": "2048",
+          "crc": "40e3eba1",
+          "sha1": "197aaed9a6159b6f3e347c0446be9e44733c1341",
+          "region": "maincpu",
+          "offset": "2000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl8a-1.8a",
+          "size": "2048",
+          "crc": "64d8eb84",
+          "sha1": "a249c832ea951fddc6699f7ac0b4486e8a5be98e",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl7a-1.7a",
+          "size": "2048",
+          "crc": "e08b0d8d",
+          "sha1": "6ffd6f8fb50c9fc09c38f56da7d6d005b66e78cc",
+          "region": "maincpu",
+          "offset": "3000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl6a-1.6a",
+          "size": "2048",
+          "crc": "f0e4e71a",
+          "sha1": "5487a94650c964a7ab07f30aacab0b470dcb3b40",
+          "region": "maincpu",
+          "offset": "3800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl11d-2.11d",
+          "size": "2048",
+          "crc": "c55b645d",
+          "sha1": "0c18277939d74e3e1281a7f114a34781d30c2baf",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "hrl11d-2.11d",
+          "status": "good"
+        },
+        {
+          "name": "spl5c-2.5c",
+          "size": "256",
+          "crc": "9ca2e061",
+          "sha1": "4111325b00a1017042d55c59308d41e8333ba627",
+          "region": "proms",
+          "offset": "0",
+          "merge": "spl5c-2.5c",
+          "status": "good"
+        },
+        {
+          "name": "hrl6d-1.6d",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "100",
+          "merge": "hrl6d-1.6d",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h-1.14h",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl14h-1.14h",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset spectar1 [spectar] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "spectarrf",
+      "nasZipPresent": true,
+      "nasZipBytes": 3003,
+      "cloneof": "spectar",
+      "description": "Spectar (revision 2, bootleg)",
+      "romCount": 10,
+      "roms": [
+        {
+          "name": "spl11a-2",
+          "size": "2048",
+          "crc": "0a0ea985",
+          "sha1": "e080eddb9094ce1a487022c670d283e71e744f51",
+          "region": "maincpu",
+          "offset": "1000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "spl10a-2",
+          "size": "2048",
+          "crc": "fca667c1",
+          "sha1": "168426f9e87c002d2673c0230fceac4d0831d594",
+          "region": "maincpu",
+          "offset": "1800",
+          "merge": "spl10a-2.10a",
+          "status": "good"
+        },
+        {
+          "name": "spl9a-3",
+          "size": "2048",
+          "crc": "9d4ce8ba",
+          "sha1": "2ef45c225fe704e49d10247c3eba1ef14141b3b7",
+          "region": "maincpu",
+          "offset": "2000",
+          "merge": "spl9a-3.9a",
+          "status": "good"
+        },
+        {
+          "name": "spl8a-2",
+          "size": "2048",
+          "crc": "cfacbadf",
+          "sha1": "77b27cf6f35e8e8dd2fd4f31bba2a96f3076163e",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "spl8a-2.8a",
+          "status": "good"
+        },
+        {
+          "name": "spl7a-2",
+          "size": "2048",
+          "crc": "4c4741ff",
+          "sha1": "8de72613a385095253bb9e6da76493caec3115e4",
+          "region": "maincpu",
+          "offset": "3000",
+          "merge": "spl7a-2.7a",
+          "status": "good"
+        },
+        {
+          "name": "sp26a-2",
+          "size": "2048",
+          "crc": "559ab427",
+          "sha1": "4c38417042be6032377dfb1e70aa814bf2395e55",
+          "region": "maincpu",
+          "offset": "3800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl11d-2",
+          "size": "2048",
+          "crc": "c55b645d",
+          "sha1": "0c18277939d74e3e1281a7f114a34781d30c2baf",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "hrl11d-2.11d",
+          "status": "good"
+        },
+        {
+          "name": "prom.5c",
+          "size": "256",
+          "crc": "9ca2e061",
+          "sha1": "4111325b00a1017042d55c59308d41e8333ba627",
+          "region": "proms",
+          "offset": "0",
+          "merge": "spl5c-2.5c",
+          "status": "good"
+        },
+        {
+          "name": "prom.6d",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "100",
+          "merge": "hrl6d-1.6d",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h-1",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl14h-1.14h",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset spectarrf [spectar] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "rallys",
+      "nasZipPresent": true,
+      "nasZipBytes": 9237,
+      "cloneof": "spectar",
+      "description": "Rallys (bootleg of Spectar, set 1)",
+      "romCount": 12,
+      "roms": [
+        {
+          "name": "rallys.01",
+          "size": "1024",
+          "crc": "a192b22b",
+          "sha1": "aaae0b1822f934df30b354f787ffa8848c71b52f",
+          "region": "maincpu",
+          "offset": "1000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.02",
+          "size": "1024",
+          "crc": "19e730aa",
+          "sha1": "4f4e87d26c14a9ff2be5b4173c4e5804db551e33",
+          "region": "maincpu",
+          "offset": "1400",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.03",
+          "size": "1024",
+          "crc": "2a3e7b69",
+          "sha1": "d31a3e6acca87881741e88e70d46a4a0ee59fcf8",
+          "region": "maincpu",
+          "offset": "1800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.04",
+          "size": "1024",
+          "crc": "6d224696",
+          "sha1": "586bc8efdc8ac0a73e4a4300459efaf89021f6f5",
+          "region": "maincpu",
+          "offset": "1c00",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.05",
+          "size": "1024",
+          "crc": "af943b5e",
+          "sha1": "819fa8a6ee78a39cdade49789cd42b4a215f82f0",
+          "region": "maincpu",
+          "offset": "2000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.06",
+          "size": "1024",
+          "crc": "9b3d9e61",
+          "sha1": "b183e0844706713eb0a241a6e45c09c53e4077a3",
+          "region": "maincpu",
+          "offset": "2400",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.07",
+          "size": "1024",
+          "crc": "8ef8bc67",
+          "sha1": "c8d80cc8e89a9bc5d957d648d704e4c66b17932d",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.08",
+          "size": "1024",
+          "crc": "243c54f2",
+          "sha1": "813b3ecbd5642034b5de0bae96698ed2b036fc7b",
+          "region": "maincpu",
+          "offset": "2c00",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.10",
+          "size": "1024",
+          "crc": "46f473d2",
+          "sha1": "e6a180fdcf2ac13ffab624554ef8aab128e80321",
+          "region": "maincpu",
+          "offset": "3400",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.09",
+          "size": "1024",
+          "crc": "56ce8a94",
+          "sha1": "becd31cda58e59267517a39c82ccfa70abdd31c6",
+          "region": "maincpu",
+          "offset": "3c00",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl11d-1",
+          "size": "1024",
+          "crc": "9f03513e",
+          "sha1": "aa4763e49df65e5686a96431543580b8d8285893",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "targ82s.123",
+          "size": "32",
+          "crc": "9eb9125c",
+          "sha1": "660ad9b2c7c28c3fda4b10c1401c03165d131c61",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset rallys [spectar] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "rallysa",
+      "nasZipPresent": true,
+      "nasZipBytes": 9223,
+      "cloneof": "spectar",
+      "description": "Rallys (bootleg of Spectar, set 2)",
+      "romCount": 12,
+      "roms": [
+        {
+          "name": "rallys.01",
+          "size": "1024",
+          "crc": "a192b22b",
+          "sha1": "aaae0b1822f934df30b354f787ffa8848c71b52f",
+          "region": "maincpu",
+          "offset": "1000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.02",
+          "size": "1024",
+          "crc": "19e730aa",
+          "sha1": "4f4e87d26c14a9ff2be5b4173c4e5804db551e33",
+          "region": "maincpu",
+          "offset": "1400",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.03",
+          "size": "1024",
+          "crc": "2a3e7b69",
+          "sha1": "d31a3e6acca87881741e88e70d46a4a0ee59fcf8",
+          "region": "maincpu",
+          "offset": "1800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.04",
+          "size": "1024",
+          "crc": "6d224696",
+          "sha1": "586bc8efdc8ac0a73e4a4300459efaf89021f6f5",
+          "region": "maincpu",
+          "offset": "1c00",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.05",
+          "size": "1024",
+          "crc": "af943b5e",
+          "sha1": "819fa8a6ee78a39cdade49789cd42b4a215f82f0",
+          "region": "maincpu",
+          "offset": "2000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.06",
+          "size": "1024",
+          "crc": "9b3d9e61",
+          "sha1": "b183e0844706713eb0a241a6e45c09c53e4077a3",
+          "region": "maincpu",
+          "offset": "2400",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.07",
+          "size": "1024",
+          "crc": "8ef8bc67",
+          "sha1": "c8d80cc8e89a9bc5d957d648d704e4c66b17932d",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.08",
+          "size": "1024",
+          "crc": "243c54f2",
+          "sha1": "813b3ecbd5642034b5de0bae96698ed2b036fc7b",
+          "region": "maincpu",
+          "offset": "2c00",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "rallys.10",
+          "size": "1024",
+          "crc": "46f473d2",
+          "sha1": "e6a180fdcf2ac13ffab624554ef8aab128e80321",
+          "region": "maincpu",
+          "offset": "3400",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "unk.c13",
+          "size": "1024",
+          "crc": "57527332",
+          "sha1": "1c6ff898a06cc4fde01f39d1222e36cf762c4345",
+          "region": "maincpu",
+          "offset": "3c00",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl11d-1",
+          "size": "1024",
+          "crc": "9f03513e",
+          "sha1": "aa4763e49df65e5686a96431543580b8d8285893",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "6331.f6",
+          "size": "32",
+          "crc": "9fb1daee",
+          "sha1": "2ec1189a57c95d7ad820eb12343fcf2c3fb08431",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset rallysa [spectar] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "panzer",
+      "nasZipPresent": true,
+      "nasZipBytes": 9156,
+      "cloneof": "spectar",
+      "description": "Panzer (bootleg of Spectar)",
+      "romCount": 12,
+      "roms": [
+        {
+          "name": "p1.1a",
+          "size": "1024",
+          "crc": "a192b22b",
+          "sha1": "aaae0b1822f934df30b354f787ffa8848c71b52f",
+          "region": "maincpu",
+          "offset": "1000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2.2a",
+          "size": "1024",
+          "crc": "19e730aa",
+          "sha1": "4f4e87d26c14a9ff2be5b4173c4e5804db551e33",
+          "region": "maincpu",
+          "offset": "1400",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p3.3a",
+          "size": "1024",
+          "crc": "2a3e7b69",
+          "sha1": "d31a3e6acca87881741e88e70d46a4a0ee59fcf8",
+          "region": "maincpu",
+          "offset": "1800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p4.4a",
+          "size": "1024",
+          "crc": "6d224696",
+          "sha1": "586bc8efdc8ac0a73e4a4300459efaf89021f6f5",
+          "region": "maincpu",
+          "offset": "1c00",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p5.5a",
+          "size": "1024",
+          "crc": "af943b5e",
+          "sha1": "819fa8a6ee78a39cdade49789cd42b4a215f82f0",
+          "region": "maincpu",
+          "offset": "2000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p6.6a",
+          "size": "1024",
+          "crc": "9b3d9e61",
+          "sha1": "b183e0844706713eb0a241a6e45c09c53e4077a3",
+          "region": "maincpu",
+          "offset": "2400",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p7.7a",
+          "size": "1024",
+          "crc": "8ef8bc67",
+          "sha1": "c8d80cc8e89a9bc5d957d648d704e4c66b17932d",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p8.8a",
+          "size": "1024",
+          "crc": "243c54f2",
+          "sha1": "813b3ecbd5642034b5de0bae96698ed2b036fc7b",
+          "region": "maincpu",
+          "offset": "2c00",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p10.15b",
+          "size": "1024",
+          "crc": "46f473d2",
+          "sha1": "e6a180fdcf2ac13ffab624554ef8aab128e80321",
+          "region": "maincpu",
+          "offset": "3400",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p9.13b",
+          "size": "1024",
+          "crc": "f01e474e",
+          "sha1": "454d9f32f95b87819d490aefe26cc3db6de29700",
+          "region": "maincpu",
+          "offset": "3c00",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "sc.4d",
+          "size": "1024",
+          "crc": "9f03513e",
+          "sha1": "aa4763e49df65e5686a96431543580b8d8285893",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "targ82s.123",
+          "size": "32",
+          "crc": "9eb9125c",
+          "sha1": "660ad9b2c7c28c3fda4b10c1401c03165d131c61",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset panzer [spectar] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "phantoma",
+      "nasZipPresent": true,
+      "nasZipBytes": 8413,
+      "cloneof": "spectar",
+      "description": "Phantomas (bootleg of Spectar)",
+      "romCount": 7,
+      "roms": [
+        {
+          "name": "156_a2",
+          "size": "2048",
+          "crc": "c5af9d34",
+          "sha1": "4c9f9a06cc7f6caf13a79fa8491db17b01b24774",
+          "region": "maincpu",
+          "offset": "1000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_a3",
+          "size": "2048",
+          "crc": "30121e69",
+          "sha1": "1588cfb61eb9aa9598b3ff600cc02b0f1ac622bf",
+          "region": "maincpu",
+          "offset": "1800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_a4",
+          "size": "2048",
+          "crc": "02d7fb94",
+          "sha1": "634e952a6a0d4c1a42692100e1913ecd5ab9faed",
+          "region": "maincpu",
+          "offset": "2000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_a5",
+          "size": "2048",
+          "crc": "0127bc8d",
+          "sha1": "c555507f2662d1b45caf0b696147f70749292930",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_a1",
+          "size": "2048",
+          "crc": "26292c0a",
+          "sha1": "d4157e261f6247cfafb948d1a9dbf0b02b2b84de",
+          "region": "maincpu",
+          "offset": "f800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_d1",
+          "size": "2048",
+          "crc": "d18e5f14",
+          "sha1": "5cd327500e74eca378ad5d0924949f96dd955cf8",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_pal",
+          "size": "32",
+          "crc": "9fb1daee",
+          "sha1": "2ec1189a57c95d7ad820eb12343fcf2c3fb08431",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset phantoma [spectar] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "phantom",
+      "nasZipPresent": true,
+      "nasZipBytes": 8389,
+      "cloneof": "spectar",
+      "description": "Phantom (bootleg of Spectar)",
+      "romCount": 7,
+      "roms": [
+        {
+          "name": "156_a2",
+          "size": "2048",
+          "crc": "c5af9d34",
+          "sha1": "4c9f9a06cc7f6caf13a79fa8491db17b01b24774",
+          "region": "maincpu",
+          "offset": "1000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_a3",
+          "size": "2048",
+          "crc": "30121e69",
+          "sha1": "1588cfb61eb9aa9598b3ff600cc02b0f1ac622bf",
+          "region": "maincpu",
+          "offset": "1800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_a4",
+          "size": "2048",
+          "crc": "02d7fb94",
+          "sha1": "634e952a6a0d4c1a42692100e1913ecd5ab9faed",
+          "region": "maincpu",
+          "offset": "2000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_a5",
+          "size": "2048",
+          "crc": "0127bc8d",
+          "sha1": "c555507f2662d1b45caf0b696147f70749292930",
+          "region": "maincpu",
+          "offset": "2800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "1a.bin",
+          "size": "2048",
+          "crc": "a4e40b67",
+          "sha1": "809d89393f80c1094fc4b1fc95e480aaa253c556",
+          "region": "maincpu",
+          "offset": "f800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_d1",
+          "size": "2048",
+          "crc": "d18e5f14",
+          "sha1": "5cd327500e74eca378ad5d0924949f96dd955cf8",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "156_pal",
+          "size": "32",
+          "crc": "9fb1daee",
+          "sha1": "2ec1189a57c95d7ad820eb12343fcf2c3fb08431",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 5,
+      "samples": [
+        "expl",
+        "shot",
+        "sexpl",
+        "spslow",
+        "spfast"
+      ],
+      "verifyOutput": "romset phantom [spectar] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "mtrap",
+      "nasZipPresent": true,
+      "nasZipBytes": 33654,
+      "cloneof": "",
+      "description": "Mouse Trap (version 5)",
+      "romCount": 17,
+      "roms": [
+        {
+          "name": "mtl-5_11a.11a",
+          "size": "4096",
+          "crc": "bd6c3eb5",
+          "sha1": "248956374222a09caa5b8c8fa842e9286d8e1c5d",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-5_10a.10a",
+          "size": "4096",
+          "crc": "75b0593e",
+          "sha1": "48ce5382905f7c52929a95267d65fd0d3f0dcc92",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-5_9a.9a",
+          "size": "4096",
+          "crc": "28dd20ff",
+          "sha1": "8ac44ec27ac25209c8b49da4c6b423917ed8907e",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-5_8a.8a",
+          "size": "4096",
+          "crc": "cc09f7a4",
+          "sha1": "e806dc0e10b909b61e347f3e28eb024f3b3a9702",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-5_7a.7a",
+          "size": "4096",
+          "crc": "caafbb6d",
+          "sha1": "96823ac4e49f192121c53f70382a20f7c52e290b",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-5_6a.6a",
+          "size": "4096",
+          "crc": "d85e52ca",
+          "sha1": "51296247e365a468fe9458b722bbdbbeeed59fa0",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_5a.5a",
+          "size": "2048",
+          "crc": "dbe4ec02",
+          "sha1": "34e965428dbb4b9c558927bb80d19cb550b53228",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_6a.6a",
+          "size": "2048",
+          "crc": "c00f0c05",
+          "sha1": "398b0bc2a7e54b1e2326ed067bf6bb15cc52ed39",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_7a.7a",
+          "size": "2048",
+          "crc": "f3f16ca7",
+          "sha1": "3928c5da246c43036a7b4cbb140a1734d5f1fb03",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_2a.2a",
+          "size": "4096",
+          "crc": "13db8ed3",
+          "sha1": "939352323bdcd7df25db5eb2e30f269bcaebe6af",
+          "region": "soundbd:cvsdcpu",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_3a.3a",
+          "size": "4096",
+          "crc": "31bdfe5c",
+          "sha1": "b10bfe9e56dd617c5b4cd8b5bfec9c7f537b1086",
+          "region": "soundbd:cvsdcpu",
+          "offset": "1000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_4a.4a",
+          "size": "4096",
+          "crc": "1502d0e8",
+          "sha1": "8ef51ad4601299016f1821a5c65bec0199dd5474",
+          "region": "soundbd:cvsdcpu",
+          "offset": "2000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_1a.1a",
+          "size": "4096",
+          "crc": "658482a6",
+          "sha1": "c0d770fbeaa7cb3e0eef47d8caa0f8a78841692e",
+          "region": "soundbd:cvsdcpu",
+          "offset": "3000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl_11d.11d",
+          "size": "2048",
+          "crc": "c6e4d339",
+          "sha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h.h14",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel5c-11.c5",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl6d.d6",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset mtrap is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "mtrap4",
+      "nasZipPresent": true,
+      "nasZipBytes": 15859,
+      "cloneof": "mtrap",
+      "description": "Mouse Trap (version 4)",
+      "romCount": 17,
+      "roms": [
+        {
+          "name": "mtl-4_11a.11a",
+          "size": "4096",
+          "crc": "2879cb8d",
+          "sha1": "738bd3cd968fd733adcfe0fb5efdb2e2fcfb344e",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-4_10a.10a",
+          "size": "4096",
+          "crc": "d7378af9",
+          "sha1": "44c8ba4c84f51306e5bdd64e6c255d1c1018db72",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-4_9a.9a",
+          "size": "4096",
+          "crc": "be667e64",
+          "sha1": "c5f686e3c403691f14992354af690dc89e1722f7",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-4_8a.8a",
+          "size": "4096",
+          "crc": "de0442f8",
+          "sha1": "61774921adf016b3a2ae18baa79af60dca2d9e45",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-4_7a.7a",
+          "size": "4096",
+          "crc": "cdf8c6a8",
+          "sha1": "932ae9c0ea5700bd79862efa94742136d8e15641",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-4_6a.6a",
+          "size": "4096",
+          "crc": "77d3f2e6",
+          "sha1": "2c21dd7ee326ccb41d3c64eec90a19198382edea",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_5a.5a",
+          "size": "2048",
+          "crc": "dbe4ec02",
+          "sha1": "34e965428dbb4b9c558927bb80d19cb550b53228",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "mta_5a.5a",
+          "status": "good"
+        },
+        {
+          "name": "mta_6a.6a",
+          "size": "2048",
+          "crc": "c00f0c05",
+          "sha1": "398b0bc2a7e54b1e2326ed067bf6bb15cc52ed39",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "mta_6a.6a",
+          "status": "good"
+        },
+        {
+          "name": "mta_7a.7a",
+          "size": "2048",
+          "crc": "f3f16ca7",
+          "sha1": "3928c5da246c43036a7b4cbb140a1734d5f1fb03",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "mta_7a.7a",
+          "status": "good"
+        },
+        {
+          "name": "mta_2a.2a",
+          "size": "4096",
+          "crc": "13db8ed3",
+          "sha1": "939352323bdcd7df25db5eb2e30f269bcaebe6af",
+          "region": "soundbd:cvsdcpu",
+          "offset": "0",
+          "merge": "mta_2a.2a",
+          "status": "good"
+        },
+        {
+          "name": "mta_3a.3a",
+          "size": "4096",
+          "crc": "31bdfe5c",
+          "sha1": "b10bfe9e56dd617c5b4cd8b5bfec9c7f537b1086",
+          "region": "soundbd:cvsdcpu",
+          "offset": "1000",
+          "merge": "mta_3a.3a",
+          "status": "good"
+        },
+        {
+          "name": "mta_4a.4a",
+          "size": "4096",
+          "crc": "1502d0e8",
+          "sha1": "8ef51ad4601299016f1821a5c65bec0199dd5474",
+          "region": "soundbd:cvsdcpu",
+          "offset": "2000",
+          "merge": "mta_4a.4a",
+          "status": "good"
+        },
+        {
+          "name": "mta_1a.1a",
+          "size": "4096",
+          "crc": "658482a6",
+          "sha1": "c0d770fbeaa7cb3e0eef47d8caa0f8a78841692e",
+          "region": "soundbd:cvsdcpu",
+          "offset": "3000",
+          "merge": "mta_1a.1a",
+          "status": "good"
+        },
+        {
+          "name": "mtl_11d.11d",
+          "size": "2048",
+          "crc": "c6e4d339",
+          "sha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "mtl_11d.11d",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h.h14",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl14h.h14",
+          "status": "good"
+        },
+        {
+          "name": "vel5c-11.c5",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "vel5c-11.c5",
+          "status": "good"
+        },
+        {
+          "name": "hrl6d.d6",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl6d.d6",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset mtrap4 [mtrap] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "mtrap4g",
+      "nasZipPresent": true,
+      "nasZipBytes": 15892,
+      "cloneof": "mtrap",
+      "description": "Mouse Trap (German, version 4)",
+      "romCount": 17,
+      "roms": [
+        {
+          "name": "gmtl-4_11a.11a",
+          "size": "4096",
+          "crc": "d84aa55e",
+          "sha1": "e13fe6cd027f1afa751d4914e50fac8a02d90bd0",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "gmtl-4_10a.10a",
+          "size": "4096",
+          "crc": "c4a83a69",
+          "sha1": "8b904fb7b6416e668b400475f6491af8ac66c49d",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "gmtl-4_9a.9a",
+          "size": "4096",
+          "crc": "9b7e5e7a",
+          "sha1": "6c63f118c24cdce9bb1343e778eeb524296dd3e0",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "gmtl-4_8a.8a",
+          "size": "4096",
+          "crc": "fbcf1572",
+          "sha1": "c5e9a7427544a61389b489542e8e12a5bc7b6741",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "gmtl-4_7a.7a",
+          "size": "4096",
+          "crc": "7786e51b",
+          "sha1": "08535122b84898cd91bc39d65996f6030807e0bf",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "gmtl-4_6a.6a",
+          "size": "4096",
+          "crc": "bbb535cd",
+          "sha1": "db24015170951c1c8dba68261d948214c7ec805d",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta-1_5a.5a",
+          "size": "2048",
+          "crc": "dbe4ec02",
+          "sha1": "34e965428dbb4b9c558927bb80d19cb550b53228",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "mta_5a.5a",
+          "status": "good"
+        },
+        {
+          "name": "mta-1_6a.6a",
+          "size": "2048",
+          "crc": "c00f0c05",
+          "sha1": "398b0bc2a7e54b1e2326ed067bf6bb15cc52ed39",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "mta_6a.6a",
+          "status": "good"
+        },
+        {
+          "name": "mta-1_7a.7a",
+          "size": "2048",
+          "crc": "f3f16ca7",
+          "sha1": "3928c5da246c43036a7b4cbb140a1734d5f1fb03",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "mta_7a.7a",
+          "status": "good"
+        },
+        {
+          "name": "mta-1_2a.2a",
+          "size": "4096",
+          "crc": "13db8ed3",
+          "sha1": "939352323bdcd7df25db5eb2e30f269bcaebe6af",
+          "region": "soundbd:cvsdcpu",
+          "offset": "0",
+          "merge": "mta_2a.2a",
+          "status": "good"
+        },
+        {
+          "name": "mta-1_3a.3a",
+          "size": "4096",
+          "crc": "31bdfe5c",
+          "sha1": "b10bfe9e56dd617c5b4cd8b5bfec9c7f537b1086",
+          "region": "soundbd:cvsdcpu",
+          "offset": "1000",
+          "merge": "mta_3a.3a",
+          "status": "good"
+        },
+        {
+          "name": "mta-1_4a.4a",
+          "size": "4096",
+          "crc": "1502d0e8",
+          "sha1": "8ef51ad4601299016f1821a5c65bec0199dd5474",
+          "region": "soundbd:cvsdcpu",
+          "offset": "2000",
+          "merge": "mta_4a.4a",
+          "status": "good"
+        },
+        {
+          "name": "mta-1_1a.1a",
+          "size": "4096",
+          "crc": "658482a6",
+          "sha1": "c0d770fbeaa7cb3e0eef47d8caa0f8a78841692e",
+          "region": "soundbd:cvsdcpu",
+          "offset": "3000",
+          "merge": "mta_1a.1a",
+          "status": "good"
+        },
+        {
+          "name": "mtl-1_11d.11d",
+          "size": "2048",
+          "crc": "c6e4d339",
+          "sha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "mtl_11d.11d",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h.h14",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl14h.h14",
+          "status": "good"
+        },
+        {
+          "name": "vel5c-11.c5",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "vel5c-11.c5",
+          "status": "good"
+        },
+        {
+          "name": "hrl6d.d6",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl6d.d6",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset mtrap4g [mtrap] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "mtrap3",
+      "nasZipPresent": true,
+      "nasZipBytes": 15830,
+      "cloneof": "mtrap",
+      "description": "Mouse Trap (version 3)",
+      "romCount": 17,
+      "roms": [
+        {
+          "name": "mtl-3_11a.11a",
+          "size": "4096",
+          "crc": "4091be6e",
+          "sha1": "a4432f4588915276583f4b2e8db527fd24eb4291",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-3_10a.10a",
+          "size": "4096",
+          "crc": "38250c2f",
+          "sha1": "b70a2a1d423ba90ca873cc43db40422abee07718",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-3_9a.9a",
+          "size": "4096",
+          "crc": "2eec988e",
+          "sha1": "52167dabd672d16d454df746fb2c83c9e4253624",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-3_8a.8a",
+          "size": "4096",
+          "crc": "744b4b1c",
+          "sha1": "94955d0703559d668988cb7045f835f955e5dd8a",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-3_7a.7a",
+          "size": "4096",
+          "crc": "ea8ec479",
+          "sha1": "785557a242d9343c83cdc403b1f726cbea9d230f",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-3_6a.6a",
+          "size": "4096",
+          "crc": "d72ba72d",
+          "sha1": "4c5b311bc7ecfc6133bc09e586635844e2f1d6a9",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_5a.5a",
+          "size": "2048",
+          "crc": "dbe4ec02",
+          "sha1": "34e965428dbb4b9c558927bb80d19cb550b53228",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "mta_5a.5a",
+          "status": "good"
+        },
+        {
+          "name": "mta_6a.6a",
+          "size": "2048",
+          "crc": "c00f0c05",
+          "sha1": "398b0bc2a7e54b1e2326ed067bf6bb15cc52ed39",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "mta_6a.6a",
+          "status": "good"
+        },
+        {
+          "name": "mta_7a.7a",
+          "size": "2048",
+          "crc": "f3f16ca7",
+          "sha1": "3928c5da246c43036a7b4cbb140a1734d5f1fb03",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "mta_7a.7a",
+          "status": "good"
+        },
+        {
+          "name": "mta_2a.2a",
+          "size": "4096",
+          "crc": "13db8ed3",
+          "sha1": "939352323bdcd7df25db5eb2e30f269bcaebe6af",
+          "region": "soundbd:cvsdcpu",
+          "offset": "0",
+          "merge": "mta_2a.2a",
+          "status": "good"
+        },
+        {
+          "name": "mta_3a.3a",
+          "size": "4096",
+          "crc": "31bdfe5c",
+          "sha1": "b10bfe9e56dd617c5b4cd8b5bfec9c7f537b1086",
+          "region": "soundbd:cvsdcpu",
+          "offset": "1000",
+          "merge": "mta_3a.3a",
+          "status": "good"
+        },
+        {
+          "name": "mta_4a.4a",
+          "size": "4096",
+          "crc": "1502d0e8",
+          "sha1": "8ef51ad4601299016f1821a5c65bec0199dd5474",
+          "region": "soundbd:cvsdcpu",
+          "offset": "2000",
+          "merge": "mta_4a.4a",
+          "status": "good"
+        },
+        {
+          "name": "mta_1a.1a",
+          "size": "4096",
+          "crc": "658482a6",
+          "sha1": "c0d770fbeaa7cb3e0eef47d8caa0f8a78841692e",
+          "region": "soundbd:cvsdcpu",
+          "offset": "3000",
+          "merge": "mta_1a.1a",
+          "status": "good"
+        },
+        {
+          "name": "mtl_11d.11d",
+          "size": "2048",
+          "crc": "c6e4d339",
+          "sha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "mtl_11d.11d",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h.h14",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl14h.h14",
+          "status": "good"
+        },
+        {
+          "name": "vel5c-11.c5",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "vel5c-11.c5",
+          "status": "good"
+        },
+        {
+          "name": "hrl6d.d6",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl6d.d6",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset mtrap3 [mtrap] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "mtrap2",
+      "nasZipPresent": true,
+      "nasZipBytes": 15854,
+      "cloneof": "mtrap",
+      "description": "Mouse Trap (version 2)",
+      "romCount": 17,
+      "roms": [
+        {
+          "name": "mtl-2_11a.11a",
+          "size": "4096",
+          "crc": "a8cc3a18",
+          "sha1": "09fa9eff5ae5cb923d6e9137ba9a4b6944acffb2",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-2_10a.10a",
+          "size": "4096",
+          "crc": "e26b074c",
+          "sha1": "e8882edc818860d887c08e8083a40c4717412b2f",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-2_9a.9a",
+          "size": "4096",
+          "crc": "845394f6",
+          "sha1": "a150a6f00465abb787d8d46a2e32d8985364554e",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-2_8a.8a",
+          "size": "4096",
+          "crc": "854d2d50",
+          "sha1": "4213999acbc03ee8300b2fcf86349cd7450adae5",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-2_7a.7a",
+          "size": "4096",
+          "crc": "3d235f95",
+          "sha1": "57031d9784c55853dcf6e396ee685d8dd0d3ef87",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mtl-2_6a.6a",
+          "size": "4096",
+          "crc": "7ed7632a",
+          "sha1": "6800d3c1b901808373d3edd2a3fcf699f93d7daf",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_5a.5a",
+          "size": "2048",
+          "crc": "dbe4ec02",
+          "sha1": "34e965428dbb4b9c558927bb80d19cb550b53228",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "mta_5a.5a",
+          "status": "good"
+        },
+        {
+          "name": "mta_6a.6a",
+          "size": "2048",
+          "crc": "c00f0c05",
+          "sha1": "398b0bc2a7e54b1e2326ed067bf6bb15cc52ed39",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "mta_6a.6a",
+          "status": "good"
+        },
+        {
+          "name": "mta_7a.7a",
+          "size": "2048",
+          "crc": "f3f16ca7",
+          "sha1": "3928c5da246c43036a7b4cbb140a1734d5f1fb03",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "mta_7a.7a",
+          "status": "good"
+        },
+        {
+          "name": "mta_2a.2a",
+          "size": "4096",
+          "crc": "13db8ed3",
+          "sha1": "939352323bdcd7df25db5eb2e30f269bcaebe6af",
+          "region": "soundbd:cvsdcpu",
+          "offset": "0",
+          "merge": "mta_2a.2a",
+          "status": "good"
+        },
+        {
+          "name": "mta_3a.3a",
+          "size": "4096",
+          "crc": "31bdfe5c",
+          "sha1": "b10bfe9e56dd617c5b4cd8b5bfec9c7f537b1086",
+          "region": "soundbd:cvsdcpu",
+          "offset": "1000",
+          "merge": "mta_3a.3a",
+          "status": "good"
+        },
+        {
+          "name": "mta_4a.4a",
+          "size": "4096",
+          "crc": "1502d0e8",
+          "sha1": "8ef51ad4601299016f1821a5c65bec0199dd5474",
+          "region": "soundbd:cvsdcpu",
+          "offset": "2000",
+          "merge": "mta_4a.4a",
+          "status": "good"
+        },
+        {
+          "name": "mta_1a.1a",
+          "size": "4096",
+          "crc": "658482a6",
+          "sha1": "c0d770fbeaa7cb3e0eef47d8caa0f8a78841692e",
+          "region": "soundbd:cvsdcpu",
+          "offset": "3000",
+          "merge": "mta_1a.1a",
+          "status": "good"
+        },
+        {
+          "name": "mtl_11d.11d",
+          "size": "2048",
+          "crc": "c6e4d339",
+          "sha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "mtl_11d.11d",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h.h14",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl14h.h14",
+          "status": "good"
+        },
+        {
+          "name": "vel5c-11.c5",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "vel5c-11.c5",
+          "status": "good"
+        },
+        {
+          "name": "hrl6d.d6",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl6d.d6",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset mtrap2 [mtrap] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "mtrapb",
+      "nasZipPresent": true,
+      "nasZipBytes": 19253,
+      "cloneof": "mtrap",
+      "description": "Mouse Trap (bootleg)",
+      "romCount": 15,
+      "roms": [
+        {
+          "name": "cpu.p2",
+          "size": "4096",
+          "crc": "a0faa3e5",
+          "sha1": "2a9259d945619a5188f8903f46ddadc685516c43",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "cpu.m2",
+          "size": "4096",
+          "crc": "d7378af9",
+          "sha1": "44c8ba4c84f51306e5bdd64e6c255d1c1018db72",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "cpu.l2",
+          "size": "4096",
+          "crc": "be667e64",
+          "sha1": "c5f686e3c403691f14992354af690dc89e1722f7",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "cpu.k2",
+          "size": "4096",
+          "crc": "69471f27",
+          "sha1": "17fe085cc4ebb527a0f85cf5a0a66778e0df443e",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "cpu.j2",
+          "size": "4096",
+          "crc": "1eb0c4c9",
+          "sha1": "b7049b86385798f1098945d07fe41b71ddbbc980",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "cpu.h2",
+          "size": "4096",
+          "crc": "16ea9a51",
+          "sha1": "59714f50c82b54f490c69fb5b91ac0aa16cb9abb",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "2564.j10",
+          "size": "8192",
+          "crc": "d4160aa8",
+          "sha1": "d3bae8fa54e71c397ec60f998a012e088588a2e4",
+          "region": "soundbd:audiocpu",
+          "offset": "6000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "mta_2a.2a",
+          "size": "4096",
+          "crc": "13db8ed3",
+          "sha1": "939352323bdcd7df25db5eb2e30f269bcaebe6af",
+          "region": "soundbd:cvsdcpu",
+          "offset": "0",
+          "merge": "mta_2a.2a",
+          "status": "good"
+        },
+        {
+          "name": "mta_3a.3a",
+          "size": "4096",
+          "crc": "31bdfe5c",
+          "sha1": "b10bfe9e56dd617c5b4cd8b5bfec9c7f537b1086",
+          "region": "soundbd:cvsdcpu",
+          "offset": "1000",
+          "merge": "mta_3a.3a",
+          "status": "good"
+        },
+        {
+          "name": "mta_4a.4a",
+          "size": "4096",
+          "crc": "1502d0e8",
+          "sha1": "8ef51ad4601299016f1821a5c65bec0199dd5474",
+          "region": "soundbd:cvsdcpu",
+          "offset": "2000",
+          "merge": "mta_4a.4a",
+          "status": "good"
+        },
+        {
+          "name": "mta_1a.1a",
+          "size": "4096",
+          "crc": "658482a6",
+          "sha1": "c0d770fbeaa7cb3e0eef47d8caa0f8a78841692e",
+          "region": "soundbd:cvsdcpu",
+          "offset": "3000",
+          "merge": "mta_1a.1a",
+          "status": "good"
+        },
+        {
+          "name": "2516.j6",
+          "size": "2048",
+          "crc": "c6e4d339",
+          "sha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "mtl_11d.11d",
+          "status": "good"
+        },
+        {
+          "name": "74s288.6c",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl14h.h14",
+          "status": "baddump"
+        },
+        {
+          "name": "24s10n.1c",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "vel5c-11.c5",
+          "status": "good"
+        },
+        {
+          "name": "74s288.3d",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl6d.d6",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "mtrapb      : 74s288.6c (32 bytes) - NEEDS REDUMP\r\nromset mtrapb [mtrap] is best available\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "mtrapb2",
+      "nasZipPresent": true,
+      "nasZipBytes": 19571,
+      "cloneof": "mtrap",
+      "description": "Mouse Trap (version 4, bootleg)",
+      "romCount": 15,
+      "roms": [
+        {
+          "name": "ms11.2p",
+          "size": "4096",
+          "crc": "2879cb8d",
+          "sha1": "738bd3cd968fd733adcfe0fb5efdb2e2fcfb344e",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "ms10.2m",
+          "size": "4096",
+          "crc": "d7378af9",
+          "sha1": "44c8ba4c84f51306e5bdd64e6c255d1c1018db72",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "ms9.2l",
+          "size": "4096",
+          "crc": "be667e64",
+          "sha1": "c5f686e3c403691f14992354af690dc89e1722f7",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "ms8.2k",
+          "size": "4096",
+          "crc": "de0442f8",
+          "sha1": "61774921adf016b3a2ae18baa79af60dca2d9e45",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "ms7.2h",
+          "size": "4096",
+          "crc": "cdf8c6a8",
+          "sha1": "932ae9c0ea5700bd79862efa94742136d8e15641",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "ms6.2f",
+          "size": "4096",
+          "crc": "77d3f2e6",
+          "sha1": "2c21dd7ee326ccb41d3c64eec90a19198382edea",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "ms1a.10j",
+          "size": "8192",
+          "crc": "d4160aa8",
+          "sha1": "d3bae8fa54e71c397ec60f998a012e088588a2e4",
+          "region": "soundbd:audiocpu",
+          "offset": "6000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "ms2a.8d",
+          "size": "4096",
+          "crc": "13db8ed3",
+          "sha1": "939352323bdcd7df25db5eb2e30f269bcaebe6af",
+          "region": "soundbd:cvsdcpu",
+          "offset": "0",
+          "merge": "mta_2a.2a",
+          "status": "good"
+        },
+        {
+          "name": "ms3a.8e",
+          "size": "4096",
+          "crc": "31bdfe5c",
+          "sha1": "b10bfe9e56dd617c5b4cd8b5bfec9c7f537b1086",
+          "region": "soundbd:cvsdcpu",
+          "offset": "1000",
+          "merge": "mta_3a.3a",
+          "status": "good"
+        },
+        {
+          "name": "ms4a.8f",
+          "size": "4096",
+          "crc": "1502d0e8",
+          "sha1": "8ef51ad4601299016f1821a5c65bec0199dd5474",
+          "region": "soundbd:cvsdcpu",
+          "offset": "2000",
+          "merge": "mta_4a.4a",
+          "status": "good"
+        },
+        {
+          "name": "ms5a.8h",
+          "size": "4096",
+          "crc": "658482a6",
+          "sha1": "c0d770fbeaa7cb3e0eef47d8caa0f8a78841692e",
+          "region": "soundbd:cvsdcpu",
+          "offset": "3000",
+          "merge": "mta_1a.1a",
+          "status": "good"
+        },
+        {
+          "name": "ms11d.6j",
+          "size": "2048",
+          "crc": "c6e4d339",
+          "sha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "mtl_11d.11d",
+          "status": "good"
+        },
+        {
+          "name": "74s288.6c",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl14h.h14",
+          "status": "good"
+        },
+        {
+          "name": "24s10n.1c",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "vel5c-11.c5",
+          "status": "good"
+        },
+        {
+          "name": "74s288.3d",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl6d.d6",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset mtrapb2 [mtrap] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "venture",
+      "nasZipPresent": true,
+      "nasZipBytes": 29073,
+      "cloneof": "",
+      "description": "Venture (version 5 set 1)",
+      "romCount": 17,
+      "roms": [
+        {
+          "name": "13a-cpu",
+          "size": "4096",
+          "crc": "f4e4d991",
+          "sha1": "6683c1552b56b20f2296e461aff697af73563792",
+          "region": "maincpu",
+          "offset": "8000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "12a-cpu",
+          "size": "4096",
+          "crc": "c6d8cb04",
+          "sha1": "3b9ae8fdc35117c73c91daed66e93e5344bdcd7e",
+          "region": "maincpu",
+          "offset": "9000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "11a-cpu",
+          "size": "4096",
+          "crc": "3bdb01f4",
+          "sha1": "3c1f43a3c37a21524b64d69e4dae58af8c2e0d90",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "10a-cpu",
+          "size": "4096",
+          "crc": "0da769e9",
+          "sha1": "3604dc08c63461b2ea957a396887fb32e4a1a970",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "9a-cpu",
+          "size": "4096",
+          "crc": "0ae05855",
+          "sha1": "29b3c2ca9740aa753e90131e6edcc61f414277e1",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "8a-cpu",
+          "size": "4096",
+          "crc": "4ae59676",
+          "sha1": "36fc9dce9dd0c764a861634859ca0d7f98e20382",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "7a-cpu",
+          "size": "4096",
+          "crc": "48d66220",
+          "sha1": "97b1605170c67b3a945b4d5f088df79328e163ce",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "6a-cpu",
+          "size": "4096",
+          "crc": "7b78cf49",
+          "sha1": "1d484172465d3db6c4fc3733aa2b409e3a2e228f",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vea_3a-3.3a",
+          "size": "2048",
+          "crc": "4ea1c3d9",
+          "sha1": "d0c99c9d5b887d717c68e8745906ae4e65aec6ad",
+          "region": "soundbd:audiocpu",
+          "offset": "5800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vea_4a-3.4a",
+          "size": "2048",
+          "crc": "5154c39e",
+          "sha1": "e6f011630eb1aa4116a0e5824ad6b65c1be2455f",
+          "region": "soundbd:audiocpu",
+          "offset": "6000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vea_5a-3.5a",
+          "size": "2048",
+          "crc": "1e1e3916",
+          "sha1": "867e586583e07cd01e0e852f6ea52a040995725d",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vea_6a-3.6a",
+          "size": "2048",
+          "crc": "80f3357a",
+          "sha1": "f1ee638251e8676a526e6367c11866b1d52f5910",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vea_7a-3.7a",
+          "size": "2048",
+          "crc": "466addc7",
+          "sha1": "0230b5365d6aeee3ca47666a9eadee4141de125b",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_11d-2.11d",
+          "size": "2048",
+          "crc": "ea6fd981",
+          "sha1": "46b1658e1607423d5a073f14097c2a48d59057c0",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h-1.h14",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel5c-1.c5",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl6d-1.d6",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset venture is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "venture5a",
+      "nasZipPresent": true,
+      "nasZipBytes": 22626,
+      "cloneof": "venture",
+      "description": "Venture (version 5 set 2)",
+      "romCount": 17,
+      "roms": [
+        {
+          "name": "vel_13a-57e.a13",
+          "size": "4096",
+          "crc": "4c833f99",
+          "sha1": "1ff4eafe48b9f0ab8a123659d78c3dfa0bf56d7d",
+          "region": "maincpu",
+          "offset": "8000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_12a-5.a12",
+          "size": "4096",
+          "crc": "8163cefc",
+          "sha1": "7061819dd1105e8368c045dad2effae62d124539",
+          "region": "maincpu",
+          "offset": "9000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_11a-5.a11",
+          "size": "4096",
+          "crc": "324a5054",
+          "sha1": "f845ff2f717ea627891e0dc9d6e66f690c0843d8",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_10a-5.a10",
+          "size": "4096",
+          "crc": "24358203",
+          "sha1": "10c3ea83a892d6fd2751e590afe45bffa65bd6e0",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_9a-5.a9",
+          "size": "4096",
+          "crc": "04428165",
+          "sha1": "6d8d860ce1f805ba2eb315f47c8660799256e921",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_8a-5.a8",
+          "size": "4096",
+          "crc": "4c1a702a",
+          "sha1": "7f6a68d3cfdd885108eebb7ea76b3c2ce6070b18",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_7a-5.a7",
+          "size": "4096",
+          "crc": "1aab27c2",
+          "sha1": "66c7274dbb8bda3c78cc61d96a6cb1a9b29939b5",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_6a-5.a6",
+          "size": "4096",
+          "crc": "767bdd71",
+          "sha1": "334a903e05fc86186f90aa2d9ce3b0d367d7e516",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vea_3a-3.3a",
+          "size": "2048",
+          "crc": "4ea1c3d9",
+          "sha1": "d0c99c9d5b887d717c68e8745906ae4e65aec6ad",
+          "region": "soundbd:audiocpu",
+          "offset": "5800",
+          "merge": "vea_3a-3.3a",
+          "status": "good"
+        },
+        {
+          "name": "vea_4a-3.4a",
+          "size": "2048",
+          "crc": "5154c39e",
+          "sha1": "e6f011630eb1aa4116a0e5824ad6b65c1be2455f",
+          "region": "soundbd:audiocpu",
+          "offset": "6000",
+          "merge": "vea_4a-3.4a",
+          "status": "good"
+        },
+        {
+          "name": "vea_5a-3.5a",
+          "size": "2048",
+          "crc": "1e1e3916",
+          "sha1": "867e586583e07cd01e0e852f6ea52a040995725d",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "vea_5a-3.5a",
+          "status": "good"
+        },
+        {
+          "name": "vea_6a-3.6a",
+          "size": "2048",
+          "crc": "80f3357a",
+          "sha1": "f1ee638251e8676a526e6367c11866b1d52f5910",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "vea_6a-3.6a",
+          "status": "good"
+        },
+        {
+          "name": "vea_7a-3.7a",
+          "size": "2048",
+          "crc": "466addc7",
+          "sha1": "0230b5365d6aeee3ca47666a9eadee4141de125b",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "vea_7a-3.7a",
+          "status": "good"
+        },
+        {
+          "name": "vel_11d-2.11d",
+          "size": "2048",
+          "crc": "ea6fd981",
+          "sha1": "46b1658e1607423d5a073f14097c2a48d59057c0",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "vel_11d-2.11d",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h-1.h14",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl14h-1.h14",
+          "status": "good"
+        },
+        {
+          "name": "vel5c-1.c5",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "vel5c-1.c5",
+          "status": "good"
+        },
+        {
+          "name": "hrl6d-1.d6",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl6d-1.d6",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset venture5a [venture] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "venture4",
+      "nasZipPresent": true,
+      "nasZipBytes": 23229,
+      "cloneof": "venture",
+      "description": "Venture (version 4)",
+      "romCount": 17,
+      "roms": [
+        {
+          "name": "vel_13a-4.13a",
+          "size": "4096",
+          "crc": "1c5448f9",
+          "sha1": "59d3ca2a2d7048f5f7bd23fa5d9c9a2cc0734cb8",
+          "region": "maincpu",
+          "offset": "8000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_12a-4.12a",
+          "size": "4096",
+          "crc": "e62491cc",
+          "sha1": "a98b6c6e60d83fd4591d0de145a99c5e4576121a",
+          "region": "maincpu",
+          "offset": "9000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_11a-4.11a",
+          "size": "4096",
+          "crc": "e91faeaf",
+          "sha1": "ce50a9f1016671282d16f2d0ad3553598e0c7e89",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_10a-4.10a",
+          "size": "4096",
+          "crc": "da3a2991",
+          "sha1": "2b5175b0f3642e735b6d87fbd5b75118cf6b7faa",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_9a-4.a9",
+          "size": "4096",
+          "crc": "d1887b11",
+          "sha1": "40ed1e1bdcb95d6e317cb5e4fb8572a314b3fbf8",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_8a-4.a8",
+          "size": "4096",
+          "crc": "8e8153fc",
+          "sha1": "409cf0ed39ef04c1e9359f0499d7cba3aed8f36e",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_7a-4.a7",
+          "size": "4096",
+          "crc": "0a091701",
+          "sha1": "ffdea1d60371779d0c28fb3c6111639cace79dad",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vel_6a-4.a6",
+          "size": "4096",
+          "crc": "7b165f67",
+          "sha1": "4109797bcfd33c870234930790e3cecaaf90b706",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vea_3a-2.3a",
+          "size": "2048",
+          "crc": "83b8836f",
+          "sha1": "ec0e2de62caea61ceff56e924449213997bff8cd",
+          "region": "soundbd:audiocpu",
+          "offset": "5800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "vea_3a-2.4a",
+          "size": "2048",
+          "crc": "5154c39e",
+          "sha1": "e6f011630eb1aa4116a0e5824ad6b65c1be2455f",
+          "region": "soundbd:audiocpu",
+          "offset": "6000",
+          "merge": "vea_4a-3.4a",
+          "status": "good"
+        },
+        {
+          "name": "vea_3a-2.5a",
+          "size": "2048",
+          "crc": "1e1e3916",
+          "sha1": "867e586583e07cd01e0e852f6ea52a040995725d",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "vea_5a-3.5a",
+          "status": "good"
+        },
+        {
+          "name": "vea_3a-2.6a",
+          "size": "2048",
+          "crc": "80f3357a",
+          "sha1": "f1ee638251e8676a526e6367c11866b1d52f5910",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "vea_6a-3.6a",
+          "status": "good"
+        },
+        {
+          "name": "vea_3a-2.7a",
+          "size": "2048",
+          "crc": "466addc7",
+          "sha1": "0230b5365d6aeee3ca47666a9eadee4141de125b",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "vea_7a-3.7a",
+          "status": "good"
+        },
+        {
+          "name": "vel_11d-2.11d",
+          "size": "2048",
+          "crc": "ea6fd981",
+          "sha1": "46b1658e1607423d5a073f14097c2a48d59057c0",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "vel_11d-2.11d",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h-1.h14",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl14h-1.h14",
+          "status": "good"
+        },
+        {
+          "name": "vel5c-1.c5",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "vel5c-1.c5",
+          "status": "good"
+        },
+        {
+          "name": "hrl6d-1.d6",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl6d-1.d6",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset venture4 [venture] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "venture5b",
+      "nasZipPresent": true,
+      "nasZipBytes": 25944,
+      "cloneof": "venture",
+      "description": "Venture (version 5 set 2, bootleg)",
+      "romCount": 13,
+      "roms": [
+        {
+          "name": "d2732.2s",
+          "size": "4096",
+          "crc": "87d69fe9",
+          "sha1": "d5ccf71af478873f32e23530a62515327f39f672",
+          "region": "maincpu",
+          "offset": "8000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "d2732.2r",
+          "size": "4096",
+          "crc": "8163cefc",
+          "sha1": "7061819dd1105e8368c045dad2effae62d124539",
+          "region": "maincpu",
+          "offset": "9000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "d2732.2n",
+          "size": "4096",
+          "crc": "324a5054",
+          "sha1": "f845ff2f717ea627891e0dc9d6e66f690c0843d8",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "d2732.2m",
+          "size": "4096",
+          "crc": "24358203",
+          "sha1": "10c3ea83a892d6fd2751e590afe45bffa65bd6e0",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "d2732.2l",
+          "size": "4096",
+          "crc": "04428165",
+          "sha1": "6d8d860ce1f805ba2eb315f47c8660799256e921",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "d2732.2k",
+          "size": "4096",
+          "crc": "4c1a702a",
+          "sha1": "7f6a68d3cfdd885108eebb7ea76b3c2ce6070b18",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "d2732.2h",
+          "size": "4096",
+          "crc": "1aab27c2",
+          "sha1": "66c7274dbb8bda3c78cc61d96a6cb1a9b29939b5",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "d2732.2f",
+          "size": "4096",
+          "crc": "767bdd71",
+          "sha1": "334a903e05fc86186f90aa2d9ce3b0d367d7e516",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "tms2516.10f",
+          "size": "2048",
+          "crc": "4ea1c3d9",
+          "sha1": "d0c99c9d5b887d717c68e8745906ae4e65aec6ad",
+          "region": "soundbd:audiocpu",
+          "offset": "5800",
+          "merge": "vea_3a-3.3a",
+          "status": "good"
+        },
+        {
+          "name": "tms2564.10j",
+          "size": "8192",
+          "crc": "da9d8588",
+          "sha1": "b2e6509748059fc317af56d66396427c5ca78748",
+          "region": "soundbd:audiocpu",
+          "offset": "6000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "tms2516.6j",
+          "size": "2048",
+          "crc": "ea6fd981",
+          "sha1": "46b1658e1607423d5a073f14097c2a48d59057c0",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "vel_11d-2.11d",
+          "status": "good"
+        },
+        {
+          "name": "sn74s288n.6c",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl14h-1.h14",
+          "status": "good"
+        },
+        {
+          "name": "sn74s288n.3d",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "hrl6d-1.d6",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset venture5b [venture] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "teetert",
+      "nasZipPresent": true,
+      "nasZipBytes": 24439,
+      "cloneof": "",
+      "description": "Teeter Torture (prototype)",
+      "romCount": 17,
+      "roms": [
+        {
+          "name": "13a-cpu",
+          "size": "4096",
+          "crc": "f4e4d991",
+          "sha1": "6683c1552b56b20f2296e461aff697af73563792",
+          "region": "maincpu",
+          "offset": "8000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "12a-cpu",
+          "size": "4096",
+          "crc": "c6d8cb04",
+          "sha1": "3b9ae8fdc35117c73c91daed66e93e5344bdcd7e",
+          "region": "maincpu",
+          "offset": "9000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "11a-cpu",
+          "size": "4096",
+          "crc": "bac9b259",
+          "sha1": "0265cbd683fadf42f8a6b71958cbe782a732c257",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "10a-cpu",
+          "size": "4096",
+          "crc": "3ae7e445",
+          "sha1": "e511ce4c553ac58e87b6ee623f8c42d7653de972",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "9a-cpu",
+          "size": "4096",
+          "crc": "0cba424d",
+          "sha1": "54377163a8b8082639baf56b960eb26268462d46",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "8a-cpu",
+          "size": "4096",
+          "crc": "68de66e7",
+          "sha1": "70a0cc950f16f2c408fae717e6fdb75eb0fd8039",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "7a-cpu",
+          "size": "4096",
+          "crc": "84491333",
+          "sha1": "db9f8e4c49057a4574a3784d71e627da7f7a4b44",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "6a-cpu",
+          "size": "4096",
+          "crc": "3600d465",
+          "sha1": "84d633e042f73bfd6bf4a4d0ffee1cd2027c65d2",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "3a-ac",
+          "size": "2048",
+          "crc": "83b8836f",
+          "sha1": "ec0e2de62caea61ceff56e924449213997bff8cd",
+          "region": "soundbd:audiocpu",
+          "offset": "5800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "4a-ac",
+          "size": "2048",
+          "crc": "5154c39e",
+          "sha1": "e6f011630eb1aa4116a0e5824ad6b65c1be2455f",
+          "region": "soundbd:audiocpu",
+          "offset": "6000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "5a-ac",
+          "size": "2048",
+          "crc": "1e1e3916",
+          "sha1": "867e586583e07cd01e0e852f6ea52a040995725d",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "6a-ac",
+          "size": "2048",
+          "crc": "80f3357a",
+          "sha1": "f1ee638251e8676a526e6367c11866b1d52f5910",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "7a-ac",
+          "size": "2048",
+          "crc": "466addc7",
+          "sha1": "0230b5365d6aeee3ca47666a9eadee4141de125b",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "11d-cpu",
+          "size": "2048",
+          "crc": "0fe70b00",
+          "sha1": "6068be263d7a8e6b71af6f4dceec40bb8d246376",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "tt14h.123",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "tt5c.129",
+          "size": "256",
+          "crc": "43b35bb7",
+          "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "region": "proms",
+          "offset": "20",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "tt6d.123",
+          "size": "32",
+          "crc": "e26f9053",
+          "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "region": "proms",
+          "offset": "120",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset teetert is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "pepper2",
+      "nasZipPresent": true,
+      "nasZipBytes": 21209,
+      "cloneof": "",
+      "description": "Pepper II (version 8)",
+      "romCount": 14,
+      "roms": [
+        {
+          "name": "p2l-8_12a.12a",
+          "size": "4096",
+          "crc": "33db4737",
+          "sha1": "d8f7a5d340ddbc4d06d403c3bff0102ce637d24e",
+          "region": "maincpu",
+          "offset": "9000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-8_11a.11a",
+          "size": "4096",
+          "crc": "a1f43b1f",
+          "sha1": "a669f2ef55d9a0617110f65863822fdcaf153511",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-8_10a.10a",
+          "size": "4096",
+          "crc": "4d7d7786",
+          "sha1": "ea1390b887404a67ea556720219e81007b954a7d",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-8_9a.9a",
+          "size": "4096",
+          "crc": "b3362298",
+          "sha1": "7adad138ec5f94caa39f9c0fabece538d5db4913",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-8_8a.8a",
+          "size": "4096",
+          "crc": "64d106ed",
+          "sha1": "49646a97def9e1793cac6ee0044f68232b294e4f",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-8_7a.7a",
+          "size": "4096",
+          "crc": "b1c6f07c",
+          "sha1": "53d07211d014336bb43671c51f4190c6515e9cde",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-8_6a.6a",
+          "size": "4096",
+          "crc": "515b1046",
+          "sha1": "bdcccd4e415c00ee8e5ec185597df75ecafe7d3d",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2a-2_5a.5a",
+          "size": "2048",
+          "crc": "90e3c781",
+          "sha1": "d51a9e011167a132e8af9f4b1201600a58e86b62",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2a-2_6a.6a",
+          "size": "2048",
+          "crc": "dd343e34",
+          "sha1": "4ec55bb73d6afbd167fa91d2606d1d55a15b5c39",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2a-2_7a.7a",
+          "size": "2048",
+          "crc": "e02b4356",
+          "sha1": "9891e14d84221c1d6f2d15a29813eb41024290ca",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-1_11d.11d",
+          "size": "2048",
+          "crc": "b25160cd",
+          "sha1": "3d768552960a3a660891dcb85da6a5c382b33991",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h-1.h14",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l5c-1.c5",
+          "size": "256",
+          "crc": "e1e867ae",
+          "sha1": "fe4cb560860579102aedad2c81fd7bed5825f484",
+          "region": "proms",
+          "offset": "20",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l6d-1.d6",
+          "size": "32",
+          "crc": "0da1bdf9",
+          "sha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3",
+          "region": "proms",
+          "offset": "120",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset pepper2 is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "pepper27",
+      "nasZipPresent": true,
+      "nasZipBytes": 16418,
+      "cloneof": "pepper2",
+      "description": "Pepper II (version 7)",
+      "romCount": 14,
+      "roms": [
+        {
+          "name": "p2l-7_12a.12a",
+          "size": "4096",
+          "crc": "b3bc51cd",
+          "sha1": "12475ac5784bb2ab6887476ee8166c3585864cd6",
+          "region": "maincpu",
+          "offset": "9000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-7_11a.11a",
+          "size": "4096",
+          "crc": "c8b834cd",
+          "sha1": "28b4de322de845effaa1d2fc6c9f129145965b8a",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-7_10a.10a",
+          "size": "4096",
+          "crc": "c3e864a2",
+          "sha1": "cfc769b34d181724a5826d3a1bb3313ef5fbbd62",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-7_9a.9a",
+          "size": "4096",
+          "crc": "451003b2",
+          "sha1": "87b9aecfcf861b3d812f0e3c23b40c98c198e933",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-7_8a.8a",
+          "size": "4096",
+          "crc": "c666cafb",
+          "sha1": "5783fcfeeb651c850a1d9676e97a6beaafb06c6e",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-7_7a.7a",
+          "size": "4096",
+          "crc": "ac1282ef",
+          "sha1": "34023d8a01c1f26ec8268d7387660d6f7e875014",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2l-7_6a.6a",
+          "size": "4096",
+          "crc": "db8dd4fc",
+          "sha1": "9ae00f8d1a19280670dc65a20cf9cc4e7f1cc973",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "p2a-2_5a.5a",
+          "size": "2048",
+          "crc": "90e3c781",
+          "sha1": "d51a9e011167a132e8af9f4b1201600a58e86b62",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "p2a-2_5a.5a",
+          "status": "good"
+        },
+        {
+          "name": "p2a-2_6a.6a",
+          "size": "2048",
+          "crc": "dd343e34",
+          "sha1": "4ec55bb73d6afbd167fa91d2606d1d55a15b5c39",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "p2a-2_6a.6a",
+          "status": "good"
+        },
+        {
+          "name": "p2a-2_7a.7a",
+          "size": "2048",
+          "crc": "e02b4356",
+          "sha1": "9891e14d84221c1d6f2d15a29813eb41024290ca",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "p2a-2_7a.7a",
+          "status": "good"
+        },
+        {
+          "name": "p2l-1_11d.11d",
+          "size": "2048",
+          "crc": "b25160cd",
+          "sha1": "3d768552960a3a660891dcb85da6a5c382b33991",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "p2l-1_11d.11d",
+          "status": "good"
+        },
+        {
+          "name": "hrl14h-1.h14",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "0",
+          "merge": "hrl14h-1.h14",
+          "status": "good"
+        },
+        {
+          "name": "p2l5c-1.c5",
+          "size": "256",
+          "crc": "e1e867ae",
+          "sha1": "fe4cb560860579102aedad2c81fd7bed5825f484",
+          "region": "proms",
+          "offset": "20",
+          "merge": "p2l5c-1.c5",
+          "status": "good"
+        },
+        {
+          "name": "p2l6d-1.d6",
+          "size": "32",
+          "crc": "0da1bdf9",
+          "sha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3",
+          "region": "proms",
+          "offset": "120",
+          "merge": "p2l6d-1.d6",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset pepper27 [pepper2] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "hardhat",
+      "nasZipPresent": true,
+      "nasZipBytes": 19960,
+      "cloneof": "",
+      "description": "Hard Hat",
+      "romCount": 10,
+      "roms": [
+        {
+          "name": "hhl-2.11a",
+          "size": "4096",
+          "crc": "7623deea",
+          "sha1": "3c47c0439c80e66536af42c5ee4e522fea5f8374",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hhl-2.10a",
+          "size": "4096",
+          "crc": "e6bf2fb1",
+          "sha1": "ad41859129774fc51462726a825c0ae16ed81a6e",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hhl-2.9a",
+          "size": "4096",
+          "crc": "acc2bce5",
+          "sha1": "0f7b8cfbd2628b8587c423fbc2c8310d71d8ad2a",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hhl-2.8a",
+          "size": "4096",
+          "crc": "23c7a2f8",
+          "sha1": "5eb1d512d73ba6bd1c23501664b582e9d3cf777f",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hhl-2.7a",
+          "size": "4096",
+          "crc": "6f7ce1c2",
+          "sha1": "356dcea22e50c95a8552566a0fb5f9b4e3e5de2a",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hhl-2.6a",
+          "size": "4096",
+          "crc": "2a20cf10",
+          "sha1": "31eb4556647e78e3d9be1c30d970eac8aaa5cf18",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hha-1.5a",
+          "size": "2048",
+          "crc": "16a5a183",
+          "sha1": "cf3fed55db9c61fd33c222275d472fa109bed081",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hha-1.6a",
+          "size": "2048",
+          "crc": "bde64021",
+          "sha1": "a403590d5a27b859eaa299e47df4ebd6ce4a5772",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hha-1.7a",
+          "size": "2048",
+          "crc": "505ee5d3",
+          "sha1": "efa228465688f2bb30f00dc1511cc5f3a287356c",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "hhl-1.11d",
+          "size": "2048",
+          "crc": "dbcdf353",
+          "sha1": "76ea287326a5c9e75e407cc010414212d8fdd52a",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset hardhat is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "fax",
+      "nasZipPresent": true,
+      "nasZipBytes": 198471,
+      "cloneof": "",
+      "description": "FAX",
+      "romCount": 38,
+      "roms": [
+        {
+          "name": "fxl8-13a.32",
+          "size": "4096",
+          "crc": "8e30bf6b",
+          "sha1": "1fdf010da0258bc038554cf33c26e539a1f6b648",
+          "region": "maincpu",
+          "offset": "8000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-12a.32",
+          "size": "4096",
+          "crc": "60a41ff1",
+          "sha1": "1703dbedd09354d89c6014644d0ffe13ec657b8b",
+          "region": "maincpu",
+          "offset": "9000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-11a.32",
+          "size": "4096",
+          "crc": "2c9cee8a",
+          "sha1": "169045b4d840730cfbaa0b9a8a8d82907ea09d0c",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-10a.32",
+          "size": "4096",
+          "crc": "9b03938f",
+          "sha1": "af4c27b06a1f1be917316910b88d026b67cc60c0",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-9a.32",
+          "size": "4096",
+          "crc": "fb869f62",
+          "sha1": "cea6ff423c60662a1b36e9565940432707d5299b",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-8a.32",
+          "size": "4096",
+          "crc": "db3470bc",
+          "sha1": "7786f84ab41765ea91ab241d14a207044eda0e93",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-7a.32",
+          "size": "4096",
+          "crc": "1471fef5",
+          "sha1": "89308f3c2a0d7ea699e99622d37c5c95e3eaaf95",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-6a.32",
+          "size": "4096",
+          "crc": "812e39f3",
+          "sha1": "41c99f8483c69617f9c8dd82f979630ea9190454",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-1c.64",
+          "size": "8192",
+          "crc": "fd7e3137",
+          "sha1": "6fda53737cd7c886c66c60436ae3ed5c62e6b178",
+          "region": "maincpu",
+          "offset": "10000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-2c.64",
+          "size": "8192",
+          "crc": "e78cb16f",
+          "sha1": "d58dfa2385368ccf00ecfbaeccaf5ba82ef7da9b",
+          "region": "maincpu",
+          "offset": "12000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-3c.64",
+          "size": "8192",
+          "crc": "57a94c6f",
+          "sha1": "fc27fe805c4cc29f797bfc0e4cd13a570ac5c1ec",
+          "region": "maincpu",
+          "offset": "14000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-4c.64",
+          "size": "8192",
+          "crc": "9036c5a2",
+          "sha1": "b7a01e4002f615702cb691764cfae93707bf3c0f",
+          "region": "maincpu",
+          "offset": "16000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-5c.64",
+          "size": "8192",
+          "crc": "38c03405",
+          "sha1": "c490252825dc3c4bf91255c7cb70a5ead92de85b",
+          "region": "maincpu",
+          "offset": "18000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-6c.64",
+          "size": "8192",
+          "crc": "f48fc308",
+          "sha1": "bfaf43e57a4d92b593d51d8cd61fe4d5c06e836c",
+          "region": "maincpu",
+          "offset": "1a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-7c.64",
+          "size": "8192",
+          "crc": "cf93b924",
+          "sha1": "892e6e6aa33bbcd271f5e0a63c1e8393df62f360",
+          "region": "maincpu",
+          "offset": "1c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-8c.64",
+          "size": "8192",
+          "crc": "607b48da",
+          "sha1": "6c8f2f207f3dd936c529b86cef917a0f0699a21c",
+          "region": "maincpu",
+          "offset": "1e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-1b.64",
+          "size": "8192",
+          "crc": "62872d4f",
+          "sha1": "c020fdeae6c2e7d04c16048fdaa99ecf3e40af31",
+          "region": "maincpu",
+          "offset": "20000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-2b.64",
+          "size": "8192",
+          "crc": "625778d0",
+          "sha1": "6c8d6b50653bff3774f5ccef0e000a2ef3f7030c",
+          "region": "maincpu",
+          "offset": "22000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-3b.64",
+          "size": "8192",
+          "crc": "c3473dee",
+          "sha1": "8675f9b93bbbae4f5a5682c5b1623afeeacc0a4b",
+          "region": "maincpu",
+          "offset": "24000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-4b.64",
+          "size": "8192",
+          "crc": "e39a15f5",
+          "sha1": "43b04cc2e4750b649116ade5b1004c2580293134",
+          "region": "maincpu",
+          "offset": "26000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-5b.64",
+          "size": "8192",
+          "crc": "101a9d70",
+          "sha1": "2b839cd707e03b0e50037e1ffabcb8fe375dc4c0",
+          "region": "maincpu",
+          "offset": "28000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-6b.64",
+          "size": "8192",
+          "crc": "374a8f05",
+          "sha1": "ec41470932823242fff36ab6e6f158fa5c07d0a8",
+          "region": "maincpu",
+          "offset": "2a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-7b.64",
+          "size": "8192",
+          "crc": "f7e7f824",
+          "sha1": "1bed1ee07032b25675ace612a883cba4ab4b2f77",
+          "region": "maincpu",
+          "offset": "2c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-8b.64",
+          "size": "8192",
+          "crc": "8f1a5287",
+          "sha1": "a1102d49bacb25887eaa67ae64bcf64c8cad94fe",
+          "region": "maincpu",
+          "offset": "2e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-1a.64",
+          "size": "8192",
+          "crc": "fc5e6344",
+          "sha1": "c61aad5100819f2fe98c3a159b64739fa6322d09",
+          "region": "maincpu",
+          "offset": "30000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-2a.64",
+          "size": "8192",
+          "crc": "43cf60b3",
+          "sha1": "5169196d0a95450801b3a57703cb9f2861a25948",
+          "region": "maincpu",
+          "offset": "32000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-3a.64",
+          "size": "8192",
+          "crc": "6b7d29cb",
+          "sha1": "fd4006efd24b33f8e2baf7f97d4b776d5ef90959",
+          "region": "maincpu",
+          "offset": "34000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-4a.64",
+          "size": "8192",
+          "crc": "b9de3c2d",
+          "sha1": "229f9f0762d4d659acf516c2c1a42e70d2f98652",
+          "region": "maincpu",
+          "offset": "36000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-5a.64",
+          "size": "8192",
+          "crc": "67285bc6",
+          "sha1": "f929c916fb19dbc91fc3a75dfed6375b63cb2043",
+          "region": "maincpu",
+          "offset": "38000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxd-6a.64",
+          "size": "8192",
+          "crc": "ba67b7b2",
+          "sha1": "12265f678b1e4dfc3b36a964f78b0103112753ee",
+          "region": "maincpu",
+          "offset": "3a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxa2-5a.16",
+          "size": "2048",
+          "crc": "7c525aec",
+          "sha1": "f3afd3bfc0ba4265106e6ca217d113d23ad66016",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxa2-6a.16",
+          "size": "2048",
+          "crc": "2b3bfc44",
+          "sha1": "7e3b9133916c8121b2145942155601b3ade420da",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxa2-7a.16",
+          "size": "2048",
+          "crc": "578c62b7",
+          "sha1": "1bcb987e8730c001b7339c3dfab2467bf76421c7",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl1-11d.32",
+          "size": "2048",
+          "crc": "62083db2",
+          "sha1": "0c6e90b73419bff53f991e66d4faa9495c7d8e09",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl-6b",
+          "size": "256",
+          "crc": "e1e867ae",
+          "sha1": "fe4cb560860579102aedad2c81fd7bed5825f484",
+          "region": "proms",
+          "offset": "0",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl-8b",
+          "size": "32",
+          "crc": "0da1bdf9",
+          "sha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3",
+          "region": "proms",
+          "offset": "100",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl-11b",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "120",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxl-12b",
+          "size": "256",
+          "crc": "6b5aa3d7",
+          "sha1": "bfc4a6d01b977d55ad4dadc0123339343f1aa975",
+          "region": "proms",
+          "offset": "140",
+          "merge": "",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset fax is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    },
+    {
+      "set": "fax2",
+      "nasZipPresent": true,
+      "nasZipBytes": 187909,
+      "cloneof": "fax",
+      "description": "FAX 2",
+      "romCount": 40,
+      "roms": [
+        {
+          "name": "fxl8-13a.32",
+          "size": "4096",
+          "crc": "8e30bf6b",
+          "sha1": "1fdf010da0258bc038554cf33c26e539a1f6b648",
+          "region": "maincpu",
+          "offset": "8000",
+          "merge": "fxl8-13a.32",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-12a.32",
+          "size": "4096",
+          "crc": "60a41ff1",
+          "sha1": "1703dbedd09354d89c6014644d0ffe13ec657b8b",
+          "region": "maincpu",
+          "offset": "9000",
+          "merge": "fxl8-12a.32",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-11a.32",
+          "size": "4096",
+          "crc": "2c9cee8a",
+          "sha1": "169045b4d840730cfbaa0b9a8a8d82907ea09d0c",
+          "region": "maincpu",
+          "offset": "a000",
+          "merge": "fxl8-11a.32",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-10a.32",
+          "size": "4096",
+          "crc": "9b03938f",
+          "sha1": "af4c27b06a1f1be917316910b88d026b67cc60c0",
+          "region": "maincpu",
+          "offset": "b000",
+          "merge": "fxl8-10a.32",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-9a.32",
+          "size": "4096",
+          "crc": "fb869f62",
+          "sha1": "cea6ff423c60662a1b36e9565940432707d5299b",
+          "region": "maincpu",
+          "offset": "c000",
+          "merge": "fxl8-9a.32",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-8a.32",
+          "size": "4096",
+          "crc": "db3470bc",
+          "sha1": "7786f84ab41765ea91ab241d14a207044eda0e93",
+          "region": "maincpu",
+          "offset": "d000",
+          "merge": "fxl8-8a.32",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-7a.32",
+          "size": "4096",
+          "crc": "1471fef5",
+          "sha1": "89308f3c2a0d7ea699e99622d37c5c95e3eaaf95",
+          "region": "maincpu",
+          "offset": "e000",
+          "merge": "fxl8-7a.32",
+          "status": "good"
+        },
+        {
+          "name": "fxl8-6a.32",
+          "size": "4096",
+          "crc": "812e39f3",
+          "sha1": "41c99f8483c69617f9c8dd82f979630ea9190454",
+          "region": "maincpu",
+          "offset": "f000",
+          "merge": "fxl8-6a.32",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-1c.bin",
+          "size": "8192",
+          "crc": "0e42a2a4",
+          "sha1": "f7021aad36b49338cdaae8e13638dbdd12327afc",
+          "region": "maincpu",
+          "offset": "10000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-2c.bin",
+          "size": "8192",
+          "crc": "cef8d49a",
+          "sha1": "a3005ab21add22ffb4c6f4cb9843db8964fef49c",
+          "region": "maincpu",
+          "offset": "12000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-3c.bin",
+          "size": "8192",
+          "crc": "96217b39",
+          "sha1": "fe80255c8763e714fbbf8b2a7ec481712fd463e8",
+          "region": "maincpu",
+          "offset": "14000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-4c.bin",
+          "size": "8192",
+          "crc": "9f1522d8",
+          "sha1": "e79ef8f4642245f4d1c4d0fe14eb432a432e6f8a",
+          "region": "maincpu",
+          "offset": "16000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-5c.bin",
+          "size": "8192",
+          "crc": "4770eb04",
+          "sha1": "c8123ba4fd66da471099cd364615a196c4d1ea94",
+          "region": "maincpu",
+          "offset": "18000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-6c.bin",
+          "size": "8192",
+          "crc": "07c742ab",
+          "sha1": "c709be4a21cc946f2de9061948fe095ec511447e",
+          "region": "maincpu",
+          "offset": "1a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-7c.bin",
+          "size": "8192",
+          "crc": "f2f39ebb",
+          "sha1": "879f0954331d219d44e82d4cf13f84c1d03dd6d5",
+          "region": "maincpu",
+          "offset": "1c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-8c.bin",
+          "size": "8192",
+          "crc": "00f73e30",
+          "sha1": "586c28d1ea14626ccd0e9195f26f18168bd0cf72",
+          "region": "maincpu",
+          "offset": "1e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-1b.bin",
+          "size": "8192",
+          "crc": "e13341cf",
+          "sha1": "5cc2c9f060436026dbcbc6f893f8ef17f10b6c75",
+          "region": "maincpu",
+          "offset": "20000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-2b.bin",
+          "size": "8192",
+          "crc": "300d7a6f",
+          "sha1": "4e28a522e14e0cf1b63be35e2a16b816d51f328c",
+          "region": "maincpu",
+          "offset": "22000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-3b.bin",
+          "size": "8192",
+          "crc": "db9a6a3a",
+          "sha1": "d192f8ece73dfa12cd390c6e0218d5bf58c46074",
+          "region": "maincpu",
+          "offset": "24000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-4b.bin",
+          "size": "8192",
+          "crc": "47faeb43",
+          "sha1": "7991341d78b1d0c9e35c2472dbb05d21c001ba7f",
+          "region": "maincpu",
+          "offset": "26000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-5b.bin",
+          "size": "8192",
+          "crc": "3ecf974f",
+          "sha1": "d18b7bdbb5e490b0d4b70baae06cb44cf0f2b643",
+          "region": "maincpu",
+          "offset": "28000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-6b.bin",
+          "size": "8192",
+          "crc": "526c4c0d",
+          "sha1": "68480fb61d8e9e5386daeb94f5854913ab36b48d",
+          "region": "maincpu",
+          "offset": "2a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-7b.bin",
+          "size": "8192",
+          "crc": "4cf8217c",
+          "sha1": "fd7b9c34b0ae532209453d68f30f6f9fbcec1964",
+          "region": "maincpu",
+          "offset": "2c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-8b.bin",
+          "size": "8192",
+          "crc": "99485e27",
+          "sha1": "1f10e71507f111724a8b496f3cc57a6790116ac0",
+          "region": "maincpu",
+          "offset": "2e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-1a.bin",
+          "size": "8192",
+          "crc": "97c153b5",
+          "sha1": "0d5e66f0ded4453e1fe81cdcc56697664f76f28d",
+          "region": "maincpu",
+          "offset": "30000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-2a.bin",
+          "size": "8192",
+          "crc": "63258140",
+          "sha1": "cdb03f5130c72d286d1a2f227dcf646da6e8f40a",
+          "region": "maincpu",
+          "offset": "32000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-3a.bin",
+          "size": "8192",
+          "crc": "1c698727",
+          "sha1": "6886bbf04f837fbda9a192e55e995cac9c9e1cad",
+          "region": "maincpu",
+          "offset": "34000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-4a.bin",
+          "size": "8192",
+          "crc": "8283d6fc",
+          "sha1": "dba1f0f53a6b16f2ee7ce1e8e6e081a6be7586f6",
+          "region": "maincpu",
+          "offset": "36000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-5a.bin",
+          "size": "8192",
+          "crc": "b69542d2",
+          "sha1": "67a102790b24a5638c8938579ace0b3dd9b0c953",
+          "region": "maincpu",
+          "offset": "38000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-6a.bin",
+          "size": "8192",
+          "crc": "ff949367",
+          "sha1": "fb3d9c0abe3c915eaea983d9b429eb5227688532",
+          "region": "maincpu",
+          "offset": "3a000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-7a.bin",
+          "size": "8192",
+          "crc": "0f97b874",
+          "sha1": "5790d3ed9eed2ce05947bc28cc252f720a7f3aeb",
+          "region": "maincpu",
+          "offset": "3c000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxdb1-8a.bin",
+          "size": "8192",
+          "crc": "1d055bea",
+          "sha1": "96531db0a3a36319bc0a28096e601302eb2eb115",
+          "region": "maincpu",
+          "offset": "3e000",
+          "merge": "",
+          "status": "good"
+        },
+        {
+          "name": "fxa2-5a.16",
+          "size": "2048",
+          "crc": "7c525aec",
+          "sha1": "f3afd3bfc0ba4265106e6ca217d113d23ad66016",
+          "region": "soundbd:audiocpu",
+          "offset": "6800",
+          "merge": "fxa2-5a.16",
+          "status": "good"
+        },
+        {
+          "name": "fxa2-6a.16",
+          "size": "2048",
+          "crc": "2b3bfc44",
+          "sha1": "7e3b9133916c8121b2145942155601b3ade420da",
+          "region": "soundbd:audiocpu",
+          "offset": "7000",
+          "merge": "fxa2-6a.16",
+          "status": "good"
+        },
+        {
+          "name": "fxa2-7a.16",
+          "size": "2048",
+          "crc": "578c62b7",
+          "sha1": "1bcb987e8730c001b7339c3dfab2467bf76421c7",
+          "region": "soundbd:audiocpu",
+          "offset": "7800",
+          "merge": "fxa2-7a.16",
+          "status": "good"
+        },
+        {
+          "name": "fxl1-11d.32",
+          "size": "2048",
+          "crc": "62083db2",
+          "sha1": "0c6e90b73419bff53f991e66d4faa9495c7d8e09",
+          "region": "gfx1",
+          "offset": "0",
+          "merge": "fxl1-11d.32",
+          "status": "good"
+        },
+        {
+          "name": "fxl-6b",
+          "size": "256",
+          "crc": "e1e867ae",
+          "sha1": "fe4cb560860579102aedad2c81fd7bed5825f484",
+          "region": "proms",
+          "offset": "0",
+          "merge": "fxl-6b",
+          "status": "good"
+        },
+        {
+          "name": "fxl-8b",
+          "size": "32",
+          "crc": "0da1bdf9",
+          "sha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3",
+          "region": "proms",
+          "offset": "100",
+          "merge": "fxl-8b",
+          "status": "good"
+        },
+        {
+          "name": "fxl-11b",
+          "size": "32",
+          "crc": "f76b4fcf",
+          "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "region": "proms",
+          "offset": "120",
+          "merge": "fxl-11b",
+          "status": "good"
+        },
+        {
+          "name": "fxl-12b",
+          "size": "256",
+          "crc": "6b5aa3d7",
+          "sha1": "bfc4a6d01b977d55ad4dadc0123339343f1aa975",
+          "region": "proms",
+          "offset": "140",
+          "merge": "fxl-12b",
+          "status": "good"
+        }
+      ],
+      "sampleCount": 0,
+      "samples": [],
+      "verifyOutput": "romset fax2 [fax] is good\r\n1 romsets found, 1 were OK.",
+      "xmlParseError": null,
+      "verifyExitCode": null
+    }
+  ],
+  "verifyExitCodeNote": "Not captured by the original piped verification run; output-level status retained. No further verification rerun solely to collect exit codes."
+}

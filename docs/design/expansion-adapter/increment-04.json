@@ -1,0 +1,120 @@
+{
+  "schema": "exidy2-expansion-adapter-increment/v1",
+  "increment": 4,
+  "accepted": false,
+  "cases": [
+    {
+      "case": "begin-index",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/begin-index.log"
+    },
+    {
+      "case": "skid-arrival",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/skid-arrival.log"
+    },
+    {
+      "case": "stale-ack",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/stale-ack.log"
+    },
+    {
+      "case": "upper-index-rejection",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/upper-index-rejection.log"
+    },
+    {
+      "case": "blocked-skid-overflow",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/blocked-skid-overflow.log"
+    },
+    {
+      "case": "remote-stale-high",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/remote-stale-high.log"
+    },
+    {
+      "case": "remote-outstanding-drain",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/remote-outstanding-drain.log"
+    },
+    {
+      "case": "abort-restart-pending-generation",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/abort-restart-pending-generation.log"
+    },
+    {
+      "case": "shared-reset-stopped-clock",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/shared-reset-stopped-clock.log"
+    },
+    {
+      "case": "upper-address-fault-session",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/upper-address-fault-session.log"
+    },
+    {
+      "case": "read-drain-latency1",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/read-drain-latency1.log"
+    },
+    {
+      "case": "read-drain-latency4",
+      "exitCode": 0,
+      "expectedFailure": false,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/read-drain-latency4.log"
+    },
+    {
+      "case": "negative-level-only-ack",
+      "exitCode": 1,
+      "expectedFailure": true,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment04/negative-level-only-ack.log"
+    }
+  ],
+  "sha256": {
+    "sys/hps_io.sv": "a5747b92d6ca1330730c045e4e8506b2ffc8567347f48e2b4483b4822ac09128",
+    "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+    "sim/expansion_adapter/exidy_transport_adapter.sv": "1d74e18a7a097ef613018145dba6f9eb118fbfac78d62b7c4682e1c38b13a7a2",
+    "sim/expansion_adapter/tb_review.sv": "128353709c452770f3fee5216cdbb8161ffaa91db1ca4fb479fe98a2d3216299",
+    "sim/expansion_adapter/tb_quarantine.sv": "6c747b739b83c9729164edea2a26f3a7049473ba3a19edf569a0859aa4ec0017"
+  },
+  "resolved": [
+    "Fresh generation acknowledgement gates speech writes; start asserts wait immediately.",
+    "Unacknowledged generations are reused rather than toggled back after an aborted transfer.",
+    "Remote revocation blocks reads and drains the configured read pipe before echoing the generation.",
+    "Two complete 16KiB streams preserve exact data/address order under slow and stopped remote clocks.",
+    "Shared reset clears pending bytes with the remote clock stopped; abort/restart cannot cancel revocation.",
+    "Faulted sessions discard pending bytes, suppress later writes/restarts, and retain quarantine until reset.",
+    "Upper address rejection and read-drain latencies 1, 2 and 4 pass."
+  ],
+  "remaining": [
+    "Independent remote reset ownership/CDC timing remains a physical integration gate.",
+    "Actual HPS SPI/ACK model and connected baseline loader; upper address, descriptor/order/length/FAX2 matrix.",
+    "Physical CDC constraints/shared reset ownership, memory fit/timing and full-flow Quartus build.",
+    "FAX extra PROM routing and banks24..31 parity."
+  ]
+}

@@ -1,0 +1,4214 @@
+{
+  "schema": 1,
+  "loaderModel": "rtl/rom_loader.sv selector plus physical address truncation",
+  "archiveMemberChecks": [
+    {
+      "set": "hardhat",
+      "name": "hhl-2.11a",
+      "member": "hhl-2.11a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "7623deea",
+        "sha1": "3c47c0439c80e66536af42c5ee4e522fea5f8374"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "7623deea",
+        "sha1": "3c47c0439c80e66536af42c5ee4e522fea5f8374"
+      }
+    },
+    {
+      "set": "hardhat",
+      "name": "hhl-2.10a",
+      "member": "hhl-2.10a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "e6bf2fb1",
+        "sha1": "ad41859129774fc51462726a825c0ae16ed81a6e"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "e6bf2fb1",
+        "sha1": "ad41859129774fc51462726a825c0ae16ed81a6e"
+      }
+    },
+    {
+      "set": "hardhat",
+      "name": "hhl-2.9a",
+      "member": "hhl-2.9a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "acc2bce5",
+        "sha1": "0f7b8cfbd2628b8587c423fbc2c8310d71d8ad2a"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "acc2bce5",
+        "sha1": "0f7b8cfbd2628b8587c423fbc2c8310d71d8ad2a"
+      }
+    },
+    {
+      "set": "hardhat",
+      "name": "hhl-2.8a",
+      "member": "hhl-2.8a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "23c7a2f8",
+        "sha1": "5eb1d512d73ba6bd1c23501664b582e9d3cf777f"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "23c7a2f8",
+        "sha1": "5eb1d512d73ba6bd1c23501664b582e9d3cf777f"
+      }
+    },
+    {
+      "set": "hardhat",
+      "name": "hhl-2.7a",
+      "member": "hhl-2.7a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "6f7ce1c2",
+        "sha1": "356dcea22e50c95a8552566a0fb5f9b4e3e5de2a"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "6f7ce1c2",
+        "sha1": "356dcea22e50c95a8552566a0fb5f9b4e3e5de2a"
+      }
+    },
+    {
+      "set": "hardhat",
+      "name": "hhl-2.6a",
+      "member": "hhl-2.6a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "2a20cf10",
+        "sha1": "31eb4556647e78e3d9be1c30d970eac8aaa5cf18"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "2a20cf10",
+        "sha1": "31eb4556647e78e3d9be1c30d970eac8aaa5cf18"
+      }
+    },
+    {
+      "set": "hardhat",
+      "name": "hha-1.5a",
+      "member": "hha-1.5a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "16a5a183",
+        "sha1": "cf3fed55db9c61fd33c222275d472fa109bed081"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "16a5a183",
+        "sha1": "cf3fed55db9c61fd33c222275d472fa109bed081"
+      }
+    },
+    {
+      "set": "hardhat",
+      "name": "hha-1.6a",
+      "member": "hha-1.6a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "bde64021",
+        "sha1": "a403590d5a27b859eaa299e47df4ebd6ce4a5772"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "bde64021",
+        "sha1": "a403590d5a27b859eaa299e47df4ebd6ce4a5772"
+      }
+    },
+    {
+      "set": "hardhat",
+      "name": "hha-1.7a",
+      "member": "hha-1.7a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "505ee5d3",
+        "sha1": "efa228465688f2bb30f00dc1511cc5f3a287356c"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "505ee5d3",
+        "sha1": "efa228465688f2bb30f00dc1511cc5f3a287356c"
+      }
+    },
+    {
+      "set": "hardhat",
+      "name": "hhl-1.11d",
+      "member": "hhl-1.11d",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "dbcdf353",
+        "sha1": "76ea287326a5c9e75e407cc010414212d8fdd52a"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "dbcdf353",
+        "sha1": "76ea287326a5c9e75e407cc010414212d8fdd52a"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mtl-5_11a.11a",
+      "member": "mtl-5_11a.11a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "bd6c3eb5",
+        "sha1": "248956374222a09caa5b8c8fa842e9286d8e1c5d"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "bd6c3eb5",
+        "sha1": "248956374222a09caa5b8c8fa842e9286d8e1c5d"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mtl-5_10a.10a",
+      "member": "mtl-5_10a.10a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "75b0593e",
+        "sha1": "48ce5382905f7c52929a95267d65fd0d3f0dcc92"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "75b0593e",
+        "sha1": "48ce5382905f7c52929a95267d65fd0d3f0dcc92"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mtl-5_9a.9a",
+      "member": "mtl-5_9a.9a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "28dd20ff",
+        "sha1": "8ac44ec27ac25209c8b49da4c6b423917ed8907e"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "28dd20ff",
+        "sha1": "8ac44ec27ac25209c8b49da4c6b423917ed8907e"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mtl-5_8a.8a",
+      "member": "mtl-5_8a.8a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "cc09f7a4",
+        "sha1": "e806dc0e10b909b61e347f3e28eb024f3b3a9702"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "cc09f7a4",
+        "sha1": "e806dc0e10b909b61e347f3e28eb024f3b3a9702"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mtl-5_7a.7a",
+      "member": "mtl-5_7a.7a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "caafbb6d",
+        "sha1": "96823ac4e49f192121c53f70382a20f7c52e290b"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "caafbb6d",
+        "sha1": "96823ac4e49f192121c53f70382a20f7c52e290b"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mtl-5_6a.6a",
+      "member": "mtl-5_6a.6a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "d85e52ca",
+        "sha1": "51296247e365a468fe9458b722bbdbbeeed59fa0"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "d85e52ca",
+        "sha1": "51296247e365a468fe9458b722bbdbbeeed59fa0"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mta_5a.5a",
+      "member": "mta_5a.5a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "dbe4ec02",
+        "sha1": "34e965428dbb4b9c558927bb80d19cb550b53228"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "dbe4ec02",
+        "sha1": "34e965428dbb4b9c558927bb80d19cb550b53228"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mta_6a.6a",
+      "member": "mta_6a.6a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "c00f0c05",
+        "sha1": "398b0bc2a7e54b1e2326ed067bf6bb15cc52ed39"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "c00f0c05",
+        "sha1": "398b0bc2a7e54b1e2326ed067bf6bb15cc52ed39"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mta_7a.7a",
+      "member": "mta_7a.7a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "f3f16ca7",
+        "sha1": "3928c5da246c43036a7b4cbb140a1734d5f1fb03"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "f3f16ca7",
+        "sha1": "3928c5da246c43036a7b4cbb140a1734d5f1fb03"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mta_2a.2a",
+      "member": "mta_2a.2a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "13db8ed3",
+        "sha1": "939352323bdcd7df25db5eb2e30f269bcaebe6af"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "13db8ed3",
+        "sha1": "939352323bdcd7df25db5eb2e30f269bcaebe6af"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mta_3a.3a",
+      "member": "mta_3a.3a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "31bdfe5c",
+        "sha1": "b10bfe9e56dd617c5b4cd8b5bfec9c7f537b1086"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "31bdfe5c",
+        "sha1": "b10bfe9e56dd617c5b4cd8b5bfec9c7f537b1086"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mta_4a.4a",
+      "member": "mta_4a.4a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "1502d0e8",
+        "sha1": "8ef51ad4601299016f1821a5c65bec0199dd5474"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "1502d0e8",
+        "sha1": "8ef51ad4601299016f1821a5c65bec0199dd5474"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mta_1a.1a",
+      "member": "mta_1a.1a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "658482a6",
+        "sha1": "c0d770fbeaa7cb3e0eef47d8caa0f8a78841692e"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "658482a6",
+        "sha1": "c0d770fbeaa7cb3e0eef47d8caa0f8a78841692e"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "mtl_11d.11d",
+      "member": "mtl_11d.11d",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "c6e4d339",
+        "sha1": "b091923e4d52e93d7c567afba217a10b2a3735fc"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "c6e4d339",
+        "sha1": "b091923e4d52e93d7c567afba217a10b2a3735fc"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "hrl14h.h14",
+      "member": "hrl14h.h14",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "f76b4fcf",
+        "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "f76b4fcf",
+        "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "vel5c-11.c5",
+      "member": "vel5c-11.c5",
+      "status": "match",
+      "expected": {
+        "size": 256,
+        "crc": "43b35bb7",
+        "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667"
+      },
+      "actual": {
+        "size": 256,
+        "crc": "43b35bb7",
+        "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667"
+      }
+    },
+    {
+      "set": "mtrap",
+      "name": "hrl6d.d6",
+      "member": "hrl6d.d6",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "e26f9053",
+        "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "e26f9053",
+        "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2l-8_12a.12a",
+      "member": "p2l-8_12a.12a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "33db4737",
+        "sha1": "d8f7a5d340ddbc4d06d403c3bff0102ce637d24e"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "33db4737",
+        "sha1": "d8f7a5d340ddbc4d06d403c3bff0102ce637d24e"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2l-8_11a.11a",
+      "member": "p2l-8_11a.11a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "a1f43b1f",
+        "sha1": "a669f2ef55d9a0617110f65863822fdcaf153511"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "a1f43b1f",
+        "sha1": "a669f2ef55d9a0617110f65863822fdcaf153511"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2l-8_10a.10a",
+      "member": "p2l-8_10a.10a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "4d7d7786",
+        "sha1": "ea1390b887404a67ea556720219e81007b954a7d"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "4d7d7786",
+        "sha1": "ea1390b887404a67ea556720219e81007b954a7d"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2l-8_9a.9a",
+      "member": "p2l-8_9a.9a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "b3362298",
+        "sha1": "7adad138ec5f94caa39f9c0fabece538d5db4913"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "b3362298",
+        "sha1": "7adad138ec5f94caa39f9c0fabece538d5db4913"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2l-8_8a.8a",
+      "member": "p2l-8_8a.8a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "64d106ed",
+        "sha1": "49646a97def9e1793cac6ee0044f68232b294e4f"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "64d106ed",
+        "sha1": "49646a97def9e1793cac6ee0044f68232b294e4f"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2l-8_7a.7a",
+      "member": "p2l-8_7a.7a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "b1c6f07c",
+        "sha1": "53d07211d014336bb43671c51f4190c6515e9cde"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "b1c6f07c",
+        "sha1": "53d07211d014336bb43671c51f4190c6515e9cde"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2l-8_6a.6a",
+      "member": "p2l-8_6a.6a",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "515b1046",
+        "sha1": "bdcccd4e415c00ee8e5ec185597df75ecafe7d3d"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "515b1046",
+        "sha1": "bdcccd4e415c00ee8e5ec185597df75ecafe7d3d"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2a-2_5a.5a",
+      "member": "p2a-2_5a.5a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "90e3c781",
+        "sha1": "d51a9e011167a132e8af9f4b1201600a58e86b62"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "90e3c781",
+        "sha1": "d51a9e011167a132e8af9f4b1201600a58e86b62"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2a-2_6a.6a",
+      "member": "p2a-2_6a.6a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "dd343e34",
+        "sha1": "4ec55bb73d6afbd167fa91d2606d1d55a15b5c39"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "dd343e34",
+        "sha1": "4ec55bb73d6afbd167fa91d2606d1d55a15b5c39"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2a-2_7a.7a",
+      "member": "p2a-2_7a.7a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "e02b4356",
+        "sha1": "9891e14d84221c1d6f2d15a29813eb41024290ca"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "e02b4356",
+        "sha1": "9891e14d84221c1d6f2d15a29813eb41024290ca"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2l-1_11d.11d",
+      "member": "p2l-1_11d.11d",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "b25160cd",
+        "sha1": "3d768552960a3a660891dcb85da6a5c382b33991"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "b25160cd",
+        "sha1": "3d768552960a3a660891dcb85da6a5c382b33991"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "hrl14h-1.h14",
+      "member": "hrl14h-1.h14",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "f76b4fcf",
+        "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "f76b4fcf",
+        "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2l5c-1.c5",
+      "member": "p2l5c-1.c5",
+      "status": "match",
+      "expected": {
+        "size": 256,
+        "crc": "e1e867ae",
+        "sha1": "fe4cb560860579102aedad2c81fd7bed5825f484"
+      },
+      "actual": {
+        "size": 256,
+        "crc": "e1e867ae",
+        "sha1": "fe4cb560860579102aedad2c81fd7bed5825f484"
+      }
+    },
+    {
+      "set": "pepper2",
+      "name": "p2l6d-1.d6",
+      "member": "p2l6d-1.d6",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "0da1bdf9",
+        "sha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "0da1bdf9",
+        "sha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3"
+      }
+    },
+    {
+      "set": "spectar",
+      "name": "spl11a-3.11a",
+      "member": "spl11a-3.11a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "08880aff",
+        "sha1": "3becef348245ff4c8b0aae4a14751ab740b7d160"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "08880aff",
+        "sha1": "3becef348245ff4c8b0aae4a14751ab740b7d160"
+      }
+    },
+    {
+      "set": "spectar",
+      "name": "spl10a-2.10a",
+      "member": "spl10a-2.10a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "fca667c1",
+        "sha1": "168426f9e87c002d2673c0230fceac4d0831d594"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "fca667c1",
+        "sha1": "168426f9e87c002d2673c0230fceac4d0831d594"
+      }
+    },
+    {
+      "set": "spectar",
+      "name": "spl9a-3.9a",
+      "member": "spl9a-3.9a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "9d4ce8ba",
+        "sha1": "2ef45c225fe704e49d10247c3eba1ef14141b3b7"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "9d4ce8ba",
+        "sha1": "2ef45c225fe704e49d10247c3eba1ef14141b3b7"
+      }
+    },
+    {
+      "set": "spectar",
+      "name": "spl8a-2.8a",
+      "member": "spl8a-2.8a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "cfacbadf",
+        "sha1": "77b27cf6f35e8e8dd2fd4f31bba2a96f3076163e"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "cfacbadf",
+        "sha1": "77b27cf6f35e8e8dd2fd4f31bba2a96f3076163e"
+      }
+    },
+    {
+      "set": "spectar",
+      "name": "spl7a-2.7a",
+      "member": "spl7a-2.7a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "4c4741ff",
+        "sha1": "8de72613a385095253bb9e6da76493caec3115e4"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "4c4741ff",
+        "sha1": "8de72613a385095253bb9e6da76493caec3115e4"
+      }
+    },
+    {
+      "set": "spectar",
+      "name": "spl6a-2.6a",
+      "member": "spl6a-2.6a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "0cb46b25",
+        "sha1": "65c5d2cc8df67225339dc8781dd29d4b57ded70c"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "0cb46b25",
+        "sha1": "65c5d2cc8df67225339dc8781dd29d4b57ded70c"
+      }
+    },
+    {
+      "set": "spectar",
+      "name": "hrl11d-2.11d",
+      "member": "hrl11d-2.11d",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "c55b645d",
+        "sha1": "0c18277939d74e3e1281a7f114a34781d30c2baf"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "c55b645d",
+        "sha1": "0c18277939d74e3e1281a7f114a34781d30c2baf"
+      }
+    },
+    {
+      "set": "spectar",
+      "name": "spl5c-2.5c",
+      "member": "spl5c-2.5c",
+      "status": "match",
+      "expected": {
+        "size": 256,
+        "crc": "9ca2e061",
+        "sha1": "4111325b00a1017042d55c59308d41e8333ba627"
+      },
+      "actual": {
+        "size": 256,
+        "crc": "9ca2e061",
+        "sha1": "4111325b00a1017042d55c59308d41e8333ba627"
+      }
+    },
+    {
+      "set": "spectar",
+      "name": "hrl6d-1.6d",
+      "member": "prom.6d",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "e26f9053",
+        "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "e26f9053",
+        "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+      }
+    },
+    {
+      "set": "spectar",
+      "name": "hrl14h-1.14h",
+      "member": "hrl14h-1.14h",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "f76b4fcf",
+        "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "f76b4fcf",
+        "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+      }
+    },
+    {
+      "set": "targ",
+      "name": "hrl_10a1.10a",
+      "member": "hrl_10a1.10a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "969744e1",
+        "sha1": "e123bdb02b3b5f6a59c1e7c9ef557fe6bb19c62c"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "969744e1",
+        "sha1": "e123bdb02b3b5f6a59c1e7c9ef557fe6bb19c62c"
+      }
+    },
+    {
+      "set": "targ",
+      "name": "hrl_9a1.9a",
+      "member": "hrl_9a1.9a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "a177a72d",
+        "sha1": "0e705e3e32021e55af4414fa0e2ccbc4980ee848"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "a177a72d",
+        "sha1": "0e705e3e32021e55af4414fa0e2ccbc4980ee848"
+      }
+    },
+    {
+      "set": "targ",
+      "name": "hrl_8a1.8a",
+      "member": "hrl_8a1.8a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "6e6928a5",
+        "sha1": "10c725b27225ac5aad8639b081df68dd61522cf2"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "6e6928a5",
+        "sha1": "10c725b27225ac5aad8639b081df68dd61522cf2"
+      }
+    },
+    {
+      "set": "targ",
+      "name": "hrl_7a4.7a",
+      "member": "hrl_7a4.7a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "e2f37f93",
+        "sha1": "b66743c296d3d4caba3bcbe6aa68cd6edd414816"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "e2f37f93",
+        "sha1": "b66743c296d3d4caba3bcbe6aa68cd6edd414816"
+      }
+    },
+    {
+      "set": "targ",
+      "name": "hrl_6a3.6a",
+      "member": "hrl_6a3.6a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "a60a1bfc",
+        "sha1": "17c0e67e1a0b263b57d70a148cc5d5099fecbb40"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "a60a1bfc",
+        "sha1": "17c0e67e1a0b263b57d70a148cc5d5099fecbb40"
+      }
+    },
+    {
+      "set": "targ",
+      "name": "hrl_11d-1.11d",
+      "member": "hrl_11d-1.11d",
+      "status": "match",
+      "expected": {
+        "size": 1024,
+        "crc": "9f03513e",
+        "sha1": "aa4763e49df65e5686a96431543580b8d8285893"
+      },
+      "actual": {
+        "size": 1024,
+        "crc": "9f03513e",
+        "sha1": "aa4763e49df65e5686a96431543580b8d8285893"
+      }
+    },
+    {
+      "set": "targ",
+      "name": "hrl_5c-1.5c",
+      "member": "hrl_5c-1.5c",
+      "status": "match",
+      "expected": {
+        "size": 256,
+        "crc": "a24290d0",
+        "sha1": "5f2888d168de874021b51c5d19a62fb8165e4454"
+      },
+      "actual": {
+        "size": 256,
+        "crc": "a24290d0",
+        "sha1": "5f2888d168de874021b51c5d19a62fb8165e4454"
+      }
+    },
+    {
+      "set": "targ",
+      "name": "stl_6d-1.6d",
+      "member": "stl_6d-1.6d",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "e26f9053",
+        "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "e26f9053",
+        "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+      }
+    },
+    {
+      "set": "targ",
+      "name": "hrl_14h-1.14h",
+      "member": "hrl_14h-1.14h",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "f76b4fcf",
+        "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "f76b4fcf",
+        "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+      }
+    },
+    {
+      "set": "targ",
+      "name": "hra2b-1",
+      "member": "hra2b-1",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "38e8024b",
+        "sha1": "adf1c1770695f7614c95eceb803f662c5b096a76"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "38e8024b",
+        "sha1": "adf1c1770695f7614c95eceb803f662c5b096a76"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "13a-cpu",
+      "member": "13a-cpu",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "f4e4d991",
+        "sha1": "6683c1552b56b20f2296e461aff697af73563792"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "f4e4d991",
+        "sha1": "6683c1552b56b20f2296e461aff697af73563792"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "12a-cpu",
+      "member": "12a-cpu",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "c6d8cb04",
+        "sha1": "3b9ae8fdc35117c73c91daed66e93e5344bdcd7e"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "c6d8cb04",
+        "sha1": "3b9ae8fdc35117c73c91daed66e93e5344bdcd7e"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "11a-cpu",
+      "member": "11a-cpu",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "3bdb01f4",
+        "sha1": "3c1f43a3c37a21524b64d69e4dae58af8c2e0d90"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "3bdb01f4",
+        "sha1": "3c1f43a3c37a21524b64d69e4dae58af8c2e0d90"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "10a-cpu",
+      "member": "10a-cpu",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "0da769e9",
+        "sha1": "3604dc08c63461b2ea957a396887fb32e4a1a970"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "0da769e9",
+        "sha1": "3604dc08c63461b2ea957a396887fb32e4a1a970"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "9a-cpu",
+      "member": "9a-cpu",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "0ae05855",
+        "sha1": "29b3c2ca9740aa753e90131e6edcc61f414277e1"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "0ae05855",
+        "sha1": "29b3c2ca9740aa753e90131e6edcc61f414277e1"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "8a-cpu",
+      "member": "8a-cpu",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "4ae59676",
+        "sha1": "36fc9dce9dd0c764a861634859ca0d7f98e20382"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "4ae59676",
+        "sha1": "36fc9dce9dd0c764a861634859ca0d7f98e20382"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "7a-cpu",
+      "member": "7a-cpu",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "48d66220",
+        "sha1": "97b1605170c67b3a945b4d5f088df79328e163ce"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "48d66220",
+        "sha1": "97b1605170c67b3a945b4d5f088df79328e163ce"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "6a-cpu",
+      "member": "6a-cpu",
+      "status": "match",
+      "expected": {
+        "size": 4096,
+        "crc": "7b78cf49",
+        "sha1": "1d484172465d3db6c4fc3733aa2b409e3a2e228f"
+      },
+      "actual": {
+        "size": 4096,
+        "crc": "7b78cf49",
+        "sha1": "1d484172465d3db6c4fc3733aa2b409e3a2e228f"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "vea_3a-3.3a",
+      "member": "vea_3a-3.3a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "4ea1c3d9",
+        "sha1": "d0c99c9d5b887d717c68e8745906ae4e65aec6ad"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "4ea1c3d9",
+        "sha1": "d0c99c9d5b887d717c68e8745906ae4e65aec6ad"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "vea_4a-3.4a",
+      "member": "vea_4a-3.4a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "5154c39e",
+        "sha1": "e6f011630eb1aa4116a0e5824ad6b65c1be2455f"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "5154c39e",
+        "sha1": "e6f011630eb1aa4116a0e5824ad6b65c1be2455f"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "vea_5a-3.5a",
+      "member": "vea_5a-3.5a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "1e1e3916",
+        "sha1": "867e586583e07cd01e0e852f6ea52a040995725d"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "1e1e3916",
+        "sha1": "867e586583e07cd01e0e852f6ea52a040995725d"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "vea_6a-3.6a",
+      "member": "vea_6a-3.6a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "80f3357a",
+        "sha1": "f1ee638251e8676a526e6367c11866b1d52f5910"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "80f3357a",
+        "sha1": "f1ee638251e8676a526e6367c11866b1d52f5910"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "vea_7a-3.7a",
+      "member": "vea_7a-3.7a",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "466addc7",
+        "sha1": "0230b5365d6aeee3ca47666a9eadee4141de125b"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "466addc7",
+        "sha1": "0230b5365d6aeee3ca47666a9eadee4141de125b"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "vel_11d-2.11d",
+      "member": "vel_11d-2.11d",
+      "status": "match",
+      "expected": {
+        "size": 2048,
+        "crc": "ea6fd981",
+        "sha1": "46b1658e1607423d5a073f14097c2a48d59057c0"
+      },
+      "actual": {
+        "size": 2048,
+        "crc": "ea6fd981",
+        "sha1": "46b1658e1607423d5a073f14097c2a48d59057c0"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "hrl14h-1.h14",
+      "member": "hrl14h-1.h14",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "f76b4fcf",
+        "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "f76b4fcf",
+        "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "vel5c-1.c5",
+      "member": "vel5c-1.c5",
+      "status": "match",
+      "expected": {
+        "size": 256,
+        "crc": "43b35bb7",
+        "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667"
+      },
+      "actual": {
+        "size": 256,
+        "crc": "43b35bb7",
+        "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667"
+      }
+    },
+    {
+      "set": "venture",
+      "name": "hrl6d-1.d6",
+      "member": "hrl6d-1.d6",
+      "status": "match",
+      "expected": {
+        "size": 32,
+        "crc": "e26f9053",
+        "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+      },
+      "actual": {
+        "size": 32,
+        "crc": "e26f9053",
+        "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+      }
+    }
+  ],
+  "audits": [
+    {
+      "mra": "releases\\TARG.mra",
+      "set": "targ",
+      "streamBytes": 84320,
+      "streamSha1": "677b119b05d1b38a0bfe8aaf029f87b52fbd321f",
+      "parts": 15,
+      "romParts": 12,
+      "archiveFiles": [
+        "targ.zip"
+      ],
+      "bytesPerLoaderBank": {
+        "eprom_0/maincpu": 65536,
+        "eprom_6/audio": 16384,
+        "eprom_1/gfx": 2048,
+        "eprom_2/decoder": 256,
+        "eprom_3/vram_ctrl": 32,
+        "eprom_4/sprite_ctrl": 32,
+        "eprom_5/tone": 32
+      },
+      "physicalRegions": [
+        {
+          "bank": "eprom_0/maincpu",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 65536,
+          "overwrites": 0,
+          "rawWrittenSha1": "ae12c40884118ba960d6f84cd48c0a87288993b8",
+          "effectiveStoredSha1": "ae12c40884118ba960d6f84cd48c0a87288993b8",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 65536,
+              "sha1": "ae12c40884118ba960d6f84cd48c0a87288993b8"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_1/gfx",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 2048,
+          "overwrites": 0,
+          "rawWrittenSha1": "5cd327500e74eca378ad5d0924949f96dd955cf8",
+          "effectiveStoredSha1": "5cd327500e74eca378ad5d0924949f96dd955cf8",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 2048,
+              "sha1": "5cd327500e74eca378ad5d0924949f96dd955cf8"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_2/decoder",
+          "effectiveDataBits": 4,
+          "uniqueBytes": 256,
+          "overwrites": 0,
+          "rawWrittenSha1": "5f2888d168de874021b51c5d19a62fb8165e4454",
+          "effectiveStoredSha1": "5f2888d168de874021b51c5d19a62fb8165e4454",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 256,
+              "sha1": "5f2888d168de874021b51c5d19a62fb8165e4454"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_3/vram_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "effectiveStoredSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_4/sprite_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "effectiveStoredSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_5/tone",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "adf1c1770695f7614c95eceb803f662c5b096a76",
+          "effectiveStoredSha1": "adf1c1770695f7614c95eceb803f662c5b096a76",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "adf1c1770695f7614c95eceb803f662c5b096a76"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_6/audio",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 16384,
+          "overwrites": 0,
+          "rawWrittenSha1": "897256b6709e1a4da9daba92b6bde39ccfccd8c1",
+          "effectiveStoredSha1": "897256b6709e1a4da9daba92b6bde39ccfccd8c1",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 16384,
+              "sha1": "897256b6709e1a4da9daba92b6bde39ccfccd8c1"
+            }
+          ]
+        }
+      ],
+      "romPlacements": [
+        {
+          "part": 1,
+          "mraName": "hrl10a-1",
+          "crc": "969744e1",
+          "size": 2048,
+          "streamOffset": 6144,
+          "mameRegion": "maincpu",
+          "mameOffset": 6144,
+          "mameName": "hrl_10a1.10a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 6144,
+              "streamEnd": 8192,
+              "physicalStart": 6144,
+              "physicalEnd": 8192
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 6144,
+            "busBits": 8,
+            "rawSourceSha1": "e123bdb02b3b5f6a59c1e7c9ef557fe6bb19c62c",
+            "effectiveSourceSha1": "e123bdb02b3b5f6a59c1e7c9ef557fe6bb19c62c",
+            "effectiveLoadedSha1": "e123bdb02b3b5f6a59c1e7c9ef557fe6bb19c62c",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 2,
+          "mraName": "hrl9a-1",
+          "crc": "a177a72d",
+          "size": 2048,
+          "streamOffset": 8192,
+          "mameRegion": "maincpu",
+          "mameOffset": 8192,
+          "mameName": "hrl_9a1.9a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 8192,
+              "streamEnd": 10240,
+              "physicalStart": 8192,
+              "physicalEnd": 10240
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 8192,
+            "busBits": 8,
+            "rawSourceSha1": "0e705e3e32021e55af4414fa0e2ccbc4980ee848",
+            "effectiveSourceSha1": "0e705e3e32021e55af4414fa0e2ccbc4980ee848",
+            "effectiveLoadedSha1": "0e705e3e32021e55af4414fa0e2ccbc4980ee848",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 3,
+          "mraName": "hrl8a-1",
+          "crc": "6e6928a5",
+          "size": 2048,
+          "streamOffset": 10240,
+          "mameRegion": "maincpu",
+          "mameOffset": 10240,
+          "mameName": "hrl_8a1.8a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 10240,
+              "streamEnd": 12288,
+              "physicalStart": 10240,
+              "physicalEnd": 12288
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 10240,
+            "busBits": 8,
+            "rawSourceSha1": "10c725b27225ac5aad8639b081df68dd61522cf2",
+            "effectiveSourceSha1": "10c725b27225ac5aad8639b081df68dd61522cf2",
+            "effectiveLoadedSha1": "10c725b27225ac5aad8639b081df68dd61522cf2",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 4,
+          "mraName": "hrl7a-1",
+          "crc": "e2f37f93",
+          "size": 2048,
+          "streamOffset": 12288,
+          "mameRegion": "maincpu",
+          "mameOffset": 12288,
+          "mameName": "hrl_7a4.7a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 12288,
+              "streamEnd": 14336,
+              "physicalStart": 12288,
+              "physicalEnd": 14336
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 12288,
+            "busBits": 8,
+            "rawSourceSha1": "b66743c296d3d4caba3bcbe6aa68cd6edd414816",
+            "effectiveSourceSha1": "b66743c296d3d4caba3bcbe6aa68cd6edd414816",
+            "effectiveLoadedSha1": "b66743c296d3d4caba3bcbe6aa68cd6edd414816",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 5,
+          "mraName": "hrl6a-1",
+          "crc": "a60a1bfc",
+          "size": 2048,
+          "streamOffset": 14336,
+          "mameRegion": "maincpu",
+          "mameOffset": 14336,
+          "mameName": "hrl_6a3.6a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 14336,
+              "streamEnd": 16384,
+              "physicalStart": 14336,
+              "physicalEnd": 16384
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 14336,
+            "busBits": 8,
+            "rawSourceSha1": "17c0e67e1a0b263b57d70a148cc5d5099fecbb40",
+            "effectiveSourceSha1": "17c0e67e1a0b263b57d70a148cc5d5099fecbb40",
+            "effectiveLoadedSha1": "17c0e67e1a0b263b57d70a148cc5d5099fecbb40",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 7,
+          "mraName": "hrl6a-1",
+          "crc": "a60a1bfc",
+          "size": 2048,
+          "streamOffset": 63488,
+          "mameRegion": "maincpu",
+          "mameOffset": 14336,
+          "mameName": "hrl_6a3.6a",
+          "physicalVsMameOffset": 49152,
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 63488,
+              "streamEnd": 65536,
+              "physicalStart": 63488,
+              "physicalEnd": 65536
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 63488,
+            "busBits": 8,
+            "rawSourceSha1": "17c0e67e1a0b263b57d70a148cc5d5099fecbb40",
+            "effectiveSourceSha1": "17c0e67e1a0b263b57d70a148cc5d5099fecbb40",
+            "effectiveLoadedSha1": "17c0e67e1a0b263b57d70a148cc5d5099fecbb40",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 9,
+          "mraName": "hrl11d-1",
+          "crc": "9f03513e",
+          "size": 1024,
+          "streamOffset": 81920,
+          "mameRegion": "gfx1",
+          "mameOffset": 0,
+          "mameName": "hrl_11d-1.11d",
+          "loaderSegments": [
+            {
+              "bank": "eprom_1/gfx",
+              "streamStart": 81920,
+              "streamEnd": 82944,
+              "physicalStart": 0,
+              "physicalEnd": 1024
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "aa4763e49df65e5686a96431543580b8d8285893",
+            "effectiveSourceSha1": "aa4763e49df65e5686a96431543580b8d8285893",
+            "effectiveLoadedSha1": "aa4763e49df65e5686a96431543580b8d8285893",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 10,
+          "mraName": "hrl11d-1",
+          "crc": "9f03513e",
+          "size": 1024,
+          "streamOffset": 82944,
+          "mameRegion": "gfx1",
+          "mameOffset": 0,
+          "mameName": "hrl_11d-1.11d",
+          "physicalVsMameOffset": 1024,
+          "loaderSegments": [
+            {
+              "bank": "eprom_1/gfx",
+              "streamStart": 82944,
+              "streamEnd": 83968,
+              "physicalStart": 1024,
+              "physicalEnd": 2048
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 1024,
+            "busBits": 8,
+            "rawSourceSha1": "aa4763e49df65e5686a96431543580b8d8285893",
+            "effectiveSourceSha1": "aa4763e49df65e5686a96431543580b8d8285893",
+            "effectiveLoadedSha1": "aa4763e49df65e5686a96431543580b8d8285893",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 11,
+          "mraName": "hrl5c-1",
+          "crc": "a24290d0",
+          "size": 256,
+          "streamOffset": 83968,
+          "mameRegion": "proms",
+          "mameOffset": 0,
+          "mameName": "hrl_5c-1.5c",
+          "loaderSegments": [
+            {
+              "bank": "eprom_2/decoder",
+              "streamStart": 83968,
+              "streamEnd": 84224,
+              "physicalStart": 0,
+              "physicalEnd": 256
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 4,
+            "rawSourceSha1": "5f2888d168de874021b51c5d19a62fb8165e4454",
+            "effectiveSourceSha1": "5f2888d168de874021b51c5d19a62fb8165e4454",
+            "effectiveLoadedSha1": "5f2888d168de874021b51c5d19a62fb8165e4454",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 12,
+          "mraName": "stl6d-1",
+          "crc": "e26f9053",
+          "size": 32,
+          "streamOffset": 84224,
+          "mameRegion": "proms",
+          "mameOffset": 256,
+          "mameName": "stl_6d-1.6d",
+          "physicalVsMameOffset": -256,
+          "loaderSegments": [
+            {
+              "bank": "eprom_3/vram_ctrl",
+              "streamStart": 84224,
+              "streamEnd": 84256,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "effectiveSourceSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "effectiveLoadedSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 13,
+          "mraName": "hrl14h-1",
+          "crc": "f76b4fcf",
+          "size": 32,
+          "streamOffset": 84256,
+          "mameRegion": "proms",
+          "mameOffset": 288,
+          "mameName": "hrl_14h-1.14h",
+          "physicalVsMameOffset": -288,
+          "loaderSegments": [
+            {
+              "bank": "eprom_4/sprite_ctrl",
+              "streamStart": 84256,
+              "streamEnd": 84288,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveLoadedSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 14,
+          "mraName": "hra2b-1",
+          "crc": "38e8024b",
+          "size": 32,
+          "streamOffset": 84288,
+          "mameRegion": "targ",
+          "mameOffset": 0,
+          "mameName": "hra2b-1",
+          "loaderSegments": [
+            {
+              "bank": "eprom_5/tone",
+              "streamStart": 84288,
+              "streamEnd": 84320,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "adf1c1770695f7614c95eceb803f662c5b096a76",
+            "effectiveSourceSha1": "adf1c1770695f7614c95eceb803f662c5b096a76",
+            "effectiveLoadedSha1": "adf1c1770695f7614c95eceb803f662c5b096a76",
+            "byteMatchAfterBusMask": true
+          }
+        }
+      ],
+      "mameRomPartsOmittedByMra": [],
+      "mraRomPartsOutsideMameSet": [],
+      "mismatches": []
+    },
+    {
+      "mra": "releases\\Spectar.mra",
+      "set": "spectar",
+      "streamBytes": 84288,
+      "streamSha1": "5f273646933023f161973f2bf923d86a3c66182f",
+      "parts": 14,
+      "romParts": 11,
+      "archiveFiles": [
+        "spectar.zip"
+      ],
+      "bytesPerLoaderBank": {
+        "eprom_0/maincpu": 65536,
+        "eprom_6/audio": 16384,
+        "eprom_1/gfx": 2048,
+        "eprom_2/decoder": 256,
+        "eprom_3/vram_ctrl": 32,
+        "eprom_4/sprite_ctrl": 32
+      },
+      "physicalRegions": [
+        {
+          "bank": "eprom_0/maincpu",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 65536,
+          "overwrites": 0,
+          "rawWrittenSha1": "71d4fc577d32d0676e08f3b3f68e98b5025ea5dc",
+          "effectiveStoredSha1": "71d4fc577d32d0676e08f3b3f68e98b5025ea5dc",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 65536,
+              "sha1": "71d4fc577d32d0676e08f3b3f68e98b5025ea5dc"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_1/gfx",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 2048,
+          "overwrites": 0,
+          "rawWrittenSha1": "0c18277939d74e3e1281a7f114a34781d30c2baf",
+          "effectiveStoredSha1": "0c18277939d74e3e1281a7f114a34781d30c2baf",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 2048,
+              "sha1": "0c18277939d74e3e1281a7f114a34781d30c2baf"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_2/decoder",
+          "effectiveDataBits": 4,
+          "uniqueBytes": 256,
+          "overwrites": 0,
+          "rawWrittenSha1": "4111325b00a1017042d55c59308d41e8333ba627",
+          "effectiveStoredSha1": "4111325b00a1017042d55c59308d41e8333ba627",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 256,
+              "sha1": "4111325b00a1017042d55c59308d41e8333ba627"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_3/vram_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "effectiveStoredSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_4/sprite_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "effectiveStoredSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_6/audio",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 16384,
+          "overwrites": 0,
+          "rawWrittenSha1": "897256b6709e1a4da9daba92b6bde39ccfccd8c1",
+          "effectiveStoredSha1": "897256b6709e1a4da9daba92b6bde39ccfccd8c1",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 16384,
+              "sha1": "897256b6709e1a4da9daba92b6bde39ccfccd8c1"
+            }
+          ]
+        }
+      ],
+      "romPlacements": [
+        {
+          "part": 1,
+          "mraName": "spl11a-3",
+          "crc": "08880aff",
+          "size": 2048,
+          "streamOffset": 4096,
+          "mameRegion": "maincpu",
+          "mameOffset": 4096,
+          "mameName": "spl11a-3.11a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 4096,
+              "streamEnd": 6144,
+              "physicalStart": 4096,
+              "physicalEnd": 6144
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 4096,
+            "busBits": 8,
+            "rawSourceSha1": "3becef348245ff4c8b0aae4a14751ab740b7d160",
+            "effectiveSourceSha1": "3becef348245ff4c8b0aae4a14751ab740b7d160",
+            "effectiveLoadedSha1": "3becef348245ff4c8b0aae4a14751ab740b7d160",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 2,
+          "mraName": "spl10a-2",
+          "crc": "fca667c1",
+          "size": 2048,
+          "streamOffset": 6144,
+          "mameRegion": "maincpu",
+          "mameOffset": 6144,
+          "mameName": "spl10a-2.10a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 6144,
+              "streamEnd": 8192,
+              "physicalStart": 6144,
+              "physicalEnd": 8192
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 6144,
+            "busBits": 8,
+            "rawSourceSha1": "168426f9e87c002d2673c0230fceac4d0831d594",
+            "effectiveSourceSha1": "168426f9e87c002d2673c0230fceac4d0831d594",
+            "effectiveLoadedSha1": "168426f9e87c002d2673c0230fceac4d0831d594",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 3,
+          "mraName": "spl9a-3",
+          "crc": "9d4ce8ba",
+          "size": 2048,
+          "streamOffset": 8192,
+          "mameRegion": "maincpu",
+          "mameOffset": 8192,
+          "mameName": "spl9a-3.9a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 8192,
+              "streamEnd": 10240,
+              "physicalStart": 8192,
+              "physicalEnd": 10240
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 8192,
+            "busBits": 8,
+            "rawSourceSha1": "2ef45c225fe704e49d10247c3eba1ef14141b3b7",
+            "effectiveSourceSha1": "2ef45c225fe704e49d10247c3eba1ef14141b3b7",
+            "effectiveLoadedSha1": "2ef45c225fe704e49d10247c3eba1ef14141b3b7",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 4,
+          "mraName": "spl8a-2",
+          "crc": "cfacbadf",
+          "size": 2048,
+          "streamOffset": 10240,
+          "mameRegion": "maincpu",
+          "mameOffset": 10240,
+          "mameName": "spl8a-2.8a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 10240,
+              "streamEnd": 12288,
+              "physicalStart": 10240,
+              "physicalEnd": 12288
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 10240,
+            "busBits": 8,
+            "rawSourceSha1": "77b27cf6f35e8e8dd2fd4f31bba2a96f3076163e",
+            "effectiveSourceSha1": "77b27cf6f35e8e8dd2fd4f31bba2a96f3076163e",
+            "effectiveLoadedSha1": "77b27cf6f35e8e8dd2fd4f31bba2a96f3076163e",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 5,
+          "mraName": "spl7a-2",
+          "crc": "4c4741ff",
+          "size": 2048,
+          "streamOffset": 12288,
+          "mameRegion": "maincpu",
+          "mameOffset": 12288,
+          "mameName": "spl7a-2.7a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 12288,
+              "streamEnd": 14336,
+              "physicalStart": 12288,
+              "physicalEnd": 14336
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 12288,
+            "busBits": 8,
+            "rawSourceSha1": "8de72613a385095253bb9e6da76493caec3115e4",
+            "effectiveSourceSha1": "8de72613a385095253bb9e6da76493caec3115e4",
+            "effectiveLoadedSha1": "8de72613a385095253bb9e6da76493caec3115e4",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 6,
+          "mraName": "spl6a-2",
+          "crc": "0cb46b25",
+          "size": 2048,
+          "streamOffset": 14336,
+          "mameRegion": "maincpu",
+          "mameOffset": 14336,
+          "mameName": "spl6a-2.6a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 14336,
+              "streamEnd": 16384,
+              "physicalStart": 14336,
+              "physicalEnd": 16384
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 14336,
+            "busBits": 8,
+            "rawSourceSha1": "65c5d2cc8df67225339dc8781dd29d4b57ded70c",
+            "effectiveSourceSha1": "65c5d2cc8df67225339dc8781dd29d4b57ded70c",
+            "effectiveLoadedSha1": "65c5d2cc8df67225339dc8781dd29d4b57ded70c",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 8,
+          "mraName": "spl6a-2",
+          "crc": "0cb46b25",
+          "size": 2048,
+          "streamOffset": 63488,
+          "mameRegion": "maincpu",
+          "mameOffset": 14336,
+          "mameName": "spl6a-2.6a",
+          "physicalVsMameOffset": 49152,
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 63488,
+              "streamEnd": 65536,
+              "physicalStart": 63488,
+              "physicalEnd": 65536
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 63488,
+            "busBits": 8,
+            "rawSourceSha1": "65c5d2cc8df67225339dc8781dd29d4b57ded70c",
+            "effectiveSourceSha1": "65c5d2cc8df67225339dc8781dd29d4b57ded70c",
+            "effectiveLoadedSha1": "65c5d2cc8df67225339dc8781dd29d4b57ded70c",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 10,
+          "mraName": "hrl11d-2",
+          "crc": "c55b645d",
+          "size": 2048,
+          "streamOffset": 81920,
+          "mameRegion": "gfx1",
+          "mameOffset": 0,
+          "mameName": "hrl11d-2.11d",
+          "loaderSegments": [
+            {
+              "bank": "eprom_1/gfx",
+              "streamStart": 81920,
+              "streamEnd": 83968,
+              "physicalStart": 0,
+              "physicalEnd": 2048
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "0c18277939d74e3e1281a7f114a34781d30c2baf",
+            "effectiveSourceSha1": "0c18277939d74e3e1281a7f114a34781d30c2baf",
+            "effectiveLoadedSha1": "0c18277939d74e3e1281a7f114a34781d30c2baf",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 11,
+          "mraName": "prom.5c",
+          "crc": "9ca2e061",
+          "size": 256,
+          "streamOffset": 83968,
+          "mameRegion": "proms",
+          "mameOffset": 0,
+          "mameName": "spl5c-2.5c",
+          "loaderSegments": [
+            {
+              "bank": "eprom_2/decoder",
+              "streamStart": 83968,
+              "streamEnd": 84224,
+              "physicalStart": 0,
+              "physicalEnd": 256
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 4,
+            "rawSourceSha1": "4111325b00a1017042d55c59308d41e8333ba627",
+            "effectiveSourceSha1": "4111325b00a1017042d55c59308d41e8333ba627",
+            "effectiveLoadedSha1": "4111325b00a1017042d55c59308d41e8333ba627",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 12,
+          "mraName": "prom.6d",
+          "crc": "e26f9053",
+          "size": 32,
+          "streamOffset": 84224,
+          "mameRegion": "proms",
+          "mameOffset": 256,
+          "mameName": "hrl6d-1.6d",
+          "physicalVsMameOffset": -256,
+          "loaderSegments": [
+            {
+              "bank": "eprom_3/vram_ctrl",
+              "streamStart": 84224,
+              "streamEnd": 84256,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "effectiveSourceSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "effectiveLoadedSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 13,
+          "mraName": "hrl14h-1",
+          "crc": "f76b4fcf",
+          "size": 32,
+          "streamOffset": 84256,
+          "mameRegion": "proms",
+          "mameOffset": 288,
+          "mameName": "hrl14h-1.14h",
+          "physicalVsMameOffset": -288,
+          "loaderSegments": [
+            {
+              "bank": "eprom_4/sprite_ctrl",
+              "streamStart": 84256,
+              "streamEnd": 84288,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveLoadedSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "byteMatchAfterBusMask": true
+          }
+        }
+      ],
+      "mameRomPartsOmittedByMra": [],
+      "mraRomPartsOutsideMameSet": [],
+      "mismatches": []
+    },
+    {
+      "mra": "releases\\Venture Revision 5.mra",
+      "set": "venture",
+      "streamBytes": 84320,
+      "streamSha1": "1668cf86439d61f74a8ee9ab23c3e4a56a0dee19",
+      "parts": 20,
+      "romParts": 17,
+      "archiveFiles": [
+        "venture.zip"
+      ],
+      "bytesPerLoaderBank": {
+        "eprom_0/maincpu": 65536,
+        "eprom_6/audio": 16384,
+        "eprom_1/gfx": 2048,
+        "eprom_2/decoder": 256,
+        "eprom_3/vram_ctrl": 32,
+        "eprom_4/sprite_ctrl": 32,
+        "eprom_5/tone": 32
+      },
+      "physicalRegions": [
+        {
+          "bank": "eprom_0/maincpu",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 65536,
+          "overwrites": 0,
+          "rawWrittenSha1": "2a172c621849e2fc9fc154dda3f45d620149f4f6",
+          "effectiveStoredSha1": "2a172c621849e2fc9fc154dda3f45d620149f4f6",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 65536,
+              "sha1": "2a172c621849e2fc9fc154dda3f45d620149f4f6"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_1/gfx",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 2048,
+          "overwrites": 0,
+          "rawWrittenSha1": "46b1658e1607423d5a073f14097c2a48d59057c0",
+          "effectiveStoredSha1": "46b1658e1607423d5a073f14097c2a48d59057c0",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 2048,
+              "sha1": "46b1658e1607423d5a073f14097c2a48d59057c0"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_2/decoder",
+          "effectiveDataBits": 4,
+          "uniqueBytes": 256,
+          "overwrites": 0,
+          "rawWrittenSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "effectiveStoredSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 256,
+              "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_3/vram_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "effectiveStoredSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_4/sprite_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "effectiveStoredSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_5/tone",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "de8a847bff8c343d69b853a215e6ee775ef2ef96",
+          "effectiveStoredSha1": "de8a847bff8c343d69b853a215e6ee775ef2ef96",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "de8a847bff8c343d69b853a215e6ee775ef2ef96"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_6/audio",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 16384,
+          "overwrites": 0,
+          "rawWrittenSha1": "6b3bcd48bafda20474069e226109c2f2ea7454eb",
+          "effectiveStoredSha1": "6b3bcd48bafda20474069e226109c2f2ea7454eb",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 16384,
+              "sha1": "6b3bcd48bafda20474069e226109c2f2ea7454eb"
+            }
+          ]
+        }
+      ],
+      "romPlacements": [
+        {
+          "part": 1,
+          "mraName": "13a-cpu",
+          "crc": "f4e4d991",
+          "size": 4096,
+          "streamOffset": 32768,
+          "mameRegion": "maincpu",
+          "mameOffset": 32768,
+          "mameName": "13a-cpu",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 32768,
+              "streamEnd": 36864,
+              "physicalStart": 32768,
+              "physicalEnd": 36864
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 32768,
+            "busBits": 8,
+            "rawSourceSha1": "6683c1552b56b20f2296e461aff697af73563792",
+            "effectiveSourceSha1": "6683c1552b56b20f2296e461aff697af73563792",
+            "effectiveLoadedSha1": "6683c1552b56b20f2296e461aff697af73563792",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 2,
+          "mraName": "12a-cpu",
+          "crc": "c6d8cb04",
+          "size": 4096,
+          "streamOffset": 36864,
+          "mameRegion": "maincpu",
+          "mameOffset": 36864,
+          "mameName": "12a-cpu",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 36864,
+              "streamEnd": 40960,
+              "physicalStart": 36864,
+              "physicalEnd": 40960
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 36864,
+            "busBits": 8,
+            "rawSourceSha1": "3b9ae8fdc35117c73c91daed66e93e5344bdcd7e",
+            "effectiveSourceSha1": "3b9ae8fdc35117c73c91daed66e93e5344bdcd7e",
+            "effectiveLoadedSha1": "3b9ae8fdc35117c73c91daed66e93e5344bdcd7e",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 3,
+          "mraName": "11a-cpu",
+          "crc": "3bdb01f4",
+          "size": 4096,
+          "streamOffset": 40960,
+          "mameRegion": "maincpu",
+          "mameOffset": 40960,
+          "mameName": "11a-cpu",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 40960,
+              "streamEnd": 45056,
+              "physicalStart": 40960,
+              "physicalEnd": 45056
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 40960,
+            "busBits": 8,
+            "rawSourceSha1": "3c1f43a3c37a21524b64d69e4dae58af8c2e0d90",
+            "effectiveSourceSha1": "3c1f43a3c37a21524b64d69e4dae58af8c2e0d90",
+            "effectiveLoadedSha1": "3c1f43a3c37a21524b64d69e4dae58af8c2e0d90",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 4,
+          "mraName": "10a-cpu",
+          "crc": "0da769e9",
+          "size": 4096,
+          "streamOffset": 45056,
+          "mameRegion": "maincpu",
+          "mameOffset": 45056,
+          "mameName": "10a-cpu",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 45056,
+              "streamEnd": 49152,
+              "physicalStart": 45056,
+              "physicalEnd": 49152
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 45056,
+            "busBits": 8,
+            "rawSourceSha1": "3604dc08c63461b2ea957a396887fb32e4a1a970",
+            "effectiveSourceSha1": "3604dc08c63461b2ea957a396887fb32e4a1a970",
+            "effectiveLoadedSha1": "3604dc08c63461b2ea957a396887fb32e4a1a970",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 5,
+          "mraName": "9a-cpu",
+          "crc": "0ae05855",
+          "size": 4096,
+          "streamOffset": 49152,
+          "mameRegion": "maincpu",
+          "mameOffset": 49152,
+          "mameName": "9a-cpu",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 49152,
+              "streamEnd": 53248,
+              "physicalStart": 49152,
+              "physicalEnd": 53248
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 49152,
+            "busBits": 8,
+            "rawSourceSha1": "29b3c2ca9740aa753e90131e6edcc61f414277e1",
+            "effectiveSourceSha1": "29b3c2ca9740aa753e90131e6edcc61f414277e1",
+            "effectiveLoadedSha1": "29b3c2ca9740aa753e90131e6edcc61f414277e1",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 6,
+          "mraName": "8a-cpu",
+          "crc": "4ae59676",
+          "size": 4096,
+          "streamOffset": 53248,
+          "mameRegion": "maincpu",
+          "mameOffset": 53248,
+          "mameName": "8a-cpu",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 53248,
+              "streamEnd": 57344,
+              "physicalStart": 53248,
+              "physicalEnd": 57344
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 53248,
+            "busBits": 8,
+            "rawSourceSha1": "36fc9dce9dd0c764a861634859ca0d7f98e20382",
+            "effectiveSourceSha1": "36fc9dce9dd0c764a861634859ca0d7f98e20382",
+            "effectiveLoadedSha1": "36fc9dce9dd0c764a861634859ca0d7f98e20382",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 7,
+          "mraName": "7a-cpu",
+          "crc": "48d66220",
+          "size": 4096,
+          "streamOffset": 57344,
+          "mameRegion": "maincpu",
+          "mameOffset": 57344,
+          "mameName": "7a-cpu",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 57344,
+              "streamEnd": 61440,
+              "physicalStart": 57344,
+              "physicalEnd": 61440
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 57344,
+            "busBits": 8,
+            "rawSourceSha1": "97b1605170c67b3a945b4d5f088df79328e163ce",
+            "effectiveSourceSha1": "97b1605170c67b3a945b4d5f088df79328e163ce",
+            "effectiveLoadedSha1": "97b1605170c67b3a945b4d5f088df79328e163ce",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 8,
+          "mraName": "6a-cpu",
+          "crc": "7b78cf49",
+          "size": 4096,
+          "streamOffset": 61440,
+          "mameRegion": "maincpu",
+          "mameOffset": 61440,
+          "mameName": "6a-cpu",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 61440,
+              "streamEnd": 65536,
+              "physicalStart": 61440,
+              "physicalEnd": 65536
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 61440,
+            "busBits": 8,
+            "rawSourceSha1": "1d484172465d3db6c4fc3733aa2b409e3a2e228f",
+            "effectiveSourceSha1": "1d484172465d3db6c4fc3733aa2b409e3a2e228f",
+            "effectiveLoadedSha1": "1d484172465d3db6c4fc3733aa2b409e3a2e228f",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 10,
+          "mraName": "3a-ac",
+          "crc": "4ea1c3d9",
+          "size": 2048,
+          "streamOffset": 71680,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 22528,
+          "mameName": "vea_3a-3.3a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 71680,
+              "streamEnd": 73728,
+              "physicalStart": 6144,
+              "physicalEnd": 8192
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 6144,
+            "busBits": 8,
+            "rawSourceSha1": "d0c99c9d5b887d717c68e8745906ae4e65aec6ad",
+            "effectiveSourceSha1": "d0c99c9d5b887d717c68e8745906ae4e65aec6ad",
+            "effectiveLoadedSha1": "d0c99c9d5b887d717c68e8745906ae4e65aec6ad",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 11,
+          "mraName": "4a-ac",
+          "crc": "5154c39e",
+          "size": 2048,
+          "streamOffset": 73728,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 24576,
+          "mameName": "vea_4a-3.4a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 73728,
+              "streamEnd": 75776,
+              "physicalStart": 8192,
+              "physicalEnd": 10240
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 8192,
+            "busBits": 8,
+            "rawSourceSha1": "e6f011630eb1aa4116a0e5824ad6b65c1be2455f",
+            "effectiveSourceSha1": "e6f011630eb1aa4116a0e5824ad6b65c1be2455f",
+            "effectiveLoadedSha1": "e6f011630eb1aa4116a0e5824ad6b65c1be2455f",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 12,
+          "mraName": "5a-ac",
+          "crc": "1e1e3916",
+          "size": 2048,
+          "streamOffset": 75776,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 26624,
+          "mameName": "vea_5a-3.5a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 75776,
+              "streamEnd": 77824,
+              "physicalStart": 10240,
+              "physicalEnd": 12288
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 10240,
+            "busBits": 8,
+            "rawSourceSha1": "867e586583e07cd01e0e852f6ea52a040995725d",
+            "effectiveSourceSha1": "867e586583e07cd01e0e852f6ea52a040995725d",
+            "effectiveLoadedSha1": "867e586583e07cd01e0e852f6ea52a040995725d",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 13,
+          "mraName": "6a-ac",
+          "crc": "80f3357a",
+          "size": 2048,
+          "streamOffset": 77824,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 28672,
+          "mameName": "vea_6a-3.6a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 77824,
+              "streamEnd": 79872,
+              "physicalStart": 12288,
+              "physicalEnd": 14336
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 12288,
+            "busBits": 8,
+            "rawSourceSha1": "f1ee638251e8676a526e6367c11866b1d52f5910",
+            "effectiveSourceSha1": "f1ee638251e8676a526e6367c11866b1d52f5910",
+            "effectiveLoadedSha1": "f1ee638251e8676a526e6367c11866b1d52f5910",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 14,
+          "mraName": "7a-ac",
+          "crc": "466addc7",
+          "size": 2048,
+          "streamOffset": 79872,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 30720,
+          "mameName": "vea_7a-3.7a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 79872,
+              "streamEnd": 81920,
+              "physicalStart": 14336,
+              "physicalEnd": 16384
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 14336,
+            "busBits": 8,
+            "rawSourceSha1": "0230b5365d6aeee3ca47666a9eadee4141de125b",
+            "effectiveSourceSha1": "0230b5365d6aeee3ca47666a9eadee4141de125b",
+            "effectiveLoadedSha1": "0230b5365d6aeee3ca47666a9eadee4141de125b",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 15,
+          "mraName": "vel_11d-2.11d",
+          "crc": "ea6fd981",
+          "size": 2048,
+          "streamOffset": 81920,
+          "mameRegion": "gfx1",
+          "mameOffset": 0,
+          "mameName": "vel_11d-2.11d",
+          "loaderSegments": [
+            {
+              "bank": "eprom_1/gfx",
+              "streamStart": 81920,
+              "streamEnd": 83968,
+              "physicalStart": 0,
+              "physicalEnd": 2048
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "46b1658e1607423d5a073f14097c2a48d59057c0",
+            "effectiveSourceSha1": "46b1658e1607423d5a073f14097c2a48d59057c0",
+            "effectiveLoadedSha1": "46b1658e1607423d5a073f14097c2a48d59057c0",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 16,
+          "mraName": "vel5c 1.c5",
+          "crc": "43b35bb7",
+          "size": 256,
+          "streamOffset": 83968,
+          "mameRegion": "proms",
+          "mameOffset": 32,
+          "mameName": "vel5c-1.c5",
+          "physicalVsMameOffset": -32,
+          "loaderSegments": [
+            {
+              "bank": "eprom_2/decoder",
+              "streamStart": 83968,
+              "streamEnd": 84224,
+              "physicalStart": 0,
+              "physicalEnd": 256
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 4,
+            "rawSourceSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+            "effectiveSourceSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+            "effectiveLoadedSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 17,
+          "mraName": "hrl6d 1.d6",
+          "crc": "e26f9053",
+          "size": 32,
+          "streamOffset": 84224,
+          "mameRegion": "proms",
+          "mameOffset": 288,
+          "mameName": "hrl6d-1.d6",
+          "physicalVsMameOffset": -288,
+          "loaderSegments": [
+            {
+              "bank": "eprom_3/vram_ctrl",
+              "streamStart": 84224,
+              "streamEnd": 84256,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "effectiveSourceSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "effectiveLoadedSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 18,
+          "mraName": "hrl14h 1.h14",
+          "crc": "f76b4fcf",
+          "size": 32,
+          "streamOffset": 84256,
+          "mameRegion": "proms",
+          "mameOffset": 0,
+          "mameName": "hrl14h-1.h14",
+          "loaderSegments": [
+            {
+              "bank": "eprom_4/sprite_ctrl",
+              "streamStart": 84256,
+              "streamEnd": 84288,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveLoadedSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "byteMatchAfterBusMask": true
+          }
+        }
+      ],
+      "mameRomPartsOmittedByMra": [],
+      "mraRomPartsOutsideMameSet": [],
+      "mismatches": []
+    },
+    {
+      "mra": "releases\\Mouse Trap.mra",
+      "set": "mtrap",
+      "streamBytes": 84288,
+      "streamSha1": "a669ae41f5343287adedae0249633a3daf11f3b9",
+      "parts": 15,
+      "romParts": 13,
+      "archiveFiles": [
+        "mtrap.zip"
+      ],
+      "bytesPerLoaderBank": {
+        "eprom_0/maincpu": 65536,
+        "eprom_6/audio": 16384,
+        "eprom_1/gfx": 2048,
+        "eprom_2/decoder": 256,
+        "eprom_3/vram_ctrl": 32,
+        "eprom_4/sprite_ctrl": 32
+      },
+      "physicalRegions": [
+        {
+          "bank": "eprom_0/maincpu",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 65536,
+          "overwrites": 0,
+          "rawWrittenSha1": "ca075adb2824543326ec04652f97cd37fb18954d",
+          "effectiveStoredSha1": "ca075adb2824543326ec04652f97cd37fb18954d",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 65536,
+              "sha1": "ca075adb2824543326ec04652f97cd37fb18954d"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_1/gfx",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 2048,
+          "overwrites": 0,
+          "rawWrittenSha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+          "effectiveStoredSha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 2048,
+              "sha1": "b091923e4d52e93d7c567afba217a10b2a3735fc"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_2/decoder",
+          "effectiveDataBits": 4,
+          "uniqueBytes": 256,
+          "overwrites": 0,
+          "rawWrittenSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "effectiveStoredSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 256,
+              "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_3/vram_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "effectiveStoredSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_4/sprite_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "effectiveStoredSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_6/audio",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 16384,
+          "overwrites": 0,
+          "rawWrittenSha1": "983d82a135c6a572c825c2ce211d8e376f714f72",
+          "effectiveStoredSha1": "983d82a135c6a572c825c2ce211d8e376f714f72",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 16384,
+              "sha1": "983d82a135c6a572c825c2ce211d8e376f714f72"
+            }
+          ]
+        }
+      ],
+      "romPlacements": [
+        {
+          "part": 1,
+          "mraName": "mtl-5_11a.11a",
+          "crc": "bd6c3eb5",
+          "size": 4096,
+          "streamOffset": 40960,
+          "mameRegion": "maincpu",
+          "mameOffset": 40960,
+          "mameName": "mtl-5_11a.11a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 40960,
+              "streamEnd": 45056,
+              "physicalStart": 40960,
+              "physicalEnd": 45056
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 40960,
+            "busBits": 8,
+            "rawSourceSha1": "248956374222a09caa5b8c8fa842e9286d8e1c5d",
+            "effectiveSourceSha1": "248956374222a09caa5b8c8fa842e9286d8e1c5d",
+            "effectiveLoadedSha1": "248956374222a09caa5b8c8fa842e9286d8e1c5d",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 2,
+          "mraName": "mtl-5_10a.10a",
+          "crc": "75b0593e",
+          "size": 4096,
+          "streamOffset": 45056,
+          "mameRegion": "maincpu",
+          "mameOffset": 45056,
+          "mameName": "mtl-5_10a.10a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 45056,
+              "streamEnd": 49152,
+              "physicalStart": 45056,
+              "physicalEnd": 49152
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 45056,
+            "busBits": 8,
+            "rawSourceSha1": "48ce5382905f7c52929a95267d65fd0d3f0dcc92",
+            "effectiveSourceSha1": "48ce5382905f7c52929a95267d65fd0d3f0dcc92",
+            "effectiveLoadedSha1": "48ce5382905f7c52929a95267d65fd0d3f0dcc92",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 3,
+          "mraName": "mtl-5_9a.9a",
+          "crc": "28dd20ff",
+          "size": 4096,
+          "streamOffset": 49152,
+          "mameRegion": "maincpu",
+          "mameOffset": 49152,
+          "mameName": "mtl-5_9a.9a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 49152,
+              "streamEnd": 53248,
+              "physicalStart": 49152,
+              "physicalEnd": 53248
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 49152,
+            "busBits": 8,
+            "rawSourceSha1": "8ac44ec27ac25209c8b49da4c6b423917ed8907e",
+            "effectiveSourceSha1": "8ac44ec27ac25209c8b49da4c6b423917ed8907e",
+            "effectiveLoadedSha1": "8ac44ec27ac25209c8b49da4c6b423917ed8907e",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 4,
+          "mraName": "mtl-5_8a.8a",
+          "crc": "cc09f7a4",
+          "size": 4096,
+          "streamOffset": 53248,
+          "mameRegion": "maincpu",
+          "mameOffset": 53248,
+          "mameName": "mtl-5_8a.8a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 53248,
+              "streamEnd": 57344,
+              "physicalStart": 53248,
+              "physicalEnd": 57344
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 53248,
+            "busBits": 8,
+            "rawSourceSha1": "e806dc0e10b909b61e347f3e28eb024f3b3a9702",
+            "effectiveSourceSha1": "e806dc0e10b909b61e347f3e28eb024f3b3a9702",
+            "effectiveLoadedSha1": "e806dc0e10b909b61e347f3e28eb024f3b3a9702",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 5,
+          "mraName": "mtl-5_7a.7a",
+          "crc": "caafbb6d",
+          "size": 4096,
+          "streamOffset": 57344,
+          "mameRegion": "maincpu",
+          "mameOffset": 57344,
+          "mameName": "mtl-5_7a.7a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 57344,
+              "streamEnd": 61440,
+              "physicalStart": 57344,
+              "physicalEnd": 61440
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 57344,
+            "busBits": 8,
+            "rawSourceSha1": "96823ac4e49f192121c53f70382a20f7c52e290b",
+            "effectiveSourceSha1": "96823ac4e49f192121c53f70382a20f7c52e290b",
+            "effectiveLoadedSha1": "96823ac4e49f192121c53f70382a20f7c52e290b",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 6,
+          "mraName": "mtl-5_6a.6a",
+          "crc": "d85e52ca",
+          "size": 4096,
+          "streamOffset": 61440,
+          "mameRegion": "maincpu",
+          "mameOffset": 61440,
+          "mameName": "mtl-5_6a.6a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 61440,
+              "streamEnd": 65536,
+              "physicalStart": 61440,
+              "physicalEnd": 65536
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 61440,
+            "busBits": 8,
+            "rawSourceSha1": "51296247e365a468fe9458b722bbdbbeeed59fa0",
+            "effectiveSourceSha1": "51296247e365a468fe9458b722bbdbbeeed59fa0",
+            "effectiveLoadedSha1": "51296247e365a468fe9458b722bbdbbeeed59fa0",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 8,
+          "mraName": "mta_5a.5a",
+          "crc": "dbe4ec02",
+          "size": 2048,
+          "streamOffset": 75776,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 26624,
+          "mameName": "mta_5a.5a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 75776,
+              "streamEnd": 77824,
+              "physicalStart": 10240,
+              "physicalEnd": 12288
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 10240,
+            "busBits": 8,
+            "rawSourceSha1": "34e965428dbb4b9c558927bb80d19cb550b53228",
+            "effectiveSourceSha1": "34e965428dbb4b9c558927bb80d19cb550b53228",
+            "effectiveLoadedSha1": "34e965428dbb4b9c558927bb80d19cb550b53228",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 9,
+          "mraName": "mta_6a.6a",
+          "crc": "c00f0c05",
+          "size": 2048,
+          "streamOffset": 77824,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 28672,
+          "mameName": "mta_6a.6a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 77824,
+              "streamEnd": 79872,
+              "physicalStart": 12288,
+              "physicalEnd": 14336
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 12288,
+            "busBits": 8,
+            "rawSourceSha1": "398b0bc2a7e54b1e2326ed067bf6bb15cc52ed39",
+            "effectiveSourceSha1": "398b0bc2a7e54b1e2326ed067bf6bb15cc52ed39",
+            "effectiveLoadedSha1": "398b0bc2a7e54b1e2326ed067bf6bb15cc52ed39",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 10,
+          "mraName": "mta_7a.7a",
+          "crc": "f3f16ca7",
+          "size": 2048,
+          "streamOffset": 79872,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 30720,
+          "mameName": "mta_7a.7a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 79872,
+              "streamEnd": 81920,
+              "physicalStart": 14336,
+              "physicalEnd": 16384
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 14336,
+            "busBits": 8,
+            "rawSourceSha1": "3928c5da246c43036a7b4cbb140a1734d5f1fb03",
+            "effectiveSourceSha1": "3928c5da246c43036a7b4cbb140a1734d5f1fb03",
+            "effectiveLoadedSha1": "3928c5da246c43036a7b4cbb140a1734d5f1fb03",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 11,
+          "mraName": "mtl_11d.11d",
+          "crc": "c6e4d339",
+          "size": 2048,
+          "streamOffset": 81920,
+          "mameRegion": "gfx1",
+          "mameOffset": 0,
+          "mameName": "mtl_11d.11d",
+          "loaderSegments": [
+            {
+              "bank": "eprom_1/gfx",
+              "streamStart": 81920,
+              "streamEnd": 83968,
+              "physicalStart": 0,
+              "physicalEnd": 2048
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+            "effectiveSourceSha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+            "effectiveLoadedSha1": "b091923e4d52e93d7c567afba217a10b2a3735fc",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 12,
+          "mraName": "vel5c-11.c5",
+          "crc": "43b35bb7",
+          "size": 256,
+          "streamOffset": 83968,
+          "mameRegion": "proms",
+          "mameOffset": 32,
+          "mameName": "vel5c-11.c5",
+          "physicalVsMameOffset": -32,
+          "loaderSegments": [
+            {
+              "bank": "eprom_2/decoder",
+              "streamStart": 83968,
+              "streamEnd": 84224,
+              "physicalStart": 0,
+              "physicalEnd": 256
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 4,
+            "rawSourceSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+            "effectiveSourceSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+            "effectiveLoadedSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 13,
+          "mraName": "hrl6d.d6",
+          "crc": "e26f9053",
+          "size": 32,
+          "streamOffset": 84224,
+          "mameRegion": "proms",
+          "mameOffset": 288,
+          "mameName": "hrl6d.d6",
+          "physicalVsMameOffset": -288,
+          "loaderSegments": [
+            {
+              "bank": "eprom_3/vram_ctrl",
+              "streamStart": 84224,
+              "streamEnd": 84256,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "effectiveSourceSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "effectiveLoadedSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 14,
+          "mraName": "hrl14h.h14",
+          "crc": "f76b4fcf",
+          "size": 32,
+          "streamOffset": 84256,
+          "mameRegion": "proms",
+          "mameOffset": 0,
+          "mameName": "hrl14h.h14",
+          "loaderSegments": [
+            {
+              "bank": "eprom_4/sprite_ctrl",
+              "streamStart": 84256,
+              "streamEnd": 84288,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveLoadedSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "byteMatchAfterBusMask": true
+          }
+        }
+      ],
+      "mameRomPartsOmittedByMra": [
+        {
+          "name": "mta_2a.2a",
+          "region": "soundbd:cvsdcpu",
+          "offset": 0,
+          "size": 4096,
+          "crc": "13db8ed3"
+        },
+        {
+          "name": "mta_3a.3a",
+          "region": "soundbd:cvsdcpu",
+          "offset": 4096,
+          "size": 4096,
+          "crc": "31bdfe5c"
+        },
+        {
+          "name": "mta_4a.4a",
+          "region": "soundbd:cvsdcpu",
+          "offset": 8192,
+          "size": 4096,
+          "crc": "1502d0e8"
+        },
+        {
+          "name": "mta_1a.1a",
+          "region": "soundbd:cvsdcpu",
+          "offset": 12288,
+          "size": 4096,
+          "crc": "658482a6"
+        }
+      ],
+      "mraRomPartsOutsideMameSet": [],
+      "mismatches": []
+    },
+    {
+      "mra": "releases\\Pepper II.mra",
+      "set": "pepper2",
+      "streamBytes": 84288,
+      "streamSha1": "2e3d36a3a7cdf4a2f26765a2546c3986c0cc2b5d",
+      "parts": 16,
+      "romParts": 14,
+      "archiveFiles": [
+        "pepper2.zip"
+      ],
+      "bytesPerLoaderBank": {
+        "eprom_0/maincpu": 65536,
+        "eprom_6/audio": 16384,
+        "eprom_1/gfx": 2048,
+        "eprom_2/decoder": 256,
+        "eprom_3/vram_ctrl": 32,
+        "eprom_4/sprite_ctrl": 32
+      },
+      "physicalRegions": [
+        {
+          "bank": "eprom_0/maincpu",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 65536,
+          "overwrites": 0,
+          "rawWrittenSha1": "fc05bc4ee14153021acfe7f5f5f137714dbb7728",
+          "effectiveStoredSha1": "fc05bc4ee14153021acfe7f5f5f137714dbb7728",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 65536,
+              "sha1": "fc05bc4ee14153021acfe7f5f5f137714dbb7728"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_1/gfx",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 2048,
+          "overwrites": 0,
+          "rawWrittenSha1": "3d768552960a3a660891dcb85da6a5c382b33991",
+          "effectiveStoredSha1": "3d768552960a3a660891dcb85da6a5c382b33991",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 2048,
+              "sha1": "3d768552960a3a660891dcb85da6a5c382b33991"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_2/decoder",
+          "effectiveDataBits": 4,
+          "uniqueBytes": 256,
+          "overwrites": 0,
+          "rawWrittenSha1": "fe4cb560860579102aedad2c81fd7bed5825f484",
+          "effectiveStoredSha1": "fe4cb560860579102aedad2c81fd7bed5825f484",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 256,
+              "sha1": "fe4cb560860579102aedad2c81fd7bed5825f484"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_3/vram_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3",
+          "effectiveStoredSha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_4/sprite_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "effectiveStoredSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_6/audio",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 16384,
+          "overwrites": 0,
+          "rawWrittenSha1": "b6b68997a3e8e00d77cfda657e35b330dd3746ff",
+          "effectiveStoredSha1": "b6b68997a3e8e00d77cfda657e35b330dd3746ff",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 16384,
+              "sha1": "b6b68997a3e8e00d77cfda657e35b330dd3746ff"
+            }
+          ]
+        }
+      ],
+      "romPlacements": [
+        {
+          "part": 1,
+          "mraName": "p2l-8_12a.12a",
+          "crc": "33db4737",
+          "size": 4096,
+          "streamOffset": 36864,
+          "mameRegion": "maincpu",
+          "mameOffset": 36864,
+          "mameName": "p2l-8_12a.12a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 36864,
+              "streamEnd": 40960,
+              "physicalStart": 36864,
+              "physicalEnd": 40960
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 36864,
+            "busBits": 8,
+            "rawSourceSha1": "d8f7a5d340ddbc4d06d403c3bff0102ce637d24e",
+            "effectiveSourceSha1": "d8f7a5d340ddbc4d06d403c3bff0102ce637d24e",
+            "effectiveLoadedSha1": "d8f7a5d340ddbc4d06d403c3bff0102ce637d24e",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 2,
+          "mraName": "p2l-8_11a.11a",
+          "crc": "a1f43b1f",
+          "size": 4096,
+          "streamOffset": 40960,
+          "mameRegion": "maincpu",
+          "mameOffset": 40960,
+          "mameName": "p2l-8_11a.11a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 40960,
+              "streamEnd": 45056,
+              "physicalStart": 40960,
+              "physicalEnd": 45056
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 40960,
+            "busBits": 8,
+            "rawSourceSha1": "a669f2ef55d9a0617110f65863822fdcaf153511",
+            "effectiveSourceSha1": "a669f2ef55d9a0617110f65863822fdcaf153511",
+            "effectiveLoadedSha1": "a669f2ef55d9a0617110f65863822fdcaf153511",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 3,
+          "mraName": "p2l-8_10a.10a",
+          "crc": "4d7d7786",
+          "size": 4096,
+          "streamOffset": 45056,
+          "mameRegion": "maincpu",
+          "mameOffset": 45056,
+          "mameName": "p2l-8_10a.10a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 45056,
+              "streamEnd": 49152,
+              "physicalStart": 45056,
+              "physicalEnd": 49152
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 45056,
+            "busBits": 8,
+            "rawSourceSha1": "ea1390b887404a67ea556720219e81007b954a7d",
+            "effectiveSourceSha1": "ea1390b887404a67ea556720219e81007b954a7d",
+            "effectiveLoadedSha1": "ea1390b887404a67ea556720219e81007b954a7d",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 4,
+          "mraName": "p2l-8_9a.9a",
+          "crc": "b3362298",
+          "size": 4096,
+          "streamOffset": 49152,
+          "mameRegion": "maincpu",
+          "mameOffset": 49152,
+          "mameName": "p2l-8_9a.9a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 49152,
+              "streamEnd": 53248,
+              "physicalStart": 49152,
+              "physicalEnd": 53248
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 49152,
+            "busBits": 8,
+            "rawSourceSha1": "7adad138ec5f94caa39f9c0fabece538d5db4913",
+            "effectiveSourceSha1": "7adad138ec5f94caa39f9c0fabece538d5db4913",
+            "effectiveLoadedSha1": "7adad138ec5f94caa39f9c0fabece538d5db4913",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 5,
+          "mraName": "p2l-8_8a.8a",
+          "crc": "64d106ed",
+          "size": 4096,
+          "streamOffset": 53248,
+          "mameRegion": "maincpu",
+          "mameOffset": 53248,
+          "mameName": "p2l-8_8a.8a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 53248,
+              "streamEnd": 57344,
+              "physicalStart": 53248,
+              "physicalEnd": 57344
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 53248,
+            "busBits": 8,
+            "rawSourceSha1": "49646a97def9e1793cac6ee0044f68232b294e4f",
+            "effectiveSourceSha1": "49646a97def9e1793cac6ee0044f68232b294e4f",
+            "effectiveLoadedSha1": "49646a97def9e1793cac6ee0044f68232b294e4f",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 6,
+          "mraName": "p2l-8_7a.7a",
+          "crc": "b1c6f07c",
+          "size": 4096,
+          "streamOffset": 57344,
+          "mameRegion": "maincpu",
+          "mameOffset": 57344,
+          "mameName": "p2l-8_7a.7a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 57344,
+              "streamEnd": 61440,
+              "physicalStart": 57344,
+              "physicalEnd": 61440
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 57344,
+            "busBits": 8,
+            "rawSourceSha1": "53d07211d014336bb43671c51f4190c6515e9cde",
+            "effectiveSourceSha1": "53d07211d014336bb43671c51f4190c6515e9cde",
+            "effectiveLoadedSha1": "53d07211d014336bb43671c51f4190c6515e9cde",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 7,
+          "mraName": "p2l-8_6a.6a",
+          "crc": "515b1046",
+          "size": 4096,
+          "streamOffset": 61440,
+          "mameRegion": "maincpu",
+          "mameOffset": 61440,
+          "mameName": "p2l-8_6a.6a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 61440,
+              "streamEnd": 65536,
+              "physicalStart": 61440,
+              "physicalEnd": 65536
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 61440,
+            "busBits": 8,
+            "rawSourceSha1": "bdcccd4e415c00ee8e5ec185597df75ecafe7d3d",
+            "effectiveSourceSha1": "bdcccd4e415c00ee8e5ec185597df75ecafe7d3d",
+            "effectiveLoadedSha1": "bdcccd4e415c00ee8e5ec185597df75ecafe7d3d",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 9,
+          "mraName": "audio_5a",
+          "crc": "90e3c781",
+          "size": 2048,
+          "streamOffset": 75776,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 26624,
+          "mameName": "p2a-2_5a.5a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 75776,
+              "streamEnd": 77824,
+              "physicalStart": 10240,
+              "physicalEnd": 12288
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 10240,
+            "busBits": 8,
+            "rawSourceSha1": "d51a9e011167a132e8af9f4b1201600a58e86b62",
+            "effectiveSourceSha1": "d51a9e011167a132e8af9f4b1201600a58e86b62",
+            "effectiveLoadedSha1": "d51a9e011167a132e8af9f4b1201600a58e86b62",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 10,
+          "mraName": "audio_6a",
+          "crc": "dd343e34",
+          "size": 2048,
+          "streamOffset": 77824,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 28672,
+          "mameName": "p2a-2_6a.6a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 77824,
+              "streamEnd": 79872,
+              "physicalStart": 12288,
+              "physicalEnd": 14336
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 12288,
+            "busBits": 8,
+            "rawSourceSha1": "4ec55bb73d6afbd167fa91d2606d1d55a15b5c39",
+            "effectiveSourceSha1": "4ec55bb73d6afbd167fa91d2606d1d55a15b5c39",
+            "effectiveLoadedSha1": "4ec55bb73d6afbd167fa91d2606d1d55a15b5c39",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 11,
+          "mraName": "audio_7a",
+          "crc": "e02b4356",
+          "size": 2048,
+          "streamOffset": 79872,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 30720,
+          "mameName": "p2a-2_7a.7a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 79872,
+              "streamEnd": 81920,
+              "physicalStart": 14336,
+              "physicalEnd": 16384
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 14336,
+            "busBits": 8,
+            "rawSourceSha1": "9891e14d84221c1d6f2d15a29813eb41024290ca",
+            "effectiveSourceSha1": "9891e14d84221c1d6f2d15a29813eb41024290ca",
+            "effectiveLoadedSha1": "9891e14d84221c1d6f2d15a29813eb41024290ca",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 12,
+          "mraName": "p2l-1_11d.11d",
+          "crc": "b25160cd",
+          "size": 2048,
+          "streamOffset": 81920,
+          "mameRegion": "gfx1",
+          "mameOffset": 0,
+          "mameName": "p2l-1_11d.11d",
+          "loaderSegments": [
+            {
+              "bank": "eprom_1/gfx",
+              "streamStart": 81920,
+              "streamEnd": 83968,
+              "physicalStart": 0,
+              "physicalEnd": 2048
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "3d768552960a3a660891dcb85da6a5c382b33991",
+            "effectiveSourceSha1": "3d768552960a3a660891dcb85da6a5c382b33991",
+            "effectiveLoadedSha1": "3d768552960a3a660891dcb85da6a5c382b33991",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 13,
+          "mraName": "fxl-6b",
+          "crc": "e1e867ae",
+          "size": 256,
+          "streamOffset": 83968,
+          "mameRegion": "proms",
+          "mameOffset": 32,
+          "mameName": "p2l5c-1.c5",
+          "physicalVsMameOffset": -32,
+          "loaderSegments": [
+            {
+              "bank": "eprom_2/decoder",
+              "streamStart": 83968,
+              "streamEnd": 84224,
+              "physicalStart": 0,
+              "physicalEnd": 256
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 4,
+            "rawSourceSha1": "fe4cb560860579102aedad2c81fd7bed5825f484",
+            "effectiveSourceSha1": "fe4cb560860579102aedad2c81fd7bed5825f484",
+            "effectiveLoadedSha1": "fe4cb560860579102aedad2c81fd7bed5825f484",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 14,
+          "mraName": "fxl-8b",
+          "crc": "0da1bdf9",
+          "size": 32,
+          "streamOffset": 84224,
+          "mameRegion": "proms",
+          "mameOffset": 288,
+          "mameName": "p2l6d-1.d6",
+          "physicalVsMameOffset": -288,
+          "loaderSegments": [
+            {
+              "bank": "eprom_3/vram_ctrl",
+              "streamStart": 84224,
+              "streamEnd": 84256,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3",
+            "effectiveSourceSha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3",
+            "effectiveLoadedSha1": "0c2d85da59cf86f2d9cf5f33bdc63902ca5507d3",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 15,
+          "mraName": "hrl14h-1.h14",
+          "crc": "f76b4fcf",
+          "size": 32,
+          "streamOffset": 84256,
+          "mameRegion": "proms",
+          "mameOffset": 0,
+          "mameName": "hrl14h-1.h14",
+          "loaderSegments": [
+            {
+              "bank": "eprom_4/sprite_ctrl",
+              "streamStart": 84256,
+              "streamEnd": 84288,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveLoadedSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "byteMatchAfterBusMask": true
+          }
+        }
+      ],
+      "mameRomPartsOmittedByMra": [],
+      "mraRomPartsOutsideMameSet": [],
+      "mismatches": []
+    },
+    {
+      "mra": "releases\\Hard Hat.mra",
+      "set": "hardhat",
+      "streamBytes": 84288,
+      "streamSha1": "ffa3bdafadd81d825e16c2ed25dd0a094ebaf767",
+      "parts": 15,
+      "romParts": 13,
+      "archiveFiles": [
+        "hardhat.zip",
+        "venture.zip"
+      ],
+      "bytesPerLoaderBank": {
+        "eprom_0/maincpu": 65536,
+        "eprom_6/audio": 16384,
+        "eprom_1/gfx": 2048,
+        "eprom_2/decoder": 256,
+        "eprom_3/vram_ctrl": 32,
+        "eprom_4/sprite_ctrl": 32
+      },
+      "physicalRegions": [
+        {
+          "bank": "eprom_0/maincpu",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 65536,
+          "overwrites": 0,
+          "rawWrittenSha1": "5f8dbc2402347eb0b8f5920300823dd466737b84",
+          "effectiveStoredSha1": "5f8dbc2402347eb0b8f5920300823dd466737b84",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 65536,
+              "sha1": "5f8dbc2402347eb0b8f5920300823dd466737b84"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_1/gfx",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 2048,
+          "overwrites": 0,
+          "rawWrittenSha1": "76ea287326a5c9e75e407cc010414212d8fdd52a",
+          "effectiveStoredSha1": "76ea287326a5c9e75e407cc010414212d8fdd52a",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 2048,
+              "sha1": "76ea287326a5c9e75e407cc010414212d8fdd52a"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_2/decoder",
+          "effectiveDataBits": 4,
+          "uniqueBytes": 256,
+          "overwrites": 0,
+          "rawWrittenSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "effectiveStoredSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 256,
+              "sha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_3/vram_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "effectiveStoredSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_4/sprite_ctrl",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 32,
+          "overwrites": 0,
+          "rawWrittenSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "effectiveStoredSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 32,
+              "sha1": "197e0cc508ffeb5cefa4046bdfb158939d598225"
+            }
+          ]
+        },
+        {
+          "bank": "eprom_6/audio",
+          "effectiveDataBits": 8,
+          "uniqueBytes": 16384,
+          "overwrites": 0,
+          "rawWrittenSha1": "9da71af5db86bc98e268e32e69d09f38dfe8df98",
+          "effectiveStoredSha1": "9da71af5db86bc98e268e32e69d09f38dfe8df98",
+          "segments": [
+            {
+              "offset": 0,
+              "length": 16384,
+              "sha1": "9da71af5db86bc98e268e32e69d09f38dfe8df98"
+            }
+          ]
+        }
+      ],
+      "romPlacements": [
+        {
+          "part": 1,
+          "mraName": "hhl-2.11a",
+          "crc": "7623deea",
+          "size": 4096,
+          "streamOffset": 40960,
+          "mameRegion": "maincpu",
+          "mameOffset": 40960,
+          "mameName": "hhl-2.11a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 40960,
+              "streamEnd": 45056,
+              "physicalStart": 40960,
+              "physicalEnd": 45056
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 40960,
+            "busBits": 8,
+            "rawSourceSha1": "3c47c0439c80e66536af42c5ee4e522fea5f8374",
+            "effectiveSourceSha1": "3c47c0439c80e66536af42c5ee4e522fea5f8374",
+            "effectiveLoadedSha1": "3c47c0439c80e66536af42c5ee4e522fea5f8374",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 2,
+          "mraName": "hhl-2.10a",
+          "crc": "e6bf2fb1",
+          "size": 4096,
+          "streamOffset": 45056,
+          "mameRegion": "maincpu",
+          "mameOffset": 45056,
+          "mameName": "hhl-2.10a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 45056,
+              "streamEnd": 49152,
+              "physicalStart": 45056,
+              "physicalEnd": 49152
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 45056,
+            "busBits": 8,
+            "rawSourceSha1": "ad41859129774fc51462726a825c0ae16ed81a6e",
+            "effectiveSourceSha1": "ad41859129774fc51462726a825c0ae16ed81a6e",
+            "effectiveLoadedSha1": "ad41859129774fc51462726a825c0ae16ed81a6e",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 3,
+          "mraName": "hhl-2.9a",
+          "crc": "acc2bce5",
+          "size": 4096,
+          "streamOffset": 49152,
+          "mameRegion": "maincpu",
+          "mameOffset": 49152,
+          "mameName": "hhl-2.9a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 49152,
+              "streamEnd": 53248,
+              "physicalStart": 49152,
+              "physicalEnd": 53248
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 49152,
+            "busBits": 8,
+            "rawSourceSha1": "0f7b8cfbd2628b8587c423fbc2c8310d71d8ad2a",
+            "effectiveSourceSha1": "0f7b8cfbd2628b8587c423fbc2c8310d71d8ad2a",
+            "effectiveLoadedSha1": "0f7b8cfbd2628b8587c423fbc2c8310d71d8ad2a",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 4,
+          "mraName": "hhl-2.8a",
+          "crc": "23c7a2f8",
+          "size": 4096,
+          "streamOffset": 53248,
+          "mameRegion": "maincpu",
+          "mameOffset": 53248,
+          "mameName": "hhl-2.8a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 53248,
+              "streamEnd": 57344,
+              "physicalStart": 53248,
+              "physicalEnd": 57344
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 53248,
+            "busBits": 8,
+            "rawSourceSha1": "5eb1d512d73ba6bd1c23501664b582e9d3cf777f",
+            "effectiveSourceSha1": "5eb1d512d73ba6bd1c23501664b582e9d3cf777f",
+            "effectiveLoadedSha1": "5eb1d512d73ba6bd1c23501664b582e9d3cf777f",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 5,
+          "mraName": "hhl-2.7a",
+          "crc": "6f7ce1c2",
+          "size": 4096,
+          "streamOffset": 57344,
+          "mameRegion": "maincpu",
+          "mameOffset": 57344,
+          "mameName": "hhl-2.7a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 57344,
+              "streamEnd": 61440,
+              "physicalStart": 57344,
+              "physicalEnd": 61440
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 57344,
+            "busBits": 8,
+            "rawSourceSha1": "356dcea22e50c95a8552566a0fb5f9b4e3e5de2a",
+            "effectiveSourceSha1": "356dcea22e50c95a8552566a0fb5f9b4e3e5de2a",
+            "effectiveLoadedSha1": "356dcea22e50c95a8552566a0fb5f9b4e3e5de2a",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 6,
+          "mraName": "hhl-2.6a",
+          "crc": "2a20cf10",
+          "size": 4096,
+          "streamOffset": 61440,
+          "mameRegion": "maincpu",
+          "mameOffset": 61440,
+          "mameName": "hhl-2.6a",
+          "loaderSegments": [
+            {
+              "bank": "eprom_0/maincpu",
+              "streamStart": 61440,
+              "streamEnd": 65536,
+              "physicalStart": 61440,
+              "physicalEnd": 65536
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 61440,
+            "busBits": 8,
+            "rawSourceSha1": "31eb4556647e78e3d9be1c30d970eac8aaa5cf18",
+            "effectiveSourceSha1": "31eb4556647e78e3d9be1c30d970eac8aaa5cf18",
+            "effectiveLoadedSha1": "31eb4556647e78e3d9be1c30d970eac8aaa5cf18",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 8,
+          "mraName": "hha-1.5a",
+          "crc": "16a5a183",
+          "size": 2048,
+          "streamOffset": 75776,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 26624,
+          "mameName": "hha-1.5a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 75776,
+              "streamEnd": 77824,
+              "physicalStart": 10240,
+              "physicalEnd": 12288
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 10240,
+            "busBits": 8,
+            "rawSourceSha1": "cf3fed55db9c61fd33c222275d472fa109bed081",
+            "effectiveSourceSha1": "cf3fed55db9c61fd33c222275d472fa109bed081",
+            "effectiveLoadedSha1": "cf3fed55db9c61fd33c222275d472fa109bed081",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 9,
+          "mraName": "hha-1.6a",
+          "crc": "bde64021",
+          "size": 2048,
+          "streamOffset": 77824,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 28672,
+          "mameName": "hha-1.6a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 77824,
+              "streamEnd": 79872,
+              "physicalStart": 12288,
+              "physicalEnd": 14336
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 12288,
+            "busBits": 8,
+            "rawSourceSha1": "a403590d5a27b859eaa299e47df4ebd6ce4a5772",
+            "effectiveSourceSha1": "a403590d5a27b859eaa299e47df4ebd6ce4a5772",
+            "effectiveLoadedSha1": "a403590d5a27b859eaa299e47df4ebd6ce4a5772",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 10,
+          "mraName": "hha-1.7a",
+          "crc": "505ee5d3",
+          "size": 2048,
+          "streamOffset": 79872,
+          "mameRegion": "soundbd:audiocpu",
+          "mameOffset": 30720,
+          "mameName": "hha-1.7a",
+          "physicalVsMameOffset": -16384,
+          "loaderSegments": [
+            {
+              "bank": "eprom_6/audio",
+              "streamStart": 79872,
+              "streamEnd": 81920,
+              "physicalStart": 14336,
+              "physicalEnd": 16384
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 14336,
+            "busBits": 8,
+            "rawSourceSha1": "efa228465688f2bb30f00dc1511cc5f3a287356c",
+            "effectiveSourceSha1": "efa228465688f2bb30f00dc1511cc5f3a287356c",
+            "effectiveLoadedSha1": "efa228465688f2bb30f00dc1511cc5f3a287356c",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 11,
+          "mraName": "hhl-1.11d",
+          "crc": "dbcdf353",
+          "size": 2048,
+          "streamOffset": 81920,
+          "mameRegion": "gfx1",
+          "mameOffset": 0,
+          "mameName": "hhl-1.11d",
+          "loaderSegments": [
+            {
+              "bank": "eprom_1/gfx",
+              "streamStart": 81920,
+              "streamEnd": 83968,
+              "physicalStart": 0,
+              "physicalEnd": 2048
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "76ea287326a5c9e75e407cc010414212d8fdd52a",
+            "effectiveSourceSha1": "76ea287326a5c9e75e407cc010414212d8fdd52a",
+            "effectiveLoadedSha1": "76ea287326a5c9e75e407cc010414212d8fdd52a",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 12,
+          "mraName": "vel5c 1.c5",
+          "crc": "43b35bb7",
+          "size": 256,
+          "streamOffset": 83968,
+          "mameRegion": null,
+          "mameOffset": null,
+          "mameName": null,
+          "loaderSegments": [
+            {
+              "bank": "eprom_2/decoder",
+              "streamStart": 83968,
+              "streamEnd": 84224,
+              "physicalStart": 0,
+              "physicalEnd": 256
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 4,
+            "rawSourceSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+            "effectiveSourceSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+            "effectiveLoadedSha1": "0a0cecea8faff9f3ff4c2ceda0b5b25e8e1cd667",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 13,
+          "mraName": "hrl6d 1.d6",
+          "crc": "e26f9053",
+          "size": 32,
+          "streamOffset": 84224,
+          "mameRegion": null,
+          "mameOffset": null,
+          "mameName": null,
+          "loaderSegments": [
+            {
+              "bank": "eprom_3/vram_ctrl",
+              "streamStart": 84224,
+              "streamEnd": 84256,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "effectiveSourceSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "effectiveLoadedSha1": "eec35b6aa2c2d305418306bf4a1754a0583f109f",
+            "byteMatchAfterBusMask": true
+          }
+        },
+        {
+          "part": 14,
+          "mraName": "hrl14h 1.h14",
+          "crc": "f76b4fcf",
+          "size": 32,
+          "streamOffset": 84256,
+          "mameRegion": null,
+          "mameOffset": null,
+          "mameName": null,
+          "loaderSegments": [
+            {
+              "bank": "eprom_4/sprite_ctrl",
+              "streamStart": 84256,
+              "streamEnd": 84288,
+              "physicalStart": 0,
+              "physicalEnd": 32
+            }
+          ],
+          "physicalVerification": {
+            "physicalOffset": 0,
+            "busBits": 8,
+            "rawSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveSourceSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "effectiveLoadedSha1": "197e0cc508ffeb5cefa4046bdfb158939d598225",
+            "byteMatchAfterBusMask": true
+          }
+        }
+      ],
+      "mameRomPartsOmittedByMra": [],
+      "mraRomPartsOutsideMameSet": [
+        {
+          "name": "vel5c 1.c5",
+          "crc": "43b35bb7"
+        },
+        {
+          "name": "hrl6d 1.d6",
+          "crc": "e26f9053"
+        },
+        {
+          "name": "hrl14h 1.h14",
+          "crc": "f76b4fcf"
+        }
+      ],
+      "mismatches": []
+    }
+  ]
+}

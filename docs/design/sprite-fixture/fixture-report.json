@@ -1,0 +1,310 @@
+{
+  "fixtureKind": "source-extracted RTL fragment simulation plus accepted MAME bus-event replay",
+  "fullCPUorGameRenderer": false,
+  "arrowIdentityProven": false,
+  "rtlExidy2Sha256": "C8AA3946DEDA06F6D4E371CC4F64DA7B6C99D6E599AA8F948C711AA60C0E51BD",
+  "pinnedMameExidyCppSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+  "harnessDriverSha256": "6893F026756DDAB6BBB02E89734798284ED8E1BC22C9828FA694FD189665C5EC",
+  "testbenchSha256": "8A18EA2688CF39A1CF129759DFBD845FF6FA7522CD56C5773F904A8840391B30",
+  "extractedFragmentSha256": "E720A5C17E30C3D69B03A9FD9F0B8BA94979675B4A67D706A8792D8D336EEF22",
+  "mameSourceLines": [
+    {
+      "line": 494,
+      "text": "map(0x5000, 0x5000).mirror(0x003f).writeonly().share(\"sprite1_xpos\");"
+    },
+    {
+      "line": 495,
+      "text": "map(0x5040, 0x5040).mirror(0x003f).writeonly().share(\"sprite1_ypos\");"
+    },
+    {
+      "line": 496,
+      "text": "map(0x5080, 0x5080).mirror(0x003f).writeonly().share(\"sprite2_xpos\");"
+    },
+    {
+      "line": 497,
+      "text": "map(0x50c0, 0x50c0).mirror(0x003f).writeonly().share(\"sprite2_ypos\");"
+    },
+    {
+      "line": 1600,
+      "text": "void exidy_state::venture(machine_config &config)"
+    },
+    {
+      "line": 1610,
+      "text": "exidy_video_config(0x04, 0x04, false);"
+    },
+    {
+      "line": 1282,
+      "text": "inline int exidy_state::sprite_1_enabled()"
+    },
+    {
+      "line": 1286,
+      "text": "return (!(*m_sprite_enable & 0x80) || (*m_sprite_enable & 0x10) || (m_collision_mask == 0x00));"
+    },
+    {
+      "line": 1293,
+      "text": "int sprite_set_2 = ((*m_sprite_enable & 0x40) != 0);"
+    },
+    {
+      "line": 1305,
+      "text": "int sprite_set_1 = ((*m_sprite_enable & 0x20) != 0);"
+    },
+    {
+      "line": 1295,
+      "text": "int sx = 236 - *m_sprite2_xpos - 4;"
+    },
+    {
+      "line": 1296,
+      "text": "int sy = 244 - *m_sprite2_ypos - 4;"
+    },
+    {
+      "line": 1408,
+      "text": "if ((current_collision_mask & m_collision_mask) && count < 128)"
+    }
+  ],
+  "independentMameOracle": {
+    "ventureCollisionMask": "04",
+    "ventureCollisionInvert": "04",
+    "mameSprite1ScreenX": "236 - x - 4",
+    "mameSprite1ScreenY": "244 - y - 4",
+    "collisionCases": [
+      {
+        "m1": 1,
+        "m2": 0,
+        "background": 1,
+        "blank": 0,
+        "mameVentureCollisionEventExpected": true,
+        "rtlExtractedCdetExpected": true,
+        "expectedDifference": false
+      },
+      {
+        "m1": 0,
+        "m2": 1,
+        "background": 1,
+        "blank": 0,
+        "mameVentureCollisionEventExpected": false,
+        "rtlExtractedCdetExpected": true,
+        "expectedDifference": true
+      },
+      {
+        "m1": 1,
+        "m2": 1,
+        "background": 0,
+        "blank": 0,
+        "mameVentureCollisionEventExpected": false,
+        "rtlExtractedCdetExpected": false,
+        "expectedDifference": false
+      },
+      {
+        "m1": 1,
+        "m2": 1,
+        "background": 1,
+        "blank": 0,
+        "mameVentureCollisionEventExpected": true,
+        "rtlExtractedCdetExpected": true,
+        "expectedDifference": false
+      },
+      {
+        "m1": 1,
+        "m2": 0,
+        "background": 1,
+        "blank": 1,
+        "mameVentureCollisionEventExpected": false,
+        "rtlExtractedCdetExpected": false,
+        "expectedDifference": false
+      },
+      {
+        "m1": 0,
+        "m2": 0,
+        "background": 1,
+        "blank": 0,
+        "mameVentureCollisionEventExpected": false,
+        "rtlExtractedCdetExpected": false,
+        "expectedDifference": false
+      }
+    ]
+  },
+  "capturedEventReplay": {
+    "path": "simulation\\venture_startup\\active03\\bus.csv",
+    "sha256": "067B058E6E176FD195C06D514C21FF6BFD62AC55B66CA37B20E1EC1AD82D7B5B",
+    "addressPolicy": "accepted Lua tap canonicalizes sprite mirrors to base addresses; alias use is unavailable",
+    "writeCounts": {
+      "5000": 1871,
+      "5040": 1871,
+      "5080": 1871,
+      "50C0": 1871,
+      "5100": 1872,
+      "5101": 1872
+    },
+    "distinctWriteData": {
+      "5000": 177,
+      "5040": 144,
+      "5080": 134,
+      "50C0": 120,
+      "5100": 18,
+      "5101": 2
+    },
+    "distinctCoordinateDataDuringRightFire": {
+      "5000": 82,
+      "5040": 1,
+      "5080": 81,
+      "50C0": 3
+    },
+    "lastWrittenData": {
+      "5000": "84",
+      "5040": "10",
+      "5080": "84",
+      "50C0": "10",
+      "5100": "0F",
+      "5101": "F0"
+    },
+    "rightFireWindowCoordinateWriteRows": 480,
+    "rawMirroredAddressWritesObserved": 0
+  },
+  "rtlReplayExcerpt": {
+    "frameRange": [
+      2400,
+      2402
+    ],
+    "eventCount": 18,
+    "events": [
+      {
+        "frame": 2400,
+        "address": 20736,
+        "data": 241,
+        "expected": 241
+      },
+      {
+        "frame": 2400,
+        "address": 20737,
+        "data": 240,
+        "expected": 240
+      },
+      {
+        "frame": 2400,
+        "address": 20480,
+        "data": 132,
+        "expected": 132
+      },
+      {
+        "frame": 2400,
+        "address": 20544,
+        "data": 16,
+        "expected": 17
+      },
+      {
+        "frame": 2400,
+        "address": 20608,
+        "data": 138,
+        "expected": 138
+      },
+      {
+        "frame": 2400,
+        "address": 20672,
+        "data": 16,
+        "expected": 17
+      },
+      {
+        "frame": 2401,
+        "address": 20736,
+        "data": 241,
+        "expected": 241
+      },
+      {
+        "frame": 2401,
+        "address": 20737,
+        "data": 240,
+        "expected": 240
+      },
+      {
+        "frame": 2401,
+        "address": 20480,
+        "data": 132,
+        "expected": 132
+      },
+      {
+        "frame": 2401,
+        "address": 20544,
+        "data": 16,
+        "expected": 17
+      },
+      {
+        "frame": 2401,
+        "address": 20608,
+        "data": 138,
+        "expected": 138
+      },
+      {
+        "frame": 2401,
+        "address": 20672,
+        "data": 16,
+        "expected": 17
+      },
+      {
+        "frame": 2402,
+        "address": 20736,
+        "data": 241,
+        "expected": 241
+      },
+      {
+        "frame": 2402,
+        "address": 20737,
+        "data": 240,
+        "expected": 240
+      },
+      {
+        "frame": 2402,
+        "address": 20480,
+        "data": 132,
+        "expected": 132
+      },
+      {
+        "frame": 2402,
+        "address": 20544,
+        "data": 16,
+        "expected": 17
+      },
+      {
+        "frame": 2402,
+        "address": 20608,
+        "data": 138,
+        "expected": 138
+      },
+      {
+        "frame": 2402,
+        "address": 20672,
+        "data": 16,
+        "expected": 17
+      }
+    ],
+    "generatedInclude": "simulation/sprite_fixture/generated/replay_events.svh"
+  },
+  "faultInjection": null,
+  "firstDivergences": [
+    {
+      "case": "mirrored sprite address $503F",
+      "MAME_expected": "sprite-1-X bank accepts mirror; latched data 0x99",
+      "RTL_extracted": "exact compare rejects mirror; prior latched data 0x21 remains",
+      "provenance": "synthetic address-boundary probe; accepted bus tap canonicalizes aliases"
+    },
+    {
+      "case": "Venture sprite-2/background overlap",
+      "MAME_expected": "no collision IRQ for this pixel class under mask 0x04",
+      "RTL_extracted": "cDET=1 outside blanking; IRQ equation can latch it",
+      "provenance": "synthetic pixel probe; no event timing inferred from MAME frame trace"
+    },
+    {
+      "case": "Venture sprite-1/background overlap polarity",
+      "MAME_expected": "collision input 0x04 XOR invert 0x04 -> latched bit 2 low",
+      "RTL_extracted": "EIR[2] is active-high sprite1/background overlap",
+      "provenance": "source policy comparison; not CPU-visible whole-system read proof"
+    }
+  ],
+  "limitations": [
+    "synthetic pixel/address probes only",
+    "accepted bus addresses were canonicalized",
+    "no ROM bytes or game images embedded",
+    "no arrow identity claim",
+    "not cycle-accurate MAME collision scheduling",
+    "no full CPU/game-rendering RTL simulation"
+  ]
+}

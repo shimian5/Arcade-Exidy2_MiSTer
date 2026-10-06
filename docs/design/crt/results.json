@@ -1,0 +1,230 @@
+{
+  "schema": "exidy2-crt-schedule/v1",
+  "status": "PASS: exact aligned-rate row-ownership arithmetic; integration and fit remain required",
+  "inputs": {
+    "rasterMeasurement": "docs/audits/raster/measurements.json",
+    "rasterMeasurementSha256": "23c95848ef50bf57b99d525597cd361d4a13bcf49ce6de08e5d4c328409af72f",
+    "sourceFrameOriginToActiveRow0RawPixels": 23,
+    "commonCapturePipelineOffsetPixelsTested": [
+      0,
+      1,
+      7,
+      8,
+      23,
+      335
+    ],
+    "pipelineOffsetContract": "A constant post-tap latency translates the source schedule and cancels from row-ownership margins; the actual RGB-valid row-0 origin must be measured in integration."
+  },
+  "timing": {
+    "sourceTransportTimeUnitsPerClock": 131,
+    "crtTransportTimeUnitsPerClock": 140,
+    "sourcePixelTimeUnits": 1048,
+    "crtPixelTimeUnits": 1120,
+    "sourceLineTimeUnits": 352128,
+    "crtLineTimeUnits": 376320,
+    "sourceFrameTimeUnits": 98595840,
+    "crtFrameTimeUnits": 98595840,
+    "frameRateFromRasterPLLHz": 59.992906303146256,
+    "exactNominalFrameEquality": true,
+    "sourceActiveStartOffsetUnits": 24104
+  },
+  "startupAndMargins": {
+    "startupDelayTimeUnits": [
+      268360,
+      271720
+    ],
+    "startupDelayUsAtConfiguredSourceClock": [
+      45.36900872170351,
+      45.93705116210045
+    ],
+    "sourcePublicationUncertaintyTimeUnits": 262,
+    "readPipelineTimeUnits": 280,
+    "minimumRowsUnderContract": 18,
+    "chosenRows": 32,
+    "chosenRgb24StorageBits": 196608,
+    "alternateRgb6StorageBits": 49152,
+    "alternateRawThreeBitStorageBits": 24576,
+    "marginsTimeUnits": {
+      "minimumStartupDelay": {
+        "publication": 858,
+        "reuse": 5318778
+      },
+      "maximumStartupDelay": {
+        "publication": 4218,
+        "reuse": 5315418
+      }
+    },
+    "marginsMicroseconds": {
+      "minimumStartupDelay": {
+        "publication": 0.1450536946013624,
+        "reuse": 899.1939390028498
+      },
+      "maximumStartupDelay": {
+        "publication": 0.713096134998306,
+        "reuse": 898.6258965624528
+      }
+    },
+    "pixelChecks": 2359296,
+    "offsetTranslationChecks": 6
+  },
+  "finiteDriftFaultCases": {
+    "10000": {
+      "status": "underflow",
+      "frame": 1,
+      "row": 0,
+      "delayEndpoint": "min",
+      "marginScaled": -985103020000
+    },
+    "-10000": {
+      "status": "row_reuse_before_last_read",
+      "frame": 5,
+      "row": 205,
+      "delayEndpoint": "max",
+      "marginScaled": -7426340000
+    },
+    "1": {
+      "status": "underflow",
+      "frame": 9,
+      "row": 0,
+      "delayEndpoint": "min",
+      "marginScaled": -29362822
+    },
+    "-1": {
+      "status": "row_reuse_before_last_read",
+      "frame": 53911,
+      "row": 223,
+      "delayEndpoint": "max",
+      "marginScaled": -71855378
+    }
+  },
+  "negativeCases": {
+    "missingRow": {
+      "missingRow": 17,
+      "firstBlockedOutputCoordinate": {
+        "frame": 0,
+        "row": 17,
+        "pixel": 0
+      },
+      "modelAction": "underflow_fault_blank",
+      "assertion": "missing row is blocked and does not substitute another row; all published row identities remain readable",
+      "scope": "consumer decision arithmetic only; not RTL fault-containment verification"
+    },
+    "undersizedStore": {
+      "rows": 17,
+      "reuseMarginAtMaximumStartupDelayTimeUnits": -329382,
+      "expected": "fail; row can be overwritten before final read"
+    }
+  },
+  "modeSwitchFaultCases": [
+    {
+      "case": "source-row-not-published",
+      "expectedAction": "blank/fault at that row's first destination pixel"
+    },
+    {
+      "case": "source-stops-mid-frame",
+      "expectedAction": "synchronize fault, blank output, retire frame request; restart only from a complete fresh row 0"
+    },
+    {
+      "case": "row-slot-reuse-deadline-missed",
+      "expectedAction": "fault/blank before stale or overwritten RGB is displayed"
+    },
+    {
+      "case": "PLL-unlocked-or-lost",
+      "expectedAction": "hold output blank and transport reset until lock and two output-frame boundaries"
+    },
+    {
+      "case": "mode-change-or-user-reset",
+      "expectedAction": "blank, reset packet/row ownership locally, reconfigure output PLL; preserve fixed game/audio source clock"
+    }
+  ],
+  "pllCandidateAnalysis": {
+    "pixelFrequencyRatioCRTtoNative": "262/280 = 131/140",
+    "targetCRTTransportMHzFromOut0": 42.25036422142857,
+    "targetNativePixelMHz": 5.644132625,
+    "targetCRTPixelMHz": 5.281295527678571,
+    "targetHorizontalHz": 15718.14145142432,
+    "preferredSameSourceReferenceCandidate": {
+      "reference": "existing pll_0002 outclk_1 (declared 11.288265 MHz), conditional GCLK reference to separate output PLL",
+      "sourceOutput0DeclaredMHz": 45.153061,
+      "sourceOutput1DeclaredMHz": 11.288265,
+      "declaredSourceOut0ToOut1Ratio": "45153061/11288265",
+      "nominalQuarterRateDifferenceHz": 1.0,
+      "native": {
+        "M": 128,
+        "N": 1,
+        "C": 32,
+        "rateMHzFromDeclaredOut1": 45.15306,
+        "nominalVcoMHz": 1444.89792
+      },
+      "crt": {
+        "M": 131,
+        "N": 1,
+        "C": 35,
+        "rateMHzFromDeclaredOut1": 42.250363285714286,
+        "nominalVcoMHz": 1478.762715,
+        "ratioToNative": "131/140"
+      },
+      "crtRefreshHzFromDeclaredOut1": 59.9929049744898,
+      "sourceRefreshHzFromDeclaredOut0": 59.992906303146256,
+      "crtRefreshErrorHzAgainstDeclaredOut0": -1.328656462585034e-06,
+      "exactDividerRatioAssertions": {
+        "nativeOutPerReference": "128/32 = 4",
+        "crtOutPerReference": "131/35",
+        "crtToNative": "(131/35)/(128/32) = 131/140",
+        "passed": true
+      },
+      "vcoRangeCheck": {
+        "nominalRangeMHzForTargetI7": [
+          600,
+          1600
+        ],
+        "bothNominalCandidatesInRange": true,
+        "note": "Datasheet range is a device operating limit, not a proof that this generated cascaded/reference design fits."
+      },
+      "status": "preferred conditional candidate; exact 131/140 relationship only if actual original PLL out0/out1 ratio is exactly 4 and downstream reference routing/reconfiguration is supported and fitted"
+    },
+    "fallbackIndependent50MHzQ32": {
+      "referenceMHz": 50.0,
+      "nativeOutputCandidate": {
+        "M": 28,
+        "N": 1,
+        "C": 32,
+        "K_Q32": 3856704710,
+        "targetMHz": 45.153061,
+        "candidateMHz": 45.15306100001908,
+        "errorHz": 1.9079074263572693e-05
+      },
+      "crtOutputCandidate": {
+        "M": 27,
+        "N": 1,
+        "C": 32,
+        "K_Q32": 172799856,
+        "targetMHz": 42.25036422142857,
+        "candidateMHz": 42.25036422139965,
+        "errorHz": -2.8921450887407576e-05
+      },
+      "candidateRefreshHz": 59.992906303105194,
+      "sourceDeclaredRefreshHz": 59.992906303146256,
+      "refreshErrorHzFromRoundedMetadata": -4.106667303850812e-11,
+      "status": "fallback only; based on rounded metadata and cannot guarantee long-term alignment to the original source"
+    },
+    "requiredVerification": "Measure/fitter-confirm the existing out0:out1 ratio; verify the chosen Cyclone V PLL can use outclk_1 as its GCLK reference with legal placement, VCO, bandwidth, routing, and dynamic reconfiguration. No Quartus fit or silicon measurement is claimed."
+  },
+  "counters": {
+    "sequenceWidthBitsCandidate": 16,
+    "wrapTest": {
+      "startSequence": 65530,
+      "rowsAdvanced": 16,
+      "expectedEndSequence": 10,
+      "modularDistanceChecks": [
+        1,
+        16,
+        31,
+        32
+      ],
+      "contract": "serial-number distance is modulo 2^16 and capacity is <2^15; Gray-coded CDC still needs implementation and skew constraints",
+      "grayOneBitTransitions": 16
+    }
+  },
+  "scope": "Arithmetic model only. It does not instantiate RTL, model analog PLL lock/phase noise, prove a clock fit, validate the actual post-video-mixer RGB-valid row origin, or establish HDMI/analog/Direct Video/CRT hardware acceptance."
+}

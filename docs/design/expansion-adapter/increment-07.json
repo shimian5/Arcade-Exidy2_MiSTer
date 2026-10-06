@@ -1,0 +1,67 @@
+{
+  "schema": "exidy2-expansion-connected-increment/v1",
+  "increment": 7,
+  "accepted": false,
+  "cases": [
+    {
+      "case": "mtrap-rom-speech",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment07/mtrap-rom-speech.log"
+    },
+    {
+      "case": "fax-rom-questions",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment07/fax-rom-questions.log"
+    },
+    {
+      "case": "fax2-rom-questions",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment07/fax2-rom-questions.log"
+    }
+  ],
+  "sha256": {
+    "sys/hps_io.sv": "a5747b92d6ca1330730c045e4e8506b2ffc8567347f48e2b4483b4822ac09128",
+    "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+    "sim/expansion_adapter/exidy_transport_adapter.sv": "1d74e18a7a097ef613018145dba6f9eb118fbfac78d62b7c4682e1c38b13a7a2",
+    "sim/expansion_adapter/exidy_expansion_loader_baseline.sv": "b543b5431838d6b70e2a4ed2948e99d0cdf1a7e03db374a22084f80010ae7e9e",
+    "sim/expansion_adapter/tb_connected.sv": "dc79c48a26915ffcd8bf219cfc2b053c6028ae5934cfa2fbb813e941654450eb",
+    "simulation/expansion_adapter/increment07/source_transport.sv": "5afb42ed646553248fa844d86e85f1522c0e0d7789618de59214a802c2a9b581"
+  },
+  "hostSources": {
+    "/mnt/c/MiSTerDev/Main_MiSTer/fpga_io.cpp": "3a690b1a5c0c20b0994d44c4853c92c8c4c8698623589928f04a8ca6e333a127",
+    "/mnt/c/MiSTerDev/Main_MiSTer/spi.h": "a76120eceb3a2c0df2ec0d09509f3bc41c9de4eaa0301a4d22cef77557fd9a46",
+    "/mnt/c/MiSTerDev/Main_MiSTer/spi.cpp": "b2a2211ce83acda3a8e398ec379d6af7a96a94ea90bdcea4b38d49e8a6201459",
+    "/mnt/c/MiSTerDev/Main_MiSTer/user_io.cpp": "034e16907420a9c91575422ffaa7c93335d43da7ebfbb2ccf07a3c238806664c"
+  },
+  "boundary": "Original file-download always block and GPIO synchronizer/ACK bodies extracted unchanged; other hps_io commands and SoC MMIO execution excluded.",
+  "romImages": {
+    "mtrap": {
+      "bytes": 16384,
+      "sha256": "96aabec1a71953afb98f4a28d090c9d2b3564cf7b487cf55604c96aaeba23bf0",
+      "hexFile": "simulation\\expansion_adapter\\rom-images\\mtrap.hex",
+      "emptyBanks": []
+    },
+    "fax": {
+      "bytes": 196608,
+      "sha256": "462bf48564d2e40647dfad3f35bc794bed6432f6d20da8282d0b9aa11145817a",
+      "hexFile": "simulation\\expansion_adapter\\rom-images\\fax.hex",
+      "emptyBanks": [
+        22,
+        23
+      ]
+    },
+    "fax2": {
+      "bytes": 196608,
+      "sha256": "9171f92c9a84e193bb875cd3b197634ef5803f48104a2028f9aed6b73ab892ae",
+      "hexFile": "simulation\\expansion_adapter\\rom-images\\fax2.hex",
+      "emptyBanks": []
+    }
+  },
+  "remaining": [
+    "Missing descriptor/length/order permutations beyond the bounded matrix; full game/audio execution.",
+    "Fast block MMIO path, other HPS commands, physical CDC/reset/memory/Quartus gates."
+  ]
+}

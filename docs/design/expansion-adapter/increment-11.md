@@ -1,0 +1,9 @@
+# Increment 11 — Quartus-visible synchronizer chains
+
+Completed 2026-10-06. The isolated complete Quartus flow succeeds with scoped Intel `SYNCHRONIZER_IDENTIFICATION "FORCED IF ASYNCHRONOUS"` assignments on the ten registers forming five intended chains. This follows [Intel's Standard Edition guidance](https://www.intel.com/programmable/technical-pdfs/683323.pdf). Source RTL and the increment-10 behavioral contract are unchanged; only probe assignments change.
+
+[Full-flow results](increment-11-fit.json) show 208 RAM blocks, 477 ALMs and 469 registers. [Detailed chain evidence](increment-11-sync.json) verifies acknowledgement, generation echo, request, remote generation and speech readiness endpoints; each chain has two registers and a calculable MTBF estimate. The uncomputable fraction is 0, compared with 1 in increment 10. Detailed reporting reads the completed timing netlist after the full build and is not a substitute build stage.
+
+The tool uses the probe's abstract 50 MHz/10 MHz clocks and default data toggle assumptions. Its very large numerical estimates are not hardware reliability acceptance. Virtual I/O/reset timing, actual clocks/PLLs, reset release per domain, coherence of independent handshake controls and whole-core placement remain open. Generic async_reg attributes still warn as unsupported, but the scoped Intel assignments are recognized and cover the actual endpoints. No production files or releases changed and no generated SOF was deployed.
+
+A further boundary review identified an untested session-verdict corner: re-sending a full speech stream while old loader readiness is still high can let transport quarantine fall one main edge before the loader rejects the duplicate. The bridge needs explicit speech begin/active/end quarantine until that verdict, followed by a duplicate-speech regression. This is the immediate next bounded fix; do not wire the candidate before it closes.

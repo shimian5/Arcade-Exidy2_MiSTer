@@ -1,0 +1,51 @@
+{
+  "schema": "exidy2-sixth-stopping-review/v1",
+  "ownerRequestedStopAfterCurrentStep": true,
+  "lunaTurnsEndedByUsageLimit": true,
+  "baselineChecked": 133,
+  "baselineChanged": [
+    ".gitignore"
+  ],
+  "productionBuildRun": false,
+  "artifactHashes": {
+    "tools/sprite_serialization/run_sim.py": "8A0C2B57935830B03DD1B3DE71878540A1FC6D6ED725503005B802662E5518EF",
+    "sim/video_queue/tb.sv": "0B508D1EB7B2A3BCA22745778F471F96C136596DF365926D3FDB638E504FAD25",
+    "tools/video_queue/measure.py": "4EC90168E584FCAA4CB66691523679D6C25F7CF88EA41FDA3ABC835A49685437",
+    "sim/sprite_serialization/tb.sv": "027F6B554DC1698BCF5DA69CC14BBBE39D915DCD2A4FCE2CBC9EC1B11CB89BBB",
+    "tools/expansion_adapter/review.py": "E1A98087802BAEAA871419F159A997E37D2D21B91296D2F31028EFC4E35D155A",
+    "tools/sprite_serialization/analyze.py": "9982D31BFFFD0B1393245B754205501D40C35F1205DC0077A1E8E1172D256B34",
+    "tools/sprite_serialization/run_raw.ps1": "4A5B4ADD003C648FB419770D538EB09999EE4DD398796882F303E86717FAE8CF",
+    "sim/expansion_adapter/exidy_transport_adapter.sv": "E83ACE8EF65B2868E3FA5F0EB504DDFB3E60D05721CB3C2AC74E0CE323178416",
+    "sim/expansion_adapter/tb_review.sv": "0A5BB77949E4F8DA68DA5CB00F7C4B1E0F2E4A0EAC86D1D6A1597A1AD87337FC",
+    "tools/sprite_serialization/venture_raw.lua": "810433E29DF488C9D845E9D3A7769B1A17DEB116A24F8812941C21F23EEB4233"
+  },
+  "video": {
+    "runs": 8,
+    "negativeDetected": true,
+    "intervalMasterClocks": 18,
+    "allCoveragePass": true,
+    "scopeNormalizedSimulationOnly": true
+  },
+  "sprite": {
+    "arrowIdentityAccepted": false,
+    "completeChainAccepted": false,
+    "positiveAndNegativePass": true,
+    "matchesAcceptedFireBus": true,
+    "mirrorWrites": [
+      0,
+      0
+    ],
+    "rawBusRows": [
+      189581,
+      190028
+    ],
+    "bitChecks": 16384,
+    "commonDecodedFramesMatch": 13
+  },
+  "adapter": {
+    "accepted": false,
+    "fullQuarantineAccepted": false,
+    "reproducedDefects": 3
+  },
+  "nextBatchDispatched": false
+}

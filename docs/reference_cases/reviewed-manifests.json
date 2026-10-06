@@ -1,0 +1,1604 @@
+{
+  "schema": "exidy2-reviewed-reference-cases/v1",
+  "reviewed": "2026-10-06",
+  "ventureGameplayAccepted": true,
+  "runs": [
+    {
+      "path": "targ/run04",
+      "manifestSha256": "100B0140D58579E61A55CC2F30D98C87006BCF25358FAD3796C2F13C82A394A1",
+      "evidence": {
+        "set": "targ",
+        "run": "run04",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\targ.zip",
+        "romZipSha256": "5833B6BEF960B5CAB30C98A453C3DCFBC2685FE065EFE5A92EFF046682D9E325",
+        "luaScriptSha256": "24AEFD47E7D13258FAB0CC0ACAFB7F1A4844F74027AAD3C2E505CEBED7AB8564",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "mameVersion": "0.288 (mame0288)",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "targ -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run04\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run04\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run04\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run04\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run04\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run04\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run04\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run04 -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run04\\exidy_reference.lua -seconds_to_run 64",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "input": "zero input for entire attract capture",
+        "capturedAtUtc": "2026-10-06T16:38:19.0087411Z",
+        "validated": true,
+        "snapshotCount": 7,
+        "busEventCount": 22847,
+        "busLastFrame": 3599,
+        "busEventsAtOrAfterFrame": 3000,
+        "lateBusEventCount": 4195,
+        "snapshots": [
+          {
+            "name": "targ_frame_000120.png",
+            "sha256File": "a5f6b276794a96fedf6efb299a4ba1029341476f29a6fef9bada80f1d56265d6",
+            "sha256RgbPixels": "9087f2acbe93bc6baa38bac219b4e925bd4a62d1cea0d5d793c7303625220a26",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_000600.png",
+            "sha256File": "af746bfd5fb1249c2628b0e9a71a48b83d40bbe052685168c4faf0a64bc356df",
+            "sha256RgbPixels": "fb02736960f85ba00e2f049891fafb4a82f1e4934bbf2999b0442a679b24ce5e",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_001200.png",
+            "sha256File": "ae8aa20dee8647bdf4332f134dfbc475d8b5c20223a9eb21ab7a1183ebb69138",
+            "sha256RgbPixels": "1405bdad3c9e659a61e37d10a0b6127743d7e94a708217e1644850d8772c10de",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_001800.png",
+            "sha256File": "86b475fcc134049dab67c460cae88c7c509c3045dd6f3797f32500d93e4640b7",
+            "sha256RgbPixels": "517a2d1742e0568fdf5b669c2ca298466c036ef52c17d312a5592c084c22acb3",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_002400.png",
+            "sha256File": "2d8278a982844881fe4ef8d789825f76ccbb1412980f756b646dd47b30a4fd09",
+            "sha256RgbPixels": "a5bf3b1af239998ac36ff11af8a6dabc0cfb60020189895538acf67883f83e77",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_003000.png",
+            "sha256File": "727d0edc3b2c4b0ff8493d2eed1849eda746a95b2c2c4ab7b0e494eb9f8cf229",
+            "sha256RgbPixels": "0669d924bd92fba6d29e0dc7d6c534a7c2a50592ea69aa20451cbbc2b3fda6da",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_003600.png",
+            "sha256File": "3f6dc898c2d1b2184fd53a4277359e9900a4787874f59a3f3f465a6b2fe16033",
+            "sha256RgbPixels": "21d30b6cf26b5bf034c4c7141492618b5077fde048be756c46167072fbddc437",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "29352740ad5864b12c6f499cae7b860114c2af233395e83db9fe436cc72d9f4a",
+            "bytes": 2121
+          },
+          "bus.csv": {
+            "sha256": "697f3f3453ac77aa50ab963df9363c8bfe1f2300a39f9dd53a4d900a5400b28d",
+            "bytes": 834031
+          },
+          "verifyroms.log": {
+            "sha256": "085fa92ee669f796f3d372c761b8e618f4a146cbe96117fbe84802f5428dff19",
+            "bytes": 102
+          },
+          "mame.log": {
+            "sha256": "0e4c9294b2f2c53cca23a571379c997f89717f00694c407bdfe0312dbf8d387e",
+            "bytes": 78
+          }
+        },
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "secondsToRun": 64,
+          "targetFrame": 3600
+        },
+        "metadataBackfilledFrom": "per-run command field and archived exidy_reference.lua after capture; capture options were -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins"
+      }
+    },
+    {
+      "path": "targ/run05",
+      "manifestSha256": "40E5778DAE92544D07AD489152F05347AEB09EF27FFDD509E958EF69E55A7580",
+      "evidence": {
+        "set": "targ",
+        "run": "run05",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\targ.zip",
+        "romZipSha256": "5833B6BEF960B5CAB30C98A453C3DCFBC2685FE065EFE5A92EFF046682D9E325",
+        "luaScriptSha256": "24AEFD47E7D13258FAB0CC0ACAFB7F1A4844F74027AAD3C2E505CEBED7AB8564",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "mameVersion": "0.288 (mame0288)",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "targ -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run05\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run05\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run05\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run05\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run05\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run05\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run05\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run05 -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\run05\\exidy_reference.lua -seconds_to_run 64",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "input": "zero input for entire attract capture",
+        "capturedAtUtc": "2026-10-06T16:38:21.6431305Z",
+        "validated": true,
+        "snapshotCount": 7,
+        "busEventCount": 22847,
+        "busLastFrame": 3599,
+        "busEventsAtOrAfterFrame": 3000,
+        "lateBusEventCount": 4195,
+        "snapshots": [
+          {
+            "name": "targ_frame_000120.png",
+            "sha256File": "a5f6b276794a96fedf6efb299a4ba1029341476f29a6fef9bada80f1d56265d6",
+            "sha256RgbPixels": "9087f2acbe93bc6baa38bac219b4e925bd4a62d1cea0d5d793c7303625220a26",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_000600.png",
+            "sha256File": "af746bfd5fb1249c2628b0e9a71a48b83d40bbe052685168c4faf0a64bc356df",
+            "sha256RgbPixels": "fb02736960f85ba00e2f049891fafb4a82f1e4934bbf2999b0442a679b24ce5e",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_001200.png",
+            "sha256File": "ae8aa20dee8647bdf4332f134dfbc475d8b5c20223a9eb21ab7a1183ebb69138",
+            "sha256RgbPixels": "1405bdad3c9e659a61e37d10a0b6127743d7e94a708217e1644850d8772c10de",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_001800.png",
+            "sha256File": "86b475fcc134049dab67c460cae88c7c509c3045dd6f3797f32500d93e4640b7",
+            "sha256RgbPixels": "517a2d1742e0568fdf5b669c2ca298466c036ef52c17d312a5592c084c22acb3",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_002400.png",
+            "sha256File": "2d8278a982844881fe4ef8d789825f76ccbb1412980f756b646dd47b30a4fd09",
+            "sha256RgbPixels": "a5bf3b1af239998ac36ff11af8a6dabc0cfb60020189895538acf67883f83e77",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_003000.png",
+            "sha256File": "727d0edc3b2c4b0ff8493d2eed1849eda746a95b2c2c4ab7b0e494eb9f8cf229",
+            "sha256RgbPixels": "0669d924bd92fba6d29e0dc7d6c534a7c2a50592ea69aa20451cbbc2b3fda6da",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_003600.png",
+            "sha256File": "3f6dc898c2d1b2184fd53a4277359e9900a4787874f59a3f3f465a6b2fe16033",
+            "sha256RgbPixels": "21d30b6cf26b5bf034c4c7141492618b5077fde048be756c46167072fbddc437",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "29352740ad5864b12c6f499cae7b860114c2af233395e83db9fe436cc72d9f4a",
+            "bytes": 2121
+          },
+          "bus.csv": {
+            "sha256": "697f3f3453ac77aa50ab963df9363c8bfe1f2300a39f9dd53a4d900a5400b28d",
+            "bytes": 834031
+          },
+          "verifyroms.log": {
+            "sha256": "085fa92ee669f796f3d372c761b8e618f4a146cbe96117fbe84802f5428dff19",
+            "bytes": 102
+          },
+          "mame.log": {
+            "sha256": "c8bfe16f3cfff602ed467fc92e97ae975f9c2643b9aed2fff0af465fdd1c4f48",
+            "bytes": 78
+          }
+        },
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "secondsToRun": 64,
+          "targetFrame": 3600
+        },
+        "metadataBackfilledFrom": "per-run command field and archived exidy_reference.lua after capture; capture options were -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins"
+      }
+    },
+    {
+      "path": "spectar/run03",
+      "manifestSha256": "725CAA782DCC32069E9B5CC5A86633F0C433034F61D302A8C94D5A4F4F93C33A",
+      "evidence": {
+        "set": "spectar",
+        "run": "run03",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\spectar.zip",
+        "romZipSha256": "B169C36506757CA379A80B4CF5BD3670217E14677BA3BBB1DA846429BF6EF82C",
+        "luaScriptSha256": "24AEFD47E7D13258FAB0CC0ACAFB7F1A4844F74027AAD3C2E505CEBED7AB8564",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "mameVersion": "0.288 (mame0288)",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "spectar -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run03\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run03\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run03\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run03\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run03\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run03\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run03\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run03 -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run03\\exidy_reference.lua -seconds_to_run 64",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "input": "zero input for entire attract capture",
+        "capturedAtUtc": "2026-10-06T16:38:24.7131325Z",
+        "validated": true,
+        "snapshotCount": 7,
+        "busEventCount": 59186,
+        "busLastFrame": 3599,
+        "busEventsAtOrAfterFrame": 3000,
+        "lateBusEventCount": 10990,
+        "snapshots": [
+          {
+            "name": "spectar_frame_000120.png",
+            "sha256File": "4996af66d83a4ffb4ae316aa4a5c9cd394a7a8945f2485dd9515af307257fd64",
+            "sha256RgbPixels": "67bb6ab6dd595e2df09d80bb3446472f7a9418b11fec76bf33eb532ebb611799",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_000600.png",
+            "sha256File": "696fef83051ab7734087ec743b19be66c267a78da452e4ac9af9de7192a2bb51",
+            "sha256RgbPixels": "046c9ef5a80c056849b4cdba380c46df8c6ad349de0e96d3b9dc9d46231e7038",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_001200.png",
+            "sha256File": "04c7dd46f82ddf41a6db81e2902de8969249527e1abe02013edaac36b45a0051",
+            "sha256RgbPixels": "db989ce4a09024e0ae7c93068fcaf38edff03b77132e47bdee55707bb0b3c8a9",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_001800.png",
+            "sha256File": "37152568474db34c61dd9c75702f5c1bcb30291ba5a5c27ac5feae3bcecaa64e",
+            "sha256RgbPixels": "474a9b27f1f44522345e6cc85cb676910fb0ff6f0f51ce38ee282c7bd0affedf",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_002400.png",
+            "sha256File": "7876be4d363638808f29f1fcf0e9f33eb6194760d67d04d50b490eb3416d5432",
+            "sha256RgbPixels": "0cf9f08ead40cfd0ddf17877d84277d62353d02cd1826d712ccae475e2df946d",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_003000.png",
+            "sha256File": "ecacbb3efdfe2cfabdf6e84eb046aead01039dbd51aa4e55ce2523aa385ba239",
+            "sha256RgbPixels": "68f5fda002001287034ab09d9b736709db0cfaaba8f34131be87774600a71427",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_003600.png",
+            "sha256File": "2d2f2debce25ebdc9b36d78b920439570b721d2d34bd58edb3390b7efb22a5f3",
+            "sha256RgbPixels": "66e60c8708d8aeff729d9e5a1a478d54a9ffa6c6032a4c0b094a37a9aa3328c1",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "c3e3bff4a7dc1c3d237546b047e9c5885375f678421a53092b2217e08b431699",
+            "bytes": 2198
+          },
+          "bus.csv": {
+            "sha256": "7f6c474cb2ff1aeec32ed03f87abeac521cfb26d97d72ac0c6141eed234e3cb6",
+            "bytes": 2160139
+          },
+          "verifyroms.log": {
+            "sha256": "a6a7afe1dce1b13bec4701f19fcd994aa2176b1ee1019e68663a31c48f0371be",
+            "bytes": 108
+          },
+          "mame.log": {
+            "sha256": "dc6e6ecc2a68c07c79044ed60f41942b9b86120bc4b7ee49af1fed8367bd3cc4",
+            "bytes": 78
+          }
+        },
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "secondsToRun": 64,
+          "targetFrame": 3600
+        },
+        "metadataBackfilledFrom": "per-run command field and archived exidy_reference.lua after capture; capture options were -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins"
+      }
+    },
+    {
+      "path": "spectar/run04",
+      "manifestSha256": "DA9777DED7656A3D393D438D2F16CA928651DDED41C111DB3996863EBA92C206",
+      "evidence": {
+        "set": "spectar",
+        "run": "run04",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\spectar.zip",
+        "romZipSha256": "B169C36506757CA379A80B4CF5BD3670217E14677BA3BBB1DA846429BF6EF82C",
+        "luaScriptSha256": "24AEFD47E7D13258FAB0CC0ACAFB7F1A4844F74027AAD3C2E505CEBED7AB8564",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "mameVersion": "0.288 (mame0288)",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "spectar -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run04\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run04\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run04\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run04\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run04\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run04\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run04\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run04 -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\spectar\\run04\\exidy_reference.lua -seconds_to_run 64",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "input": "zero input for entire attract capture",
+        "capturedAtUtc": "2026-10-06T16:38:27.6939436Z",
+        "validated": true,
+        "snapshotCount": 7,
+        "busEventCount": 59186,
+        "busLastFrame": 3599,
+        "busEventsAtOrAfterFrame": 3000,
+        "lateBusEventCount": 10990,
+        "snapshots": [
+          {
+            "name": "spectar_frame_000120.png",
+            "sha256File": "4996af66d83a4ffb4ae316aa4a5c9cd394a7a8945f2485dd9515af307257fd64",
+            "sha256RgbPixels": "67bb6ab6dd595e2df09d80bb3446472f7a9418b11fec76bf33eb532ebb611799",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_000600.png",
+            "sha256File": "696fef83051ab7734087ec743b19be66c267a78da452e4ac9af9de7192a2bb51",
+            "sha256RgbPixels": "046c9ef5a80c056849b4cdba380c46df8c6ad349de0e96d3b9dc9d46231e7038",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_001200.png",
+            "sha256File": "04c7dd46f82ddf41a6db81e2902de8969249527e1abe02013edaac36b45a0051",
+            "sha256RgbPixels": "db989ce4a09024e0ae7c93068fcaf38edff03b77132e47bdee55707bb0b3c8a9",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_001800.png",
+            "sha256File": "37152568474db34c61dd9c75702f5c1bcb30291ba5a5c27ac5feae3bcecaa64e",
+            "sha256RgbPixels": "474a9b27f1f44522345e6cc85cb676910fb0ff6f0f51ce38ee282c7bd0affedf",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_002400.png",
+            "sha256File": "7876be4d363638808f29f1fcf0e9f33eb6194760d67d04d50b490eb3416d5432",
+            "sha256RgbPixels": "0cf9f08ead40cfd0ddf17877d84277d62353d02cd1826d712ccae475e2df946d",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_003000.png",
+            "sha256File": "ecacbb3efdfe2cfabdf6e84eb046aead01039dbd51aa4e55ce2523aa385ba239",
+            "sha256RgbPixels": "68f5fda002001287034ab09d9b736709db0cfaaba8f34131be87774600a71427",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "spectar_frame_003600.png",
+            "sha256File": "2d2f2debce25ebdc9b36d78b920439570b721d2d34bd58edb3390b7efb22a5f3",
+            "sha256RgbPixels": "66e60c8708d8aeff729d9e5a1a478d54a9ffa6c6032a4c0b094a37a9aa3328c1",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "c3e3bff4a7dc1c3d237546b047e9c5885375f678421a53092b2217e08b431699",
+            "bytes": 2198
+          },
+          "bus.csv": {
+            "sha256": "7f6c474cb2ff1aeec32ed03f87abeac521cfb26d97d72ac0c6141eed234e3cb6",
+            "bytes": 2160139
+          },
+          "verifyroms.log": {
+            "sha256": "a6a7afe1dce1b13bec4701f19fcd994aa2176b1ee1019e68663a31c48f0371be",
+            "bytes": 108
+          },
+          "mame.log": {
+            "sha256": "4660ac77af5a9da97dcb61c4c9ed32c9f8ef59ec0d3267822d4a1a1f6581d5bd",
+            "bytes": 78
+          }
+        },
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "secondsToRun": 64,
+          "targetFrame": 3600
+        },
+        "metadataBackfilledFrom": "per-run command field and archived exidy_reference.lua after capture; capture options were -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins"
+      }
+    },
+    {
+      "path": "targ/integrator_final01",
+      "manifestSha256": "526D75484D546326FAD995ABB9EFF4523434CE2BE079E99374749CCB7C0E6AEF",
+      "evidence": {
+        "set": "targ",
+        "run": "integrator_final01",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\targ.zip",
+        "romZipSha256": "5833B6BEF960B5CAB30C98A453C3DCFBC2685FE065EFE5A92EFF046682D9E325",
+        "luaScriptSha256": "24AEFD47E7D13258FAB0CC0ACAFB7F1A4844F74027AAD3C2E505CEBED7AB8564",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "mameVersion": "0.288 (mame0288)",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "targ -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final01\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final01\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final01\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final01\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final01\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final01\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final01\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final01 -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final01\\exidy_reference.lua -seconds_to_run 64",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "input": "zero input for entire attract capture",
+        "capturedAtUtc": "2026-10-06T16:39:14.0607537Z",
+        "validated": true,
+        "snapshotCount": 7,
+        "busEventCount": 22847,
+        "busLastFrame": 3599,
+        "busEventsAtOrAfterFrame": 3000,
+        "lateBusEventCount": 4195,
+        "snapshots": [
+          {
+            "name": "targ_frame_000120.png",
+            "sha256File": "a5f6b276794a96fedf6efb299a4ba1029341476f29a6fef9bada80f1d56265d6",
+            "sha256RgbPixels": "9087f2acbe93bc6baa38bac219b4e925bd4a62d1cea0d5d793c7303625220a26",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_000600.png",
+            "sha256File": "af746bfd5fb1249c2628b0e9a71a48b83d40bbe052685168c4faf0a64bc356df",
+            "sha256RgbPixels": "fb02736960f85ba00e2f049891fafb4a82f1e4934bbf2999b0442a679b24ce5e",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_001200.png",
+            "sha256File": "ae8aa20dee8647bdf4332f134dfbc475d8b5c20223a9eb21ab7a1183ebb69138",
+            "sha256RgbPixels": "1405bdad3c9e659a61e37d10a0b6127743d7e94a708217e1644850d8772c10de",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_001800.png",
+            "sha256File": "86b475fcc134049dab67c460cae88c7c509c3045dd6f3797f32500d93e4640b7",
+            "sha256RgbPixels": "517a2d1742e0568fdf5b669c2ca298466c036ef52c17d312a5592c084c22acb3",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_002400.png",
+            "sha256File": "2d8278a982844881fe4ef8d789825f76ccbb1412980f756b646dd47b30a4fd09",
+            "sha256RgbPixels": "a5bf3b1af239998ac36ff11af8a6dabc0cfb60020189895538acf67883f83e77",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_003000.png",
+            "sha256File": "727d0edc3b2c4b0ff8493d2eed1849eda746a95b2c2c4ab7b0e494eb9f8cf229",
+            "sha256RgbPixels": "0669d924bd92fba6d29e0dc7d6c534a7c2a50592ea69aa20451cbbc2b3fda6da",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_003600.png",
+            "sha256File": "3f6dc898c2d1b2184fd53a4277359e9900a4787874f59a3f3f465a6b2fe16033",
+            "sha256RgbPixels": "21d30b6cf26b5bf034c4c7141492618b5077fde048be756c46167072fbddc437",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "29352740ad5864b12c6f499cae7b860114c2af233395e83db9fe436cc72d9f4a",
+            "bytes": 2121
+          },
+          "bus.csv": {
+            "sha256": "697f3f3453ac77aa50ab963df9363c8bfe1f2300a39f9dd53a4d900a5400b28d",
+            "bytes": 834031
+          },
+          "verifyroms.log": {
+            "sha256": "d83e4106f651d1eedf66c5f1a0d6d7de995438e7e8f269f24e259182a4f99d1e",
+            "bytes": 50
+          },
+          "mame.log": {
+            "sha256": "8272d381bb4e3d5d5342767830f6cc2697ce03e413412e2887dae2b1b8623c88",
+            "bytes": 38
+          }
+        },
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "secondsToRun": 64,
+          "targetFrame": 3600
+        },
+        "captureSettingsProvenance": "Integrator metadata backfill from recorded command and frozen Lua after explicit settings field was added; capture output files unchanged."
+      }
+    },
+    {
+      "path": "targ/integrator_final02",
+      "manifestSha256": "516844A1EE28E07648070A1F6AD778501D9242A048E97A37E9FD59D6D1F883AA",
+      "evidence": {
+        "set": "targ",
+        "run": "integrator_final02",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\targ.zip",
+        "romZipSha256": "5833B6BEF960B5CAB30C98A453C3DCFBC2685FE065EFE5A92EFF046682D9E325",
+        "luaScriptSha256": "24AEFD47E7D13258FAB0CC0ACAFB7F1A4844F74027AAD3C2E505CEBED7AB8564",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "mameVersion": "0.288 (mame0288)",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "targ -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final02\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final02\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final02\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final02\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final02\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final02\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final02\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final02 -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\targ\\integrator_final02\\exidy_reference.lua -seconds_to_run 64",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "input": "zero input for entire attract capture",
+        "capturedAtUtc": "2026-10-06T16:39:25.9339924Z",
+        "validated": true,
+        "snapshotCount": 7,
+        "busEventCount": 22847,
+        "busLastFrame": 3599,
+        "busEventsAtOrAfterFrame": 3000,
+        "lateBusEventCount": 4195,
+        "snapshots": [
+          {
+            "name": "targ_frame_000120.png",
+            "sha256File": "a5f6b276794a96fedf6efb299a4ba1029341476f29a6fef9bada80f1d56265d6",
+            "sha256RgbPixels": "9087f2acbe93bc6baa38bac219b4e925bd4a62d1cea0d5d793c7303625220a26",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_000600.png",
+            "sha256File": "af746bfd5fb1249c2628b0e9a71a48b83d40bbe052685168c4faf0a64bc356df",
+            "sha256RgbPixels": "fb02736960f85ba00e2f049891fafb4a82f1e4934bbf2999b0442a679b24ce5e",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_001200.png",
+            "sha256File": "ae8aa20dee8647bdf4332f134dfbc475d8b5c20223a9eb21ab7a1183ebb69138",
+            "sha256RgbPixels": "1405bdad3c9e659a61e37d10a0b6127743d7e94a708217e1644850d8772c10de",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_001800.png",
+            "sha256File": "86b475fcc134049dab67c460cae88c7c509c3045dd6f3797f32500d93e4640b7",
+            "sha256RgbPixels": "517a2d1742e0568fdf5b669c2ca298466c036ef52c17d312a5592c084c22acb3",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_002400.png",
+            "sha256File": "2d8278a982844881fe4ef8d789825f76ccbb1412980f756b646dd47b30a4fd09",
+            "sha256RgbPixels": "a5bf3b1af239998ac36ff11af8a6dabc0cfb60020189895538acf67883f83e77",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_003000.png",
+            "sha256File": "727d0edc3b2c4b0ff8493d2eed1849eda746a95b2c2c4ab7b0e494eb9f8cf229",
+            "sha256RgbPixels": "0669d924bd92fba6d29e0dc7d6c534a7c2a50592ea69aa20451cbbc2b3fda6da",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 65536
+          },
+          {
+            "name": "targ_frame_003600.png",
+            "sha256File": "3f6dc898c2d1b2184fd53a4277359e9900a4787874f59a3f3f465a6b2fe16033",
+            "sha256RgbPixels": "21d30b6cf26b5bf034c4c7141492618b5077fde048be756c46167072fbddc437",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 5,
+            "nonblackPixels": 65536
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "29352740ad5864b12c6f499cae7b860114c2af233395e83db9fe436cc72d9f4a",
+            "bytes": 2121
+          },
+          "bus.csv": {
+            "sha256": "697f3f3453ac77aa50ab963df9363c8bfe1f2300a39f9dd53a4d900a5400b28d",
+            "bytes": 834031
+          },
+          "verifyroms.log": {
+            "sha256": "d83e4106f651d1eedf66c5f1a0d6d7de995438e7e8f269f24e259182a4f99d1e",
+            "bytes": 50
+          },
+          "mame.log": {
+            "sha256": "0260070dde045b25e69b83c1a5a21f77e1caae7c358aff7c96c8799ae28447c9",
+            "bytes": 38
+          }
+        },
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "secondsToRun": 64,
+          "targetFrame": 3600
+        },
+        "captureSettingsProvenance": "Integrator metadata backfill from recorded command and frozen Lua after explicit settings field was added; capture output files unchanged."
+      }
+    },
+    {
+      "path": "venture/run05",
+      "manifestSha256": "B915BA617F264F422BC0903413D45D2B61A1B4D6F283D6CDDB4C3CE805648AED",
+      "evidence": {
+        "set": "venture",
+        "run": "run05",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\venture.zip",
+        "romZipSha256": "AF340219D7FA4BF9D0A2A9FFABA7053189A6A2542D63B8CF2D3B74358DB72BCD",
+        "luaScriptSha256": "24AEFD47E7D13258FAB0CC0ACAFB7F1A4844F74027AAD3C2E505CEBED7AB8564",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "mameVersion": "0.288 (mame0288)",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "venture -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\venture\\run05\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\venture\\run05\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\venture\\run05\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\venture\\run05\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\venture\\run05\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\venture\\run05\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\venture\\run05\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\venture\\run05 -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\reference_cases\\venture\\run05\\exidy_reference.lua -seconds_to_run 16",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "input": "Coin 1 frames 30-59 active; P1 start frames 120-149 active; RIGHT + BUTTON1 frames 240-419 active; all else released; MAME Lua digital fields set to 1=active",
+        "capturedAtUtc": "2026-10-06T16:37:38.440785Z",
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "secondsToRun": 16,
+          "targetFrame": 900
+        },
+        "metadataBackfilledFrom": "per-run command field and archived exidy_reference.lua after capture; capture options were -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins",
+        "validated": false,
+        "captureStatus": "completed_limited_startup_diagnostic",
+        "diagnostic": "MAME completed to frame 900, but Venture remained on STAND BY VERSION 5 with sparse main CPU I/O. This is not a successful playable boot, attract test, horizontal-shot capture, or report of the forum defect.",
+        "busEventCount": 11,
+        "busLastFrame": 161,
+        "busEventsAtOrAfterFrame": 300,
+        "lateBusEventCount": 0,
+        "snapshots": [
+          {
+            "name": "venture_frame_000255.png",
+            "sha256File": "a12f028ae56ccdb78292020b211f280cbb5ceaa0030b78d2a7eda7dcd60b6aef",
+            "sha256RgbPixels": "2b782998d8d2cc8ecac88f18baa8ca318a8a67d81c170d143ba7fd7104dd9e00",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 272
+          },
+          {
+            "name": "venture_frame_000270.png",
+            "sha256File": "63072fecaa124a99da1d1e65d591af19e565760cce77f49c0855a0ceff5d62cd",
+            "sha256RgbPixels": "31f5879eec148c50a15ae1337c0fa978a1c143acd16c99e62450f1501e7721fe",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 277
+          },
+          {
+            "name": "venture_frame_000285.png",
+            "sha256File": "63072fecaa124a99da1d1e65d591af19e565760cce77f49c0855a0ceff5d62cd",
+            "sha256RgbPixels": "31f5879eec148c50a15ae1337c0fa978a1c143acd16c99e62450f1501e7721fe",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 277
+          },
+          {
+            "name": "venture_frame_000300.png",
+            "sha256File": "63072fecaa124a99da1d1e65d591af19e565760cce77f49c0855a0ceff5d62cd",
+            "sha256RgbPixels": "31f5879eec148c50a15ae1337c0fa978a1c143acd16c99e62450f1501e7721fe",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 277
+          },
+          {
+            "name": "venture_frame_000360.png",
+            "sha256File": "94261262eed4fe62d4b1d94beb7915c78882f3162bd204063446bc580c0e913e",
+            "sha256RgbPixels": "72308eff58ce3ab9151b04f286ec76eaba76f46c7cc9a874192d9617d0463e86",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 282
+          },
+          {
+            "name": "venture_frame_000420.png",
+            "sha256File": "94261262eed4fe62d4b1d94beb7915c78882f3162bd204063446bc580c0e913e",
+            "sha256RgbPixels": "72308eff58ce3ab9151b04f286ec76eaba76f46c7cc9a874192d9617d0463e86",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 282
+          },
+          {
+            "name": "venture_frame_000600.png",
+            "sha256File": "2c4db1cdd57849452dcb14e10797b1eb3ccc3d14ccad7368ccef5ca5e1868174",
+            "sha256RgbPixels": "1f6b3e868f721f3b885676cc8259dd4c3aa3c8c0fb453213bafa90c83e8b9479",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 292
+          },
+          {
+            "name": "venture_frame_000900.png",
+            "sha256File": "8ed51bc9f17ff83d415b94aa95441b13b657195c04f132ac5eccf4738a9bc5a3",
+            "sha256RgbPixels": "7bb0a1a3df999a3e6ebb3b3197032bb8404f137a02c40f29ea035cde23db103b",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 307
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "381027bdc1deb78bce27233f31cbb2f2c9b418b90629c7909697fea801735956",
+            "bytes": 4096
+          },
+          "bus.csv": {
+            "sha256": "57b3570926d5f70d08ec88d888c9b33aa9a41671831bb40be0f0274455571c88",
+            "bytes": 409
+          },
+          "verifyroms.log": {
+            "sha256": "b4d6cf98ad3fe2dd38513e3d09c68123c670f700318a8df74f650821b4b9014c",
+            "bytes": 108
+          },
+          "mame.log": {
+            "sha256": "5d25602d7677d1da1c82f87ceef1d353e7adb546f2cb4208b25c5fd45b2b1dd3",
+            "bytes": 78
+          }
+        }
+      }
+    },
+    {
+      "manifestSha256": "36DCDD50C5C96FB625ED68F2702099B3ADDF34BF5D861AB78BE307C601855819",
+      "evidence": {
+        "set": "venture",
+        "run": "zero60a",
+        "emulator": "0.288 (mame0288)",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\venture.zip",
+        "romZipSha256": "AF340219D7FA4BF9D0A2A9FFABA7053189A6A2542D63B8CF2D3B74358DB72BCD",
+        "luaScriptSha256": "587D5173B3FB61E591DC78FB93C19C419D550920A355D65E100D064FC21FF551",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "venture -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\zero60a\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\zero60a\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\zero60a\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\zero60a\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\zero60a\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\zero60a\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\zero60a\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\zero60a -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\zero60a\\venture_startup.lua -seconds_to_run 64",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "secondsLimit": 60,
+        "input": "zero input; no fields are set by Lua",
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "seconds": 60,
+          "stopFrame": 3600
+        },
+        "capturedAtUtc": "2026-10-06T17:27:58.4223479Z",
+        "validated": false,
+        "captureStatus": "startup_transition_observed_no_input",
+        "ventureEvidence": {
+          "mode": "zero-input startup transition",
+          "busEventCount": 14225,
+          "busLastFrame": 3599,
+          "lateBusEventCount": 4741,
+          "firstIrqAcknowledgeFrame": 1720
+        },
+        "snapshots": [
+          {
+            "name": "venture_startup_000600.png",
+            "sha256File": "2c4db1cdd57849452dcb14e10797b1eb3ccc3d14ccad7368ccef5ca5e1868174",
+            "sha256RgbPixels": "1f6b3e868f721f3b885676cc8259dd4c3aa3c8c0fb453213bafa90c83e8b9479",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 292
+          },
+          {
+            "name": "venture_startup_001200.png",
+            "sha256File": "64bc0c6245d480ab8c1285ccf01b93a46f7054eab2738c4c7d2d91677c48cdfd",
+            "sha256RgbPixels": "3b2148a22e50ca8623f470bd66b2616bb7b52cc0eab5aba46601f54efa193983",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 322
+          },
+          {
+            "name": "venture_startup_001800.png",
+            "sha256File": "7b68be4f15ea6017ed29696cefa3145532f8fd4db1d4a3c2255eda4b034a715e",
+            "sha256RgbPixels": "f8a1f5854bd71e88f39a93b80fff764947e85c1bdcab1f38bc57dff0ee0a5815",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 2846
+          },
+          {
+            "name": "venture_startup_002400.png",
+            "sha256File": "7623e97c847c31af1b3b9992b35d31d6048c417e8e8582b35fb2702d6ee84b0b",
+            "sha256RgbPixels": "693187da1e6e81578773bbd52ce1476493eda3fd587cdf5581b0a99a66bfb72e",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 9158
+          },
+          {
+            "name": "venture_startup_003000.png",
+            "sha256File": "7b68be4f15ea6017ed29696cefa3145532f8fd4db1d4a3c2255eda4b034a715e",
+            "sha256RgbPixels": "f8a1f5854bd71e88f39a93b80fff764947e85c1bdcab1f38bc57dff0ee0a5815",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 2846
+          },
+          {
+            "name": "venture_startup_003600.png",
+            "sha256File": "7623e97c847c31af1b3b9992b35d31d6048c417e8e8582b35fb2702d6ee84b0b",
+            "sha256RgbPixels": "693187da1e6e81578773bbd52ce1476493eda3fd587cdf5581b0a99a66bfb72e",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 9158
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "64ad371c70e487f240cc364caa78b467544c4e84127239d5e310e62753f5e05d",
+            "bytes": 10723
+          },
+          "bus.csv": {
+            "sha256": "8192943f8c01da7573382db9eeb12570d87dd7a77c856cbae8f1cb27a374da0d",
+            "bytes": 526327
+          },
+          "ram_writes_early.csv": {
+            "sha256": "03c8cf6d92e39450f01b77b7a2f11fdaf07a7d9d251d483299ec316462a61e1b",
+            "bytes": 21633368
+          },
+          "verifyroms.log": {
+            "sha256": "b4d6cf98ad3fe2dd38513e3d09c68123c670f700318a8df74f650821b4b9014c",
+            "bytes": 108
+          },
+          "mame.log": {
+            "sha256": "db013d3d2a55ee45b7d294b9b94ac600332ec9226b7eebab2284b289011a9e23",
+            "bytes": 78
+          },
+          "venture_startup.lua": {
+            "sha256": "587d5173b3fb61e591dc78fb93c19c419d550920a355d65e100d064fc21ff551",
+            "bytes": 6380
+          }
+        }
+      },
+      "path": "venture_startup/zero60a"
+    },
+    {
+      "manifestSha256": "54BD2E0D0160B0211DACF0CFAD96437E540DFF9812C124C54E95183FCB5D27B9",
+      "evidence": {
+        "set": "venture",
+        "run": "active03",
+        "emulator": "0.288 (mame0288)",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\venture.zip",
+        "romZipSha256": "AF340219D7FA4BF9D0A2A9FFABA7053189A6A2542D63B8CF2D3B74358DB72BCD",
+        "luaScriptSha256": "C24811A73AE47A74D9EC8215EC28A9612FDA0E4BACDECADE31D47488F97FE157",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "venture -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active03\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active03\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active03\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active03\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active03\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active03\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active03\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active03 -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active03\\venture_startup.lua -seconds_to_run 64",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "secondsLimit": 60,
+        "input": "Coin 1 active 2100-2109; Start 1 active 2160-2189; Right+Button 1 active 2400-2519; fields nonzero=active",
+        "inputProbe": true,
+        "inputMode": "right-and-fire",
+        "fireProbe": true,
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "seconds": 60,
+          "stopFrame": 3600,
+          "inputMode": "right-and-fire"
+        },
+        "capturedAtUtc": "2026-10-06T17:37:39.1762613Z",
+        "validated": true,
+        "captureStatus": "gameplay_horizontal_motion_reference",
+        "ventureEvidence": {
+          "mode": "post-startup coin/start/right/fire",
+          "busEventCount": 189581,
+          "busLastFrame": 3600,
+          "lateBusEventCount": 94675,
+          "inputMode": "right-and-fire",
+          "rightButtonCpuPortValue": "EB",
+          "sprite1XDistinctDataDuringInput": 82,
+          "sprite2XDistinctDataDuringInput": 81,
+          "irqAcknowledgeReadCount": 2990,
+          "piaReadCount": 160986,
+          "snapshotFrames": [
+            2400,
+            2520,
+            2700,
+            3000,
+            3600
+          ]
+        },
+        "snapshots": [
+          {
+            "name": "venture_startup_000600.png",
+            "sha256File": "2c4db1cdd57849452dcb14e10797b1eb3ccc3d14ccad7368ccef5ca5e1868174",
+            "sha256RgbPixels": "1f6b3e868f721f3b885676cc8259dd4c3aa3c8c0fb453213bafa90c83e8b9479",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 292
+          },
+          {
+            "name": "venture_startup_001200.png",
+            "sha256File": "64bc0c6245d480ab8c1285ccf01b93a46f7054eab2738c4c7d2d91677c48cdfd",
+            "sha256RgbPixels": "3b2148a22e50ca8623f470bd66b2616bb7b52cc0eab5aba46601f54efa193983",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 322
+          },
+          {
+            "name": "venture_startup_001800.png",
+            "sha256File": "7b68be4f15ea6017ed29696cefa3145532f8fd4db1d4a3c2255eda4b034a715e",
+            "sha256RgbPixels": "f8a1f5854bd71e88f39a93b80fff764947e85c1bdcab1f38bc57dff0ee0a5815",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 2846
+          },
+          {
+            "name": "venture_startup_002100.png",
+            "sha256File": "9d06c620d5c5be5613a762c176e78a736e1e1059f205d0c8c8c9f6650eb506a8",
+            "sha256RgbPixels": "9b457997133aae64ac14badee1fa341bb823399743499a4da8afe34e539b1d57",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4189
+          },
+          {
+            "name": "venture_startup_002110.png",
+            "sha256File": "9d06c620d5c5be5613a762c176e78a736e1e1059f205d0c8c8c9f6650eb506a8",
+            "sha256RgbPixels": "9b457997133aae64ac14badee1fa341bb823399743499a4da8afe34e539b1d57",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4189
+          },
+          {
+            "name": "venture_startup_002160.png",
+            "sha256File": "5c5ae5c9ead59e72bfc258bd6679662ed9fd03603dff3a9c9210565f3008a87c",
+            "sha256RgbPixels": "80fbb226a465e5c141bf5827231dbc3aa341cfe66c203f3c9567df40804650f9",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4226
+          },
+          {
+            "name": "venture_startup_002190.png",
+            "sha256File": "c29c14d3d33059a0d900e6cd563be8d7cd233448881f23931117fd898f768a0e",
+            "sha256RgbPixels": "18b4b04e580b09488745c8b63dd06204b3de21a218b5d2b9878a6027a6a2b351",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 9237
+          },
+          {
+            "name": "venture_startup_002250.png",
+            "sha256File": "4d00638cc3d9128748fc166ae11bb70895211efdc3df8ab82ea6e1bcd73bfbfc",
+            "sha256RgbPixels": "b8e607ffbcd927d0625ac7238641278106149d86805e11e0455789be20692cca",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 9402
+          },
+          {
+            "name": "venture_startup_002400.png",
+            "sha256File": "beb8b4cb1b43f83ef55e12662f9309d0604232f795d57bed183f0c28c1a9d89c",
+            "sha256RgbPixels": "09c27a2e1ea44a36a354c186dd26cdff466d5f4ac62b05ed859be5886cc1ccef",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4435
+          },
+          {
+            "name": "venture_startup_002520.png",
+            "sha256File": "c0862c2f5980c7066517fc2a7f6325c6a3c42a7f94462fc1516f1637ae789c39",
+            "sha256RgbPixels": "adf573df0b665a7100a15c07b24fcbf6293992928d7a8c77c25249abe7ea64cb",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4588
+          },
+          {
+            "name": "venture_startup_002700.png",
+            "sha256File": "c2a3614e0bdd82dc8ac21ad60715f9a9d28c1f5c7ffed7041c0a627469c17abb",
+            "sha256RgbPixels": "db7e5890d1338fd78f198db38d8d417b50b974a10e6b2ee37de25bee289fc806",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4713
+          },
+          {
+            "name": "venture_startup_003000.png",
+            "sha256File": "89ad032dd7f17a7e9257acd5489b76d95fed796ec72497b35129b4c484454774",
+            "sha256RgbPixels": "d20cfef7e3775fc7bfa504f44b50a2d6f057a20f74ede8d091445e77ae112440",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4707
+          },
+          {
+            "name": "venture_startup_003600.png",
+            "sha256File": "98225d5599a0a70dd8d917c9ebb755d7ed4336c2a5ceb9bdb57bf23e625c4ed5",
+            "sha256RgbPixels": "81820b6bbc2b8f58f57c8306d4a2f02999d204196d099598a202e28885572f3e",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4678
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "b220082e0e5c5d50e653537b47e2c2e9e75282994079210056cdf8a7500f1004",
+            "bytes": 11903
+          },
+          "bus.csv": {
+            "sha256": "067b058e6e176fd195c06d514c21ff6bfd62ac55b66ca37b20e1ec1ad82d7b5b",
+            "bytes": 7014499
+          },
+          "ram_writes_early.csv": {
+            "sha256": "03c8cf6d92e39450f01b77b7a2f11fdaf07a7d9d251d483299ec316462a61e1b",
+            "bytes": 21633368
+          },
+          "verifyroms.log": {
+            "sha256": "b4d6cf98ad3fe2dd38513e3d09c68123c670f700318a8df74f650821b4b9014c",
+            "bytes": 108
+          },
+          "mame.log": {
+            "sha256": "e6dee1036f218bc5e416f44fd2eaae7cc98c6ca1440990adbf89c3f982cbd5ab",
+            "bytes": 78
+          },
+          "venture_startup.lua": {
+            "sha256": "c24811a73ae47a74d9ec8215ec28a9612fda0e4bacdecade31d47488f97fe157",
+            "bytes": 8196
+          }
+        }
+      },
+      "path": "venture_startup/active03"
+    },
+    {
+      "manifestSha256": "7CE55B3AD217FE20CEA0AE26897715F7097AA7D56CA0BE5BA056DF67B24E117F",
+      "evidence": {
+        "set": "venture",
+        "run": "active04",
+        "emulator": "0.288 (mame0288)",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\venture.zip",
+        "romZipSha256": "AF340219D7FA4BF9D0A2A9FFABA7053189A6A2542D63B8CF2D3B74358DB72BCD",
+        "luaScriptSha256": "C24811A73AE47A74D9EC8215EC28A9612FDA0E4BACDECADE31D47488F97FE157",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "venture -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active04\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active04\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active04\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active04\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active04\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active04\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active04\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active04 -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\active04\\venture_startup.lua -seconds_to_run 64",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "secondsLimit": 60,
+        "input": "Coin 1 active 2100-2109; Start 1 active 2160-2189; Right+Button 1 active 2400-2519; fields nonzero=active",
+        "inputProbe": true,
+        "inputMode": "right-and-fire",
+        "fireProbe": true,
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "seconds": 60,
+          "stopFrame": 3600,
+          "inputMode": "right-and-fire"
+        },
+        "capturedAtUtc": "2026-10-06T17:37:46.4621775Z",
+        "validated": true,
+        "captureStatus": "gameplay_horizontal_motion_reference",
+        "ventureEvidence": {
+          "mode": "post-startup coin/start/right/fire",
+          "busEventCount": 189581,
+          "busLastFrame": 3600,
+          "lateBusEventCount": 94675,
+          "inputMode": "right-and-fire",
+          "rightButtonCpuPortValue": "EB",
+          "sprite1XDistinctDataDuringInput": 82,
+          "sprite2XDistinctDataDuringInput": 81,
+          "irqAcknowledgeReadCount": 2990,
+          "piaReadCount": 160986,
+          "snapshotFrames": [
+            2400,
+            2520,
+            2700,
+            3000,
+            3600
+          ]
+        },
+        "snapshots": [
+          {
+            "name": "venture_startup_000600.png",
+            "sha256File": "2c4db1cdd57849452dcb14e10797b1eb3ccc3d14ccad7368ccef5ca5e1868174",
+            "sha256RgbPixels": "1f6b3e868f721f3b885676cc8259dd4c3aa3c8c0fb453213bafa90c83e8b9479",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 292
+          },
+          {
+            "name": "venture_startup_001200.png",
+            "sha256File": "64bc0c6245d480ab8c1285ccf01b93a46f7054eab2738c4c7d2d91677c48cdfd",
+            "sha256RgbPixels": "3b2148a22e50ca8623f470bd66b2616bb7b52cc0eab5aba46601f54efa193983",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 322
+          },
+          {
+            "name": "venture_startup_001800.png",
+            "sha256File": "7b68be4f15ea6017ed29696cefa3145532f8fd4db1d4a3c2255eda4b034a715e",
+            "sha256RgbPixels": "f8a1f5854bd71e88f39a93b80fff764947e85c1bdcab1f38bc57dff0ee0a5815",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 2846
+          },
+          {
+            "name": "venture_startup_002100.png",
+            "sha256File": "9d06c620d5c5be5613a762c176e78a736e1e1059f205d0c8c8c9f6650eb506a8",
+            "sha256RgbPixels": "9b457997133aae64ac14badee1fa341bb823399743499a4da8afe34e539b1d57",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4189
+          },
+          {
+            "name": "venture_startup_002110.png",
+            "sha256File": "9d06c620d5c5be5613a762c176e78a736e1e1059f205d0c8c8c9f6650eb506a8",
+            "sha256RgbPixels": "9b457997133aae64ac14badee1fa341bb823399743499a4da8afe34e539b1d57",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4189
+          },
+          {
+            "name": "venture_startup_002160.png",
+            "sha256File": "5c5ae5c9ead59e72bfc258bd6679662ed9fd03603dff3a9c9210565f3008a87c",
+            "sha256RgbPixels": "80fbb226a465e5c141bf5827231dbc3aa341cfe66c203f3c9567df40804650f9",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4226
+          },
+          {
+            "name": "venture_startup_002190.png",
+            "sha256File": "c29c14d3d33059a0d900e6cd563be8d7cd233448881f23931117fd898f768a0e",
+            "sha256RgbPixels": "18b4b04e580b09488745c8b63dd06204b3de21a218b5d2b9878a6027a6a2b351",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 9237
+          },
+          {
+            "name": "venture_startup_002250.png",
+            "sha256File": "4d00638cc3d9128748fc166ae11bb70895211efdc3df8ab82ea6e1bcd73bfbfc",
+            "sha256RgbPixels": "b8e607ffbcd927d0625ac7238641278106149d86805e11e0455789be20692cca",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 9402
+          },
+          {
+            "name": "venture_startup_002400.png",
+            "sha256File": "beb8b4cb1b43f83ef55e12662f9309d0604232f795d57bed183f0c28c1a9d89c",
+            "sha256RgbPixels": "09c27a2e1ea44a36a354c186dd26cdff466d5f4ac62b05ed859be5886cc1ccef",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4435
+          },
+          {
+            "name": "venture_startup_002520.png",
+            "sha256File": "c0862c2f5980c7066517fc2a7f6325c6a3c42a7f94462fc1516f1637ae789c39",
+            "sha256RgbPixels": "adf573df0b665a7100a15c07b24fcbf6293992928d7a8c77c25249abe7ea64cb",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4588
+          },
+          {
+            "name": "venture_startup_002700.png",
+            "sha256File": "c2a3614e0bdd82dc8ac21ad60715f9a9d28c1f5c7ffed7041c0a627469c17abb",
+            "sha256RgbPixels": "db7e5890d1338fd78f198db38d8d417b50b974a10e6b2ee37de25bee289fc806",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4713
+          },
+          {
+            "name": "venture_startup_003000.png",
+            "sha256File": "89ad032dd7f17a7e9257acd5489b76d95fed796ec72497b35129b4c484454774",
+            "sha256RgbPixels": "d20cfef7e3775fc7bfa504f44b50a2d6f057a20f74ede8d091445e77ae112440",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4707
+          },
+          {
+            "name": "venture_startup_003600.png",
+            "sha256File": "98225d5599a0a70dd8d917c9ebb755d7ed4336c2a5ceb9bdb57bf23e625c4ed5",
+            "sha256RgbPixels": "81820b6bbc2b8f58f57c8306d4a2f02999d204196d099598a202e28885572f3e",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4678
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "b220082e0e5c5d50e653537b47e2c2e9e75282994079210056cdf8a7500f1004",
+            "bytes": 11903
+          },
+          "bus.csv": {
+            "sha256": "067b058e6e176fd195c06d514c21ff6bfd62ac55b66ca37b20e1ec1ad82d7b5b",
+            "bytes": 7014499
+          },
+          "ram_writes_early.csv": {
+            "sha256": "03c8cf6d92e39450f01b77b7a2f11fdaf07a7d9d251d483299ec316462a61e1b",
+            "bytes": 21633368
+          },
+          "verifyroms.log": {
+            "sha256": "b4d6cf98ad3fe2dd38513e3d09c68123c670f700318a8df74f650821b4b9014c",
+            "bytes": 108
+          },
+          "mame.log": {
+            "sha256": "fb47549fa799c02e88e68e40eeb1402359603655f5da1a64dcf0df21380cbe6f",
+            "bytes": 78
+          },
+          "venture_startup.lua": {
+            "sha256": "c24811a73ae47a74d9ec8215ec28a9612fda0e4bacdecade31d47488f97fe157",
+            "bytes": 8196
+          }
+        }
+      },
+      "path": "venture_startup/active04"
+    },
+    {
+      "manifestSha256": "4FC41159AFE15FCADA919CE0E4AB8E4EE131C4D0A8A8F055525CEA92F1AE741F",
+      "evidence": {
+        "set": "venture",
+        "run": "right_only01",
+        "emulator": "0.288 (mame0288)",
+        "mameExe": "C:\\MiSTerDev\\mame\\mame.exe",
+        "mameExeSha256": "DCF8677FCE188E8E2625D4A2928005565652930D3F85D930F5D49D939535B182",
+        "romLibrary": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+        "romZip": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)\\venture.zip",
+        "romZipSha256": "AF340219D7FA4BF9D0A2A9FFABA7053189A6A2542D63B8CF2D3B74358DB72BCD",
+        "luaScriptSha256": "C24811A73AE47A74D9EC8215EC28A9612FDA0E4BACDECADE31D47488F97FE157",
+        "pinnedExidySourceSha256": "0F58186AD90F0592454C505FF10FBCA948EBA14E7815704B2D24B13F69327486",
+        "sourceCommit": "27a8d9e85b58058965907d1d8a7a92f8ed039348",
+        "command": "venture -noreadconfig -nowriteconfig -skip_gameinfo -rompath \\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split) -cfg_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\right_only01\\cfg -nvram_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\right_only01\\nvram -input_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\right_only01\\input -state_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\right_only01\\sta -diff_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\right_only01\\diff -comment_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\right_only01\\comment -homepath C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\right_only01\\home -snapshot_directory C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\right_only01 -video none -sound auto -volume -32 -nothrottle -nosleep -noplugins -autoboot_delay 0 -autoboot_script C:\\MiSTerDev\\Arcade-Exidy2_MiSTer\\simulation\\venture_startup\\right_only01\\venture_startup.lua -seconds_to_run 64",
+        "verifyRomExitCode": 0,
+        "mameExitCode": 0,
+        "secondsLimit": 60,
+        "input": "Coin 1 active 2100-2109; Start 1 active 2160-2189; Right active 2400-2519; Button 1 released; fields nonzero=active",
+        "inputProbe": true,
+        "inputMode": "right-only",
+        "fireProbe": false,
+        "captureSettings": {
+          "video": "none",
+          "sound": "auto",
+          "volumeDb": -32,
+          "throttle": false,
+          "sleep": false,
+          "plugins": false,
+          "seconds": 60,
+          "stopFrame": 3600,
+          "inputMode": "right-only"
+        },
+        "capturedAtUtc": "2026-10-06T17:37:53.7742187Z",
+        "validated": true,
+        "captureStatus": "gameplay_right_only_control",
+        "ventureEvidence": {
+          "mode": "post-startup coin/start/right/fire",
+          "busEventCount": 190028,
+          "busLastFrame": 3600,
+          "lateBusEventCount": 95146,
+          "inputMode": "right-only",
+          "rightButtonCpuPortValue": "FB",
+          "sprite1XDistinctDataDuringInput": 82,
+          "sprite2XDistinctDataDuringInput": 83,
+          "irqAcknowledgeReadCount": 2989,
+          "piaReadCount": 161418,
+          "snapshotFrames": [
+            2400,
+            2520,
+            2700,
+            3000,
+            3600
+          ]
+        },
+        "snapshots": [
+          {
+            "name": "venture_startup_000600.png",
+            "sha256File": "2c4db1cdd57849452dcb14e10797b1eb3ccc3d14ccad7368ccef5ca5e1868174",
+            "sha256RgbPixels": "1f6b3e868f721f3b885676cc8259dd4c3aa3c8c0fb453213bafa90c83e8b9479",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 292
+          },
+          {
+            "name": "venture_startup_001200.png",
+            "sha256File": "64bc0c6245d480ab8c1285ccf01b93a46f7054eab2738c4c7d2d91677c48cdfd",
+            "sha256RgbPixels": "3b2148a22e50ca8623f470bd66b2616bb7b52cc0eab5aba46601f54efa193983",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 2,
+            "nonblackPixels": 322
+          },
+          {
+            "name": "venture_startup_001800.png",
+            "sha256File": "7b68be4f15ea6017ed29696cefa3145532f8fd4db1d4a3c2255eda4b034a715e",
+            "sha256RgbPixels": "f8a1f5854bd71e88f39a93b80fff764947e85c1bdcab1f38bc57dff0ee0a5815",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 3,
+            "nonblackPixels": 2846
+          },
+          {
+            "name": "venture_startup_002100.png",
+            "sha256File": "9d06c620d5c5be5613a762c176e78a736e1e1059f205d0c8c8c9f6650eb506a8",
+            "sha256RgbPixels": "9b457997133aae64ac14badee1fa341bb823399743499a4da8afe34e539b1d57",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4189
+          },
+          {
+            "name": "venture_startup_002110.png",
+            "sha256File": "9d06c620d5c5be5613a762c176e78a736e1e1059f205d0c8c8c9f6650eb506a8",
+            "sha256RgbPixels": "9b457997133aae64ac14badee1fa341bb823399743499a4da8afe34e539b1d57",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4189
+          },
+          {
+            "name": "venture_startup_002160.png",
+            "sha256File": "5c5ae5c9ead59e72bfc258bd6679662ed9fd03603dff3a9c9210565f3008a87c",
+            "sha256RgbPixels": "80fbb226a465e5c141bf5827231dbc3aa341cfe66c203f3c9567df40804650f9",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4226
+          },
+          {
+            "name": "venture_startup_002190.png",
+            "sha256File": "c29c14d3d33059a0d900e6cd563be8d7cd233448881f23931117fd898f768a0e",
+            "sha256RgbPixels": "18b4b04e580b09488745c8b63dd06204b3de21a218b5d2b9878a6027a6a2b351",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 9237
+          },
+          {
+            "name": "venture_startup_002250.png",
+            "sha256File": "4d00638cc3d9128748fc166ae11bb70895211efdc3df8ab82ea6e1bcd73bfbfc",
+            "sha256RgbPixels": "b8e607ffbcd927d0625ac7238641278106149d86805e11e0455789be20692cca",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 4,
+            "nonblackPixels": 9402
+          },
+          {
+            "name": "venture_startup_002400.png",
+            "sha256File": "beb8b4cb1b43f83ef55e12662f9309d0604232f795d57bed183f0c28c1a9d89c",
+            "sha256RgbPixels": "09c27a2e1ea44a36a354c186dd26cdff466d5f4ac62b05ed859be5886cc1ccef",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4435
+          },
+          {
+            "name": "venture_startup_002520.png",
+            "sha256File": "35bcf9b96370419d45f4042d3cc5b460baf671e23b301dfbe75700c706b6f832",
+            "sha256RgbPixels": "2cabadcf20646712bd53bfbcedb2e1fb00dfc72ab12124930bf602500e6da7cf",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4588
+          },
+          {
+            "name": "venture_startup_002700.png",
+            "sha256File": "c2a3614e0bdd82dc8ac21ad60715f9a9d28c1f5c7ffed7041c0a627469c17abb",
+            "sha256RgbPixels": "db7e5890d1338fd78f198db38d8d417b50b974a10e6b2ee37de25bee289fc806",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4713
+          },
+          {
+            "name": "venture_startup_003000.png",
+            "sha256File": "89ad032dd7f17a7e9257acd5489b76d95fed796ec72497b35129b4c484454774",
+            "sha256RgbPixels": "d20cfef7e3775fc7bfa504f44b50a2d6f057a20f74ede8d091445e77ae112440",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4707
+          },
+          {
+            "name": "venture_startup_003600.png",
+            "sha256File": "98225d5599a0a70dd8d917c9ebb755d7ed4336c2a5ceb9bdb57bf23e625c4ed5",
+            "sha256RgbPixels": "81820b6bbc2b8f58f57c8306d4a2f02999d204196d099598a202e28885572f3e",
+            "width": 256,
+            "height": 256,
+            "distinctRgbColors": 6,
+            "nonblackPixels": 4678
+          }
+        ],
+        "outputFiles": {
+          "events.log": {
+            "sha256": "e52c9fbbdceb0f4e98454f64b2d4f78e7710b91bf036fc7123fa9f56e8da21c4",
+            "bytes": 11760
+          },
+          "bus.csv": {
+            "sha256": "eb6cdc150f8d1b8340066b7858f27c37119f7f41bd52b53c2091159ff3667467",
+            "bytes": 7031038
+          },
+          "ram_writes_early.csv": {
+            "sha256": "03c8cf6d92e39450f01b77b7a2f11fdaf07a7d9d251d483299ec316462a61e1b",
+            "bytes": 21633368
+          },
+          "verifyroms.log": {
+            "sha256": "b4d6cf98ad3fe2dd38513e3d09c68123c670f700318a8df74f650821b4b9014c",
+            "bytes": 108
+          },
+          "mame.log": {
+            "sha256": "3c8f3d19e856f56ea19e22a43abcfb03f65aa0e12b28b830bc8ced69cc39b6ca",
+            "bytes": 78
+          },
+          "venture_startup.lua": {
+            "sha256": "c24811a73ae47a74d9ec8215ec28a9612fda0e4bacdecade31d47488f97fe157",
+            "bytes": 8196
+          }
+        }
+      },
+      "path": "venture_startup/right_only01"
+    }
+  ]
+}

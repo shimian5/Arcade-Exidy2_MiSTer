@@ -1,0 +1,38 @@
+{
+  "schema": "exidy2-expansion-connected-increment/v1",
+  "increment": 5,
+  "accepted": false,
+  "cases": [
+    {
+      "case": "source-hps-two-speech-sessions",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment05/source-hps-two-speech-sessions.log"
+    },
+    {
+      "case": "source-hps-delayed-ack-consumer",
+      "exitCode": 0,
+      "expectationMet": true,
+      "log": "simulation/expansion_adapter/increment05/source-hps-delayed-ack-consumer.log"
+    }
+  ],
+  "sha256": {
+    "sys/hps_io.sv": "a5747b92d6ca1330730c045e4e8506b2ffc8567347f48e2b4483b4822ac09128",
+    "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+    "sim/expansion_adapter/exidy_transport_adapter.sv": "1d74e18a7a097ef613018145dba6f9eb118fbfac78d62b7c4682e1c38b13a7a2",
+    "sim/expansion_adapter/exidy_expansion_loader_baseline.sv": "b543b5431838d6b70e2a4ed2948e99d0cdf1a7e03db374a22084f80010ae7e9e",
+    "sim/expansion_adapter/tb_connected.sv": "6f4da15e204fc677edf71df1cc22ad12f7c88ee917e784b9d56d3f0c86257aa4",
+    "simulation/expansion_adapter/increment05/source_transport.sv": "5afb42ed646553248fa844d86e85f1522c0e0d7789618de59214a802c2a9b581"
+  },
+  "boundary": "Original file-download always block and GPIO synchronizer/ACK bodies extracted unchanged; other hps_io commands and SoC MMIO execution excluded.",
+  "remaining": [
+    "Descriptor/order/length/FAX2 adversarial matrix and ROM-backed connected images.",
+    "Fast block MMIO path, other HPS commands, physical CDC/reset/memory/Quartus gates."
+  ],
+  "hostSources": {
+    "C:\\MiSTerDev\\Main_MiSTer\\fpga_io.cpp": "3a690b1a5c0c20b0994d44c4853c92c8c4c8698623589928f04a8ca6e333a127",
+    "C:\\MiSTerDev\\Main_MiSTer\\spi.h": "a76120eceb3a2c0df2ec0d09509f3bc41c9de4eaa0301a4d22cef77557fd9a46",
+    "C:\\MiSTerDev\\Main_MiSTer\\spi.cpp": "b2a2211ce83acda3a8e398ec379d6af7a96a94ea90bdcea4b38d49e8a6201459",
+    "C:\\MiSTerDev\\Main_MiSTer\\user_io.cpp": "034e16907420a9c91575422ffaa7c93335d43da7ebfbb2ccf07a3c238806664c"
+  }
+}

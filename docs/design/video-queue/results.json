@@ -1,0 +1,197 @@
+{
+  "schema": "exidy2-independent-video-queue/v1",
+  "fixture": {
+    "sourceHashes": {
+      "rtl/Exidy2.v": "c8aa3946deda06f6d4e371cc4f64da7b6c99d6e599aa8f948c711aa60c0e51bd",
+      "Arcade-Exidy2.sv": "840dc8fa7e4b21913fa348b3d569c345a4c51c257f77f0604fb52861f689e7aa",
+      "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+      "sys/arcade_video.v": "ce64cdd7f900ded7b9cd9aa728dab7383b7561cdc75dfe82ab23fe27a3d217d3",
+      "sys/video_mixer.sv": "31ed2c917bd6680b4d60328e71a4f28015bd5fcec21e15b290eacec88971167d",
+      "sys/gamma_corr.sv": "bf5a10783c8e5846f2124e67c555d23bd900ac5d05f611aecad23b8a4c4db10d",
+      "sys/scandoubler.v": "e165eed142dbe525872038d7fe7fa4c6a50581473189cd4ee5d5d1cdbf5497c2",
+      "sys/hq2x.sv": "add2820efe5574abae4cd8a2bdb22d468daedfb2af7b58f9c6585e7915f8ebed",
+      "sys/video_freezer.sv": "0f3f4710b072b7e90b0b6bfe7607dec18dbd6bed78d1994f32d6fa72a6b7aef3",
+      "rtl/pll.v": "184432600b35e9ef68db9623c04cf251a1228b9120ece2f2d33b9433bdfd74f9",
+      "rtl/pll/pll_0002.v": "7e5f656c55f4d5dd1fe963201c386bd1df46faa2cd2ddb3fe35cbef5180dfffd",
+      "rtl/pll.qip": "8dd225ffc2e8b174daf5c5b8a59e53dd81d8b04f38a79a6a8bc421fe7cb142a1",
+      "rtl/pll/pll_0002.qip": "fcb38c7fb25c851a8242c592b2077e672f3520eeaf3820217819075cca461abb"
+    },
+    "fixtureHashes": {
+      "generatedExtractedRtl": "d17f7b4c6ff479e6e00b00dd583d97bee8cee2048161c230bdbe2e858540b3fe",
+      "testbench": "37af508b7f02a1f85c82f60f627da6fb9a897efa5087897ae5c8d9c0dd345584"
+    },
+    "extractionMarkers": [
+      "reg CLK22,CLK11;",
+      "assign core_pix_clk=BCLK;",
+      "reg [5:0] hscnt =6'd0;",
+      "wire BLANK = (V_BLANK|H_BLANK);",
+      "module sync_fix\n",
+      "production RGB3-to-RGB6 wire rgb = exact extracted assignment"
+    ],
+    "videoConfiguration": {
+      "arcadeVideoInstantiation": "arcade_video #(256,6) (third GAMMA parameter omitted; production default GAMMA=1)",
+      "gamma": "enabled pipeline instantiated; gamma_bus gamma_en bit19 held 0 to exercise bypass path",
+      "scandoubler": "fx=0 and forced_scandoubler=0",
+      "hdmiFreeze": "production arcade_video leaves video_mixer.HDMI_FREEZE unconnected; testbench force ties this child input low"
+    }
+  },
+  "compatibility": {
+    "source": "sys/video_mixer.sv",
+    "sourceSha256": "31ed2c917bd6680b4d60328e71a4f28015bd5fcec21e15b290eacec88971167d",
+    "compatSha256": "182ac792e4e159816238dd4adb2ac8ca8d3e18b4d9f9c08100cc9d9e26650df5",
+    "transformation": "exact generated-net block assertion, then replace branch-local wire initializers with module-scope 8-bit wires and branch-local continuous assignments; no other text changed",
+    "changedBlockSha256Before": "10b515d5d5bdc7042e0b55fef8fc740125ea6392c772d11b26d11de5cf96b721",
+    "changedBlockSha256After": "f0e32b3adf52e683fa1c7495f72e9e6b14dc65c74865115d40fc668c3f70db1f",
+    "purpose": "Verilator-visible module-scope names preserve production width/value expressions while avoiding implicit undriven nets caused by generate-scope visibility",
+    "productionFileModified": false
+  },
+  "testbenchSha256": "0b508d1eb7b2a3bca22745778f471f96c136596df365926d3fdb638e504fad25",
+  "runs": [
+    {
+      "phase": 0,
+      "metrics": {
+        "phase": 0,
+        "input": 65536,
+        "output": 65536,
+        "row0": 256,
+        "row255": 256,
+        "last_x": 255,
+        "last_y": 255,
+        "input_errors": 0,
+        "input_line_errors": 0,
+        "latency_min": 18,
+        "latency_max": 18
+      },
+      "log": "simulation/video_queue/phase0.log"
+    },
+    {
+      "phase": 1,
+      "metrics": {
+        "phase": 1,
+        "input": 65536,
+        "output": 65536,
+        "row0": 256,
+        "row255": 256,
+        "last_x": 255,
+        "last_y": 255,
+        "input_errors": 0,
+        "input_line_errors": 0,
+        "latency_min": 18,
+        "latency_max": 18
+      },
+      "log": "simulation/video_queue/phase1.log"
+    },
+    {
+      "phase": 2,
+      "metrics": {
+        "phase": 2,
+        "input": 65536,
+        "output": 65536,
+        "row0": 256,
+        "row255": 256,
+        "last_x": 255,
+        "last_y": 255,
+        "input_errors": 0,
+        "input_line_errors": 0,
+        "latency_min": 18,
+        "latency_max": 18
+      },
+      "log": "simulation/video_queue/phase2.log"
+    },
+    {
+      "phase": 3,
+      "metrics": {
+        "phase": 3,
+        "input": 65536,
+        "output": 65536,
+        "row0": 256,
+        "row255": 256,
+        "last_x": 255,
+        "last_y": 255,
+        "input_errors": 0,
+        "input_line_errors": 0,
+        "latency_min": 18,
+        "latency_max": 18
+      },
+      "log": "simulation/video_queue/phase3.log"
+    },
+    {
+      "phase": 4,
+      "metrics": {
+        "phase": 4,
+        "input": 65536,
+        "output": 65536,
+        "row0": 256,
+        "row255": 256,
+        "last_x": 255,
+        "last_y": 255,
+        "input_errors": 0,
+        "input_line_errors": 0,
+        "latency_min": 18,
+        "latency_max": 18
+      },
+      "log": "simulation/video_queue/phase4.log"
+    },
+    {
+      "phase": 5,
+      "metrics": {
+        "phase": 5,
+        "input": 65536,
+        "output": 65536,
+        "row0": 256,
+        "row255": 256,
+        "last_x": 255,
+        "last_y": 255,
+        "input_errors": 0,
+        "input_line_errors": 0,
+        "latency_min": 18,
+        "latency_max": 18
+      },
+      "log": "simulation/video_queue/phase5.log"
+    },
+    {
+      "phase": 6,
+      "metrics": {
+        "phase": 6,
+        "input": 65536,
+        "output": 65536,
+        "row0": 256,
+        "row255": 256,
+        "last_x": 255,
+        "last_y": 255,
+        "input_errors": 0,
+        "input_line_errors": 0,
+        "latency_min": 18,
+        "latency_max": 18
+      },
+      "log": "simulation/video_queue/phase6.log"
+    },
+    {
+      "phase": 7,
+      "metrics": {
+        "phase": 7,
+        "input": 65536,
+        "output": 65536,
+        "row0": 256,
+        "row255": 256,
+        "last_x": 255,
+        "last_y": 255,
+        "input_errors": 0,
+        "input_line_errors": 0,
+        "latency_min": 18,
+        "latency_max": 18
+      },
+      "log": "simulation/video_queue/phase7.log"
+    }
+  ],
+  "negative": {
+    "exitCode": 1,
+    "detected": true
+  },
+  "limits": [
+    "Simulation-only mixer scope normalization; original framework unchanged.",
+    "Stimulus derives solely from accepted input raster events, never output.",
+    "Synthetic coordinate pattern, gamma disabled, FX0; no full game/receiver/CRT acceptance.",
+    "Output sampled after VGA update at CLK_VIDEO edge with pre-edge CE_PIXEL; downstream consumer registration is a separate integration gate."
+  ]
+}

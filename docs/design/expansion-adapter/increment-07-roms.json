@@ -1,0 +1,486 @@
+{
+  "schema": "exidy2-expansion-rom-fixtures/v1",
+  "manifestSha256": "8c4f996187f4d645e4deafc6380077daa70504f11ca25f140d8eca3b9e9e770b",
+  "romDirectory": "\\\\fairlanenas\\data\\Games\\ROMS\\MAME\\MAME 0.257 ROMs (split)",
+  "images": {
+    "mtrap": {
+      "bytes": 16384,
+      "sha256": "96aabec1a71953afb98f4a28d090c9d2b3564cf7b487cf55604c96aaeba23bf0",
+      "hexFile": "simulation\\expansion_adapter\\rom-images\\mtrap.hex",
+      "emptyBanks": [],
+      "components": [
+        {
+          "name": "mta_2a.2a",
+          "archive": "mtrap.zip",
+          "member": "mta_2a.2a",
+          "offset": 0,
+          "size": 4096,
+          "crc": "13db8ed3",
+          "sha1": "939352323bdcd7df25db5eb2e30f269bcaebe6af"
+        },
+        {
+          "name": "mta_3a.3a",
+          "archive": "mtrap.zip",
+          "member": "mta_3a.3a",
+          "offset": 4096,
+          "size": 4096,
+          "crc": "31bdfe5c",
+          "sha1": "b10bfe9e56dd617c5b4cd8b5bfec9c7f537b1086"
+        },
+        {
+          "name": "mta_4a.4a",
+          "archive": "mtrap.zip",
+          "member": "mta_4a.4a",
+          "offset": 8192,
+          "size": 4096,
+          "crc": "1502d0e8",
+          "sha1": "8ef51ad4601299016f1821a5c65bec0199dd5474"
+        },
+        {
+          "name": "mta_1a.1a",
+          "archive": "mtrap.zip",
+          "member": "mta_1a.1a",
+          "offset": 12288,
+          "size": 4096,
+          "crc": "658482a6",
+          "sha1": "c0d770fbeaa7cb3e0eef47d8caa0f8a78841692e"
+        }
+      ]
+    },
+    "fax": {
+      "bytes": 196608,
+      "sha256": "462bf48564d2e40647dfad3f35bc794bed6432f6d20da8282d0b9aa11145817a",
+      "hexFile": "simulation\\expansion_adapter\\rom-images\\fax.hex",
+      "emptyBanks": [
+        22,
+        23
+      ],
+      "components": [
+        {
+          "name": "fxd-1c.64",
+          "archive": "fax.zip",
+          "member": "fxd-1c.64",
+          "offset": 0,
+          "size": 8192,
+          "crc": "fd7e3137",
+          "sha1": "6fda53737cd7c886c66c60436ae3ed5c62e6b178"
+        },
+        {
+          "name": "fxd-2c.64",
+          "archive": "fax.zip",
+          "member": "fxd-2c.64",
+          "offset": 8192,
+          "size": 8192,
+          "crc": "e78cb16f",
+          "sha1": "d58dfa2385368ccf00ecfbaeccaf5ba82ef7da9b"
+        },
+        {
+          "name": "fxd-3c.64",
+          "archive": "fax.zip",
+          "member": "fxd-3c.64",
+          "offset": 16384,
+          "size": 8192,
+          "crc": "57a94c6f",
+          "sha1": "fc27fe805c4cc29f797bfc0e4cd13a570ac5c1ec"
+        },
+        {
+          "name": "fxd-4c.64",
+          "archive": "fax.zip",
+          "member": "fxd-4c.64",
+          "offset": 24576,
+          "size": 8192,
+          "crc": "9036c5a2",
+          "sha1": "b7a01e4002f615702cb691764cfae93707bf3c0f"
+        },
+        {
+          "name": "fxd-5c.64",
+          "archive": "fax.zip",
+          "member": "fxd-5c.64",
+          "offset": 32768,
+          "size": 8192,
+          "crc": "38c03405",
+          "sha1": "c490252825dc3c4bf91255c7cb70a5ead92de85b"
+        },
+        {
+          "name": "fxd-6c.64",
+          "archive": "fax.zip",
+          "member": "fxd-6c.64",
+          "offset": 40960,
+          "size": 8192,
+          "crc": "f48fc308",
+          "sha1": "bfaf43e57a4d92b593d51d8cd61fe4d5c06e836c"
+        },
+        {
+          "name": "fxd-7c.64",
+          "archive": "fax.zip",
+          "member": "fxd-7c.64",
+          "offset": 49152,
+          "size": 8192,
+          "crc": "cf93b924",
+          "sha1": "892e6e6aa33bbcd271f5e0a63c1e8393df62f360"
+        },
+        {
+          "name": "fxd-8c.64",
+          "archive": "fax.zip",
+          "member": "fxd-8c.64",
+          "offset": 57344,
+          "size": 8192,
+          "crc": "607b48da",
+          "sha1": "6c8f2f207f3dd936c529b86cef917a0f0699a21c"
+        },
+        {
+          "name": "fxd-1b.64",
+          "archive": "fax.zip",
+          "member": "fxd-1b.64",
+          "offset": 65536,
+          "size": 8192,
+          "crc": "62872d4f",
+          "sha1": "c020fdeae6c2e7d04c16048fdaa99ecf3e40af31"
+        },
+        {
+          "name": "fxd-2b.64",
+          "archive": "fax.zip",
+          "member": "fxd-2b.64",
+          "offset": 73728,
+          "size": 8192,
+          "crc": "625778d0",
+          "sha1": "6c8d6b50653bff3774f5ccef0e000a2ef3f7030c"
+        },
+        {
+          "name": "fxd-3b.64",
+          "archive": "fax.zip",
+          "member": "fxd-3b.64",
+          "offset": 81920,
+          "size": 8192,
+          "crc": "c3473dee",
+          "sha1": "8675f9b93bbbae4f5a5682c5b1623afeeacc0a4b"
+        },
+        {
+          "name": "fxd-4b.64",
+          "archive": "fax.zip",
+          "member": "fxd-4b.64",
+          "offset": 90112,
+          "size": 8192,
+          "crc": "e39a15f5",
+          "sha1": "43b04cc2e4750b649116ade5b1004c2580293134"
+        },
+        {
+          "name": "fxd-5b.64",
+          "archive": "fax.zip",
+          "member": "fxd-5b.64",
+          "offset": 98304,
+          "size": 8192,
+          "crc": "101a9d70",
+          "sha1": "2b839cd707e03b0e50037e1ffabcb8fe375dc4c0"
+        },
+        {
+          "name": "fxd-6b.64",
+          "archive": "fax.zip",
+          "member": "fxd-6b.64",
+          "offset": 106496,
+          "size": 8192,
+          "crc": "374a8f05",
+          "sha1": "ec41470932823242fff36ab6e6f158fa5c07d0a8"
+        },
+        {
+          "name": "fxd-7b.64",
+          "archive": "fax.zip",
+          "member": "fxd-7b.64",
+          "offset": 114688,
+          "size": 8192,
+          "crc": "f7e7f824",
+          "sha1": "1bed1ee07032b25675ace612a883cba4ab4b2f77"
+        },
+        {
+          "name": "fxd-8b.64",
+          "archive": "fax.zip",
+          "member": "fxd-8b.64",
+          "offset": 122880,
+          "size": 8192,
+          "crc": "8f1a5287",
+          "sha1": "a1102d49bacb25887eaa67ae64bcf64c8cad94fe"
+        },
+        {
+          "name": "fxd-1a.64",
+          "archive": "fax.zip",
+          "member": "fxd-1a.64",
+          "offset": 131072,
+          "size": 8192,
+          "crc": "fc5e6344",
+          "sha1": "c61aad5100819f2fe98c3a159b64739fa6322d09"
+        },
+        {
+          "name": "fxd-2a.64",
+          "archive": "fax.zip",
+          "member": "fxd-2a.64",
+          "offset": 139264,
+          "size": 8192,
+          "crc": "43cf60b3",
+          "sha1": "5169196d0a95450801b3a57703cb9f2861a25948"
+        },
+        {
+          "name": "fxd-3a.64",
+          "archive": "fax.zip",
+          "member": "fxd-3a.64",
+          "offset": 147456,
+          "size": 8192,
+          "crc": "6b7d29cb",
+          "sha1": "fd4006efd24b33f8e2baf7f97d4b776d5ef90959"
+        },
+        {
+          "name": "fxd-4a.64",
+          "archive": "fax.zip",
+          "member": "fxd-4a.64",
+          "offset": 155648,
+          "size": 8192,
+          "crc": "b9de3c2d",
+          "sha1": "229f9f0762d4d659acf516c2c1a42e70d2f98652"
+        },
+        {
+          "name": "fxd-5a.64",
+          "archive": "fax.zip",
+          "member": "fxd-5a.64",
+          "offset": 163840,
+          "size": 8192,
+          "crc": "67285bc6",
+          "sha1": "f929c916fb19dbc91fc3a75dfed6375b63cb2043"
+        },
+        {
+          "name": "fxd-6a.64",
+          "archive": "fax.zip",
+          "member": "fxd-6a.64",
+          "offset": 172032,
+          "size": 8192,
+          "crc": "ba67b7b2",
+          "sha1": "12265f678b1e4dfc3b36a964f78b0103112753ee"
+        }
+      ]
+    },
+    "fax2": {
+      "bytes": 196608,
+      "sha256": "9171f92c9a84e193bb875cd3b197634ef5803f48104a2028f9aed6b73ab892ae",
+      "hexFile": "simulation\\expansion_adapter\\rom-images\\fax2.hex",
+      "emptyBanks": [],
+      "components": [
+        {
+          "name": "fxdb1-1c.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-1c.bin",
+          "offset": 0,
+          "size": 8192,
+          "crc": "0e42a2a4",
+          "sha1": "f7021aad36b49338cdaae8e13638dbdd12327afc"
+        },
+        {
+          "name": "fxdb1-2c.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-2c.bin",
+          "offset": 8192,
+          "size": 8192,
+          "crc": "cef8d49a",
+          "sha1": "a3005ab21add22ffb4c6f4cb9843db8964fef49c"
+        },
+        {
+          "name": "fxdb1-3c.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-3c.bin",
+          "offset": 16384,
+          "size": 8192,
+          "crc": "96217b39",
+          "sha1": "fe80255c8763e714fbbf8b2a7ec481712fd463e8"
+        },
+        {
+          "name": "fxdb1-4c.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-4c.bin",
+          "offset": 24576,
+          "size": 8192,
+          "crc": "9f1522d8",
+          "sha1": "e79ef8f4642245f4d1c4d0fe14eb432a432e6f8a"
+        },
+        {
+          "name": "fxdb1-5c.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-5c.bin",
+          "offset": 32768,
+          "size": 8192,
+          "crc": "4770eb04",
+          "sha1": "c8123ba4fd66da471099cd364615a196c4d1ea94"
+        },
+        {
+          "name": "fxdb1-6c.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-6c.bin",
+          "offset": 40960,
+          "size": 8192,
+          "crc": "07c742ab",
+          "sha1": "c709be4a21cc946f2de9061948fe095ec511447e"
+        },
+        {
+          "name": "fxdb1-7c.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-7c.bin",
+          "offset": 49152,
+          "size": 8192,
+          "crc": "f2f39ebb",
+          "sha1": "879f0954331d219d44e82d4cf13f84c1d03dd6d5"
+        },
+        {
+          "name": "fxdb1-8c.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-8c.bin",
+          "offset": 57344,
+          "size": 8192,
+          "crc": "00f73e30",
+          "sha1": "586c28d1ea14626ccd0e9195f26f18168bd0cf72"
+        },
+        {
+          "name": "fxdb1-1b.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-1b.bin",
+          "offset": 65536,
+          "size": 8192,
+          "crc": "e13341cf",
+          "sha1": "5cc2c9f060436026dbcbc6f893f8ef17f10b6c75"
+        },
+        {
+          "name": "fxdb1-2b.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-2b.bin",
+          "offset": 73728,
+          "size": 8192,
+          "crc": "300d7a6f",
+          "sha1": "4e28a522e14e0cf1b63be35e2a16b816d51f328c"
+        },
+        {
+          "name": "fxdb1-3b.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-3b.bin",
+          "offset": 81920,
+          "size": 8192,
+          "crc": "db9a6a3a",
+          "sha1": "d192f8ece73dfa12cd390c6e0218d5bf58c46074"
+        },
+        {
+          "name": "fxdb1-4b.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-4b.bin",
+          "offset": 90112,
+          "size": 8192,
+          "crc": "47faeb43",
+          "sha1": "7991341d78b1d0c9e35c2472dbb05d21c001ba7f"
+        },
+        {
+          "name": "fxdb1-5b.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-5b.bin",
+          "offset": 98304,
+          "size": 8192,
+          "crc": "3ecf974f",
+          "sha1": "d18b7bdbb5e490b0d4b70baae06cb44cf0f2b643"
+        },
+        {
+          "name": "fxdb1-6b.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-6b.bin",
+          "offset": 106496,
+          "size": 8192,
+          "crc": "526c4c0d",
+          "sha1": "68480fb61d8e9e5386daeb94f5854913ab36b48d"
+        },
+        {
+          "name": "fxdb1-7b.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-7b.bin",
+          "offset": 114688,
+          "size": 8192,
+          "crc": "4cf8217c",
+          "sha1": "fd7b9c34b0ae532209453d68f30f6f9fbcec1964"
+        },
+        {
+          "name": "fxdb1-8b.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-8b.bin",
+          "offset": 122880,
+          "size": 8192,
+          "crc": "99485e27",
+          "sha1": "1f10e71507f111724a8b496f3cc57a6790116ac0"
+        },
+        {
+          "name": "fxdb1-1a.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-1a.bin",
+          "offset": 131072,
+          "size": 8192,
+          "crc": "97c153b5",
+          "sha1": "0d5e66f0ded4453e1fe81cdcc56697664f76f28d"
+        },
+        {
+          "name": "fxdb1-2a.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-2a.bin",
+          "offset": 139264,
+          "size": 8192,
+          "crc": "63258140",
+          "sha1": "cdb03f5130c72d286d1a2f227dcf646da6e8f40a"
+        },
+        {
+          "name": "fxdb1-3a.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-3a.bin",
+          "offset": 147456,
+          "size": 8192,
+          "crc": "1c698727",
+          "sha1": "6886bbf04f837fbda9a192e55e995cac9c9e1cad"
+        },
+        {
+          "name": "fxdb1-4a.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-4a.bin",
+          "offset": 155648,
+          "size": 8192,
+          "crc": "8283d6fc",
+          "sha1": "dba1f0f53a6b16f2ee7ce1e8e6e081a6be7586f6"
+        },
+        {
+          "name": "fxdb1-5a.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-5a.bin",
+          "offset": 163840,
+          "size": 8192,
+          "crc": "b69542d2",
+          "sha1": "67a102790b24a5638c8938579ace0b3dd9b0c953"
+        },
+        {
+          "name": "fxdb1-6a.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-6a.bin",
+          "offset": 172032,
+          "size": 8192,
+          "crc": "ff949367",
+          "sha1": "fb3d9c0abe3c915eaea983d9b429eb5227688532"
+        },
+        {
+          "name": "fxdb1-7a.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-7a.bin",
+          "offset": 180224,
+          "size": 8192,
+          "crc": "0f97b874",
+          "sha1": "5790d3ed9eed2ce05947bc28cc252f720a7f3aeb"
+        },
+        {
+          "name": "fxdb1-8a.bin",
+          "archive": "fax2.zip",
+          "member": "fxdb1-8a.bin",
+          "offset": 188416,
+          "size": 8192,
+          "crc": "1d055bea",
+          "sha1": "96531db0a3a36319bc0a28096e601302eb2eb115"
+        }
+      ]
+    }
+  },
+  "archiveFilesModified": false,
+  "romBytesTracked": false
+}

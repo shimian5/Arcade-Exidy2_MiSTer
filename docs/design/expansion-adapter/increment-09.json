@@ -1,0 +1,17 @@
+{
+  "schema": "exidy2-expansion-fit-result/v1",
+  "increment": 9,
+  "accepted": false,
+  "flow": "quartus_sh --flow compile expansion_probe",
+  "exitCode": 3,
+  "failure": "Both question_mem and cvsd_mem uninferred due to asynchronous read logic; register capacity exceeded (276003).",
+  "diagnostics": [
+    "276014",
+    "276007",
+    "276003"
+  ],
+  "log": "simulation\\expansion_adapter\\fit09\\full-flow.log",
+  "logSha256": "116496f8d7d536cef5ca859cbfb16fc01e163bf47e15807252d3204ff98aed84",
+  "projectMetadata": "docs/design/expansion-adapter/increment-09-project.json",
+  "productionModified": false
+}

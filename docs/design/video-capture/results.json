@@ -1,0 +1,192 @@
+{
+  "schema": "exidy2-source-video-capture/v1",
+  "method": "Verilator: production extracted Exidy divider/raster and exact arcade_video/video_mixer/gamma/scandoubler dependency source; coordinate-bitplane stimulus feeds production RGB3-to-RGB6 expansion. One phase-zero diagnostic pass per distinct current MRA mod_shift.",
+  "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+  "fixture": {
+    "sourceHashes": {
+      "rtl/Exidy2.v": "c8aa3946deda06f6d4e371cc4f64da7b6c99d6e599aa8f948c711aa60c0e51bd",
+      "Arcade-Exidy2.sv": "840dc8fa7e4b21913fa348b3d569c345a4c51c257f77f0604fb52861f689e7aa",
+      "sys/sys_top.v": "adf55f0beaea8c872eeb806acf1bf1f191bb63710d3ace72fbce32cd11189cbb",
+      "sys/arcade_video.v": "ce64cdd7f900ded7b9cd9aa728dab7383b7561cdc75dfe82ab23fe27a3d217d3",
+      "sys/video_mixer.sv": "31ed2c917bd6680b4d60328e71a4f28015bd5fcec21e15b290eacec88971167d",
+      "sys/gamma_corr.sv": "bf5a10783c8e5846f2124e67c555d23bd900ac5d05f611aecad23b8a4c4db10d",
+      "sys/scandoubler.v": "e165eed142dbe525872038d7fe7fa4c6a50581473189cd4ee5d5d1cdbf5497c2",
+      "sys/hq2x.sv": "add2820efe5574abae4cd8a2bdb22d468daedfb2af7b58f9c6585e7915f8ebed",
+      "sys/video_freezer.sv": "0f3f4710b072b7e90b0b6bfe7607dec18dbd6bed78d1994f32d6fa72a6b7aef3",
+      "rtl/pll.v": "184432600b35e9ef68db9623c04cf251a1228b9120ece2f2d33b9433bdfd74f9",
+      "rtl/pll/pll_0002.v": "7e5f656c55f4d5dd1fe963201c386bd1df46faa2cd2ddb3fe35cbef5180dfffd",
+      "rtl/pll.qip": "8dd225ffc2e8b174daf5c5b8a59e53dd81d8b04f38a79a6a8bc421fe7cb142a1",
+      "rtl/pll/pll_0002.qip": "fcb38c7fb25c851a8242c592b2077e672f3520eeaf3820217819075cca461abb"
+    },
+    "fixtureHashes": {
+      "generatedExtractedRtl": "d17f7b4c6ff479e6e00b00dd583d97bee8cee2048161c230bdbe2e858540b3fe",
+      "testbench": "500e687aea0d3bc7c10d3c88a181e001d50a68da4f197f776015c3c26c8e8213"
+    },
+    "extractionMarkers": [
+      "reg CLK22,CLK11;",
+      "assign core_pix_clk=BCLK;",
+      "reg [5:0] hscnt =6'd0;",
+      "wire BLANK = (V_BLANK|H_BLANK);",
+      "module sync_fix\n",
+      "production RGB3-to-RGB6 wire rgb = exact extracted assignment"
+    ],
+    "videoConfiguration": {
+      "arcadeVideoInstantiation": "arcade_video #(256,6) (third GAMMA parameter omitted; production default GAMMA=1)",
+      "gamma": "enabled pipeline instantiated; gamma_bus gamma_en bit19 held 0 to exercise bypass path",
+      "scandoubler": "fx=0 and forced_scandoubler=0",
+      "hdmiFreeze": "production arcade_video leaves video_mixer.HDMI_FREEZE unconnected; testbench force ties this child input low"
+    }
+  },
+  "originalPllDividerEvidence": {
+    "source": "rtl/pll.qip IP_COMPONENT_PARAMETER gui_parameter_list/gui_parameter_values",
+    "sha256": "8dd225ffc2e8b174daf5c5b8a59e53dd81d8b04f38a79a6a8bc421fe7cb142a1",
+    "classification": "generated PLL IP parameter metadata (GUI-named QIP fields); not a Quartus fitted report or silicon measurement",
+    "referenceMHz": 50,
+    "M": 177,
+    "N": 7,
+    "C": {
+      "0": 28,
+      "1": 112,
+      "2": 88
+    },
+    "reportedVcoMHz": "1264.285714 MHz",
+    "frequencyFormula": "fout = fin * M / (N * C)",
+    "calculatedOutputMHz": {
+      "0": 45.1530612244898,
+      "1": 11.28826530612245,
+      "2": 14.366883116883116
+    },
+    "generatedWrapperOutputFrequencyMHz": {
+      "0": 45.153061,
+      "1": 11.288265,
+      "2": 14.366883
+    },
+    "exactOutput0ToOutput1Ratio": "112/28 = 4/1",
+    "assertionsPassed": true,
+    "otherConfiguration": {
+      "pll_0002BandwidthPreset": "AUTO (rtl/pll/pll_0002.qip)",
+      "cascadeInputEnabled": "false (rtl/pll.qip metadata)",
+      "cascadeOutputEnabled": "false (rtl/pll.qip metadata)"
+    },
+    "limits": "The metadata strongly supports the generated divider relationship; no current fit report proves placement/routing, downstream PLL cascade legality, lock/jitter, or silicon frequency."
+  },
+  "compile": {
+    "commandShape": "verilator --binary --timing -Wno-fatal -Wno-PROCASSWIRE --top-module tb -GGAMMA_MODE={0,1} [extracted RTL + checked-in production video dependency sources + sim/video_capture/tb.sv]",
+    "perGammaMode": {
+      "1": {
+        "returnCode": 0,
+        "stderrTail": "tor COND expects 8 bits on the Conditional True, but Conditional True's SEL generates 4 bits.\n                                                                                     : ... note: In instance 'tb.dut.arcade_video'\n  130 |  .B((DW!=24) ? B[7:4] : B),\n      |              ^\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sys/arcade_video.v:130:3: Input port connection 'B' expects 4 bits on the pin connection, but pin connection's COND generates 8 bits.\n                                                                                   : ... note: In instance 'tb.dut.arcade_video'\n  130 |  .B((DW!=24) ? B[7:4] : B),\n      |   ^\n%Warning-WIDTHEXPAND: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/simulation/video_capture/source_video.sv:32:23: Operator EQ expects 6 bits on the RHS, but RHS's VARREF 'BCLK' generates 1 bits.\n                                                                                                          : ... note: In instance 'tb.dut'\n   32 |  CCRY  <= cencnt[5:0] == BCLK&HCLK&CLD&PH_6;  \n      |                       ^~\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sim/video_capture/tb.sv:47:18: Operator ASSIGN expects 1 bits on the Assign RHS, but Assign RHS's AND generates 32 bits.\n                                                                                        : ... note: In instance 'tb'\n   47 |       pattern[2] = (x >> phase) & 1;\n      |                  ^\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sim/video_capture/tb.sv:48:18: Operator ASSIGN expects 1 bits on the Assign RHS, but Assign RHS's AND generates 32 bits.\n                                                                                        : ... note: In instance 'tb'\n   48 |       pattern[1] = (y >> phase) & 1;\n      |                  ^\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sim/video_capture/tb.sv:169:22: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'vsync_seen' generates 32 bits.\n                                                                                         : ... note: In instance 'tb'\n  169 |       if (vsync_seen && !started_image && !previous_de && de) begin\n      |                      ^~\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sim/video_capture/tb.sv:169:25: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'started_image' generates 32 bits.\n                                                                                         : ... note: In instance 'tb'\n  169 |       if (vsync_seen && !started_image && !previous_de && de) begin\n      |                         ^\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sim/video_capture/tb.sv:176:5: Logical operator IF expects 1 bit on the If, but If's VARREF 'started_image' generates 32 bits.\n                                                                                        : ... note: In instance 'tb'\n  176 |     if (started_image) begin\n      |     ^~\n",
+        "fullStdout": "simulation/video_capture/compile_gamma1.stdout.log",
+        "fullStderr": "simulation/video_capture/compile_gamma1.stderr.log"
+      },
+      "0": {
+        "returnCode": 0,
+        "stderrTail": "tor COND expects 8 bits on the Conditional True, but Conditional True's SEL generates 4 bits.\n                                                                                     : ... note: In instance 'tb.dut.arcade_video'\n  130 |  .B((DW!=24) ? B[7:4] : B),\n      |              ^\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sys/arcade_video.v:130:3: Input port connection 'B' expects 4 bits on the pin connection, but pin connection's COND generates 8 bits.\n                                                                                   : ... note: In instance 'tb.dut.arcade_video'\n  130 |  .B((DW!=24) ? B[7:4] : B),\n      |   ^\n%Warning-WIDTHEXPAND: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/simulation/video_capture/source_video.sv:32:23: Operator EQ expects 6 bits on the RHS, but RHS's VARREF 'BCLK' generates 1 bits.\n                                                                                                          : ... note: In instance 'tb.dut'\n   32 |  CCRY  <= cencnt[5:0] == BCLK&HCLK&CLD&PH_6;  \n      |                       ^~\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sim/video_capture/tb.sv:47:18: Operator ASSIGN expects 1 bits on the Assign RHS, but Assign RHS's AND generates 32 bits.\n                                                                                        : ... note: In instance 'tb'\n   47 |       pattern[2] = (x >> phase) & 1;\n      |                  ^\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sim/video_capture/tb.sv:48:18: Operator ASSIGN expects 1 bits on the Assign RHS, but Assign RHS's AND generates 32 bits.\n                                                                                        : ... note: In instance 'tb'\n   48 |       pattern[1] = (y >> phase) & 1;\n      |                  ^\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sim/video_capture/tb.sv:169:22: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'vsync_seen' generates 32 bits.\n                                                                                         : ... note: In instance 'tb'\n  169 |       if (vsync_seen && !started_image && !previous_de && de) begin\n      |                      ^~\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sim/video_capture/tb.sv:169:25: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'started_image' generates 32 bits.\n                                                                                         : ... note: In instance 'tb'\n  169 |       if (vsync_seen && !started_image && !previous_de && de) begin\n      |                         ^\n%Warning-WIDTHTRUNC: /mnt/c/MiSTerDev/Arcade-Exidy2_MiSTer/sim/video_capture/tb.sv:176:5: Logical operator IF expects 1 bit on the If, but If's VARREF 'started_image' generates 32 bits.\n                                                                                        : ... note: In instance 'tb'\n  176 |     if (started_image) begin\n      |     ^~\n",
+        "fullStdout": "simulation/video_capture/compile_gamma0.stdout.log",
+        "fullStderr": "simulation/video_capture/compile_gamma0.stderr.log"
+      }
+    }
+  },
+  "diagnosticRuns": [
+    {
+      "mrasUsingShift": [
+        "Hard Hat.mra",
+        "Mouse Trap.mra",
+        "Pepper II.mra",
+        "Spectar.mra",
+        "TARG.mra",
+        "Venture Revision 5.mra"
+      ],
+      "mraSha256": {
+        "Hard Hat.mra": "8560a38c086a18c35132c110b0176025a7c167882a7b8da919992f80b2e74346",
+        "Mouse Trap.mra": "f708811c2f32b93f9a7ec62948e2876065eebdc17e3a72fd132994fb96f57dea",
+        "Pepper II.mra": "14ad9b676c8213d3e34bfffe18356e71d37977ea0a2977ea44badd9ae55b5064",
+        "Spectar.mra": "7b62d8a4b6a71414484609d907bcf222749c2fbe3ce4958207ea584ed9729a9e",
+        "TARG.mra": "b5c0d3f598671b9f7d058b6fcb5dfad57aa7a59d7fa863c1002cfa3727f371eb",
+        "Venture Revision 5.mra": "e7da0534a3872e66faf4322ca0f964355aba082dcf74d91685daa403810a7381"
+      },
+      "modShift": 55,
+      "gammaMode": 1,
+      "phase": 0,
+      "returnCode": 0,
+      "metrics": {
+        "gamma": 1,
+        "phase": 0,
+        "checked_images": 1,
+        "rows": 256,
+        "compared": 65536,
+        "bad": 49408,
+        "color_mismatches": 49152,
+        "missing_source_coordinates": 256,
+        "line_errors": 0,
+        "input_active": 196604,
+        "output_events": 274096,
+        "hs_rises": 815,
+        "vs_rises": 2,
+        "output_cycle_min": 8,
+        "output_cycle_max": 8,
+        "latency_min_master": 18,
+        "latency_max_master": 18,
+        "latency_samples": 65280
+      },
+      "fullRunLog": "simulation/video_capture/run_gamma1_shift37_phase0.log",
+      "diagnostic": "recorded as observed; color mismatch does not abort the evidence report"
+    },
+    {
+      "mrasUsingShift": [
+        "Hard Hat.mra",
+        "Mouse Trap.mra",
+        "Pepper II.mra",
+        "Spectar.mra",
+        "TARG.mra",
+        "Venture Revision 5.mra"
+      ],
+      "mraSha256": {
+        "Hard Hat.mra": "8560a38c086a18c35132c110b0176025a7c167882a7b8da919992f80b2e74346",
+        "Mouse Trap.mra": "f708811c2f32b93f9a7ec62948e2876065eebdc17e3a72fd132994fb96f57dea",
+        "Pepper II.mra": "14ad9b676c8213d3e34bfffe18356e71d37977ea0a2977ea44badd9ae55b5064",
+        "Spectar.mra": "7b62d8a4b6a71414484609d907bcf222749c2fbe3ce4958207ea584ed9729a9e",
+        "TARG.mra": "b5c0d3f598671b9f7d058b6fcb5dfad57aa7a59d7fa863c1002cfa3727f371eb",
+        "Venture Revision 5.mra": "e7da0534a3872e66faf4322ca0f964355aba082dcf74d91685daa403810a7381"
+      },
+      "modShift": 55,
+      "gammaMode": 0,
+      "phase": 0,
+      "returnCode": 0,
+      "metrics": {
+        "gamma": 0,
+        "phase": 0,
+        "checked_images": 1,
+        "rows": 256,
+        "compared": 65536,
+        "bad": 49408,
+        "color_mismatches": 49152,
+        "missing_source_coordinates": 256,
+        "line_errors": 0,
+        "input_active": 196604,
+        "output_events": 274094,
+        "hs_rises": 815,
+        "vs_rises": 2,
+        "output_cycle_min": 8,
+        "output_cycle_max": 8,
+        "latency_min_master": 2,
+        "latency_max_master": 2,
+        "latency_samples": 65280
+      },
+      "fullRunLog": "simulation/video_capture/run_gamma0_shift37_phase0.log",
+      "diagnostic": "recorded as observed; color mismatch does not abort the evidence report"
+    }
+  ],
+  "limits": [
+    "No game renderer, full core, full HDMI/OSD path, CRT retimer, or hardware is instantiated.",
+    "Only coordinate bitplane 0 was run; this does not prove full 8-bit x/y order.",
+    "Exact GAMMA_MODE=1 path and separately overridden GAMMA_MODE=0 diagnostic both produce final VGA RGB black in Verilator; neither is accepted as correct RGB transport.",
+    "Verilator warns video_mixer.sv creates implicit undriven R_in/G_in/B_in at the gamma callsite; this source elaboration issue is left unmodified and no compatibility-normalized copy is used.",
+    "Gamma logic is instantiated with gamma disabled (gamma_bus bit19=0); gamma-table contents/writes are not tested.",
+    "HDMI_FREEZE is tied low only at the unconnected child port for deterministic no-freeze tests.",
+    "DE geometry, pixel cadence, and provisional RGB-coordinate latency numbers are diagnostic only until the production RGB path elaborates correctly; final VGA RGB order is unverified.",
+    "Sync widths and normalized phase relative to DE are not measured by this fixture.",
+    "Generated PLL QIP divider values decode to M177/N7/C0=28,C1=112,C2=88 and have no reported counter bypass/odd mode flags in the decoded counter field set; wrapper frequencies agree after rounding. This remains generated-IP parameter evidence, not fit evidence.",
+    "A separate output-PLL arithmetic candidate can use original outclk0 directly: native M32/N1/C32 and CRT M131/N4/C35 (131/140 of source), with nominal VCOs about 1444.898 and 1478.765 MHz. Cascade path legality, VCO/device limits, routing, lock, jitter, and fitted realization remain implementation gates."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "audit_date": "2026-10-06",
+  "project": {
+    "qpf": "Arcade-Exidy2.qpf",
+    "revision": "Arcade-Exidy2",
+    "qsf": "Arcade-Exidy2.qsf",
+    "top": "sys_top",
+    "device": "Cyclone V 5CSEBA6U23I7",
+    "quartus_project_version": "17.0.2 Lite Edition (QPF header); QSF last version 17.0.2 Lite Edition",
+    "sources": [
+      "Arcade-Exidy2.sv",
+      "files.qip",
+      "rtl/index.qip",
+      "sys/sys.qip",
+      "modules/6840/index.qip",
+      "modules/cpu-t65/index.qip",
+      "modules/cpu-t80/index.qip",
+      "modules/jt_misc/index.qip",
+      "modules/k580vi53/index.qip",
+      "modules/pia/index.qip",
+      "modules/riot/index.qip"
+    ],
+    "constraints": [
+      "Arcade-Exidy2.sdc",
+      "sys/sys_top.sdc",
+      "sys/sys.tcl",
+      "sys/sys_analog.tcl"
+    ],
+    "declared_but_missing": [
+      "jtag.cdf",
+      "stp/audio_board_newpia.stp"
+    ],
+    "missing_items_are_compile_failures": false
+  },
+  "quartus": {
+    "installation": "C:\\MiSTerDev\\intelFPGA_lite\\17.0",
+    "quartus_sh": "C:\\MiSTerDev\\intelFPGA_lite\\17.0\\quartus\\bin64\\quartus_sh.exe",
+    "discovery": "Executable exists; not on PATH. Integrator confirmed version with read-only --version from unsandboxed PowerShell.",
+    "required_build": "Unsandboxed PowerShell: & 'C:\\MiSTerDev\\intelFPGA_lite\\17.0\\quartus\\bin64\\quartus_sh.exe' --flow compile Arcade-Exidy2",
+    "build_executed": false,
+    "installed_version": "17.0.2 Build 602 07/19/2017 SJ Lite Edition",
+    "version_command": "& 'C:\\MiSTerDev\\intelFPGA_lite\\17.0\\quartus\\bin64\\quartus_sh.exe' --version"
+  },
+  "simulation_tools": {
+    "path_commands_found": [
+      "python 3.13",
+      "git"
+    ],
+    "path_commands_not_found": [
+      "verilator",
+      "iverilog",
+      "vvp",
+      "ghdl",
+      "make",
+      "quartus_sh"
+    ],
+    "ghdl_archive": "C:\\MiSTerDev\\_tools\\ghdl6\\ghdl-mcode-6.0.0-ubuntu24.04-x86_64",
+    "wsl": {
+      "sandbox_listing": "E_ACCESSDENIED",
+      "unsandboxed_read_only_listing": [
+        "archlinux",
+        "Ubuntu"
+      ],
+      "archlinux": {
+        "verilator": "5.052 (2026-09-05)",
+        "make": "GNU Make 4.4.1",
+        "iverilog": false,
+        "vvp": false,
+        "ghdl": false
+      },
+      "Ubuntu": {
+        "make": "GNU Make 4.3",
+        "verilator": false,
+        "iverilog": false,
+        "vvp": false,
+        "ghdl": false
+      }
+    },
+    "availability_scope": "bounded PowerShell PATH and read-only command checks in listed WSL distributions; other locations unchecked"
+  },
+  "simulation_baseline": {
+    "exidy2_testbench_or_makefile": "not found at repository root or checked project folders",
+    "victory_reference": "C:\\MiSTerDev\\Arcade-Victory_MiSTer\\sim\\README.md and sim\\Makefile",
+    "victory_tests_run": false
+  },
+  "evidence_classification": "Static source/tool metadata only; no compile or simulator failure proven"
+}

@@ -1,0 +1,222 @@
+{
+  "scope": "existing MRA XML sequence only; no real extended MRA exists",
+  "transferRule": "mra_loader.cpp calls rom_finish when each </rom> closes; transfer order follows XML document order",
+  "mrAs": [
+    {
+      "path": "releases\\Hard Hat.mra",
+      "name": "Hard Hat",
+      "romNodes": [
+        {
+          "ordinal": 0,
+          "index": 0,
+          "address": 0,
+          "firstInlinePayloadHex": "00"
+        },
+        {
+          "ordinal": 1,
+          "index": 1,
+          "address": 0,
+          "firstInlinePayloadHex": "30"
+        },
+        {
+          "ordinal": 2,
+          "index": 2,
+          "address": 0,
+          "firstInlinePayloadHex": "37"
+        },
+        {
+          "ordinal": 3,
+          "index": 3,
+          "address": 0,
+          "firstInlinePayloadHex": "5d00000000ff0002"
+        }
+      ],
+      "transferOrder": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "path": "releases\\Mouse Trap.mra",
+      "name": "Mouse Trap",
+      "romNodes": [
+        {
+          "ordinal": 0,
+          "index": 0,
+          "address": 0,
+          "firstInlinePayloadHex": "00"
+        },
+        {
+          "ordinal": 1,
+          "index": 1,
+          "address": 0,
+          "firstInlinePayloadHex": "10"
+        },
+        {
+          "ordinal": 2,
+          "index": 2,
+          "address": 0,
+          "firstInlinePayloadHex": "37"
+        },
+        {
+          "ordinal": 3,
+          "index": 3,
+          "address": 0,
+          "firstInlinePayloadHex": "5900000000ff0002"
+        }
+      ],
+      "transferOrder": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "path": "releases\\Pepper II.mra",
+      "name": "Pepper II",
+      "romNodes": [
+        {
+          "ordinal": 0,
+          "index": 0,
+          "address": 0,
+          "firstInlinePayloadHex": "00"
+        },
+        {
+          "ordinal": 1,
+          "index": 1,
+          "address": 0,
+          "firstInlinePayloadHex": "30"
+        },
+        {
+          "ordinal": 2,
+          "index": 2,
+          "address": 0,
+          "firstInlinePayloadHex": "37"
+        },
+        {
+          "ordinal": 3,
+          "index": 3,
+          "address": 0,
+          "firstInlinePayloadHex": "6600000000ff0002"
+        }
+      ],
+      "transferOrder": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "path": "releases\\Spectar.mra",
+      "name": "Spectar",
+      "romNodes": [
+        {
+          "ordinal": 0,
+          "index": 0,
+          "address": 0,
+          "firstInlinePayloadHex": "00"
+        },
+        {
+          "ordinal": 1,
+          "index": 1,
+          "address": 0,
+          "firstInlinePayloadHex": "02"
+        },
+        {
+          "ordinal": 2,
+          "index": 2,
+          "address": 0,
+          "firstInlinePayloadHex": "37"
+        },
+        {
+          "ordinal": 3,
+          "index": 3,
+          "address": 0,
+          "firstInlinePayloadHex": "0000ffff00ff0002"
+        }
+      ],
+      "transferOrder": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "path": "releases\\TARG.mra",
+      "name": "Targ",
+      "romNodes": [
+        {
+          "ordinal": 0,
+          "index": 0,
+          "address": 0,
+          "firstInlinePayloadHex": "00"
+        },
+        {
+          "ordinal": 1,
+          "index": 1,
+          "address": 0,
+          "firstInlinePayloadHex": "01"
+        },
+        {
+          "ordinal": 2,
+          "index": 2,
+          "address": 0,
+          "firstInlinePayloadHex": "37"
+        },
+        {
+          "ordinal": 3,
+          "index": 3,
+          "address": 0,
+          "firstInlinePayloadHex": "0000ffff00ff0002"
+        }
+      ],
+      "transferOrder": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "path": "releases\\Venture Revision 5.mra",
+      "name": "Venture",
+      "romNodes": [
+        {
+          "ordinal": 0,
+          "index": 0,
+          "address": 0,
+          "firstInlinePayloadHex": "00"
+        },
+        {
+          "ordinal": 1,
+          "index": 1,
+          "address": 0,
+          "firstInlinePayloadHex": "10"
+        },
+        {
+          "ordinal": 2,
+          "index": 2,
+          "address": 0,
+          "firstInlinePayloadHex": "37"
+        },
+        {
+          "ordinal": 3,
+          "index": 3,
+          "address": 0,
+          "firstInlinePayloadHex": "4d80000000ff0002"
+        }
+      ],
+      "transferOrder": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}
