@@ -1,0 +1,233 @@
+{
+  "schema": "exidy2-expansion-fit-result/v1",
+  "increment": 14,
+  "accepted": false,
+  "fullFlowCompleted": true,
+  "exitCode": 0,
+  "source": "owner-run Quartus 17.0.2 unsandboxed full flow in simulation/expansion_adapter/fit14 (reports supplied 2026-10-06)",
+  "resources": {
+    "Fitter Status": "Successful - Tue Oct 06 15:41:57 2026",
+    "Quartus Prime Version": "17.0.2 Build 602 07/19/2017 SJ Lite Edition",
+    "Revision Name": "expansion_probe",
+    "Top-level Entity Name": "exidy_expansion_bridge_rr",
+    "Family": "Cyclone V",
+    "Device": "5CSEBA6U23I7",
+    "Timing Models": "Final",
+    "Logic utilization (in ALMs)": "486 / 41,910 ( 1 % )",
+    "Total registers": "495",
+    "Total pins": "2 / 314 ( < 1 % )",
+    "Total virtual pins": "172",
+    "Total block memory bits": "1,703,936 / 5,662,720 ( 30 % )",
+    "Total RAM Blocks": "208 / 553 ( 38 % )",
+    "Total DSP Blocks": "0 / 112 ( 0 % )",
+    "Total HSSI RX PCSs": "0",
+    "Total HSSI PMA RX Deserializers": "0",
+    "Total HSSI TX PCSs": "0",
+    "Total HSSI PMA TX Serializers": "0",
+    "Total PLLs": "0 / 6 ( 0 % )",
+    "Total DLLs": "0 / 4 ( 0 % )"
+  },
+  "timing": [
+    {
+      "type": "Slow 1100mV 100C Model Setup 'main'",
+      "slackNs": 9.73
+    },
+    {
+      "type": "Slow 1100mV 100C Model Setup 'speech'",
+      "slackNs": 96.11
+    },
+    {
+      "type": "Slow 1100mV 100C Model Hold 'main'",
+      "slackNs": 0.421
+    },
+    {
+      "type": "Slow 1100mV 100C Model Hold 'speech'",
+      "slackNs": 0.453
+    },
+    {
+      "type": "Slow 1100mV 100C Model Recovery 'main'",
+      "slackNs": 15.678
+    },
+    {
+      "type": "Slow 1100mV 100C Model Recovery 'speech'",
+      "slackNs": 97.566
+    },
+    {
+      "type": "Slow 1100mV 100C Model Removal 'main'",
+      "slackNs": 1.123
+    },
+    {
+      "type": "Slow 1100mV 100C Model Removal 'speech'",
+      "slackNs": 1.58
+    },
+    {
+      "type": "Slow 1100mV 100C Model Minimum Pulse Width 'main'",
+      "slackNs": 8.806
+    },
+    {
+      "type": "Slow 1100mV 100C Model Minimum Pulse Width 'speech'",
+      "slackNs": 48.817
+    },
+    {
+      "type": "Slow 1100mV -40C Model Setup 'main'",
+      "slackNs": 10.048
+    },
+    {
+      "type": "Slow 1100mV -40C Model Setup 'speech'",
+      "slackNs": 96.266
+    },
+    {
+      "type": "Slow 1100mV -40C Model Hold 'main'",
+      "slackNs": 0.446
+    },
+    {
+      "type": "Slow 1100mV -40C Model Hold 'speech'",
+      "slackNs": 0.509
+    },
+    {
+      "type": "Slow 1100mV -40C Model Recovery 'main'",
+      "slackNs": 15.945
+    },
+    {
+      "type": "Slow 1100mV -40C Model Recovery 'speech'",
+      "slackNs": 97.721
+    },
+    {
+      "type": "Slow 1100mV -40C Model Removal 'main'",
+      "slackNs": 1.078
+    },
+    {
+      "type": "Slow 1100mV -40C Model Removal 'speech'",
+      "slackNs": 1.504
+    },
+    {
+      "type": "Slow 1100mV -40C Model Minimum Pulse Width 'main'",
+      "slackNs": 8.791
+    },
+    {
+      "type": "Slow 1100mV -40C Model Minimum Pulse Width 'speech'",
+      "slackNs": 48.812
+    },
+    {
+      "type": "Fast 1100mV 100C Model Setup 'main'",
+      "slackNs": 13.37
+    },
+    {
+      "type": "Fast 1100mV 100C Model Setup 'speech'",
+      "slackNs": 97.823
+    },
+    {
+      "type": "Fast 1100mV 100C Model Hold 'main'",
+      "slackNs": 0.182
+    },
+    {
+      "type": "Fast 1100mV 100C Model Hold 'speech'",
+      "slackNs": 0.184
+    },
+    {
+      "type": "Fast 1100mV 100C Model Recovery 'main'",
+      "slackNs": 17.28
+    },
+    {
+      "type": "Fast 1100mV 100C Model Recovery 'speech'",
+      "slackNs": 98.572
+    },
+    {
+      "type": "Fast 1100mV 100C Model Removal 'main'",
+      "slackNs": 0.533
+    },
+    {
+      "type": "Fast 1100mV 100C Model Removal 'speech'",
+      "slackNs": 0.832
+    },
+    {
+      "type": "Fast 1100mV 100C Model Minimum Pulse Width 'main'",
+      "slackNs": 8.484
+    },
+    {
+      "type": "Fast 1100mV 100C Model Minimum Pulse Width 'speech'",
+      "slackNs": 48.49
+    },
+    {
+      "type": "Fast 1100mV -40C Model Setup 'main'",
+      "slackNs": 14.755
+    },
+    {
+      "type": "Fast 1100mV -40C Model Setup 'speech'",
+      "slackNs": 98.139
+    },
+    {
+      "type": "Fast 1100mV -40C Model Hold 'main'",
+      "slackNs": 0.166
+    },
+    {
+      "type": "Fast 1100mV -40C Model Hold 'speech'",
+      "slackNs": 0.17
+    },
+    {
+      "type": "Fast 1100mV -40C Model Recovery 'main'",
+      "slackNs": 17.793
+    },
+    {
+      "type": "Fast 1100mV -40C Model Recovery 'speech'",
+      "slackNs": 98.802
+    },
+    {
+      "type": "Fast 1100mV -40C Model Removal 'main'",
+      "slackNs": 0.456
+    },
+    {
+      "type": "Fast 1100mV -40C Model Removal 'speech'",
+      "slackNs": 0.715
+    },
+    {
+      "type": "Fast 1100mV -40C Model Minimum Pulse Width 'main'",
+      "slackNs": 8.416
+    },
+    {
+      "type": "Fast 1100mV -40C Model Minimum Pulse Width 'speech'",
+      "slackNs": 48.418
+    }
+  ],
+  "worstConstrainedSlackNs": 0.166,
+  "comparedToIncrement12": {
+    "alms": [
+      486,
+      484
+    ],
+    "registers": [
+      495,
+      467
+    ],
+    "ramBlocks": [
+      208,
+      208
+    ],
+    "note": "(increment14, increment12)"
+  },
+  "mapWarnings": [
+    "Warning (10335): Unrecognized synthesis attribute \"async_reg\" at ../../../sim/expansion_adapter/exidy_transport_adapter.sv(37) File: C:/MiSTerDev/Arcade-Exidy2_MiSTer/sim/expansion_adapter/exidy_transport_adapter.sv Line: 37",
+    "Warning (10335): Unrecognized synthesis attribute \"async_reg\" at ../../../sim/expansion_adapter/exidy_transport_adapter.sv(38) File: C:/MiSTerDev/Arcade-Exidy2_MiSTer/sim/expansion_adapter/exidy_transport_adapter.sv Line: 38",
+    "Warning (10335): Unrecognized synthesis attribute \"async_reg\" at ../../../sim/expansion_adapter/exidy_transport_adapter.sv(39) File: C:/MiSTerDev/Arcade-Exidy2_MiSTer/sim/expansion_adapter/exidy_transport_adapter.sv Line: 39",
+    "Warning (10335): Unrecognized synthesis attribute \"async_reg\" at ../../../sim/expansion_adapter/exidy_transport_adapter.sv(229) File: C:/MiSTerDev/Arcade-Exidy2_MiSTer/sim/expansion_adapter/exidy_transport_adapter.sv Line: 229",
+    "Warning (10335): Unrecognized synthesis attribute \"async_reg\" at ../../../sim/expansion_adapter/exidy_transport_adapter.sv(230) File: C:/MiSTerDev/Arcade-Exidy2_MiSTer/sim/expansion_adapter/exidy_transport_adapter.sv Line: 230",
+    "Warning (10335): Unrecognized synthesis attribute \"async_reg\" at ../../../sim/expansion_adapter/exidy_transport_adapter.sv(231) File: C:/MiSTerDev/Arcade-Exidy2_MiSTer/sim/expansion_adapter/exidy_transport_adapter.sv Line: 231",
+    "Warning (10335): Unrecognized synthesis attribute \"async_reg\" at exidy_expansion_loader_rr.sv(74) File: C:/MiSTerDev/Arcade-Exidy2_MiSTer/simulation/expansion_adapter/fit14/exidy_expansion_loader_rr.sv Line: 74",
+    "Warning (10335): Unrecognized synthesis attribute \"async_reg\" at exidy_expansion_loader_rr.sv(75) File: C:/MiSTerDev/Arcade-Exidy2_MiSTer/simulation/expansion_adapter/fit14/exidy_expansion_loader_rr.sv Line: 75",
+    "Warning (10036): Verilog HDL or VHDL warning at exidy_transport_adapter.sv(36): object \"cvsd_end_ok\" assigned a value but never read File: C:/MiSTerDev/Arcade-Exidy2_MiSTer/sim/expansion_adapter/exidy_transport_adapter.sv Line: 36",
+    "Warning (276027): Inferred dual-clock RAM node \"exidy_expansion_loader:loader|cvsd_mem_rtl_0\" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.",
+    "Warning (15752): Ignored 5 Virtual Pin logic option assignments"
+  ],
+  "reportHashes": {
+    "fit.summary": "b764d59cd4f165ac787720f6ba110fb40b8d90bb06a08ee80ed3bddaa95dea98",
+    "sta.summary": "a1da610b85102be8eac12ae68f1d90914e50c0719d746e0f3d3938e1acb43a3b",
+    "flow.rpt": "1ce72210728908385cf5abcc1f100cbc55ae607a4d5b8b99082938461baae5e2",
+    "map.rpt": "64a56bc08e294e295936ed047b5012adba4be0810112f61130902daf7a5a7865"
+  },
+  "limits": [
+    "Standalone bridge only; virtual data/control I/O have no board timing constraints.",
+    "50MHz/10MHz abstract clocks and asynchronous groups; no physical CDC/reset signoff.",
+    "Synchronizer chain recognition (rst_meta/rst_sync) not yet confirmed: needs synchronizers.rpt from report_synchronizers.tcl.",
+    "Not whole-core capacity."
+  ]
+}

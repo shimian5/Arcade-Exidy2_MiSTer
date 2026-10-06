@@ -8,3 +8,10 @@ Staged ROM images were regenerated from supplied MAME zips and match the committ
 
 ## Not claimed
 The bench releases reset on the main clock with both clocks running; bridge-level stopped-speech-clock release is covered only by the standalone increment 13 bench. No QSF synchronizer assignments or Quartus run for this wiring yet (owner machine), and no actual PLL-lock reset, CPU/audio wiring or whole-core fit.
+
+## Quartus result (owner-run, 2026-10-06)
+The `fit14` probe (top `exidy_expansion_bridge_rr`) completes the full Quartus 17.0.2 flow ([result](increment-14-fit.json)): 208/553 RAM blocks (unchanged), 486 ALMs (+2), 495 registers (+28 versus increment 12's 467; only four are the new synchronizer flops, the rest is unexplained and likely register restructuring, to be confirmed), 17 map-stage warnings, no errors. All timing slacks are positive across the four models; the worst constrained slack is 0.166 ns (Fast −40C hold, main). Unlike increment 12, the summary now contains Recovery and Removal rows for both clocks (all positive), since the resets are launched from clocked synchronizer registers. Slacks are against abstract 50/10 MHz clocks with asynchronous groups and virtual I/O; they are not board timing or CDC signoff.
+
+An earlier owner run failed with `Top-level design entity "expansion_probe" is undefined` because it was started outside the generated project directory; run from inside `fit14` (the generator now prints the commands).
+
+Open: confirm `rst_meta`/`rst_sync` are recognized as synchronizers: from `fit14`, run `quartus_sta -t ..\..\..\tools\expansion_adapter\report_synchronizers.tcl` (or the repository's Tcl via the full Quartus path) and send `synchronizers.rpt`.
