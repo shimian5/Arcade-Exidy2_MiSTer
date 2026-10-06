@@ -28,6 +28,9 @@ Existing fixture findings (docs/design/sprite-fixture, sprite-serialization) alr
 | A6 | **Mouse Trap CVSD path absent** (already audited: no Z80/CVSD ROMs loaded). | docs/audits/mra | W09 | I07 |
 | A7 | Targ/Spectar tone uses a hand-built counter chain; crash/noise path from the discrete board missing. | audio_board.v:204–232 | MAME trigger semantics/sample references | I10 |
 
+## Applied after this audit
+- **A1** — `rtl/audio_mix.v` (`exidyAudioMix`) now sums the two groups to a mono signal on both outputs (each input halved, no overflow). Unit test `sim/audio_mix/tb_audio_mix.sv` passes (corner cases + 2,000 random vectors; baseline-style mixing fails it). Production edit only in `rtl/audio_board.v` output assigns and `rtl/index.qip`; not compiled in Quartus and not listened to. Gain/balance versus MAME is still unverified; this is the first change to production RTL since the baseline.
+
 ## Proposed order
 1. A1 mixer (cheap, isolated, testable): isolated saturating mono mixer with unit test; wiring needs owner listening check.
 2. S1 sprite-1 enable gating: needs one MAME `$5101` trace; RTL change is small once confirmed.

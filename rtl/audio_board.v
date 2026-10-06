@@ -277,8 +277,10 @@ jtframe_jt49_filters u_filters2(
 );
 
 //audio board output
-assign audio_l=(pause) ? 16'd0 : audio_snd;
-assign audio_r=(pause) ? 16'd0 : audio_snd_ext;
+wire signed [15:0] audio_mono;
+exidyAudioMix audio_mix(.src_a(audio_snd),.src_b(audio_snd_ext),.mute(pause),.mono(audio_mono));
+assign audio_l=audio_mono;
+assign audio_r=audio_mono;
 
 //TARG Tone PROM
 eprom_5 HRA2B
