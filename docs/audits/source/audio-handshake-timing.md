@@ -1,0 +1,9 @@
+# Audio-board PIA handshake: timing failure diagnosis (2026-10-06)
+
+Owner full-core Quartus run on the branch with the mono audio mix and interrupt-profile edits reported: setup −2.888 ns (TNS −1800.391) on PLL output 2 (14.367 MHz audio clock), −0.612 ns (TNS −2.810) on PLL output 0 (45.153 MHz master clock); all other clocks positive.
+
+Every reported failing path (top eight per clock, supplied by the owner) is between `exidyAB:sound_board|pia6821:PIA_9B` (master clock) and `pia6821:PIA_8B` or `T65:A6502` (audio clock): handshake registers such as `ca1_fall`, `ca1_del`, `cb1_rise`, `cb1_del` and bus registers feeding `BAL`. The setup window on the worst paths is 0.006–0.4 ns because the 45.153/14.367 MHz clocks are unrelated and `Arcade-Exidy2.sdc` places all PLL outputs in one group, so every crossing is timed as synchronous. No failing path involves `exidyAudioMix`, `exidyIntCause`, `rCPU_IRQ`, `EIR` or `cDET`. The structure is in unmodified baseline logic, so the failure is very likely inherited; a baseline (`bfd1b5c`) build would confirm it and was not run.
+
+Change: `Arcade-Exidy2.sdc` adds two scoped `set_false_path` constraints (PIA_9B → PIA_8B/T65, PIA_8B → PIA_9B). No RTL change; behavior is unchanged. This is a constraint, not a clock-domain-crossing fix: the CA1/CB1 inputs are still sampled without synchronizers, as in the baseline and on the original board's two asynchronous processors, where the firmware handshake provides safety. Candidate hardening (not done): two-flop synchronizers on the four handshake lines, which adds up to two audio-clock cycles of latency; would need a Venture/Mouse Trap audio comparison against MAME.
+
+Expected on the next full build: no setup failure on either PLL output from these paths. If the build still reports negative slack, send the new top paths: they would be non-handshake crossings that remain timed.

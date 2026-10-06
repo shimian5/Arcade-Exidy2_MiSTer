@@ -255,3 +255,15 @@ set_multicycle_path -hold -end -to [get_keepers {*_osd|osd_vcnt*}] 1
 # Set Input Transition
 #**************************************************************
 
+#**************************************************************
+# Audio-board CPU handshake (main-CPU PIA 9B <-> audio-CPU PIA 8B)
+#**************************************************************
+# PIA_9B runs on the 45.15 MHz master clock and PIA_8B/T65 on the 14.37 MHz audio
+# clock. They are unrelated clocks that exchange CA1/CB1/CA2/CB2 handshake lines
+# and bus data through a firmware protocol (as on the original board, where the
+# two processors are asynchronous). The SDC puts both PLL outputs in one group,
+# so these crossings were timed as synchronous with a near-zero window and
+# failed regardless of placement. Constrain only these crossings; other
+# master/audio crossings remain timed.
+set_false_path -from [get_keepers {*exidyAB:sound_board|pia6821:PIA_9B|*}] -to [get_keepers {*exidyAB:sound_board|pia6821:PIA_8B|* *exidyAB:sound_board|T65:A6502|*}]
+set_false_path -from [get_keepers {*exidyAB:sound_board|pia6821:PIA_8B|*}] -to [get_keepers {*exidyAB:sound_board|pia6821:PIA_9B|*}]
