@@ -1,5 +1,7 @@
 # Stopping point — 2026-10-06
 
+**Increment 13 (cloud session):** per-domain reset-release module and stopped-clock bench pass with a failing unsafe negative control; connected suite replays 26/26 non-ROM cases under Verilator 5.052. Not yet wired into the bridge. See [increment-13](docs/design/expansion-adapter/increment-13.md). Use Verilator 5.052; 5.020 gives false failures in cases 25/26.
+
 Current owner instruction: continue bounded increments until weekly usage is approximately 98% used, then preserve roughly 2% for the owner. **Stopped after increment 12 at 98% weekly usage (approximately 2% remaining).** No agent or build is running; no next increment was started. Luna workers previously reached their usage limit; the integrator completed these bounded increments. Resume only on a new owner instruction.
 
 Increment 12 closes duplicate-speech quarantine through the loader-verdict edge. All 29 connected expectations pass, including 28 positives and a missing-hold negative control. Exact-source isolated full Quartus flow succeeds: 208 RAM blocks, 484 ALMs, 467 registers; five two-register synchronizers have calculable estimates under probe assumptions. [Report](docs/design/expansion-adapter/increment-12.md), [simulation](docs/design/expansion-adapter/increment-12.json) and [fit](docs/design/expansion-adapter/increment-12-fit.json) preserve evidence. Next: reset release per domain before production integration.

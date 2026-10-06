@@ -1,0 +1,26 @@
+{
+  "schema": "exidy2-reset-release-increment/v1",
+  "increment": 13,
+  "accepted": false,
+  "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+  "cases": [
+    {
+      "case": "async-assert-sync-release-adversaries",
+      "expectationMet": true
+    },
+    {
+      "case": "negative-unsynchronized-release",
+      "expectedFailure": true,
+      "expectationMet": true,
+      "failures": 16
+    }
+  ],
+  "sha256": {
+    "sim/expansion_adapter/exidy_reset_sync.sv": "a8fe9620f5a9ee1ac73c9d03fbc06946980e54121a14ac018925a156306db0ee",
+    "sim/expansion_adapter/tb_reset_release.sv": "6a1adc5c14b75a1d8b04a1236beaa11ead57b28049b1f97de98297d6cb4fa70f"
+  },
+  "remaining": [
+    "Module not yet instantiated in the bridge; bridge/loader/adapter rely on raw reset_n.",
+    "Actual clocks/PLL lock-derived reset, CPU/audio wiring, QSF synchronizer assignments, whole-core fit."
+  ]
+}
