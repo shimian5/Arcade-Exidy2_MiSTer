@@ -2,7 +2,7 @@
  "schema": "exidy2-int-latch-survey/v1",
  "mame": "0.264 (Ubuntu package; pinned reference remains 0.288)",
  "run": "tools/reference_cases/exidy_reference.lua, 3600 frames zero input, video/sound off",
- "note": "Zero-input attract only; collision and gating coverage during gameplay is not established. No ROM bytes.",
+ "note": "Zero-input attract only; collision and gating coverage during gameplay is not established. No ROM bytes. Venture rows use tools/reference_cases/venture_startup.lua (coin/start/right[+fire] after startup, 3600 frames); the sequence does not enter a room.",
  "sets": [
   {
    "set": "targ",
@@ -94,6 +94,36 @@
     "0c": 3477,
     "84": 1282,
     "88": 8
+   }
+  },
+  {
+   "set": "venture_fire",
+   "w5101": 1872,
+   "distinct5101": {
+    "00": 195,
+    "f0": 1677
+   },
+   "sprite1_gated_writes": 0,
+   "r5103": 2980,
+   "values5103": {
+    "04": 1871,
+    "44": 1,
+    "80": 1108
+   }
+  },
+  {
+   "set": "venture_right",
+   "w5101": 1872,
+   "distinct5101": {
+    "00": 195,
+    "f0": 1677
+   },
+   "sprite1_gated_writes": 0,
+   "r5103": 2990,
+   "values5103": {
+    "04": 1871,
+    "44": 1,
+    "80": 1118
    }
   }
  ]

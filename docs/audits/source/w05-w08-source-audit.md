@@ -26,9 +26,10 @@ Existing fixture findings (docs/design/sprite-fixture, sprite-serialization) alr
 | sidetrac | 63 | none | bits 0–1 (DIP) are 1 and coin bits 5–6 high; RTL ties bits 1:0 to 0 (S5) |
 | mtrap (14/00) | 00, 84 | 5c | 84 = bit7 + bit2 collision, positive polarity |
 | pepper2, hardhat (14/04) | 04 (vblank), 80 (collision) | 1c 5c 7c (+ff once hardhat) | bit 2 is **high at vblank, low on collision**; RTL gives the opposite (S2) |
+| venture (04/04), startup + coin/start/right(+fire) | 04 (vblank), 80 (collision), 44 once | f0 (1677), 00 (195) | same polarity as pepper2: vblank 04, collision 80; RTL reversed (S2). `$5101` is only f0/00 so bit 7 set implies bit 4 set |
 | teetert (0c/0c) | 0c (vblank), 84, 88 | 00 08 14 1c 34 3c | collisions clear bit 2 or bit 3 separately; RTL cannot produce the bit-3 case (S3) |
 
-No attract capture ever writes `$5101` with bit 7 set and bit 4 clear, so S1 (sprite-1 gating) is untested by these sets; it needs Venture gameplay (Venture is the first set where gating is reachable) or a deliberate write test.
+No capture, including Venture's startup-to-maze sequence, writes `$5101` with bit 7 set and bit 4 clear, so MAME's sprite-1 gating never fires in them: **S1 is not supported as the cause of the Venture arrow in this sequence.** It remains reachable only in situations not yet captured (room entry/other stages); a deliberate write test is the other option.
 
 ## Shared audio (W08–W09)
 
