@@ -26,7 +26,7 @@ PIA_GHDL_DIR ?= ../../simulation/harness/pia_return_ghdl
 PIA_GHDL ?= $(GHDL)
 PIA_GHDL_LIB ?= $(GHDL_LIB)
 
-.PHONY: pia-return
+.PHONY: pia-return noise-contract
 pia-return:
 	mkdir -p $(PIA_RETURN_DIR) $(PIA_GHDL_DIR)
 	rm -f $(PIA_GHDL_DIR)/work-obj08.cf
@@ -36,6 +36,18 @@ pia-return:
 	$(VERILATOR) --binary --timing --top-module tb_pia_return -Wno-fatal --Mdir $(PIA_RETURN_DIR) ../../sim/pia_return/tb_pia_return.sv ../../rtl/pia_return.v > $(PIA_RETURN_DIR)/build.log 2>&1
 	$(PIA_RETURN_DIR)/Vtb_pia_return > $(PIA_RETURN_DIR)/run.log 2>&1
 	@echo "PASS paired production PIA handshake and staged-byte phase sweep plus production Verilog register test"
+
+NOISE_GHDL_DIR ?= ../../simulation/harness/a4_noise_ghdl
+NOISE_GHDL ?= $(GHDL)
+NOISE_GHDL_LIB ?= $(GHDL_LIB)
+noise-contract:
+	mkdir -p $(NOISE_GHDL_DIR)
+	python3 ../../tools/audio_6840/prepare_noise_model.py
+	rm -f $(NOISE_GHDL_DIR)/work-obj08.cf
+	LD_LIBRARY_PATH=$(NOISE_GHDL_LIB) $(NOISE_GHDL) -a --std=08 --ieee=synopsys --workdir=$(NOISE_GHDL_DIR) $(NOISE_GHDL_DIR)/berzerk_sound_fx.vhd ../../sim/audio_6840/tb_noise_contract.vhd
+	LD_LIBRARY_PATH=$(NOISE_GHDL_LIB) $(NOISE_GHDL) -e --std=08 --ieee=synopsys --workdir=$(NOISE_GHDL_DIR) tb_noise_contract
+	LD_LIBRARY_PATH=$(NOISE_GHDL_LIB) $(NOISE_GHDL) -r --std=08 --ieee=synopsys --workdir=$(NOISE_GHDL_DIR) tb_noise_contract --assert-level=error --stop-time=1500ns 2>&1 | tee $(NOISE_GHDL_DIR)/run.log
+	grep -q "PASS noise recurrence; MAME and RTL tap events counted and compared by step" $(NOISE_GHDL_DIR)/run.log
 
 clean:
 	rm -rf $(BUILD_DIR)
