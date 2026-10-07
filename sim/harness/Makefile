@@ -26,7 +26,7 @@ PIA_GHDL_DIR ?= ../../simulation/harness/pia_return_ghdl
 PIA_GHDL ?= $(GHDL)
 PIA_GHDL_LIB ?= $(GHDL_LIB)
 
-.PHONY: pia-return noise-contract
+.PHONY: pia-return pia-return-negedge noise-contract
 pia-return:
 	mkdir -p $(PIA_RETURN_DIR) $(PIA_GHDL_DIR)
 	rm -f $(PIA_GHDL_DIR)/work-obj08.cf
@@ -36,6 +36,18 @@ pia-return:
 	$(VERILATOR) --binary --timing --top-module tb_pia_return -Wno-fatal --Mdir $(PIA_RETURN_DIR) ../../sim/pia_return/tb_pia_return.sv ../../rtl/pia_return.v > $(PIA_RETURN_DIR)/build.log 2>&1
 	$(PIA_RETURN_DIR)/Vtb_pia_return > $(PIA_RETURN_DIR)/run.log 2>&1
 	@echo "PASS paired production PIA handshake and staged-byte phase sweep plus production Verilog register test"
+
+PIA_NEG_DIR ?= ../../simulation/harness/pia_return_negedge
+PIA_NEG_GHDL_DIR ?= ../../simulation/harness/pia_return_negedge_ghdl
+PIA_NEG_LOG_DIR ?= $(PIA_NEG_DIR)
+pia-return-negedge:
+	mkdir -p $(PIA_NEG_DIR) $(PIA_NEG_GHDL_DIR)
+	rm -f $(PIA_NEG_GHDL_DIR)/work-obj08.cf
+	LD_LIBRARY_PATH=$(PIA_GHDL_LIB) $(PIA_GHDL) -a --std=08 --ieee=synopsys --workdir=$(PIA_NEG_GHDL_DIR) ../../modules/pia/pia6821.vhd
+	LD_LIBRARY_PATH=$(PIA_GHDL_LIB) $(PIA_GHDL) --synth --std=08 --ieee=synopsys --workdir=$(PIA_NEG_GHDL_DIR) --out=verilog pia6821 > $(PIA_NEG_GHDL_DIR)/pia6821.v 2> $(PIA_NEG_GHDL_DIR)/synthesis.log
+	$(VERILATOR) --binary --timing --top-module tb_pia_return_negedge -Wno-fatal --Mdir $(PIA_NEG_DIR) ../../sim/pia_return/tb_pia_return_negedge.sv ../../sim/pia_return/exidyPiaReturn_negedge_candidate.v ../../rtl/reset_sync.v ../../rtl/pause_sync.v $(PIA_NEG_GHDL_DIR)/pia6821.v > $(PIA_NEG_DIR)/build.log 2>&1
+	@for phase in 0 1 2 3 4 5 6; do $(PIA_NEG_DIR)/Vtb_pia_return_negedge +PHASE_NS=$$phase > $(PIA_NEG_DIR)/phase-$$phase.log 2>&1 || { cat $(PIA_NEG_DIR)/phase-$$phase.log; exit 1; }; grep -q "PASS isolated negative-edge PIA return phase=$$phase" $(PIA_NEG_DIR)/phase-$$phase.log || { cat $(PIA_NEG_DIR)/phase-$$phase.log; exit 1; }; done
+	@echo "PASS isolated opposite-edge candidate across seven phases with GHDL-synthesized production PIA components"
 
 NOISE_GHDL_DIR ?= ../../simulation/harness/a4_noise_ghdl
 NOISE_GHDL ?= $(GHDL)
