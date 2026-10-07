@@ -1,11 +1,11 @@
 # Handoff for the next (local) agent — 2026-10-07
 
-Branch `claude/nice-goodall-idlhs4` (head at the time of writing: see `git log`). Read in this order: this file, [STOPPING_POINT.md](STOPPING_POINT.md), [WORKPLAN.md](WORKPLAN.md), [docs/cloud-environment.md](docs/cloud-environment.md). Goal and completion rule are in WORKPLAN.md (every Exidy 6502 game working; evidence required, no unproven "done").
+Work is now on `main`, including production tree `55e3300`. Latest local results and timing work are in [STOPPING_POINT.md](STOPPING_POINT.md). Read in this order: this file, [STOPPING_POINT.md](STOPPING_POINT.md), [WORKPLAN.md](WORKPLAN.md), [docs/cloud-environment.md](docs/cloud-environment.md). Goal and completion rule are in WORKPLAN.md (every Exidy 6502 game working; evidence required, no unproven "done").
 
 ## Standing owner rules
-- Commits authored as **shimian5 <matt.alias@mattbaran.com>**; no attribution trailers; no mention of Claude/Anthropic in commits, comments or docs. Set `git config user.name/user.email` before committing.
+- Commits authored as **shimian5 <matt.alias@mattbaran.com>**; no attribution trailers; no assistant/vendor credits in commits, comments or docs. Set `git config user.name/user.email` before committing.
 - Never commit ROM bytes, assembled ROM images, captures, WAVs or test output. Generated data lives under the ignored `simulation/` or a scratch dir. Treat the NAS ROM library as read-only.
-- Do not open a PR unless asked. Quartus: full flow from an **unsandboxed PowerShell** (`quartus_sh --flow compile Arcade-Exidy2`), never isolated stages for acceptance. Owner runs Quartus on request and pastes results.
+- Do not open a PR unless asked. Quartus: full flow from an **unsandboxed PowerShell** (`quartus_sh --flow compile Arcade-Exidy2`), never isolated stages for acceptance. On 2026-10-07 the owner authorized the local orchestrator to run Quartus directly; the earlier owner-only execution restriction is superseded.
 - Tests: new tests are committed as source; their output is not printed or committed (`tools/run_tests.py` is quiet by design).
 - Keep docs in step with every result; update STOPPING_POINT.md and the WORKPLAN log/table/issue register. Check a WORKPLAN box only at DONE.
 

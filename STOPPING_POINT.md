@@ -1,15 +1,25 @@
 # Stopping point — 2026-10-07
 
-For the next agent start with [HANDOFF.md](HANDOFF.md). Branch `claude/nice-goodall-idlhs4`, commits authored as shimian5. Work continues in bounded blocks; Quartus runs happen on the owner's machine on request. No pull request has been opened.
+Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. Commits are authored as shimian5. The owner authorized local full Quartus flows in unsandboxed PowerShell. No PR has been opened.
+
+## Local checkpoint and immediate continuation
+
+- Full-core compilation at `55e3300` passed (0 errors); generated RBF remains ignored. [Build evidence](docs/audits/source/local-full-core-build-2026-10-07.md).
+- Timing is provisional: stale PLL constraints mis-model actual clocks. Corrected candidate replay models master 45.153 MHz/audio 14.367 MHz and exposes PIA return-data and audio pause setup failures. No blanket exception was added.
+- Local regression recovered: 6 PASS, 0 FAIL, 1 SKIP; all 29 connected expectations met. CSV audio-RAM and slow GHDL replay remain local gaps. [Regression evidence](docs/audits/source/local-regressions-2026-10-07.md).
+- Profile-0 sprite replay and negative control pass; Venture I05 remains unreproduced. [Sprite evidence](docs/audits/source/local-sprite-rerun-2026-10-07.md).
+- Immediate unit: correct PLL/uncertainty constraints, resample audio pause, rerun full Quartus, then inspect remaining exact PIA read-data paths. Hardware/game acceptance and W15 remain open.
+
+Read [PLL contract](docs/audits/source/pll-constraint-contract.md), [generated-clock inventory](docs/audits/source/generated-clock-inventory.md), [audio-domain contract](docs/audits/source/audio-clock-domain-contract.md), and [HANDOFF.md](HANDOFF.md). Existing local probe files and increment-14 metadata changes are preserved.
 
 ## Production changes since the baseline (all unproven on hardware)
 
 | Change | Files | Evidence | Build / test status |
 | --- | --- | --- | --- |
 | Mono mix of both audio groups (A1) | `rtl/audio_mix.v`, `rtl/audio_board.v` | `sim/audio_mix` unit test | Not listened to; levels versus MAME unverified |
-| Profile-selected collision wiring for `$5103` (S2/S3), selected by `pcb[7:6]`; profile 0 = unchanged | `rtl/int_cause.v`, `rtl/Exidy2.v`, `candidates/mra/*` | `sim/int_cause` vs MAME formula and all observed `$5103` values | Release MRAs untouched; test MRAs in `candidates/mra`; sprite fixture (WSL-only) not rerun |
-| Audio RAM as the 128-byte 6532 mirror (A2) | `rtl/audio_ram_map.v`, `rtl/audio_board.v` | `sim/audio_ram` replay of MAME audio-CPU traces: Mouse Trap flat map 6,188 mismatches, mirror 0 | Not Quartus-built |
-| 6840 at the real E clock, immediate load, timer-3 prescale (A4) | `modules/6840/berzerk_sound_fx.vhd`, `rtl/audio_board.v` | GHDL replay of real Venture writes: timers 3.986/3.986/0.498 of MAME formula before, 0.997 after | Not Quartus-built; noise path and levels not compared |
+| Profile-selected collision wiring for `$5103` (S2/S3), selected by `pcb[7:6]`; profile 0 = unchanged | `rtl/int_cause.v`, `rtl/Exidy2.v`, `candidates/mra/*` | `sim/int_cause` vs MAME formula and all observed `$5103` values | Release MRAs untouched; test MRAs in `candidates/mra`; profile-0 sprite fixture and negative control pass |
+| Audio RAM as the 128-byte 6532 mirror (A2) | `rtl/audio_ram_map.v`, `rtl/audio_board.v` | `sim/audio_ram` replay of MAME audio-CPU traces: Mouse Trap flat map 6,188 mismatches, mirror 0 | Compiled together; hardware unproved |
+| 6840 at the real E clock, immediate load, timer-3 prescale (A4) | `modules/6840/berzerk_sound_fx.vhd`, `rtl/audio_board.v` | GHDL replay of real Venture writes: timers 3.986/3.986/0.498 of MAME formula before, 0.997 after | Compiled together; noise path and levels not compared |
 | Audio-clock reset synchronizer; scoped false paths for the PIA handshake, static profile byte and the synchronizer's first flop | `rtl/reset_sync.v`, `rtl/audio_board.v`, `Arcade-Exidy2.sdc` | `sim/reset_sync`; owner timing runs | Latest owner run: master clock met, audio clock about -0.3 ns from `mod_other[4]`; a false path for it was added after that run and is not yet built |
 
 Environment, tool versions, capture and test commands: [docs/cloud-environment.md](docs/cloud-environment.md). Details: [source audit](docs/audits/source/w05-w08-source-audit.md), [A3/A4](docs/audits/source/a3-a4-audio-effects.md), [timing diagnosis](docs/audits/source/audio-handshake-timing.md), [interrupt-latch survey](docs/reference_cases/int-latch-survey.json).
@@ -19,9 +29,8 @@ Increments 1-15 are in `docs/design/expansion-adapter/`. Increment 14/15: per-do
 
 ## Open items
 
-Blocked on the owner (build, listening or hardware):
+Owner hardware/input gates:
 - Rebuild the full core, report slacks and any new top paths (`pause` into the audio CPU `rdy` and the mono mute are the next suspects); then test the audio changes (effects two octaves higher, both ears, Mouse Trap audio) and the interrupt profiles with `candidates/mra` against the baseline MRAs.
-- Rerun `tools/sprite_fixture/run_fixture.py` on WSL (it was edited to pin profile 0).
 - Choices still owed: Teeter Torture control device, FAX answer-button mapping, CRT model/adapter/settings, which RBF/MRA is running on hardware.
 
 Doable in the cloud (MAME 0.264, Verilator 5.052, GHDL are installed; ROM zips for mtrap, fax, fax2, targ, spectar, pepper2, hardhat, sidetrac, teetert, venture are staged locally and uncommitted):

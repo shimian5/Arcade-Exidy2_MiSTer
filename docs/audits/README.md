@@ -32,3 +32,11 @@ The next three bounded units should prepare deterministic Venture/Targ/Spectar r
 - [A3/A4 audio effects](source/a3-a4-audio-effects.md): `$2000` inert; 6840 pitch/prescale/load measured on real Venture writes and fixed.
 - [Audio handshake timing](source/audio-handshake-timing.md): owner Quartus timing failures traced to baseline clock-domain crossings; constraints and reset synchronizer.
 
+## Local continuation (2026-10-07)
+
+- [Timing source review](source/local-timing-review-2026-10-07.md): exception scope, profile transfer/reset contract, remaining pause and PIA crossings, and generated-clock coverage limits.
+- [Sprite fixture rerun](source/local-sprite-rerun-2026-10-07.md): 18 captured writes pass under the profile-0 extraction; corrupted expectation fails. Venture arrow reproduction remains open.
+- [Local regressions](source/local-regressions-2026-10-07.md): recovered complete run passes, including 29 connected expectations; audio-RAM trace replay skipped.
+- [Full-core build](source/local-full-core-build-2026-10-07.md): incoming edits compile together; PLL-model mismatch prevents timing signoff.
+- [PLL constraint contract](source/pll-constraint-contract.md), [generated-clock inventory](source/generated-clock-inventory.md), and [audio domain contract](source/audio-clock-domain-contract.md): next timing repair and clock/reset ownership.
+
