@@ -12,6 +12,7 @@ architecture test of tb_pia_return_pair is
 	signal audio_clk  : std_logic := '0';
 	signal reset_m   : std_logic := '1';
 	signal reset_a   : std_logic := '1';
+	signal audio_stage_byte : std_logic_vector(7 downto 0) := x"00";
 	signal stage_byte : std_logic_vector(7 downto 0) := x"00";
 	signal cpu_databus : std_logic_vector(7 downto 0) := x"00";
 	signal cpu_enable : std_logic := '0';
@@ -60,9 +61,18 @@ begin
 		end loop;
 	end process;
 
-	-- Equivalent to rtl/pia_return.v. The actual Verilog module is checked in
+	-- Equivalent to both stages in rtl/pia_return.v. The actual Verilog module is checked in
 	-- a separate Verilator bench; this model lets the two production VHDL PIAs
 	-- run together under GHDL with the fitted related-clock ratio.
+	process(audio_clk)
+	begin
+		if rising_edge(audio_clk) then
+			if reset_a = '1' then audio_stage_byte <= x"00";
+			else audio_stage_byte <= a_pb_o;
+			end if;
+		end if;
+	end process;
+
 	process(master_clk)
 	begin
 		if rising_edge(master_clk) then
@@ -71,7 +81,7 @@ begin
 				cpu_databus <= x"00";
 				cpu_sample <= x"00";
 			else
-				stage_byte <= a_pb_o;
+				stage_byte <= audio_stage_byte;
 				cpu_databus <= m_dout;
 				if cpu_enable = '1' then
 					cpu_sample <= cpu_databus;
@@ -233,12 +243,15 @@ begin
 		write_audio("10", x"FF");
 		write_audio("11", x"25");
 
-		-- Reset while a response is outstanding; both destination PIA state
-		-- and the newly added stage must clear, then a fresh response must work.
+		-- Reset while a response is outstanding; independently reset the source
+		-- and destination stages, then prove a fresh response still works.
 		write_audio("10", x"C3");
 		wait until m_irq_a = '1';
 		wait until rising_edge(master_clk);
-		reset_m <= '1'; reset_a <= '1';
+		reset_a <= '1';
+		wait until rising_edge(audio_clk); wait for 1 ns;
+		assert audio_stage_byte = x"00" report "audio source stage did not clear during source reset" severity failure;
+		reset_m <= '1';
 		wait until rising_edge(master_clk); wait for 1 ns;
 		assert stage_byte = x"00" report "return register did not clear during reset" severity failure;
 		wait until rising_edge(audio_clk); reset_a <= '0';
