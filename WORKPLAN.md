@@ -88,9 +88,9 @@ Status values: `TODO`, `READY`, `ACTIVE`, `BLOCKED`, `REVIEW`, `DONE`. Check a c
 | W06 Native raster contract | Integrator | ACTIVE | W01-W02 | Raw profiles measure 336x280/256x256 active. Sixth-block independent synthetic video queue passes all eight bitplanes; actual renderer, downstream consumer, clock/interrupt and receiver acceptance remain. |
 | W07 CRT transport and geometry | baseline_releases / integrator | ACTIVE | W06; W03 captures | Third block: candidate Victory-derived schedule/CDC contract; implementation and receiver acceptance pending. |
 | W08 Shared digital audio | Audio / integrator | ACTIVE | W03 | docs/audits/source/: mono mix (A1), audio RAM mirror (A2, Mouse Trap divergence measured), 6840 pitch/prescale/load (A4) applied and unit/replay-tested; filter port `$2000` inert (A3). Compiled together on 2026-10-07; corrected-clock timing and listening remain. Noise path, mixed levels, 8253 clocks, Targ/Spectar discrete audio and event inventory remain open. |
-| W09 CVSD and discrete audio | Audio | ACTIVE | W08 | Actual T80 synthetic synchronous-ROM execution and manifest-guarded initial speech-image fetch/first OUT independently pass. Adapter/CPU join, full firmware, variable-latency reset and CVSD remain unimplemented in production. Voice loading/transport passes isolated W02 gates; A2 RAM fix is separate. |
+| W09 CVSD and discrete audio | Audio | ACTIVE | W08 | Actual T80 synthetic synchronous-ROM execution and manifest-guarded initial speech-image fetch/first OUT independently pass. Actual CPU/adapter normal and delayed reads independently pass; reset with an uncanceled late backend response reproduces stale data. Actual endpoint reset safety, full firmware and CVSD remain production gates. Voice loading/transport passes isolated W02 gates; A2 RAM fix is separate. |
 | W10 Side Trak and Teeter Torture | Board | ACTIVE | W05; audio reference available | Teeter archive-backed MRA, controls/NMI helpers and unapplied integration patch have bounded tests; production controls/NMI and game execution remain open. Side Trak still needs its profile/audio/input integration. |
-| W11 FAX and FAX 2 | Board | ACTIVE | W05; ROM/storage design agreed | Exact74/78 profile/input contract, archive-backed24-bank/PROM audit and passive startup captures prepared. FAX2 selects bank24 then resets0 without a read; delayed controls/sound do not establish gameplay. Actual memory/input/profile/loader integration remains open. |
+| W11 FAX and FAX 2 | Board | ACTIVE | W05; ROM/storage design agreed | Exact74/78 profile/input contract, archive-backed24-bank/PROM audit and passive startup captures prepared. FAX2 selects bank24 then resets0 without a read; delayed controls/sound and documented Free Play runs do not establish gameplay. Actual memory/input/profile/loader integration remains open. |
 | W12 Clone and bootleg profiles | Board | TODO | W05 | |
 | W13 Frontend and persistence integration | Integrator | TODO | W07-W12 implementations ready | |
 | W14 Complete game regression | Integrator + workers | TODO | W13 | |
@@ -234,6 +234,8 @@ Acceptance: no game-state/audio change between modes; all active pixels transpor
 Acceptance: event inventory has no missing digital effects/music; register/timing comparisons pass; waveform differences have explained analog/model causes. Owner listening remains a separate gate.
 
 ### W09 — Complete Mouse Trap CVSD and early discrete sound
+
+Checkpoint: actual T80/adapter joined tests pass 16 normal and 16 delayed requests. The reset-race fixture deliberately reproduces stale data from an uncanceled backend; it is not acceptance. Next prove the actual endpoint cancellation/drain or tagging contract, then run real firmware through the joined path. See [evidence](docs/audits/source/mousetrap-t80-adapter-join.md).
 
 - [ ] Load all Mouse Trap voice ROMs and instantiate the Z80 execution path.
 - [ ] Implement RIOT command/busy/reset wiring, voice IO decoding and CVSD clock/data protocol.

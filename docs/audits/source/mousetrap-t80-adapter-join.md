@@ -6,6 +6,20 @@ The actual T80 CPU now passes a direct mixed-language simulation with the produc
 
 The synthetic ROM program checks ordered instruction/data execution through a synchronous one-cycle memory model, adapter wait and data delivery, I/O read bypass (`IN` receives `5C`), both expected I/O writes, and the resulting `A5` memory write at `$2000`. The scoreboard checks exactly 16 request addresses in order (`$0000-$000A`, `$0100`, `$000B-$000E`), stable adapter address while the read strobe remains active, and rejects a duplicate request for any held `mem_rd` strobe. Exactly 16 requests and 31 sampled wait cycles were observed at completion. This proves the CPU and adapter meet this tested basic wait-state contract together. It does not exercise stale-valid/reset-drain recovery, high address masking, actual firmware execution through the adapter, CVSD logic, or hardware timing.
 
+## Reset-race boundary
+
+`sim/mousetrap_speech/tb_t80_speech_reset_race.sv` adds a real-T80/production-adapter check with the backend left alive across CPU/adapter reset. Its positive run alternates four- and seven-clock response latency across the same complete synthetic program, checking the same 16 ordered request addresses, stable address, no duplicate request, I/O behavior, and final memory write. It completes with 16 requests and 120 sampled wait cycles.
+
+The adversarial phase restarts the CPU, issues a backend request at `$0004`, asserts CPU/adapter reset while that request is pending, releases reset without resetting or canceling the backend, then sees a new CPU request for `$0000` while the old `$0004` request is still outstanding. The old response arrives after reset release and is accepted by the adapter as the response to the new read: `wait_n` rises for CPU address `$0000` with data `$DB` from the old `$0004` request. The fixture prints `EXPECTED_DEFECT` and `EXPECTED_FAILURE`; this is intentional negative evidence, not an acceptance PASS. It completed the observed case at 3286 ns with zero simulator errors.
+
+Replay from PowerShell:
+
+```powershell
+& .\sim\mousetrap_speech\run_t80_speech_reset_race.ps1
+```
+
+The backend deliberately has no reset/cancel path. The result shows the adapter's ready-low drain cannot distinguish an arbitrarily late old response from a new transaction after it has returned to IDLE. Any variable-latency endpoint needs a shared reset/cancel guarantee, an explicit drained acknowledgment that cannot be satisfied before all older responses are impossible, or transaction tagging. The current fixture does not choose or implement a production contract. The tested 4/7-clock positive latency does not by itself create this defect; the failure uses the deliberately late 20-clock response crossing reset.
+
 Run the fixture from PowerShell:
 
 ```powershell
@@ -29,6 +43,8 @@ Source SHA-256 values for the join attempt:
 | `rtl/speech_rom_bus.v` | `73b565d109676f20dce6b6b99b1991e194344b7d4c2730ec72ca84d7117b9d63` |
 | `sim/mousetrap_speech/tb_t80_speech_join.sv` | `36f48b19e6b3cc7e3a07183cac7d6b5fb80dd7c49309f899fc313b23c2f35970` |
 | `sim/mousetrap_speech/run_t80_speech_join.ps1` | `de8809bc197ba9e9e9a045a46367b4c3e218ec690397fbc0e53f95ac21d5fe33` |
+| `sim/mousetrap_speech/tb_t80_speech_reset_race.sv` | `89dffda1b86e925652d5b00ad5057882b625de945107e46939b681b14bc652c0` |
+| `sim/mousetrap_speech/run_t80_speech_reset_race.ps1` | `6409343cdf39d6710aaaff02b0c8891554f8ba6099892873dd3d31e5b0afc8c47` |
 | `modules/cpu-t80/Z80.vhd` | `6ad8a13c72d566414ab4e236204290a210f0e4df3b5e6db07def9d1c8c2bcb73` |
 | `modules/cpu-t80/T80se.vhd` | `b54559bbddb2fe30f15794b6691ef6c10dd1b1ace3e3b29e92a22780560f1bf2` |
 | `modules/cpu-t80/T80.vhd` | `4f4cd80ce371cea06ce0b954b2430b1081dbfb76e13049e1d261168718223bc7` |
@@ -36,3 +52,5 @@ Source SHA-256 values for the join attempt:
 No production RTL, MRA/QIP, ROM files, or Quartus outputs were changed. No physical speech or end-to-end firmware claim follows from these separate CPU and adapter fixtures.
 
 Independent root replay of the strengthened exact-address/request scoreboard passes in fresh ignored `simulation/mousetrap_speech/modelsim-run-20261007-155215-994/`: exactly16 requests,31 wait cycles, expected I/O and memory write. This joins the actual CPU and adapter for normal synchronous responses; the variable-latency reset boundary remains a separate gate.
+
+Independent root reset-race replay in fresh ignored `simulation/mousetrap_speech/modelsim-race-20261007-155615-860/` reproduces both the delayed-response positive (16 requests,120 wait cycles) and the post-reset stale-response defect. The negative driver succeeds when the known unsafe condition is reproduced; its zero exit is not a reset-safety acceptance. Production binding must prove cancellation/tagging/drain guarantees for the actual expansion endpoint before clearing this gate.
