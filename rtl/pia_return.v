@@ -17,7 +17,9 @@ module exidyPiaReturn (
 			audio_byte_stage <= audio_byte;
 	end
 
-	always @(posedge master_clk) begin
+	// Match the asynchronous active-low reset on the destination PIA_9B.
+	// This maps reset to the destination FF clear pin instead of a mux on D.
+	always @(posedge master_clk or negedge master_reset_n) begin
 		if (!master_reset_n)
 			main_byte <= 8'h00;
 		else

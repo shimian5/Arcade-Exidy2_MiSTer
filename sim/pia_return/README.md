@@ -7,8 +7,14 @@ VHDL so the two PIAs can run in one GHDL simulation. It uses a 7 ns master
 period and 22 ns audio period (the fitted PLL's 7:22 frequency ratio), with a
 coincident positive edge at phase zero; the Makefile sweeps all seven distinct
 integer-nanosecond offsets. `tb_pia_return.sv` separately compiles and tests
-the actual production Verilog module with Verilator, including independent
-source/destination reset behavior.
+the actual production Verilog module with Verilator, including source reset
+and asynchronous destination-reset assertion/release behavior.
+
+The destination byte register uses asynchronous active-low reset, matching
+PIA_9B's asynchronous active-high reset. The paired model clears immediately
+when main reset asserts, independently of a master-clock edge; deassertion does
+not change the captured byte until a later master edge. Reset recovery/removal
+timing still requires the fresh full-flow timing report.
 
 These are logic/ordering tests. They do not model metastability, PLL jitter,
 the T65 internal bus protocol, a game sound CPU program, or physical hardware.

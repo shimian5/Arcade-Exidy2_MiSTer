@@ -73,15 +73,22 @@ begin
 		end if;
 	end process;
 
+	process(master_clk, reset_m)
+	begin
+		if reset_m = '1' then
+			stage_byte <= x"00";
+		elsif rising_edge(master_clk) then
+			stage_byte <= audio_stage_byte;
+		end if;
+	end process;
+
 	process(master_clk)
 	begin
 		if rising_edge(master_clk) then
 			if reset_m = '1' then
-				stage_byte <= x"00";
 				cpu_databus <= x"00";
 				cpu_sample <= x"00";
 			else
-				stage_byte <= audio_stage_byte;
 				cpu_databus <= m_dout;
 				if cpu_enable = '1' then
 					cpu_sample <= cpu_databus;
@@ -251,8 +258,10 @@ begin
 		reset_a <= '1';
 		wait until rising_edge(audio_clk); wait for 1 ns;
 		assert audio_stage_byte = x"00" report "audio source stage did not clear during source reset" severity failure;
+		-- The destination stage follows PIA_9B's asynchronous active-high reset
+		-- immediately, without waiting for the next master edge.
 		reset_m <= '1';
-		wait until rising_edge(master_clk); wait for 1 ns;
+		wait for 1 ns;
 		assert stage_byte = x"00" report "return register did not clear during reset" severity failure;
 		wait until rising_edge(audio_clk); reset_a <= '0';
 		wait until rising_edge(master_clk); reset_m <= '0';
