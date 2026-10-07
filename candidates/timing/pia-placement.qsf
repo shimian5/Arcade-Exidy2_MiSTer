@@ -1,0 +1,9 @@
+# Diagnostic one-bit placement trial only; do not add to production QSF.
+# Source stage remains at fitted FF_X37_Y16_N26. The fitted-register inventory
+# simulation/timing-register-sites-07a49c5/fitted-register-sites.tsv shows
+# FF_X37_Y16_N25 is an observed-valid FF suffix, with no register at that exact
+# site. The fitter must still validate site/device legality and availability.
+# Anchor the source to its current fitted site, then move only destination bit 5.
+# Braces preserve literal bus indices in Tcl/QSF; double quotes would evaluate [5].
+set_location_assignment FF_X37_Y16_N26 -to {emu|ex2|sound_board|pia_return_data|audio_byte_stage[5]}
+set_location_assignment FF_X37_Y16_N25 -to {emu|ex2|sound_board|pia_return_data|main_byte_data[5]}
