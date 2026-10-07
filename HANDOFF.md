@@ -10,7 +10,7 @@ Work is now on `main`, including production tree `55e3300`. Latest local results
 - Keep docs in step with every result; update STOPPING_POINT.md and the WORKPLAN log/table/issue register. Check a WORKPLAN box only at DONE.
 
 ## What exists now (all after baseline `911d923`)
-The latest completed production flow is `3341f08`: compilation succeeds, but master setup is -0.556 ns and audio setup -0.193 ns. The next complete flow at `2fafa6b` is running; hardware and generated-clock coverage remain pending. Revert individual edits using the table; do not treat successful flow exit as timing signoff.
+The latest completed production flow is `2fafa6b`: zero compile errors, master setup -0.375 ns, audio +26.713 ns. Full flow at `444211d` is running with the destination reset repair and five generated counter clocks. Cached clock diagnostics expose PH6/EIR hold failures. Revert individual edits using the table; compilation alone is not signoff.
 
 | # | Change | Commit(s) | Files |
 | - | --- | --- | --- |
@@ -22,15 +22,17 @@ The latest completed production flow is `3341f08`: compilation succeeds, but mas
 | 6 | Audio-domain pause sampling for CPU ready and mixer mute | `30dbc10`, attribute quoting `594b8dd` | `rtl/pause_sync.v`, `rtl/audio_board.v`, `rtl/index.qip` |
 | 7 | Derive actual fixed PLL clocks and uncertainty; remove stale clock overrides | `07a1f21` | `Arcade-Exidy2.sdc` |
 | 8 | Whole-byte PIA reply staging; completed flow still fails on source DDR masking | `3341f08` | `rtl/pia_return.v`, `rtl/audio_board.v`, `rtl/index.qip` |
-| 9 | First-stage-only pause exception and forced synchronizer identification; fresh fit pending | `81f85e2` | `Arcade-Exidy2.sdc`, `rtl/pause_sync.v` |
-| 10 | Audio source byte register before the master PIA return stage; adds about 92 ns total; paired tests pass, fresh fit pending | `2fafa6b` | `rtl/pia_return.v`, `rtl/audio_board.v` |
+| 9 | First-stage-only pause exception and forced synchronizer identification; built, audio setup passes | `81f85e2` | `Arcade-Exidy2.sdc`, `rtl/pause_sync.v` |
+| 10 | Audio source byte register before the master PIA return stage; adds about 92 ns total; paired tests pass, completed fit still fails master setup | `2fafa6b` | `rtl/pia_return.v`, `rtl/audio_board.v` |
+| 11 | Destination return reset matches asynchronous PIA9 reset; paired tests pass, fresh fit pending | `9198c76` | `rtl/pia_return.v` |
+| 12 | Five verified generated divider clocks with singleton guards; no new exception | `444211d` | `Arcade-Exidy2.sdc` |
 
-Release MRAs and RBFs under `releases/` are untouched. Candidate MRAs enabling profile 1/2 are in `candidates/mra` (Venture index-1 byte `0x50`, Pepper II/Hard Hat `0xB0`; Teeter Torture would be `0xD0`; Mouse Trap stays `0x10`).
+Release MRAs and RBFs under `releases/` are untouched. Candidate MRAs enabling profile 1/2 are in `candidates/mra` (Venture index-1 byte `0x50`, Pepper II/Hard Hat `0xB0`; Teeter loader candidate uses `0xD0` but controls/NMI are not integrated; Mouse Trap stays `0x10`).
 
 Isolated expansion adapter (CVSD/FAX loading, W02): increments 1-15 in `docs/design/expansion-adapter/`; not wired into the core.
 
 ## First actions (local)
-1. Read [corrected-clock build](docs/audits/source/local-corrected-clock-build-2026-10-07.md): compilation succeeded, master timing fails on PIA8 reply data/DDR to main CPU input; audio timing passes. Read the failing source and destination before modifying RTL/constraints. Keep this reply chain timed; establish byte coherence and latency before changing its behavior.
+1. Read [latest completed build](docs/audits/source/local-pia-source-build-2026-10-07.md) and active full-flow checkpoint in STOPPING_POINT: master return byte still fails setup; generated-clock hold failures need fresh fitted review. Read the failing source and destination before modifying RTL/constraints. Keep this reply chain timed; establish byte coherence and latency before changing its behavior.
 2. Fresh local MAME RAM replay is complete: 11 PASS, 0 FAIL, 0 SKIP ([evidence](docs/audits/source/local-audio-ram-replay.md)). Local guarded GHDL 6840 pitch replay is also complete; remaining waveform/noise/level references are open. Portable tools need literal paths; absence from PATH does not mean unavailable.
 3. After a repair, run a complete unsandboxed PowerShell Quartus flow. Generated clocks, programmable resets and existing PIA exceptions still require coverage review.
 4. When a timing-accepted candidate is ready, follow [hardware checklist](docs/audits/hardware/audio-irq-candidate-checklist.md) with HDMI and Direct Video/S-Video. Sprite fragment replay already passes; Venture arrow remains unresolved.

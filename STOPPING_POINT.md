@@ -4,23 +4,22 @@ Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. 
 
 ## Local checkpoint and immediate continuation
 
-### Active full-flow checkpoint
+Latest completed flow: `2fafa6b`, zero compile errors, master setup **-0.375 ns**, audio **+26.713 ns**, minimum hold **+0.248 ns**. All eight negative setup paths are now the registered audio byte to the master byte register. RBF remains unaccepted. [Build evidence](docs/audits/source/local-pia-source-build-2026-10-07.md).
 
-The latest completed full flow is `3341f08`: compilation succeeded, but master setup is **-0.556 ns** and audio setup **-0.193 ns**. The exact paths are PIA8 DDR masking to the master return register, and `pause_cpu` to the first pause sampling register. Its RBF is unaccepted; releases remain unchanged. See [build evidence](docs/audits/source/local-pia-stage-build-2026-10-07.md).
+The next full flow is running with `9198c76` (PIA destination reset matching PIA9's asynchronous reset, paired tests pass) and `444211d` (five verified generated counter clocks). Cached diagnostic clocks expose PH6/EIR hold failures as severe as -5.461 ns. No waiver was added. Inspect the fresh full-flow setup/hold, recovery/removal and per-counter reports before any hardware candidate; read failing source/destination before modifying them.
 
-Production commits `81f85e2` (first-stage-only pause contract) and `2fafa6b` (audio-domain whole-byte source register) address those paths. The two-stage PIA fixture passes all seven offsets and the actual Verilog test. The complete unsandboxed PowerShell flow at `2fafa6b` is running; inspect setup, hold and synchronizer identification before accepting it. Generated counter-clock coverage is still incomplete, so positive PLL-domain slack alone will not establish full signoff.
+Reviewed evidence:
 
-Standalone Teeter spinner/D-pad/analog controls and FAX four-button-per-player controls have passing focused tests, but neither is production-wired or a working game MRA. The FAX profile gate also preserves other games' reads. 8253 mode 0, canonical/aliased mode 3, continuous reprogramming and warm-reset checks pass without production timer changes. Local Z80 source exists; Mouse Trap still lacks its speech-clock, ROM bus, CVSD and audio integration.
+- Fresh MAME audio-RAM replay: 11 PASS, zero FAIL/SKIP, three mirror traces and flat-map negative control. Guarded 6840 timer window passes pitch medians 0.997; waveform/noise/levels remain open.
+- PIA pipeline passes seven related-clock offsets and actual Verilog checks. Four-game passive firmware capture and reproducible DDR-qualified analysis show repeated Venture responses, zero-only Mouse Trap responses, and startup-limited Pepper II/Hard Hat traffic. Seven Venture mismatches and overwritten responses remain follow-up evidence.
+- Unchanged 8253 passes mode 0/3, raw mode-7 alias, live divisor changes and warm reset. PCM equivalence remains open.
+- Standalone Teeter spinner/D-pad/analog and FAX four-button-per-player helpers pass. Teeter's 17-part MRA candidate passes metadata/loading audit; actual controls and 600 Hz NMI remain unwired. These are not working-game releases.
+- Local Z80 source exists. Standalone speech-ROM wait/reset-drain helper passes, but actual CPU fetch, variable-latency expansion reset, CVSD and audio mix remain integration gates.
+- Profile-0 sprite replay passes; Venture inside-room arrow is still unreproduced.
 
+Owner test paths: HDMI and Direct Video through S-Video to a 15 kHz JVC. Teeter requires spinner plus joystick/D-pad following local Super Off Road; FAX requires four answer buttons per player in its MRA. Record exact display/adapter/settings and running RBF/MRA at hardware acceptance. No additional input is needed for the immediate timing work.
 
-- Main includes incoming production tree `55e3300`, local pause repair `30dbc10`/`594b8dd`, and corrected fixed-PLL constraints `07a1f21`. Remote synchronization follows each reviewed checkpoint.
-- Full flow at `594b8dd` compiles, but **timing fails**: master -0.948 ns, audio +0.082 ns, minimum hold +0.184 ns. All eight worst setup paths are PIA8 data/DDR through PIA9 to the main CPU input register. No new exception was added. [Corrected-clock build evidence](docs/audits/source/local-corrected-clock-build-2026-10-07.md).
-- Fresh local MAME 0.288 audio-RAM replay: **11 PASS, 0 FAIL, 0 SKIP**, mirrored maps zero mismatches for Venture/Pepper II/Mouse Trap; Mouse Trap flat-map negative control 6,188 mismatches. [Evidence](docs/audits/source/local-audio-ram-replay.md). Local guarded 6840 replay passes all three timer channels at median 0.997 of MAME expected periods; noise and levels remain unverified. [Evidence](docs/audits/source/local-6840-replay.md).
-- Profile-0 sprite replay and negative control pass; Venture I05 remains unreproduced. [Sprite evidence](docs/audits/source/local-sprite-rerun-2026-10-07.md).
-- Immediate unit: whole-byte PIA return register candidate now passes seven paired-PIA phases and the actual Verilog register test, including previous-register CPU sampling. Run a fresh full Quartus flow; per-game polling/hold behavior remains unproved. [Candidate evidence](docs/audits/source/pia-return-register-candidate.md). The current ignored RBF is not timing accepted. Generated-clock/reset coverage and hardware/game acceptance keep W15 open.
-- Owner test paths: HDMI and Direct Video through S-Video to a 15 kHz JVC display. Teeter: spinner plus joystick/D-pad mapping following local Super Off Road or VCO. FAX: four answer buttons per player in the MRA. Exact display/adapter/settings and currently running RBF/MRA still need recording.
-
-Read [PLL contract](docs/audits/source/pll-constraint-contract.md), [generated-clock inventory](docs/audits/source/generated-clock-inventory.md), [audio-domain contract](docs/audits/source/audio-clock-domain-contract.md), and [HANDOFF.md](HANDOFF.md). Existing local probe files and increment-14 metadata changes are preserved.
+Read [HANDOFF.md](HANDOFF.md) for production rollback commits and [WORKPLAN.md](WORKPLAN.md) for remaining game/issue gates. Owner probe files and increment-14 metadata changes are preserved. Release files and ROM archives are unchanged.
 
 ## Production changes since the baseline (all unproven on hardware)
 

@@ -70,3 +70,10 @@ The next three bounded units should prepare deterministic Venture/Targ/Spectar r
 - [Counter clock discovery](source/counter-clock-discovery.md): post-fit diagnostic helper with singleton collection guards; awaiting completed fit.
 
 - [Speech ROM bus candidate](../design/speech-rom-bus.md): independently passing wait/reset-drain fixture; actual Z80 and expansion bridge remain integration gates.
+
+- [PIA source-stage full flow](source/local-pia-source-build-2026-10-07.md): master setup still negative, audio positive; generated counter clocks reveal PH6 hold gaps.
+- [PIA firmware timing](source/pia-firmware-response-timing.md): passive four-game captures and reusable DDR-qualified analyzer; exceptions and limited coverage retained.
+
+- [Teeter NMI candidate](source/teeter-nmi-candidate.md): independent generator and selected-T65 fixtures pass; production binding pending.
+- [EIR hold contract](source/eir-counter-clock-hold-contract.md): static profile, live coins and collision paths require distinct review.
+- [Venture response mismatch review](source/pia-response-mismatch-review.md): seven MAME-only exceptions, DDR qualification intact; callback-level cause still open.
