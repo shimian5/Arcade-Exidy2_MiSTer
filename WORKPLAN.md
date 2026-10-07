@@ -155,6 +155,8 @@ Acceptance: reproducible baseline manifest, tool versions and ownership table re
 
 - [x] Repair block-RAM inference in a separate registered-RAM candidate and qualify isolated combined transport/read/verdict behavior:29 connected expectations plus baseline public-read/deadline checks pass. Exact-source full Quartus flow fits208/553 RAM blocks,484ALMs,467registers; five scoped Intel synchronizer chains have calculable estimates under abstract probe assumptions. Reset release, actual clocks/CPU/audio and whole-core/physical acceptance remain open. See docs/design/expansion-adapter/increment-12.md.
 
+- [x] Isolated reset release for the expansion adapter: per-domain synchronizers (increment 13), wired into the candidate bridge with 29 connected expectations including the three ROM payloads (increment 14), stopped-speech-clock bridge bench with an unsynchronized-reset negative control (increment 15); probe full flow passes with 7 recognized synchronizer chains, all slacks positive (208 RAM/486 ALM/495 reg). Probe-level only: PLL-lock-derived reset, actual clocks/CPU/audio and whole-core fit remain open. See docs/design/expansion-adapter/increment-13.md to increment-15.md and docs/cloud-environment.md.
+
 Acceptance: existing six MRAs load known correct bytes, or each discrepancy is documented with a concrete correction; expansion layout is specified. Packaging success does not close gameplay/audio defects.
 
 ### W03 — Build reference cases and reproduce reported issues

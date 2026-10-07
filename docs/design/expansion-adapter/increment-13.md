@@ -10,4 +10,4 @@ The [stopped-clock bench](../../../sim/expansion_adapter/tb_reset_release.sv) pa
 - With 5.052 and no ROM images, the connected suite (`--ram-loader`) passes all 26 non-ROM cases including the missing-verdict-hold negative. The 3 ROM-backed cases need the NAS payloads and were not run.
 
 ## Not claimed
-The module is not yet instantiated in the bridge, loader or adapter (they still use raw `reset_n`). Next: wire one synchronizer per domain into the bridge, replay the connected suite for added release latency, add QSF assignments to the probe, then full-flow Quartus on the owner's machine. Actual PLL-lock-derived reset, CPU/audio wiring and whole-core fit remain open.
+The module is not yet instantiated in the bridge, loader or adapter (they still use raw `reset_n`). (Done in [increment 14](increment-14.md) and [increment 15](increment-15.md).) Next was: wire one synchronizer per domain into the bridge, replay the connected suite for added release latency, add QSF assignments to the probe, then full-flow Quartus on the owner's machine. Actual PLL-lock-derived reset, CPU/audio wiring and whole-core fit remain open.

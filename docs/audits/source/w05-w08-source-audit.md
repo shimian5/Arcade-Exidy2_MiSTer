@@ -18,7 +18,7 @@ Existing fixture findings (docs/design/sprite-fixture, sprite-serialization) alr
 
 ### MAME survey of `$5101` writes and `$5103` reads (attract, zero input)
 
-[Data](../../reference_cases/int-latch-survey.json); replay with `tools/reference_cases/survey_int_latch.py` over `exidy_reference.lua` captures. MAME 0.264 (package) was used because 0.288 is not installable here; ROM sets verified good. Venture is not yet captured.
+[Data](../../reference_cases/int-latch-survey.json); replay with `tools/reference_cases/survey_int_latch.py` over `tools/reference_cases/exidy_reference.lua` captures. MAME 0.264 (package) was used because 0.288 is not installable here; ROM sets verified good. Venture is not yet captured.
 
 | Set | `$5103` values read (count) | `$5101` values written | Reading |
 | --- | --- | --- | --- |
@@ -56,8 +56,11 @@ MAME audio-CPU traces (read/write taps over `0x0000–0x07FF`, 900 frames, MAME 
 
 Change: `rtl/audio_ram_map.v` (`exidyAudioRamAddr`) addresses the existing 2 KB audio RAM with `{4'b0, addr[6:0]}`, giving the MAME 128-byte mirror; `rtl/audio_board.v` uses it. Test: `sim/audio_ram/tb_audio_ram.sv` with traces from `tools/reference_cases/audio_ram_seq.lua`: mirror map 0 mismatches on Venture, Pepper II and Mouse Trap (1.83M, 1.93M and 1.97M reads); flat map (`-DFLAT`) 0, 0 and 6,188 mismatches. Traces are ignored local files. Not Quartus-built; no audio comparison. Initial RAM contents (zero in MAME) are not modeled.
 
-## Proposed order
-1. A1 mixer (cheap, isolated, testable): isolated saturating mono mixer with unit test; wiring needs owner listening check.
-2. S1 sprite-1 enable gating: needs one MAME `$5101` trace; RTL change is small once confirmed.
-3. S2–S5 interrupt latch rework as one profile-driven module, tested against a Python model of MAME's latch.
-4. A2/A3 audio map accuracy, replayed against a MAME audio-CPU trace.
+## Remaining order (as of 2026-10-07)
+1. Owner build and listening check of A1 (mono mix), A2 (audio RAM mirror) and A4 (6840 fixes); owner A/B of the interrupt profiles (S2/S3) using `candidates/mra`.
+2. A4 follow-ups: 6840 noise generator and output level against MAME WAVs; A5 (8253 clocks); A7 (Targ/Spectar discrete audio).
+3. S1: sprite-1 enable gating is untested until a capture writes `$5101` with bit 7 set and bit 4 clear (not seen in the startup-to-maze Venture capture); room entry/other stages needed.
+4. S5: language/table DIP bits for the Targ/Spectar family and Side Trak.
+5. S6: glitch/race review of the combinational async clear on `rCPU_IRQ` (needs Quartus-side analysis).
+
+Test runner for everything in the 'Applied' sections: `python3 tools/run_tests.py` (see docs/cloud-environment.md).
