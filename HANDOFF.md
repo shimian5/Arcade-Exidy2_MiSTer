@@ -10,7 +10,7 @@ Work is now on `main`, including production tree `55e3300`. Latest local results
 - Keep docs in step with every result; update STOPPING_POINT.md and the WORKPLAN log/table/issue register. Check a WORKPLAN box only at DONE.
 
 ## What exists now (all after baseline `911d923`)
-Production RTL edits, each unbuilt-together and unproven on hardware. Revert any single one by reverting its commit.
+Production edits compile together locally at `594b8dd`, but main setup timing fails (-0.948 ns) and hardware acceptance is pending. Revert individual edits using the table; do not treat successful flow exit as timing signoff.
 
 | # | Change | Commit(s) | Files |
 | - | --- | --- | --- |
@@ -20,25 +20,28 @@ Production RTL edits, each unbuilt-together and unproven on hardware. Revert any
 | 4 | 6840: real E clock (`CLK_DIV` generic, 1 in `audio_board.v`), immediate load, timer-3 ÷8 prescale (A4) | `afe83a0` | `modules/6840/berzerk_sound_fx.vhd`, `rtl/audio_board.v` |
 | 5 | Timing: false paths for the PIA 9B↔8B handshake, static profile byte `mod_other[*]`, and the synchronizer's first flop; audio-clock reset synchronizer | `a768479`, `c4e70ba`, `70fb5df` | `Arcade-Exidy2.sdc`, `rtl/reset_sync.v`, `rtl/audio_board.v` |
 
+| 6 | Audio-domain pause sampling for CPU ready and mixer mute | `30dbc10`, attribute quoting `594b8dd` | `rtl/pause_sync.v`, `rtl/audio_board.v`, `rtl/index.qip` |
+| 7 | Derive actual fixed PLL clocks and uncertainty; remove stale clock overrides | `07a1f21` | `Arcade-Exidy2.sdc` |
+
 Release MRAs and RBFs under `releases/` are untouched. Candidate MRAs enabling profile 1/2 are in `candidates/mra` (Venture index-1 byte `0x50`, Pepper II/Hard Hat `0xB0`; Teeter Torture would be `0xD0`; Mouse Trap stays `0x10`).
 
 Isolated expansion adapter (CVSD/FAX loading, W02): increments 1-15 in `docs/design/expansion-adapter/`; not wired into the core.
 
 ## First actions (local)
-1. `git pull`; run `python tools/run_tests.py` (needs Verilator 5.052; on this Windows setup use WSL as the older scripts do). Expect all PASS.
-2. Full-core Quartus build of the branch head. The last owner timing report (before commit `70fb5df`) had the master clock met and the audio clock about −0.3 ns, all from `mod_other[4]`; the false path for it is not yet built. Compare against a baseline build (`git worktree add ..\baseline bfd1b5c`) if any failure remains, and read the failing path *source and destination* before changing anything: every failure so far was a baseline clock-domain crossing, not the new logic (see `docs/audits/source/audio-handshake-timing.md`). Next suspects: `pause` into the audio CPU `rdy` and the mono mute.
-3. If timing closes: test on hardware with the owner — audio (effects should be two octaves higher than before; both ears; Mouse Trap audio), then baseline MRAs versus `candidates/mra` for Venture, Pepper II and Hard Hat.
-4. Rerun `tools/sprite_fixture/run_fixture.py` under WSL (edited to pin profile 0; the pinned MAME `exidy.cpp` copy goes in `simulation/reference_sources/`, its SHA-256 is checked).
+1. Read [corrected-clock build](docs/audits/source/local-corrected-clock-build-2026-10-07.md): compilation succeeded, master timing fails on PIA8 reply data/DDR to main CPU input; audio timing passes. Read the failing source and destination before modifying RTL/constraints. Keep this reply chain timed; establish byte coherence and latency before changing its behavior.
+2. Fresh local MAME RAM replay is complete: 11 PASS, 0 FAIL, 0 SKIP ([evidence](docs/audits/source/local-audio-ram-replay.md)). Finish/check the local GHDL 6840 replay, then remaining waveform/noise/level references. Portable tools need literal paths; absence from PATH does not mean unavailable.
+3. After a repair, run a complete unsandboxed PowerShell Quartus flow. Generated clocks, programmable resets and existing PIA exceptions still require coverage review.
+4. When a timing-accepted candidate is ready, follow [hardware checklist](docs/audits/hardware/audio-irq-candidate-checklist.md) with HDMI and Direct Video/S-Video. Sprite fragment replay already passes; Venture arrow remains unresolved.
 
 ## Open work, rough priority
 - **Verify what was built**: items 1-5 above on hardware/against MAME WAVs. A4's noise generator and output level, 8253 clocks (A5), Targ/Spectar discrete audio (A7) are unverified.
 - **I05 Venture arrow**: not reproduced. S1 (sprite-1 enable gating, `$5101` bits 7/4) is *not* supported as the cause in the startup-to-maze capture; a MAME route into a room (poll game RAM) or the forum author's exact input sequence is needed, then compare against the core.
 - **I07 Mouse Trap voices**: the voice ROM loading/transport is designed and verified in isolation; no Z80/CVSD (MC3417) core exists (W09). The Mouse Trap audio-CPU RAM aliasing (A2) is fixed but is not the voice fix.
-- **W10-W12**: Side Trak, Teeter Torture (spinner choice owed by owner), FAX/FAX 2 (extra `fxl-12b` PROM, banks 24-31, answer-button mapping owed), clone/bootleg profiles. Existing ROM availability is not support.
+- **W10-W12**: Side Trak, Teeter Torture (spinner plus joystick/D-pad mapping required, using local Super Off Road/VCO reference), FAX/FAX 2 (extra `fxl-12b` PROM, banks 24-31, four answer buttons per player required in MRA), clone/bootleg profiles. Existing ROM availability is not support.
 - **Expansion adapter integration**: bind actual clocks/CPU/audio, PLL-lock-derived reset, whole-core fit.
 - **W06-W07 CRT/native video, W13-W16**: see WORKPLAN; not started beyond designs/fixtures.
 - Interrupt-latch residuals: S5 (language/table DIP bits for Targ/Spectar/Side Trak), S6 (glitch review of the async clear on `rCPU_IRQ`), room/stage transitions.
-- Owner inputs still owed: Teeter Torture control device, FAX button mapping, CRT model/adapter/settings, which RBF/MRA runs on hardware.
+- Owner supplied HDMI and Direct Video → S-Video → 15 kHz JVC display, Teeter spinner plus joystick/D-pad, and FAX four answer buttons per player. Still record exact display/adapter/settings, running RBF/MRA and hardware sensitivity/layout results.
 
 ## Gotchas learned
 - Verilator 5.020 (Debian) gives false failures (`$finish` inside tasks); use 5.052.

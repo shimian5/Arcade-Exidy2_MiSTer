@@ -8,4 +8,4 @@ Audio pause is corrected separately by `exidyPauseSync`; the PIA return-data pat
 
 The helper `tools/timing/replay_constraints.tcl` reads an explicit root SDC and the framework SDC against an already completed project netlist. It writes ignored clock/top-path reports and does not perform fitting or assembly. Production acceptance always requires a complete unsandboxed PowerShell `quartus_sh --flow compile Arcade-Exidy2` after a change.
 
-Full-flow verification of this repair plus audio pause is the next gate. Generated-clock, data-event, programmable asynchronous-reset and PIA protocol issues remain separate acceptance items; a positive summary cannot establish complete setup/hold coverage.
+Full-flow verification at `594b8dd` compiles successfully with the correct PLL clocks, but main setup remains -0.948 ns on PIA return data; audio setup is +0.082 ns after the pause repair. See [corrected-clock build](local-corrected-clock-build-2026-10-07.md). Timing acceptance is still open. Generated-clock, data-event, programmable asynchronous-reset and PIA protocol issues remain separate acceptance items; a positive summary cannot establish complete setup/hold coverage.

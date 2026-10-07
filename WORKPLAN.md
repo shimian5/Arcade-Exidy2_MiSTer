@@ -354,8 +354,8 @@ ROM source and local MAME/release locations are supplied. Do not ask for them ag
 
 - [ ] Identify the RBF/MRA actually running on hardware if different from the repository baseline.
 - [ ] Record CRT model, analog IO/adapter chain and relevant MiSTer settings; capture neutral edge visibility.
-- [ ] Choose Teeter Torture control device/sensitivity.
-- [ ] Choose FAX two-player answer-button mapping.
+- [x] Teeter control requirement supplied: spinner plus joystick/D-pad mapping following local Super Off Road or VCO; sensitivity acceptance remains pending.
+- [x] FAX control requirement supplied: four answer buttons per player in MRA; physical layout acceptance remains pending.
 - [ ] Supply PCB schematics/recordings if available for analog accuracy; agents should first research available primary references.
 - [ ] Perform physical acceptance when an evidenced candidate is ready.
 
@@ -418,3 +418,8 @@ GitHub master links are discovery entry points. W01 must replace moving referenc
 | 2026-10-07 | W08 A3/A4 (cloud) | `$2000` port inert in MAME (single constant); `$3000` correctly decoded. Production 6840 VHDL measured against MAME's timer rule on real Venture writes: 4× low pitch (module divides an already-6502-rate clock by 4), no timer-3 ÷8 prescale, no immediate load. Fixed (CLK_DIV generic, prescaler, load flags); replay median 0.997 on all timers vs baseline 3.986/3.986/0.498. Fourth production RTL edit; not Quartus-built; noise path and levels not compared. | Owner: confirm in next build (effects should be two octaves higher); then compare noise/levels against MAME WAVs. See docs/audits/source/a3-a4-audio-effects.md. |
 
 | 2026-10-07 | Local continuation, two Luna blocks | Incoming production tree fast-forwarded into main. Full compile passed; 6 local regression results pass, 1 trace skip; 29 connected expectations and profile-0 sprite replay/control pass. Source audits expose stale PLL model and unassigned board clocks; corrected candidate exposes PIA read-data/audio pause setup failures. | Correct PLL constraints and pause sampling, rerun full flow and inspect remaining exact paths; hardware/W15 acceptance remain open. See STOPPING_POINT and local audit reports. |
+
+| 2026-10-07 | Local corrected-clock/pause build | `594b8dd` complete Quartus flow compiles (0 errors) with actual PLL clocks; master setup -0.948 ns on PIA reply data, audio +0.082 ns. No added timing exception. Fresh local MAME traces pass 11/11 runner results; mirror zero mismatches, flat Mouse Trap negative fails as expected. | Repair timed PIA return chain with coherence/latency evidence and rerun full flow; hardware and complete clock/reset coverage remain open. |
+| 2026-10-07 | Owner display/control requirements | HDMI and Direct Video/S-Video to 15 kHz JVC; Teeter spinner plus Super Off Road/VCO-style joystick/D-pad mapping; FAX four answer buttons per player in MRA. Two Luna units auditing reference mappings and FAX candidate feasibility. | Implement/profile-test controls; record exact hardware/settings and physical acceptance. Requirements supplied do not mark game support DONE. |
+
+| 2026-10-07 | Control-reference Luna units | Super Off Road steering and Victory trackball implementations audited for Teeter. FAX answers map P1 `$1c00` and P2 `$1a00`, active-low bits7..4; current core lacks these reads and FAX profile/transport integration. | Use reference spinner/D-pad mapping in Teeter adapter; resolve custom callback bit placement in MAME. Add FAX input decode and four-button MRAs with board profile/ROM integration. No missing game is DONE. |

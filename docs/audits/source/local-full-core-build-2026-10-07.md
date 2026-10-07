@@ -23,7 +23,7 @@ The complete flow finished on 2026-10-07 at 09:23:24 local, exit **0**, with **0
 
 All entries reported in `output_files/Arcade-Exidy2.sta.summary` have positive slack and zero TNS. Master PLL output 0 setup slack is **+0.021 ns**; audio PLL output 2 is **+0.235 ns**. Minimum reported hold slack is **+0.168 ns**; recovery **+3.864 ns**; removal **+0.734 ns**; minimum pulse width **+1.041 ns**. The master setup margin is only 21 ps; timing closure must be repeated after any source or constraint change.
 
-Local test image: `output_files/Arcade-Exidy2.rbf`, 3,045,788 bytes, SHA-256 `A461194B792AEB0D5AE2C5F7FD7CF155DED48D2CF6D3585DE11A72CD6DDDD513`. Build log: `simulation/quartus-full-2026-10-07.log`. These generated files remain ignored. Release RBFs and release MRAs were not replaced, and this image has not been tested on hardware.
+Historical image: preserved under `simulation/full-core/55e3300/`, 3,045,788 bytes, SHA-256 `A461194B792AEB0D5AE2C5F7FD7CF155DED48D2CF6D3585DE11A72CD6DDDD513`. Build log: `simulation/quartus-full-2026-10-07.log`. The root output RBF was subsequently replaced by a corrected-clock build; see [latest full flow](local-corrected-clock-build-2026-10-07.md). These generated files remain ignored. Release RBFs and release MRAs were not replaced, and neither image has been accepted on hardware.
 
 ## Acceptance limits and next work
 

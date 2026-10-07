@@ -40,3 +40,15 @@ The next three bounded units should prepare deterministic Venture/Targ/Spectar r
 - [Full-core build](source/local-full-core-build-2026-10-07.md): incoming edits compile together; PLL-model mismatch prevents timing signoff.
 - [PLL constraint contract](source/pll-constraint-contract.md), [generated-clock inventory](source/generated-clock-inventory.md), and [audio domain contract](source/audio-clock-domain-contract.md): next timing repair and clock/reset ownership.
 
+
+## Current local validation and controls
+
+- [Corrected-clock full flow](source/local-corrected-clock-build-2026-10-07.md): compiles; master timing remains negative, audio positive.
+- [Local audio-RAM replay](source/local-audio-ram-replay.md): fresh MAME 0.288 traces, 11 passing results and meaningful flat-map negative control.
+- [PIA return-data contract](source/pia-return-data-contract.md) and [PLL candidate review](source/pll-candidate-review.md): exact paths and coherence/constraint limits.
+- [8253 source audit](source/a5-8253-clock-audit.md): clock ratio, selected module and remaining mode/level evidence.
+- [Hardware acceptance checklist](hardware/audio-irq-candidate-checklist.md): supplied display/control requirements and pending observations.
+
+- [Teeter control references](source/teeter-control-reference.md): local Super Off Road and Victory mappings and planned integration.
+- [FAX control map](source/fax-controls.md): required four buttons per player, exact MAME addresses and current core gaps.
+- [PIA return-register review](source/pia-return-register-review.md): related-clock register proposal and required paired-PIA evidence.

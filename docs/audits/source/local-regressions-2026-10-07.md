@@ -1,5 +1,7 @@
 # Local regression rerun — 2026-10-07
 
+Later checkpoint: fresh local MAME 0.288 traces and the pause synchronizer now produce **11 PASS, 0 FAIL, 0 SKIP**. See [local audio-RAM replay](local-audio-ram-replay.md). The six-pass recovery below remains historical evidence of the earlier run; its trace skip is superseded.
+
 The completed local rerun used Arch WSL and Verilator **5.052**. It returned **0** with **6 PASS, 0 FAIL, 1 SKIP**. The initial worker attempt below was incomplete; the recovery and accepted result are recorded first.
 
 From unsandboxed PowerShell at the repository root:

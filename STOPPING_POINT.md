@@ -4,11 +4,12 @@ Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. 
 
 ## Local checkpoint and immediate continuation
 
-- Full-core compilation at `55e3300` passed (0 errors); generated RBF remains ignored. [Build evidence](docs/audits/source/local-full-core-build-2026-10-07.md).
-- Timing is provisional: stale PLL constraints mis-model actual clocks. Corrected candidate replay models master 45.153 MHz/audio 14.367 MHz and exposes PIA return-data and audio pause setup failures. No blanket exception was added.
-- Local regression recovered: 6 PASS, 0 FAIL, 1 SKIP; all 29 connected expectations met. CSV audio-RAM and slow GHDL replay remain local gaps. [Regression evidence](docs/audits/source/local-regressions-2026-10-07.md).
+- Main includes incoming production tree `55e3300`, local pause repair `30dbc10`/`594b8dd`, and corrected fixed-PLL constraints `07a1f21`. Remote push remains pending at this checkpoint.
+- Full flow at `594b8dd` compiles, but **timing fails**: master -0.948 ns, audio +0.082 ns, minimum hold +0.184 ns. All eight worst setup paths are PIA8 data/DDR through PIA9 to the main CPU input register. No new exception was added. [Corrected-clock build evidence](docs/audits/source/local-corrected-clock-build-2026-10-07.md).
+- Fresh local MAME 0.288 audio-RAM replay: **11 PASS, 0 FAIL, 0 SKIP**, mirrored maps zero mismatches for Venture/Pepper II/Mouse Trap; Mouse Trap flat-map negative control 6,188 mismatches. [Evidence](docs/audits/source/local-audio-ram-replay.md). Local 6840 replay is in progress; noise and levels remain unverified.
 - Profile-0 sprite replay and negative control pass; Venture I05 remains unreproduced. [Sprite evidence](docs/audits/source/local-sprite-rerun-2026-10-07.md).
-- Immediate unit: correct PLL/uncertainty constraints, resample audio pause, rerun full Quartus, then inspect remaining exact PIA read-data paths. Hardware/game acceptance and W15 remain open.
+- Immediate unit: establish a safe, timed PIA return-data repair and rerun full Quartus. The current ignored RBF is not timing accepted. Generated-clock/reset coverage and hardware/game acceptance keep W15 open.
+- Owner test paths: HDMI and Direct Video through S-Video to a 15 kHz JVC display. Teeter: spinner plus joystick/D-pad mapping following local Super Off Road or VCO. FAX: four answer buttons per player in the MRA. Exact display/adapter/settings and currently running RBF/MRA still need recording.
 
 Read [PLL contract](docs/audits/source/pll-constraint-contract.md), [generated-clock inventory](docs/audits/source/generated-clock-inventory.md), [audio-domain contract](docs/audits/source/audio-clock-domain-contract.md), and [HANDOFF.md](HANDOFF.md). Existing local probe files and increment-14 metadata changes are preserved.
 
@@ -30,8 +31,8 @@ Increments 1-15 are in `docs/design/expansion-adapter/`. Increment 14/15: per-do
 ## Open items
 
 Owner hardware/input gates:
-- Rebuild the full core, report slacks and any new top paths (`pause` into the audio CPU `rdy` and the mono mute are the next suspects); then test the audio changes (effects two octaves higher, both ears, Mouse Trap audio) and the interrupt profiles with `candidates/mra` against the baseline MRAs.
-- Choices still owed: Teeter Torture control device, FAX answer-button mapping, CRT model/adapter/settings, which RBF/MRA is running on hardware.
+- Close the timed PIA reply-byte failure and complete generated-clock/reset coverage; then test the audio changes (effects two octaves higher, both ears, Mouse Trap audio) and the interrupt profiles with `candidates/mra` against the baseline MRAs.
+- Control requirements are supplied: Teeter spinner and joystick/D-pad; FAX four answer buttons per player. Exact CRT model/adapter/settings and running RBF/MRA remain to record; sensitivities/layout need hardware validation.
 
 Doable in the cloud (MAME 0.264, Verilator 5.052, GHDL are installed; ROM zips for mtrap, fax, fax2, targ, spectar, pepper2, hardhat, sidetrac, teetert, venture are staged locally and uncommitted):
 - 6840 noise generator and output level versus MAME WAVs (A4 follow-up); 8253 clocks (A5); Targ/Spectar discrete tone path (A7).
@@ -68,7 +69,7 @@ Generated ROM/media/binaries/logs remain ignored under `simulation/`; no ROM byt
 - W10–W12: Side Trak, Teeter Torture, FAX/FAX2 and clone/bootleg support, including controls and complete game acceptance. Existing ROM availability is not game support.
 - W13–W16: frontend/persistence/effects integration, full-flow Quartus builds/timing/resource review, physical acceptance and only then release packaging/regression.
 
-Existing owner inputs remain supplied: NAS ROM library, local MAME and repository releases. Owner CRT/adapter/settings, control choices and physical acceptance are needed at their dependent gates. For the arrow case, first derive a room-entry reproduction from MAME; request an exact owner sequence only if it remains necessary. No new input is required to resume the immediate isolated adapter work.
+Existing owner inputs remain supplied: NAS ROM library, local MAME and repository releases. Owner supplied the video paths and control requirements above; exact adapter/settings and physical acceptance remain needed at their dependent gates. For the arrow case, first derive a room-entry reproduction from MAME; request an exact owner sequence only if it remains necessary. No new input is required to resume the immediate isolated adapter work.
 
 ## Replay commands
 

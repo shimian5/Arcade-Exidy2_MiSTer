@@ -19,3 +19,5 @@ Implementation evidence is simulation-level only. The runner test does not insta
 ## Full-flow integration follow-up
 
 The module is now included in `rtl/index.qip`. The first full-flow attempt failed during elaboration because the multiword `SYNCHRONIZER_IDENTIFICATION` attribute value was unquoted. The value is now escaped and quoted inside the Verilog attribute string. This changes tool metadata only; full-flow verification follows. The functional test passed before the metadata repair, and no timing exception was added for pause.
+
+The subsequent complete flow at `594b8dd` succeeds in compilation, with audio setup +0.082 ns. Main setup remains -0.948 ns on the separate PIA return-data path. See [corrected-clock build](local-corrected-clock-build-2026-10-07.md). Fresh MAME trace replay also passes the runner with 11 PASS, 0 FAIL, 0 SKIP. Physical synchronizer placement/recognition and hardware pause/reset acceptance remain open.
