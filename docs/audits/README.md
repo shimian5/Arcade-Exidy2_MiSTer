@@ -58,3 +58,10 @@ The next three bounded units should prepare deterministic Venture/Targ/Spectar r
 
 - [PIA staging candidate](source/pia-return-register-candidate.md): all seven phases pass, including previous-register CPU sampling; new full-flow result pending.
 - [Teeter controls candidate](source/teeter-controls-candidate.md): standalone spinner/D-pad/analog and per-read event logic with registered-byte boundary checks; production/profile/MRA integration pending.
+
+- [PIA destination-stage build](source/local-pia-stage-build-2026-10-07.md): exact residual DDR and pause setup paths; compilation does not establish timing closure.
+- [Pause first-stage contract](source/pause-first-stage-constraint.md): one held-level synchronizer destination exempted; stage-to-stage paths remain timed.
+- [8253 output fixtures](source/a5-8253-mode-tests.md): observed mode 0/3 behavior, live programming and warm reset; no timer production change.
+- [Counter pulse plan](source/counter-clock-constraint-plan.md): source-guarded pulse recurrence and edge tuples, fitted pin/coverage validation pending.
+- [FAX input candidate](../design/fax-controls.md): profile-gated four-answer inputs and eventual MRA element; no production wiring yet.
+- [Mouse Trap speech reuse](../design/mousetrap-speech-reuse.md): local Z80 and CVSD candidate availability, with missing bus/clock/audio bindings.

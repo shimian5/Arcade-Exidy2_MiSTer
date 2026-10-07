@@ -4,6 +4,15 @@ Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. 
 
 ## Local checkpoint and immediate continuation
 
+### Active full-flow checkpoint
+
+The latest completed full flow is `3341f08`: compilation succeeded, but master setup is **-0.556 ns** and audio setup **-0.193 ns**. The exact paths are PIA8 DDR masking to the master return register, and `pause_cpu` to the first pause sampling register. Its RBF is unaccepted; releases remain unchanged. See [build evidence](docs/audits/source/local-pia-stage-build-2026-10-07.md).
+
+Production commits `81f85e2` (first-stage-only pause contract) and `2fafa6b` (audio-domain whole-byte source register) address those paths. The two-stage PIA fixture passes all seven offsets and the actual Verilog test. The complete unsandboxed PowerShell flow at `2fafa6b` is running; inspect setup, hold and synchronizer identification before accepting it. Generated counter-clock coverage is still incomplete, so positive PLL-domain slack alone will not establish full signoff.
+
+Standalone Teeter spinner/D-pad/analog controls and FAX four-button-per-player controls have passing focused tests, but neither is production-wired or a working game MRA. The FAX profile gate also preserves other games' reads. 8253 mode 0, canonical/aliased mode 3, continuous reprogramming and warm-reset checks pass without production timer changes. Local Z80 source exists; Mouse Trap still lacks its speech-clock, ROM bus, CVSD and audio integration.
+
+
 - Main includes incoming production tree `55e3300`, local pause repair `30dbc10`/`594b8dd`, and corrected fixed-PLL constraints `07a1f21`. Remote synchronization follows each reviewed checkpoint.
 - Full flow at `594b8dd` compiles, but **timing fails**: master -0.948 ns, audio +0.082 ns, minimum hold +0.184 ns. All eight worst setup paths are PIA8 data/DDR through PIA9 to the main CPU input register. No new exception was added. [Corrected-clock build evidence](docs/audits/source/local-corrected-clock-build-2026-10-07.md).
 - Fresh local MAME 0.288 audio-RAM replay: **11 PASS, 0 FAIL, 0 SKIP**, mirrored maps zero mismatches for Venture/Pepper II/Mouse Trap; Mouse Trap flat-map negative control 6,188 mismatches. [Evidence](docs/audits/source/local-audio-ram-replay.md). Local guarded 6840 replay passes all three timer channels at median 0.997 of MAME expected periods; noise and levels remain unverified. [Evidence](docs/audits/source/local-6840-replay.md).
@@ -36,7 +45,7 @@ Owner hardware/input gates:
 
 Doable in the cloud (MAME 0.264, Verilator 5.052, GHDL are installed; ROM zips for mtrap, fax, fax2, targ, spectar, pepper2, hardhat, sidetrac, teetert, venture are staged locally and uncommitted):
 - 6840 noise generator and output level versus MAME WAVs (A4 follow-up); 8253 clocks (A5); Targ/Spectar discrete tone path (A7).
-- Mouse Trap CVSD path: voice ROM loading is designed and verified in isolation, but no Z80/CVSD core exists (W09).
+- Mouse Trap CVSD path: voice ROM loading is designed and verified in isolation, but local Z80 source exists, but no production speech CPU/CVSD integration exists (W09).
 - Venture arrow case (I05): MAME room-entry reproduction not yet scripted; sprite-1 enable gating (S1) is not supported as the cause in the startup-to-maze capture.
 - FAX `fxl-12b` PROM routing and banks 24-31 parity; Side Trak, Teeter Torture and FAX/FAX2 profiles (W10-W11); clone/bootleg profiles (W12).
 - Remaining reset-release/clock integration of the expansion adapter into the core (actual clocks, CPU, audio) and whole-core fit.

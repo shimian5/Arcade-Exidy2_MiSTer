@@ -10,7 +10,7 @@ Work is now on `main`, including production tree `55e3300`. Latest local results
 - Keep docs in step with every result; update STOPPING_POINT.md and the WORKPLAN log/table/issue register. Check a WORKPLAN box only at DONE.
 
 ## What exists now (all after baseline `911d923`)
-Production edits compile together locally at `594b8dd`, but main setup timing fails (-0.948 ns) and hardware acceptance is pending. Revert individual edits using the table; do not treat successful flow exit as timing signoff.
+The latest completed production flow is `3341f08`: compilation succeeds, but master setup is -0.556 ns and audio setup -0.193 ns. The next complete flow at `2fafa6b` is running; hardware and generated-clock coverage remain pending. Revert individual edits using the table; do not treat successful flow exit as timing signoff.
 
 | # | Change | Commit(s) | Files |
 | - | --- | --- | --- |
@@ -21,7 +21,9 @@ Production edits compile together locally at `594b8dd`, but main setup timing fa
 | 5 | Timing: false paths for the PIA 9B↔8B handshake, static profile byte `mod_other[*]`, and the synchronizer's first flop; audio-clock reset synchronizer | `a768479`, `c4e70ba`, `70fb5df` | `Arcade-Exidy2.sdc`, `rtl/reset_sync.v`, `rtl/audio_board.v` |
 | 6 | Audio-domain pause sampling for CPU ready and mixer mute | `30dbc10`, attribute quoting `594b8dd` | `rtl/pause_sync.v`, `rtl/audio_board.v`, `rtl/index.qip` |
 | 7 | Derive actual fixed PLL clocks and uncertainty; remove stale clock overrides | `07a1f21` | `Arcade-Exidy2.sdc` |
-| 8 | Whole-byte PIA reply staging; one master-cycle latency; paired-PIA/CPU sampling tests pass, new full flow pending | `3341f08` | `rtl/pia_return.v`, `rtl/audio_board.v`, `rtl/index.qip` |
+| 8 | Whole-byte PIA reply staging; completed flow still fails on source DDR masking | `3341f08` | `rtl/pia_return.v`, `rtl/audio_board.v`, `rtl/index.qip` |
+| 9 | First-stage-only pause exception and forced synchronizer identification; fresh fit pending | `81f85e2` | `Arcade-Exidy2.sdc`, `rtl/pause_sync.v` |
+| 10 | Audio source byte register before the master PIA return stage; adds about 92 ns total; paired tests pass, fresh fit pending | `2fafa6b` | `rtl/pia_return.v`, `rtl/audio_board.v` |
 
 Release MRAs and RBFs under `releases/` are untouched. Candidate MRAs enabling profile 1/2 are in `candidates/mra` (Venture index-1 byte `0x50`, Pepper II/Hard Hat `0xB0`; Teeter Torture would be `0xD0`; Mouse Trap stays `0x10`).
 
@@ -36,7 +38,7 @@ Isolated expansion adapter (CVSD/FAX loading, W02): increments 1-15 in `docs/des
 ## Open work, rough priority
 - **Verify what was built**: items 1-5 above on hardware/against MAME WAVs. A4's noise generator and output level, 8253 clocks (A5), Targ/Spectar discrete audio (A7) are unverified.
 - **I05 Venture arrow**: not reproduced. S1 (sprite-1 enable gating, `$5101` bits 7/4) is *not* supported as the cause in the startup-to-maze capture; a MAME route into a room (poll game RAM) or the forum author's exact input sequence is needed, then compare against the core.
-- **I07 Mouse Trap voices**: the voice ROM loading/transport is designed and verified in isolation; no Z80/CVSD (MC3417) core exists (W09). The Mouse Trap audio-CPU RAM aliasing (A2) is fixed but is not the voice fix.
+- **I07 Mouse Trap voices**: the voice ROM loading/transport is designed and verified in isolation; local Z80 source exists, but speech CPU/CVSD (MC3417) integration remains absent (W09). See [reuse audit](docs/design/mousetrap-speech-reuse.md). The Mouse Trap audio-CPU RAM aliasing (A2) is fixed but is not the voice fix.
 - **W10-W12**: Side Trak, Teeter Torture (spinner plus joystick/D-pad mapping required, using local Super Off Road/VCO reference), FAX/FAX 2 (extra `fxl-12b` PROM, banks 24-31, four answer buttons per player required in MRA), clone/bootleg profiles. Existing ROM availability is not support.
 - **Expansion adapter integration**: bind actual clocks/CPU/audio, PLL-lock-derived reset, whole-core fit.
 - **W06-W07 CRT/native video, W13-W16**: see WORKPLAN; not started beyond designs/fixtures.
