@@ -77,3 +77,5 @@ The next three bounded units should prepare deterministic Venture/Targ/Spectar r
 - [Teeter NMI candidate](source/teeter-nmi-candidate.md): independent generator and selected-T65 fixtures pass; production binding pending.
 - [EIR hold contract](source/eir-counter-clock-hold-contract.md): static profile, live coins and collision paths require distinct review.
 - [Venture response mismatch review](source/pia-response-mismatch-review.md): seven MAME-only exceptions, DDR qualification intact; callback-level cause still open.
+
+- [Final counter-clock full flow](source/local-counter-clock-build-2026-10-07.md): added domains pass setup/hold; master byte still -0.427 ns, exact next repair and stopping point recorded.

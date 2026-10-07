@@ -4,16 +4,18 @@ Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. 
 
 ## Local checkpoint and immediate continuation
 
-Latest completed flow: `2fafa6b`, zero compile errors, master setup **-0.375 ns**, audio **+26.713 ns**, minimum hold **+0.248 ns**. All eight negative setup paths are now the registered audio byte to the master byte register. RBF remains unaccepted. [Build evidence](docs/audits/source/local-pia-source-build-2026-10-07.md).
+Latest completed flow: `444211d`, zero compile errors, **master setup -0.427 ns**, audio +24.847 ns. All five added counter clocks pass reported setup/hold; minimum overall hold +0.204 ns. All eight negative setup paths are the registered audio byte to the master byte register. No build is running. RBF remains unaccepted; releases are unchanged. [Final build evidence and next repair](docs/audits/source/local-counter-clock-build-2026-10-07.md).
 
-The next full flow is running with `9198c76` (PIA destination reset matching PIA9's asynchronous reset, paired tests pass) and `444211d` (five verified generated counter clocks). Cached diagnostic clocks expose PH6/EIR hold failures as severe as -5.461 ns. No waiver was added. Inspect the fresh full-flow setup/hold, recovery/removal and per-counter reports before any hardware candidate; read failing source/destination before modifying them.
+The reset mux is gone but the asynchronous destination FF path still fails. Next bounded unit: evaluate a normal data register plus separately reset validity/output mask, prove identical reset/latency/PIA behavior, then run a full flow. Keep byte timing constraints intact. The fitter repaired previously exposed PH6 hold paths without waivers; remaining gated/event-clock coverage, reset contracts, firmware coherence and hardware/game acceptance stay open.
+
+Stopped after the completed build review to preserve the requested usage reserve. At the last check the five-hour window was 97% used; the weekly window was 15% used. Do not start another build or worker block until continuation is requested. Existing owner probe files are the only dirty changes.
 
 Reviewed evidence:
 
 - Fresh MAME audio-RAM replay: 11 PASS, zero FAIL/SKIP, three mirror traces and flat-map negative control. Guarded 6840 timer window passes pitch medians 0.997; waveform/noise/levels remain open.
 - PIA pipeline passes seven related-clock offsets and actual Verilog checks. Four-game passive firmware capture and reproducible DDR-qualified analysis show repeated Venture responses, zero-only Mouse Trap responses, and startup-limited Pepper II/Hard Hat traffic. Seven Venture mismatches and overwritten responses remain follow-up evidence.
 - Unchanged 8253 passes mode 0/3, raw mode-7 alias, live divisor changes and warm reset. PCM equivalence remains open.
-- Standalone Teeter spinner/D-pad/analog and FAX four-button-per-player helpers pass. Teeter's 17-part MRA candidate passes metadata/loading audit; actual controls and 600 Hz NMI remain unwired. These are not working-game releases.
+- Standalone Teeter spinner/D-pad/analog and FAX four-button-per-player helpers pass. Teeter's 17-part MRA candidate passes metadata/loading audit; actual controls and 600 Hz NMI remain unwired; standalone NMI period and actual-T65 pause/vector fixtures pass. These are not working-game releases.
 - Local Z80 source exists. Standalone speech-ROM wait/reset-drain helper passes, but actual CPU fetch, variable-latency expansion reset, CVSD and audio mix remain integration gates.
 - Profile-0 sprite replay passes; Venture inside-room arrow is still unreproduced.
 
