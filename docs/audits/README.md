@@ -68,3 +68,5 @@ The next three bounded units should prepare deterministic Venture/Targ/Spectar r
 
 - [Teeter MRA candidate](mra/teeter-candidate.md) and [NMI contract](source/teeter-nmi-contract.md): 17-part loader metadata passes; missing periodic interrupt identified, production controls/NMI still open.
 - [Counter clock discovery](source/counter-clock-discovery.md): post-fit diagnostic helper with singleton collection guards; awaiting completed fit.
+
+- [Speech ROM bus candidate](../design/speech-rom-bus.md): independently passing wait/reset-drain fixture; actual Z80 and expansion bridge remain integration gates.
