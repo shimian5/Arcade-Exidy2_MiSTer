@@ -4,9 +4,9 @@ Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. 
 
 ## Local checkpoint and immediate continuation
 
-- Main includes incoming production tree `55e3300`, local pause repair `30dbc10`/`594b8dd`, and corrected fixed-PLL constraints `07a1f21`. Remote push remains pending at this checkpoint.
+- Main includes incoming production tree `55e3300`, local pause repair `30dbc10`/`594b8dd`, and corrected fixed-PLL constraints `07a1f21`. Remote synchronization follows each reviewed checkpoint.
 - Full flow at `594b8dd` compiles, but **timing fails**: master -0.948 ns, audio +0.082 ns, minimum hold +0.184 ns. All eight worst setup paths are PIA8 data/DDR through PIA9 to the main CPU input register. No new exception was added. [Corrected-clock build evidence](docs/audits/source/local-corrected-clock-build-2026-10-07.md).
-- Fresh local MAME 0.288 audio-RAM replay: **11 PASS, 0 FAIL, 0 SKIP**, mirrored maps zero mismatches for Venture/Pepper II/Mouse Trap; Mouse Trap flat-map negative control 6,188 mismatches. [Evidence](docs/audits/source/local-audio-ram-replay.md). Local 6840 replay is in progress; noise and levels remain unverified.
+- Fresh local MAME 0.288 audio-RAM replay: **11 PASS, 0 FAIL, 0 SKIP**, mirrored maps zero mismatches for Venture/Pepper II/Mouse Trap; Mouse Trap flat-map negative control 6,188 mismatches. [Evidence](docs/audits/source/local-audio-ram-replay.md). Local guarded 6840 replay passes all three timer channels at median 0.997 of MAME expected periods; noise and levels remain unverified. [Evidence](docs/audits/source/local-6840-replay.md).
 - Profile-0 sprite replay and negative control pass; Venture I05 remains unreproduced. [Sprite evidence](docs/audits/source/local-sprite-rerun-2026-10-07.md).
 - Immediate unit: establish a safe, timed PIA return-data repair and rerun full Quartus. The current ignored RBF is not timing accepted. Generated-clock/reset coverage and hardware/game acceptance keep W15 open.
 - Owner test paths: HDMI and Direct Video through S-Video to a 15 kHz JVC display. Teeter: spinner plus joystick/D-pad mapping following local Super Off Road or VCO. FAX: four answer buttons per player in the MRA. Exact display/adapter/settings and currently running RBF/MRA still need recording.

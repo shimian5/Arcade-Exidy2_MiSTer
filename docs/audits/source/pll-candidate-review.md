@@ -2,6 +2,8 @@
 
 Read-only review of `simulation/timing-candidate/Arcade-Exidy2.sdc` and `simulation/timing-candidate/replay.log` plus the replay reports. The replay applies the candidate SDC to the existing fitted timing netlist; these slack values are useful for constraint review but are not a new full fit. No production files or existing reports were changed.
 
+Integrator decision: the conditional PIA exception discussed below was not adopted. No firmware timing proof establishes a waiver. The next candidate keeps the related-clock crossing timed and stages the complete byte before the PIA9 mux, subject to paired-PIA latency tests and a new full flow. The later `594b8dd` full fit confirms -0.948 ns on this reply chain and audio +0.082 ns after pause sampling; see [latest build](local-corrected-clock-build-2026-10-07.md).
+
 ## PLL model and SDC load order
 
 The replay clock report shows the intended fitted PLL periods: core output 0 / master = 22.146 ns (45.153 MHz), output 2 / audio = 69.604 ns (14.367 MHz), and fixed audio PLL = 40.682 ns (24.58 MHz in the STA model; the physical IP fit is nominally 24.576 MHz). The HDMI nominal model remains 6.732 ns (148.54 MHz). The root candidate derives fixed PLL clocks from the fit database before root `set_clock_groups` is processed, so the root wildcard group sees the core PLL output clocks. It also derives clock uncertainty before the remaining explicit uncertainty settings.

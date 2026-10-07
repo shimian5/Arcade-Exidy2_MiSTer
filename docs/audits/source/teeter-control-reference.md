@@ -8,7 +8,7 @@ The local MAME 0.288 binary (`C:\MiSTerDev\mame\mame.exe`) reports Teeter Tortur
 
 This means the control is a relative dial represented as a wrapping 8-bit position, then polled as a one-step event. A hardware spinner delta should accumulate so motion is retained until the game polls it; translating each spinner update into a one-clock left/right pulse could drop motion between reads. Honor the MAME reverse setting in the sign convention and confirm actual right/left movement in a Teeter gameplay test.
 
-There is a source detail to resolve during implementation: the current MAME handler forms its event from result bits 4 and 0, while the `IN0` port declaration attaches the custom handler to mask `0x44` (bits 6 and 2). MAME 0.288 `-listxml teetert` confirms the dial metadata but does not expose that custom read result. Do not guess which two `$5101` bits the ROM consumes; verify with a MAME bus/input capture or reconcile the driver mask and callback semantics before finalizing the RTL field placement.
+The callback field placement is now resolved by [the pinned MAME input contract and local capture](teeter-input-contract.md): MAME shifts the returned bits 4/0 left by two for mask `0x44`, yielding movement bit 6 and direction bit 2 at `$5101`. There is no driver mismatch. Apply this field placement and one-step-per-read consumption in the adapter; physical direction and game feel still require validation.
 
 ## Reusable spinner and D-pad paths
 
@@ -26,6 +26,6 @@ The Super Off-Road accumulator is the closer behavioral match because both games
 1. Connect `hps_io.spinner_0` in `Arcade-Exidy2.sv`, and add a dial-position input to `exidy2` in `rtl/Exidy2.v`. Keep the existing joystick wiring for all current profiles.
 2. Enable the virtual dial only for Teeter's index-1 board profile (`pcb[7:6] == 2'b11`). The existing profile audit proposes index-1 byte `0xD0` for a future Teeter MRA, assuming the `0x10` Venture-class low-profile value; no Teeter MRA currently exists.
 3. On a genuine CPU read of `$5101`, generate the MAME-style change/direction event from the accumulated dial and advance the saved position by one step toward it. Qualify this state update once per CPU read/sample event, not once per 45 MHz master-clock tick; `T65` is enabled by `PH_1`, while the input data register is clocked by `master_clock`.
-4. Preserve start, coin, and other existing input bits. Place the two Teeter dial event bits only after resolving the MAME handler/mask mismatch above. Apply the reversed direction consistently and retain unconsumed dial delta across reads.
+4. Preserve start, coin, and other existing input bits. Place movement at bit 6 and direction at bit 2, as established above. Apply the reversed direction consistently and retain unconsumed dial delta across reads.
 
 The existing `rtl/int_cause.v` recognizes profile 3 as Teeter for interrupt-cause polarity, but that profile selection does not implement controls. No control RTL, `hps_io` wiring, MRA, ROM image, build, or game-level validation was changed or run for this audit. Spinner sensitivity, D-pad rate, direction, and per-read event timing still need a Teeter gameplay comparison against MAME.

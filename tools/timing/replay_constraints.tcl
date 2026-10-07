@@ -18,5 +18,12 @@ foreach_in_collection clock [get_clocks *] {
 close $clock_file
 report_timing -setup -npaths 8 -detail full_path -file [file join $report_dir setup.rpt]
 report_timing -hold -npaths 8 -detail full_path -file [file join $report_dir hold.rpt]
+foreach_in_collection clock [get_clocks *] {
+    set clock_name [get_clock_info -name $clock]
+    if {[string first {emu|pll|} $clock_name] == 0 && [string first {general[2]} $clock_name] >= 0 && [string match {*divclk} $clock_name]} {
+        report_timing -setup -to_clock $clock -npaths 8 -detail full_path -file [file join $report_dir audio-setup.rpt]
+    }
+}
+report_metastability -file [file join $report_dir metastability.rpt]
 delete_timing_netlist
 project_close

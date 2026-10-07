@@ -34,3 +34,7 @@ MAME's `generate_music_sample()` adds `BASE_VOLUME = 32767 / 6 = 5461` for each 
 4. For volume, feed equivalent MAME/RTL PIT output transitions through the complete audio paths, capture normalized PCM, and compare per-channel and mixed peak/RMS levels. Do not adjust the bit-5 input scale from raw-value comparison alone.
 
 No production files, simulations, MAME process, Quartus flow, or generated outputs were changed or run for this audit.
+
+## Subsequent local capture evidence
+
+The local Venture capture used for [6840 replay](local-6840-replay.md) contains 1,073 writes in the 8253 window, including 577 control words. All select LSB/MSB loading and binary counting; effective mode 0 appears 329 times and mode 3 appears 248 times (raw mode 7 aliases mode 3). Channel control selections are 213/185/179. This narrows meaningful next timer tests to actually observed modes 0/3 for this sequence. It is a write capture, not a PIT output comparison, and does not cover other games/modes. Mode-0 internal counter wrapping alone does not establish an audible defect: reads are tied off and output may remain high after terminal count. Validate observable output/reload behavior before changing it.

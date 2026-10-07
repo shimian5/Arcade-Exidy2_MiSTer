@@ -52,3 +52,6 @@ The next three bounded units should prepare deterministic Venture/Targ/Spectar r
 - [Teeter control references](source/teeter-control-reference.md): local Super Off Road and Victory mappings and planned integration.
 - [FAX control map](source/fax-controls.md): required four buttons per player, exact MAME addresses and current core gaps.
 - [PIA return-register review](source/pia-return-register-review.md): related-clock register proposal and required paired-PIA evidence.
+
+- [Local 6840 replay](source/local-6840-replay.md): guarded timer window, all three pitch medians0.997, source preparation helpers and limits.
+- [Teeter input contract](source/teeter-input-contract.md): callback shifting, per-read step semantics and actual local MAME input-address capture.
