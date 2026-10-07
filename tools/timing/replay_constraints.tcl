@@ -18,6 +18,22 @@ foreach_in_collection clock [get_clocks *] {
 close $clock_file
 report_timing -setup -npaths 8 -detail full_path -file [file join $report_dir setup.rpt]
 report_timing -hold -npaths 8 -detail full_path -file [file join $report_dir hold.rpt]
+set pia_source [get_registers -nowarn {*exidyPiaReturn:pia_return_data|audio_byte_stage*}]
+set pia_data [get_registers -nowarn {*exidyPiaReturn:pia_return_data|main_byte_data*}]
+set pia_valid [get_registers -nowarn {*exidyPiaReturn:pia_return_data|main_byte_valid}]
+set cpu_input [get_registers -nowarn {*exidy2:ex2|CPU_databus_in*}]
+if {[get_collection_size $pia_source] == 8 && [get_collection_size $pia_data] == 8} {
+    report_timing -setup -from $pia_source -to $pia_data -npaths 8 -detail full_path -file [file join $report_dir pia-data-setup.rpt]
+    report_timing -hold -from $pia_source -to $pia_data -npaths 8 -detail full_path -file [file join $report_dir pia-data-hold.rpt]
+}
+if {[get_collection_size $pia_valid] == 1} {
+    report_timing -recovery -to $pia_valid -npaths 1 -detail full_path -file [file join $report_dir pia-valid-recovery.rpt]
+    report_timing -removal -to $pia_valid -npaths 1 -detail full_path -file [file join $report_dir pia-valid-removal.rpt]
+    if {[get_collection_size $cpu_input] == 8} {
+        report_timing -setup -from $pia_valid -to $cpu_input -npaths 8 -detail full_path -file [file join $report_dir pia-valid-read-setup.rpt]
+        report_timing -hold -from $pia_valid -to $cpu_input -npaths 8 -detail full_path -file [file join $report_dir pia-valid-read-hold.rpt]
+    }
+}
 foreach_in_collection clock [get_clocks *] {
     set clock_name [get_clock_info -name $clock]
     if {[string first {emu|pll|} $clock_name] == 0 && [string first {general[2]} $clock_name] >= 0 && [string match {*divclk} $clock_name]} {
