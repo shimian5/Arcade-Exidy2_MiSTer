@@ -1,12 +1,39 @@
-# Stopping point — 2026-10-06
+# Stopping point — 2026-10-07
 
-**Increment 13 (cloud session):** per-domain reset-release module and stopped-clock bench pass with a failing unsafe negative control; connected suite replays 26/26 non-ROM cases under Verilator 5.052. Wired into candidate bridge in [increment 14](docs/design/expansion-adapter/increment-14.md): all 29 connected expectations incl. the 3 ROM cases pass. See [increment-13](docs/design/expansion-adapter/increment-13.md). Use Verilator 5.052; 5.020 gives false failures in cases 25/26.
+Branch `claude/nice-goodall-idlhs4`, commits authored as shimian5. Work continues in bounded blocks; Quartus runs happen on the owner's machine on request. No pull request has been opened.
 
-Current owner instruction: continue bounded increments until weekly usage is approximately 98% used, then preserve roughly 2% for the owner. **Stopped after increment 12 at 98% weekly usage (approximately 2% remaining).** No agent or build is running; no next increment was started. Luna workers previously reached their usage limit; the integrator completed these bounded increments. Resume only on a new owner instruction.
+## Production changes since the baseline (all unproven on hardware)
 
-Increment 12 closes duplicate-speech quarantine through the loader-verdict edge. All 29 connected expectations pass, including 28 positives and a missing-hold negative control. Exact-source isolated full Quartus flow succeeds: 208 RAM blocks, 484 ALMs, 467 registers; five two-register synchronizers have calculable estimates under probe assumptions. [Report](docs/design/expansion-adapter/increment-12.md), [simulation](docs/design/expansion-adapter/increment-12.json) and [fit](docs/design/expansion-adapter/increment-12-fit.json) preserve evidence. Next: reset release per domain before production integration.
+| Change | Files | Evidence | Build / test status |
+| --- | --- | --- | --- |
+| Mono mix of both audio groups (A1) | `rtl/audio_mix.v`, `rtl/audio_board.v` | `sim/audio_mix` unit test | Not listened to; levels versus MAME unverified |
+| Profile-selected collision wiring for `$5103` (S2/S3), selected by `pcb[7:6]`; profile 0 = unchanged | `rtl/int_cause.v`, `rtl/Exidy2.v`, `candidates/mra/*` | `sim/int_cause` vs MAME formula and all observed `$5103` values | Release MRAs untouched; test MRAs in `candidates/mra`; sprite fixture (WSL-only) not rerun |
+| Audio RAM as the 128-byte 6532 mirror (A2) | `rtl/audio_ram_map.v`, `rtl/audio_board.v` | `sim/audio_ram` replay of MAME audio-CPU traces: Mouse Trap flat map 6,188 mismatches, mirror 0 | Not Quartus-built |
+| 6840 at the real E clock, immediate load, timer-3 prescale (A4) | `modules/6840/berzerk_sound_fx.vhd`, `rtl/audio_board.v` | GHDL replay of real Venture writes: timers 3.986/3.986/0.498 of MAME formula before, 0.997 after | Not Quartus-built; noise path and levels not compared |
+| Audio-clock reset synchronizer; scoped false paths for the PIA handshake, static profile byte and the synchronizer's first flop | `rtl/reset_sync.v`, `rtl/audio_board.v`, `Arcade-Exidy2.sdc` | `sim/reset_sync`; owner timing runs | Latest owner run: master clock met, audio clock about -0.3 ns from `mod_other[4]`; a false path for it was added after that run and is not yet built |
 
-Production RTL/framework, existing MRAs and RBF remain at the original baseline. Isolated full-flow probes include the failed baseline and successful RAM candidate; no production compile, deployment, commit or PR was performed. Generated ROM/media/binaries/logs remain ignored under `simulation/`. [WORKPLAN.md](WORKPLAN.md) remains the full game/issue tracker; W02–W07 are ACTIVE, with other game/audio/build/acceptance work still pending.
+Details: [source audit](docs/audits/source/w05-w08-source-audit.md), [A3/A4](docs/audits/source/a3-a4-audio-effects.md), [timing diagnosis](docs/audits/source/audio-handshake-timing.md), [interrupt-latch survey](docs/reference_cases/int-latch-survey.json).
+
+## Isolated expansion adapter (W02)
+Increments 1-15 are in `docs/design/expansion-adapter/`. Increment 14/15: per-domain reset synchronizers in the candidate bridge, 29 connected expectations including the three actual ROM payloads (Mouse Trap CVSD, FAX, FAX 2) pass under Verilator 5.052; the exact probe passes the full Quartus flow (208 RAM blocks, 486 ALMs, 495 registers, all slacks positive, 7 synchronizer chains recognized). This is still standalone; the adapter is not wired into the core.
+
+## Open items
+
+Blocked on the owner (build, listening or hardware):
+- Rebuild the full core, report slacks and any new top paths (`pause` into the audio CPU `rdy` and the mono mute are the next suspects); then test the audio changes (effects two octaves higher, both ears, Mouse Trap audio) and the interrupt profiles with `candidates/mra` against the baseline MRAs.
+- Rerun `tools/sprite_fixture/run_fixture.py` on WSL (it was edited to pin profile 0).
+- Choices still owed: Teeter Torture control device, FAX answer-button mapping, CRT model/adapter/settings, which RBF/MRA is running on hardware.
+
+Doable in the cloud (MAME 0.264, Verilator 5.052, GHDL are installed; ROM zips for mtrap, fax, fax2, targ, spectar, pepper2, hardhat, sidetrac, teetert, venture are staged locally and uncommitted):
+- 6840 noise generator and output level versus MAME WAVs (A4 follow-up); 8253 clocks (A5); Targ/Spectar discrete tone path (A7).
+- Mouse Trap CVSD path: voice ROM loading is designed and verified in isolation, but no Z80/CVSD core exists (W09).
+- Venture arrow case (I05): MAME room-entry reproduction not yet scripted; sprite-1 enable gating (S1) is not supported as the cause in the startup-to-maze capture.
+- FAX `fxl-12b` PROM routing and banks 24-31 parity; Side Trak, Teeter Torture and FAX/FAX2 profiles (W10-W11); clone/bootleg profiles (W12).
+- Remaining reset-release/clock integration of the expansion adapter into the core (actual clocks, CPU, audio) and whole-core fit.
+
+Needs both: native/CRT video integration (W06-W07), per-set regression (W14), physical acceptance (W15), release packaging (W16).
+
+Generated ROM/media/binaries/logs remain ignored under `simulation/`; no ROM bytes are committed. [WORKPLAN.md](WORKPLAN.md) remains the full game/issue tracker.
 
 ## Reviewed results
 
@@ -20,7 +47,7 @@ Production RTL/framework, existing MRAs and RBF remain at the original baseline.
 
 ## Remaining current-unit work, in resume order
 
-1. **Finish reset release and physical integration before wiring.** Separate RAM candidate, combined reset/read/verdict gating and scoped Intel synchronizers pass isolated behavioral/full-flow checks. Next: async assertion with synchronized reset release per clock domain and its stopped-clock adversaries. Then bind actual clocks/CPU/audio and prove whole-core fit. Remaining boundaries and FAX PROM/bank parity stay open.
+1. **Integrate the expansion adapter into the core.** Per-domain reset release is done and fit at probe level (increments 13-15). Next: bind actual clocks, CPU and audio, prove whole-core fit, then FAX PROM/bank parity and remaining boundaries.
 2. **Complete serializer scheduling and actual symptom reproduction.** Instantiate source control PROM, actual ROM latency and gated-clock windows with independent bitmap expectations. The existing async PE-load model and synchronous TI component behavior cannot be swapped without revisiting clock wiring. Script room entry and horizontal firing; current outside-room control/image states select dot/blank graphics and do not identify the reported arrow. Compare clipping, pixel-time image selection and complete affected frames; verify collision masks/polarity and IRQ timing per game.
 3. **Bind reviewed video queue to the real renderer and transport.** Preserve the independently measured input acceptance contract; verify actual game RGB/blanking and downstream consumer edges. Establish legal PLL/cascade/Native ownership, implement reviewed CRT scheduling/CDC/mode/geometry work and simulate complete images/effects/faults before the first production build.
 

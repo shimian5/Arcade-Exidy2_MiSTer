@@ -26,3 +26,9 @@ Acceptance boundaries:
 Integrator independently replayed these checks on 2026-10-06. Windows sandbox restrictions on temporary files/NAS access and WSL were resolved through scoped unsandboxed commands. The only changed original tracked file is `.gitignore`, permitting the simulation report to be tracked and excluding Python caches. Production source, MRAs and original RBF hashes remain unchanged. No Quartus build, ROM staging, commits or release acceptance occurred.
 
 The next three bounded units should prepare deterministic Venture/Targ/Spectar reference cases (W03-W05), specify backward-compatible CVSD/FAX loading and storage (W02/W09/W11), and derive the Exidy2 CRT conversion schedule from the accepted raster and Victory implementation (W06-W07). The integrator reviews shared interfaces before implementation.
+
+## Source audits (2026-10-06/07)
+- [W05/W08 source audit](source/w05-w08-source-audit.md): 14 RTL-versus-MAME findings, with the applied changes (A1 mono mix, A2 audio RAM mirror, S2/S3 interrupt profiles).
+- [A3/A4 audio effects](source/a3-a4-audio-effects.md): `$2000` inert; 6840 pitch/prescale/load measured on real Venture writes and fixed.
+- [Audio handshake timing](source/audio-handshake-timing.md): owner Quartus timing failures traced to baseline clock-domain crossings; constraints and reset synchronizer.
+

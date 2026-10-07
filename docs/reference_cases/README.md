@@ -33,3 +33,7 @@ python tools/reference_cases/compare_runs.py simulation/reference_cases/targ/rev
 ```
 
 Repeat with `spectar`. For Venture's long startup and input case, use the dedicated command sequence in [venture-startup.md](venture-startup.md). Full-board RTL comparison, exact projectile identity, other release games, detailed audio events and cycle-level collision timing remain open work.
+
+## Interrupt-latch survey (2026-10-07)
+[int-latch-survey.json](int-latch-survey.json) records `$5101` writes and `$5103` reads for Targ, Spectar, Side Trak, Mouse Trap, Pepper II, Hard Hat, Teeter Torture and Venture (zero-input attract, plus the Venture coin/start/right[+fire] case) on MAME 0.264. Replay with `tools/reference_cases/survey_int_latch.py`. Audio-CPU RAM-window traces use `tools/reference_cases/audio_ram_seq.lua`.
+

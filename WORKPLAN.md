@@ -81,20 +81,20 @@ Status values: `TODO`, `READY`, `ACTIVE`, `BLOCKED`, `REVIEW`, `DONE`. Check a c
 | Task | Owner | Status | Depends on | Evidence / commit / blocker |
 | --- | --- | --- | --- | --- |
 | W01 Baseline and safe workspace | Integrator + baseline_releases + toolchain_audit | DONE | None | docs/baseline/: source/release hashes reviewed; MAME 0.288 executable pinned; Quartus 17.0.2 confirmed; Arch Verilator 5.052 available. No compile/simulation acceptance claimed. |
-| W02 ROM and MRA audit | mra_byte_audit / integrator | ACTIVE | W01 | docs/audits/mra/: six byte layouts independently verified, 78/78 archive entries match. Third block specifies CVSD/FAX loading/storage; local staging remains conditional on reference-run requirements. |
+| W02 ROM and MRA audit | mra_byte_audit / integrator | ACTIVE | W01 | docs/audits/mra/: six byte layouts independently verified, 78/78 archive entries match. Increments 12-15: 29 connected expectations incl. the three owner-supplied ROM payloads pass; probe fits (208 RAM/486 ALM/495 reg). Third block specifies CVSD/FAX loading/storage; local staging remains conditional on reference-run requirements. |
 | W03 Reproductions and reference harness | sim_harness / integrator | ACTIVE | W02 | Targ/Spectar MAME attract pairs are deterministic. Fourth block resolves Venture capture duration: normal startup takes about 28.7 seconds, then a controlled input case reaches gameplay. Complete game coverage, exact arrow-case reproduction and CPU/board RTL comparison remain. |
 | W04 Sprite correctness | sim_harness / integrator | ACTIVE | W03 | Fifth block: extracted latch/address fixture replays 18 Venture writes; mirror usage, serialization, clipping and arrow identity remain open. |
-| W05 Collision, IRQ and board profiles | sim_harness / integrator | ACTIVE | W04 | Fifth block: synthetic collision/IRQ probes expose Venture mask/polarity source differences. Full CPU-visible timing and game profiles remain open. |
+| W05 Collision, IRQ and board profiles | sim_harness / integrator | ACTIVE | W04 | Fifth block: synthetic probes expose Venture mask/polarity differences. 2026-10-07: MAME `$5103` survey of eight captures confirms per-game polarity; `exidyIntCause` profiles (pcb[7:6]) applied with unit test; candidate MRAs in `candidates/mra`; not built or run in a game. Full CPU-visible timing, room/stage transitions and Targ/Spectar/Teeter profiles remain open. |
 | W06 Native raster contract | Integrator | ACTIVE | W01-W02 | Raw profiles measure 336x280/256x256 active. Sixth-block independent synthetic video queue passes all eight bitplanes; actual renderer, downstream consumer, clock/interrupt and receiver acceptance remain. |
 | W07 CRT transport and geometry | baseline_releases / integrator | ACTIVE | W06; W03 captures | Third block: candidate Victory-derived schedule/CDC contract; implementation and receiver acceptance pending. |
-| W08 Shared digital audio | Audio | TODO | W03 | |
-| W09 CVSD and discrete audio | Audio | TODO | W08 | |
+| W08 Shared digital audio | Audio / integrator | ACTIVE | W03 | docs/audits/source/: mono mix (A1), audio RAM mirror (A2, Mouse Trap divergence measured), 6840 pitch/prescale/load (A4) applied and unit/replay-tested; filter port `$2000` inert (A3). Not Quartus-built or heard. Noise path, mixed levels, 8253 clocks, Targ/Spectar discrete audio and event inventory remain open. |
+| W09 CVSD and discrete audio | Audio | TODO | W08 | Voice ROM loading/transport designed and verified in isolation (W02 increments); no Z80/CVSD core instantiated. Mouse Trap audio-CPU RAM aliasing fixed (A2). |
 | W10 Side Trak and Teeter Torture | Board | TODO | W05; audio reference available | |
 | W11 FAX and FAX 2 | Board | TODO | W05; ROM/storage design agreed | |
 | W12 Clone and bootleg profiles | Board | TODO | W05 | |
 | W13 Frontend and persistence integration | Integrator | TODO | W07-W12 implementations ready | |
 | W14 Complete game regression | Integrator + workers | TODO | W13 | |
-| W15 Full Quartus and physical acceptance | Integrator + owner | TODO | W14 | |
+| W15 Full Quartus and physical acceptance | Integrator + owner | TODO | W14 | Interim: owner full-core builds on the audio/interrupt edits show cross-domain timing failures that were baseline structure (docs/audits/source/audio-handshake-timing.md); scoped constraints and a reset synchronizer added; latest build pending. Not the W15 acceptance flow. |
 | W16 Release and closure | Integrator | TODO | W15 | |
 
 After W03, board and audio work can proceed alongside video work. W06 can begin earlier. Reference agents may prepare missing-game captures while workers repair shared subsystems. Build milestone images only after the relevant simulation gate passes.
@@ -107,12 +107,12 @@ After W03, board and audio work can proceed alongside video work. W06 can begin 
 | I02 | Analog image top-left and partially off-screen; forum posts 83642, 83662 | W06-W07 | Neutral-setting photo, CRT model and connection; output sync/blanking measurements; reference image boundaries. |
 | I03 | Missing alignment controls; forum post 83642 | W07 | Owner feedback on Victory's H/V ranges; analog and Direct Video geometry tests. |
 | I04 | Venture missing `11d-cpu`; posts 83642, 83651, 83656 | W02 | Current MRA/NAS bytes verified against replacement dump (docs/audits/mra/). If hardware still reports the missing old filename, record deployed RBF/MRA and ROM build tool/version; current byte audit does not reproduce that packaging error. |
-| I05 | Venture horizontal shot displays flying Winky; post 83651 | W04-W05 | Exact set and input sequence; sprite/control writes, frames, collision reads and IRQ trace. |
-| I06 | Targ/Spectar attract sprite jumps and crosses walls; posts 83716, 83722 | W04-W05 | Exact set, deterministic attract capture, object coordinates, collision latch/IRQ reference. |
-| I07 | Mouse Trap bark/meow/chomp missing; post 83678 | W08-W09 | Audit confirms four CVSD ROMs absent from current MRA and no instantiated fallback storage/consumer. ROM bytes are available; design loading/storage and Z80/CVSD wiring, then obtain voice command/bitstream traces, reference WAVs and listening acceptance. |
-| I08 | Venture unspecified missing effects; post 115720 | W08 | Event inventory, reference command/register writes and WAVs; owner examples if available. |
-| I09 | Pepper II unspecified missing effects; post 115720 | W08 | Event inventory, reference command/register writes and WAVs; owner examples if available. |
-| I10 | Targ/Spectar analog crash/noise incomplete; repository README | W09 | MAME trigger semantics/sample references; schematics/component values or PCB recordings for circuit accuracy. |
+| I05 | Venture horizontal shot displays flying Winky; post 83651 | W04-W05 | Exact set and input sequence; sprite/control writes, frames, collision reads and IRQ trace. **Status 2026-10-07:** sprite-1 enable gating (`$5101` bits 7/4) is not triggered in the startup-to-maze capture; `$5103` polarity differs from MAME for Venture (fixed by interrupt profile 1, unbuilt); room-entry reproduction not scripted; not reproduced in the core. |
+| I06 | Targ/Spectar attract sprite jumps and crosses walls; posts 83716, 83722 | W04-W05 | Exact set, deterministic attract capture, object coordinates, collision latch/IRQ reference. **Status 2026-10-07:** Targ/Spectar read `$5103` = 00 in attract (mask 0); no divergence reproduced; open. |
+| I07 | Mouse Trap bark/meow/chomp missing; post 83678 | W08-W09 | Audit confirms four CVSD ROMs absent from current MRA and no instantiated fallback storage/consumer. ROM bytes are available; design loading/storage and Z80/CVSD wiring, then obtain voice command/bitstream traces, reference WAVs and listening acceptance. **Status 2026-10-07:** audio-CPU RAM aliasing divergence found and fixed for Mouse Trap (A2); CVSD ROMs/Z80 path still absent; voices still missing. |
+| I08 | Venture unspecified missing effects; post 115720 | W08 | Event inventory, reference command/register writes and WAVs; owner examples if available. **Status 2026-10-07:** mono mix (A1) and 6840 pitch/prescale/load (A4) fixes applied, unproven; event inventory not done. |
+| I09 | Pepper II unspecified missing effects; post 115720 | W08 | Event inventory, reference command/register writes and WAVs; owner examples if available. **Status 2026-10-07:** same fixes as I08 applied, unproven; event inventory not done. |
+| I10 | Targ/Spectar analog crash/noise incomplete; repository README | W09 | MAME trigger semantics/sample references; schematics/component values or PCB recordings for circuit accuracy. **Status 2026-10-07:** Targ/Spectar discrete audio unchanged; open. |
 | I11 | Side Trak, Teeter Torture, FAX/FAX 2 listed not working; README | W10-W11 | ROMs, per-game reference behavior, dial device choice and FAX two-player button mapping. |
 | I12 | Hard Hat and clone coverage incomplete or undocumented | W12-W14 | Per-set manifest, controls, frames/audio and sustained gameplay. Existing Hard Hat MRA does not establish full acceptance. |
 
@@ -222,10 +222,10 @@ Acceptance: no game-state/audio change between modes; all active pixels transpor
 
 ### W08 — Complete shared CPU-based audio
 
-- [ ] Audit 6502 ROM access, RAM mirroring, RIOT ports/timer, PIA handshake and interrupt paths.
-- [ ] Trace sound commands end-to-end; verify 6840 modes/clocks/noise/volume and 8253 counter behavior against pinned references and datasheets.
+- [ ] Audit 6502 ROM access, RAM mirroring, RIOT ports/timer, PIA handshake and interrupt paths. *(Partial 2026-10-07: RAM mirroring measured and fixed (A2); PIA handshake timing diagnosed; RIOT timer and interrupt paths not audited.)*
+- [ ] Trace sound commands end-to-end; verify 6840 modes/clocks/noise/volume and 8253 counter behavior against pinned references and datasheets. *(Partial: 6840 clock/prescale/load verified and fixed (A4); noise, volume and 8253 open.)*
 - [ ] Review Victory's verified components for reuse with correct Exidy2 addresses, clocks, board wiring and licenses.
-- [ ] Model board-specific filters, enables and gain; produce a correctly mixed mono signal on both outputs unless hardware evidence specifies otherwise.
+- [ ] Model board-specific filters, enables and gain; produce a correctly mixed mono signal on both outputs unless hardware evidence specifies otherwise. *(Partial: mono mix applied (A1), unlistened; gain/balance versus MAME and filters open; `$2000` is inert in MAME.)*
 - [ ] Close every enumerated Venture/Pepper II event; add coverage for Mouse Trap, Hard Hat and expansion games.
 - [ ] Check clipping, pitch, envelopes, pause/resume, reset and repeated command delivery.
 
