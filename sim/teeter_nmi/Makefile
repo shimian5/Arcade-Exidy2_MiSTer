@@ -4,7 +4,7 @@ GHDL ?= /mnt/c/MiSTerDev/_tools/ghdl6/ghdl-mcode-6.0.0-ubuntu24.04-x86_64/bin/gh
 GHDL_LIB ?= /mnt/c/MiSTerDev/_tools/ghdl6/ghdl-mcode-6.0.0-ubuntu24.04-x86_64/lib
 GHDL_DIR ?= ../../simulation/harness/teeter_nmi_ghdl
 
-.PHONY: test generator t65
+.PHONY: test generator t65 write-strobes
 
 test: generator t65
 
@@ -21,3 +21,10 @@ t65:
 	LD_LIBRARY_PATH=$(GHDL_LIB) $(GHDL) -e --std=08 --ieee=synopsys --workdir=$(GHDL_DIR) tb_t65_nmi
 	LD_LIBRARY_PATH=$(GHDL_LIB) $(GHDL) -r --std=08 --ieee=synopsys --workdir=$(GHDL_DIR) tb_t65_nmi --assert-level=error > $(GHDL_DIR)/run.log 2>&1 || { cat $(GHDL_DIR)/run.log; exit 1; }
 	grep -q "PASS selected T65 captures paused NMI" $(GHDL_DIR)/run.log || { cat $(GHDL_DIR)/run.log; exit 1; }
+
+write-strobes:
+	mkdir -p $(GHDL_DIR)
+	LD_LIBRARY_PATH=$(GHDL_LIB) $(GHDL) -a --std=08 --ieee=synopsys --workdir=$(GHDL_DIR) ../../modules/cpu-t65/T65_Pack.vhd ../../modules/cpu-t65/T65_ALU.vhd ../../modules/cpu-t65/T65_MCode.vhd ../../modules/cpu-t65/T65.vhd tb_t65_write_strobes.vhd
+	LD_LIBRARY_PATH=$(GHDL_LIB) $(GHDL) -e --std=08 --ieee=synopsys --workdir=$(GHDL_DIR) tb_t65_write_strobes
+	LD_LIBRARY_PATH=$(GHDL_LIB) $(GHDL) -r --std=08 --ieee=synopsys --workdir=$(GHDL_DIR) tb_t65_write_strobes --assert-level=error > $(GHDL_DIR)/write-strobes.log 2>&1 || { cat $(GHDL_DIR)/write-strobes.log; exit 1; }
+	grep -q "PASS T65 writes all eight decoded registers" $(GHDL_DIR)/write-strobes.log || { cat $(GHDL_DIR)/write-strobes.log; exit 1; }
