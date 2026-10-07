@@ -47,6 +47,10 @@ def main():
     exe = verilate('audio_mix', 'tb_audio_mix', ['rtl/audio_mix.v', 'sim/audio_mix/tb_audio_mix.sv'])
     if exe: expect('audio mono mix', run_bin(exe, 'audio_mix'), 'PASS audio mix')
     else: record('audio mono mix', 'FAIL', 'build')
+    # Audio-domain pause level synchronizer must protect both ready and mute.
+    exe = verilate('pause_sync', 'tb_pause_sync', ['rtl/pause_sync.v', 'rtl/audio_mix.v', 'sim/pause_sync/tb_pause_sync.sv'])
+    if exe: expect('audio pause synchronizer and mute/ready alignment', run_bin(exe, 'pause_sync'), 'PASS pause sync')
+    else: record('audio pause synchronizer and mute/ready alignment', 'FAIL', 'build')
     mut = LOG / 'audio_mix_mutant.v'
     src = (ROOT / 'rtl/audio_mix.v').read_text()
     needle = "assign mono = mute ? 16'sd0 : sum;"

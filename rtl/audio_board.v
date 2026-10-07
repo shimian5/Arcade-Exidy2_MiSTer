@@ -26,6 +26,9 @@ module exidyAB (
 wire RESET_n_au;
 exidyResetSync audio_reset(.clk(audio_clk),.reset_n(RESET_n),.reset_n_sync(RESET_n_au));
 
+wire pause_au;
+exidyPauseSync audio_pause(.audio_clk(audio_clk),.pause_in(pause),.pause_audio(pause_au));
+
 //clock enables
 reg [3:0] cencnt_au =4'd0;
 reg auCLK,auPH0,auPH0B;
@@ -49,7 +52,7 @@ T65 A6502(
 	.res_n(RESET_n_au),
 	.enable(auPH0),
 	.clk(audio_clk),
-	.rdy(~pause),
+	.rdy(~pause_au),
 	.abort_n(1),
 	.irq_n(!audio_irq),
 	.nmi_n(1),
@@ -287,7 +290,7 @@ jtframe_jt49_filters u_filters2(
 
 //audio board output
 wire signed [15:0] audio_mono;
-exidyAudioMix audio_mix(.src_a(audio_snd),.src_b(audio_snd_ext),.mute(pause),.mono(audio_mono));
+exidyAudioMix audio_mix(.src_a(audio_snd),.src_b(audio_snd_ext),.mute(pause_au),.mono(audio_mono));
 assign audio_l=audio_mono;
 assign audio_r=audio_mono;
 
