@@ -31,3 +31,22 @@ For an isolated project copy only:
 5. Discard the trial if the original-SDC replay does not improve the worst path, worsens hold, moves violations to other master paths, or cannot establish an exact collection match.
 
 This trial steers physical placement/routing only. It changes neither byte staging, reset, handshake, nor clock relationships, and it is not an exception to be retained in production. Passing replayed STA still does not validate the asynchronous hardware handshake or establish gameplay/audio acceptance.
+
+## Completed trial: rejected
+
+The isolated full project flow completed on 2026-10-07 at 15:32:44 local, elapsed 12m43s, exit 0, zero errors and 284 warnings. Its artificially constrained report has worst master setup -0.731 ns. A separate read-only replay loaded the original production `Arcade-Exidy2.sdc` and `sys/sys_top.sdc`, without the steering file. Its byte setup relationship is the original 3.150 ns; every one of the eight byte paths still violates setup.
+
+| Bit | Original-SDC setup slack (ns) | Clock skew (ns) | Data delay (ns) |
+|---:|---:|---:|---:|
+| 5 | -0.431 | -0.758 | 2.493 |
+| 4 | -0.409 | -0.739 | 2.490 |
+| 2 | -0.389 | -0.741 | 2.468 |
+| 1 | -0.350 | -0.788 | 2.382 |
+| 6 | -0.323 | -0.744 | 2.399 |
+| 0 | -0.304 | -0.767 | 2.357 |
+| 7 | -0.272 | -0.779 | 2.313 |
+| 3 | -0.254 | -0.745 | 2.329 |
+
+Original-SDC replay: overall hold +0.250 ns, byte hold +0.565 ns, audio setup +25.474 ns. Valid-mask CPU read setup/hold +14.062/+3.483 ns; valid reset recovery/removal +17.072/+2.272 ns. Divider setup/hold: BCLK +8.212/+0.605, PH1 +17.221/+1.244, PH6 +7.812/+0.502, auPH0 +54.394/+0.435, auPH0B +54.501/+0.434 ns. No new violation outside the byte chain appears in the reported worst paths; complete event-clock coverage remains a separate gate.
+
+Worst setup is 0.101 ns worse than the placement-only -0.330 ns result. The tighter objective did not produce useful closure; discard this steering fit and retain neither its constraint nor its RBF in production. RBF SHA256 `48de8d5d3081b82547ff9d56fd124e54c04ea8e79fae2ece8c03a16d0e9637c1` is an unaccepted experimental artifact. Evidence is ignored `simulation/placement-bit5/full-flow-steering.log`, `steering-original-sdc-replay.log` and `steering-original-sdc-reports/`; the previous placement-only fit remains archived separately. Production RTL/QSF/SDC and releases are unchanged. The [next-step proposal](pia-next-step-review.md) requires functional gates before any opposite-edge fit.
