@@ -83,11 +83,13 @@ R6532 A6532_RIOT(
 );
 
 //RIOT RAM
+wire [10:0] audio_ram_addr;
+exidyAudioRamAddr audio_ram_map(.cpu_addr(audio_addrbus[15:0]),.ram_addr(audio_ram_addr));
 wire [7:0] audio_RAM_out;
 dpram_dc #(.widthad_a(11)) AUDIO_RAM //expanded ram for a test
 (
 	.clock_a(audio_clk),
-	.address_a(audio_addrbus[10:0]),
+	.address_a(audio_ram_addr),
 	.data_a(audio_databus_out),
 	.wren_a(!audio_nWRITE & !io00_07), 
 	.q_a(audio_RAM_out)
