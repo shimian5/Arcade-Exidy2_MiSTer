@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import bisect
 import csv
 import hashlib
 import json
@@ -40,6 +39,15 @@ def stats(values: list[float], unit_scale: float) -> dict[str, float | int | Non
         "p95_floor_index": percentile_floor(values, 0.95) * unit_scale,  # type: ignore[operator]
         "max": max(values) * unit_scale,
     }
+
+
+def first_callback_order_read(
+    reads: list[dict[str, Any]], write_row: int, next_write_row: int | None
+) -> dict[str, Any] | None:
+    """Return first read callback after this write and before its successor."""
+    return next((candidate for candidate in reads
+                 if candidate["row"] > write_row and
+                 (next_write_row is None or candidate["row"] < next_write_row)), None)
 
 
 def load_manifest(run_dir: Path) -> dict[str, Any]:
@@ -112,10 +120,9 @@ def analyze_game(run_dir: Path, set_name: str) -> dict[str, Any]:
         row for row in rows
         if row["cpu"] == "main" and row["op"] == "R" and row["kind"] == "PA_DATA"
     ]
-    # The raw file order resolves same-timestamp bus accesses, which can occur
-    # when both CPUs are scheduled at the same emulation instant.
-    pa_keys = [(row["time"], row["row"]) for row in main_pa_reads]
-    pb_keys = [(row["time"], row["row"]) for row in audio_pb_writes]
+    # CSV callback order is the causal order. MAME's time() can be CPU-local
+    # while a device executes, so timestamps from different CPUs can regress
+    # in callback order and must never be used to sort these events.
 
     qualified_writes = 0
     unqualified_writes = 0
@@ -125,7 +132,8 @@ def analyze_game(run_dir: Path, set_name: str) -> dict[str, Any]:
     overwritten_before_read = 0
     no_read_until_capture_end = 0
     unqualified_first_read = 0
-    latencies: list[float] = []
+    matching_timestamp_deltas: list[float] = []
+    timestamp_deltas: list[float] = []
     output_intervals: list[float] = []
     examples: list[dict[str, Any]] = []
 
@@ -139,25 +147,22 @@ def analyze_game(run_dir: Path, set_name: str) -> dict[str, Any]:
         qualified_writes += 1
 
         write_time = write["time"]
-        write_key = (write["time"], write["row"])
-        next_write_key = pb_keys[index + 1] if index + 1 < len(pb_keys) else None
-        if next_write_key is not None:
-            output_intervals.append(next_write_key[0] - write_time)
+        next_write = audio_pb_writes[index + 1] if index + 1 < len(audio_pb_writes) else None
+        if next_write is not None:
+            output_intervals.append(next_write["time"] - write_time)
 
-        read_index = bisect.bisect_left(pa_keys, write_key)
-        has_read = read_index < len(main_pa_reads)
-        before_next_write = has_read and (
-            next_write_key is None or pa_keys[read_index] < next_write_key
+        read = first_callback_order_read(
+            main_pa_reads, write["row"], next_write["row"] if next_write is not None else None
         )
+        before_next_write = read is not None
         if not before_next_write:
-            if next_write_key is None:
+            if next_write is None:
                 no_read_until_capture_end += 1
             else:
                 overwritten_before_read += 1
             continue
 
         read_before_overwrite += 1
-        read = main_pa_reads[read_index]
         read_qualified = read["cra"] is not None and (read["cra"] & 0x04) != 0 and read["ddra"] == 0x00
         if not read_qualified:
             unqualified_first_read += 1
@@ -165,10 +170,11 @@ def analyze_game(run_dir: Path, set_name: str) -> dict[str, Any]:
 
         expected_byte = write["data"] & write["ddrb"]
         observed_byte = read["data"]
-        latency = read["time"] - write_time
+        timestamp_delta = read["time"] - write_time
+        timestamp_deltas.append(timestamp_delta)
         if observed_byte == expected_byte:
             matching += 1
-            latencies.append(latency)
+            matching_timestamp_deltas.append(timestamp_delta)
         else:
             mismatching += 1
             if len(examples) < 12:
@@ -185,7 +191,7 @@ def analyze_game(run_dir: Path, set_name: str) -> dict[str, Any]:
                     "readPc": f"0x{read['pc']:04X}",
                     "mainDdra": f"0x{read['ddra']:02X}",
                     "readData": f"0x{observed_byte:02X}",
-                    "latencyUs": latency * 1_000_000,
+                    "callbackTimestampDeltaUs": timestamp_delta * 1_000_000,
                 })
 
     return {
@@ -193,6 +199,18 @@ def analyze_game(run_dir: Path, set_name: str) -> dict[str, Any]:
         "tracePath": str(trace_path),
         "traceSha256": sha256(trace_path),
         "traceRows": len(rows),
+        "callbackOrderTiming": {
+            "orderingSource": "CSV row order; timestamps are not globally sortable across CPU-local execution contexts",
+            "timestampRegressionsInCallbackOrder": sum(
+                1 for previous, current in zip(rows, rows[1:]) if current["time"] < previous["time"]
+            ),
+            "timestampRegressionsAcrossCpuInCallbackOrder": sum(
+                1 for previous, current in zip(rows, rows[1:])
+                if current["cpu"] != previous["cpu"] and current["time"] < previous["time"]
+            ),
+            "matchedReadTimestampDeltaMicroseconds": stats(timestamp_deltas, 1_000_000),
+            "timestampDeltaMeaning": "signed difference of MAME time() values at callbacks; cross-CPU delta is not elapsed latency",
+        },
         "busEventCounts": dict(sorted(counts.items())),
         "controlStatusBit7Reads": dict(sorted(status_flag_reads.items())),
         "audioPbDataWrites": len(audio_pb_writes),
@@ -211,7 +229,7 @@ def analyze_game(run_dir: Path, set_name: str) -> dict[str, Any]:
         "unqualifiedFirstReads": unqualified_first_read,
         "writesOverwrittenBeforeRead": overwritten_before_read,
         "finalWritesWithNoReadBeforeCaptureEnd": no_read_until_capture_end,
-        "matchingReadLatencyMicroseconds": stats(latencies, 1_000_000),
+        "matchingReadCallbackTimestampDeltaMicroseconds": stats(matching_timestamp_deltas, 1_000_000),
         "outputWriteSpacingMilliseconds": stats(output_intervals, 1_000),
         "firstMismatchExamples": examples,
     }
@@ -268,7 +286,7 @@ def main() -> int:
         comparison_data["setsOnlyInOther"] = sorted(other_results.keys() - results.keys())
 
     output = {
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "run": manifest.get("run"),
         "sourceRunDirectory": str(run_dir),
         "manifestSourceHashes": {
@@ -280,7 +298,8 @@ def main() -> int:
         "analysisDefinition": {
             "sourceByteQualification": "audio CRB bit 2 selects PB data and the last written DDRB is 0xFF",
             "destinationByteQualification": "main CRA bit 2 selects PA data and the last written DDRA is 0x00",
-            "readRule": "first qualified main PA data read at or after an audio PB data write and before the next audio PB data write",
+            "eventOrderRule": "first main PA data read after the write's CSV callback row and before the next audio PB data write's CSV callback row",
+            "timestampRule": "MAME callback timestamps are retained as signed diagnostics; they do not define cross-CPU event ordering or elapsed latency",
             "matchRule": "main PA read byte equals audio PB write data masked by DDRB",
             "p95Rule": "sorted floor index floor((n-1)*0.95)",
         },
@@ -303,7 +322,8 @@ def main() -> int:
                 "matchingFirstReads": value["matchingFirstReads"],
                 "mismatchingFirstReads": value["mismatchingFirstReads"],
                 "writesOverwrittenBeforeRead": value["writesOverwrittenBeforeRead"],
-                "matchingReadLatencyMicroseconds": value["matchingReadLatencyMicroseconds"],
+                "callbackOrderTiming": value["callbackOrderTiming"],
+                "matchingReadCallbackTimestampDeltaMicroseconds": value["matchingReadCallbackTimestampDeltaMicroseconds"],
             }
             for key, value in results.items()
         },

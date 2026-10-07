@@ -1,6 +1,6 @@
 # PIA firmware response and read timing
 
-This capture samples real MAME CPU bus activity at both 6821 PIA interfaces for Venture, Pepper II, Hard Hat, and Mouse Trap. It shows sustained firmware polling/response traffic in Venture and Mouse Trap, with only one returned byte observed in Pepper II and Hard Hat during the tested interval. The evidence supports a software-level response-hold margin for the exercised bytes; it does not establish the FPGA synchronizer’s setup/hold margin or certify every game state.
+This capture samples real MAME CPU bus activity at both 6821 PIA interfaces for Venture, Pepper II, Hard Hat, and Mouse Trap. It shows sustained firmware polling/response traffic in Venture and Mouse Trap, with only one returned byte observed in Pepper II and Hard Hat during the tested interval. Callback-order analysis supports byte correspondence for these captures. Cross-CPU timestamps do not establish elapsed response latency or a firmware hold margin; the earlier latency and seven-mismatch claims are withdrawn.
 
 ## Source mapping and clocks
 
@@ -48,18 +48,18 @@ The comparison finds all four bus CSV hashes identical, all ROM archive hashes i
 
 | Game | Sound PB data writes | Main PA reads | Read before overwrite | Matching first reads | Differing first reads | Writes overwritten first |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Venture | 5,790 | 5,795 | 5,133 | 5,126 | 7 | 657 |
+| Venture | 5,790 | 5,795 | 5,790 | 5,790 | 0 | 0 |
 | Pepper II | 1 | 3 | 1 | 1 | 0 | 0 |
 | Hard Hat | 1 | 3 | 1 | 1 | 0 | 0 |
 | Mouse Trap | 88 | 89 | 88 | 88 | 0 | 0 |
 
-Matching first-read delay from the output PB write was 11.572 µs minimum, 457.130 µs median, and 769.536 µs at the 95th percentile in Venture. Mouse Trap’s corresponding delays were 17.009 µs minimum and 43.512 µs median; its long tail reflects sparse output changes (one read followed the last write after about 1.86 s). The single Pepper II and Hard Hat matches occurred 1.181 ms and 12.120 ms after the output writes. Their 120-second captures show startup/limited exchange only, not sustained game-response coverage.
+This table supersedes the timestamp-sorted analysis. CSV callback order determines the first read after each write and before the next write. Venture has 7,027 adjacent timestamp regressions across CPU labels; in all seven formerly disputed pairs, the `0x40` read callback preceded the zero write callback. Signed timestamp differences remain diagnostic values, not elapsed latencies. The earlier minimum/median delay estimates must not be used to justify pipeline latency. Pepper II and Hard Hat still show startup/limited exchange only.
 
-The raw trace records repeated control-status polling and data reads in the active cases. In Venture, main/audio control reads with bit 7 set (`AC`) occurred 11,661/11,660 times; Mouse Trap had 271/263 such sampled status reads. The byte-level trace shows the response and read in order. For example, Venture writes `0x47` at sound `$1002` at 36.737333023 s, reads status `0xAC` at main `$5201` at 36.737402241 s, then reads `0x47` at main `$5200` at 36.737412162 s: a 79.139 µs write-to-read interval. This status evidence reflects latched PIA IRQ/status as observed by firmware, not a direct logic-analyzer measurement of pin transitions.
+The raw trace records repeated control-status polling and data reads in the active cases. In Venture, main/audio control reads with bit 7 set (`AC`) occurred 11,661/11,660 times; Mouse Trap had 271/263 such sampled status reads. This reflects latched PIA IRQ/status as observed by firmware, not a direct measurement of pin transitions. Callback order and byte correspondence can be checked; cross-CPU timestamp subtraction is not a physical write-to-read interval.
 
-Venture’s seven differing first reads returned `0x40` after a sound PB write of `0x00`; these are retained as mismatches, not normalized away. The 657 writes followed by another PB write before a main PA data read also remain visible. Mouse Trap’s 88 returned PB values were all `0x00`, so it validates read-after-write timing for that value but not diverse payloads. Pepper II and Hard Hat each produced one matching zero byte only. These results do not prove complete command coverage for those games.
+Corrected Venture analysis finds 5,790 matching first reads and zero mismatches or overwritten writes. Mouse Trap's 88 returned PB values were all `0x00`, so it checks byte correspondence for that value but not diverse payloads. Pepper II and Hard Hat each produced one matching zero byte only. These results do not prove complete command coverage for those games. [Causal-order correction and reproduction](pia-response-mismatch-review.md).
 
-The candidate two-register return path is estimated at about 92 ns additional latency. That is roughly 126 times smaller than Venture’s shortest measured matching MAME write-to-read delay. This is a useful protocol-scale observation, not a timing signoff: MAME’s 6821 model is not the FPGA RTL, its nominal audio clock differs slightly, the observed trace contains exceptions and overwritten writes, and no physical setup/hold or metastability behavior is represented.
+The candidate two-register return path adds about 92 ns in the current FPGA clock model. The former comparison to a MAME minimum delay is invalid and withdrawn. Paired production-PIA fixtures test specific reset, handshake and registered-read boundaries; complete firmware coherence and physical setup/hold acceptance remain separate requirements.
 
 ## Trace fingerprints and limits
 
@@ -74,4 +74,4 @@ Run 3 bus CSV SHA-256 values:
 
 An independent repeated capture with identical 120-second input schedule produced byte-identical bus CSVs for all four sets. Only the auxiliary event log was reduced to control writes to keep it small; the raw bus trace and measured results were unchanged.
 
-The taps observe CPU accesses and latched status returned by MAME. They do not expose exact PIA output pin transition times, guarantee a particular attract/gameplay path, or test the proposed two-stage RTL. The Venture mismatch/overwrite cases and limited Pepper II/Hard Hat traffic are explicit follow-up limits. No Quartus build, ROM modification, or production RTL edit was part of this audit.
+The taps observe CPU accesses and latched status returned by MAME. They do not expose exact PIA output pin transition times, guarantee a particular attract/gameplay path, or test the proposed two-stage RTL. Limited payload/gameplay coverage and the absence of a physical elapsed-time bound remain explicit limits. Reproduce current results with `--output simulation/pia_firmware_timing/analysis/20261007_03_causal_root.json`; the older timestamp-sorted JSON is historical. No ROM modification or production RTL edit was part of this audit.
