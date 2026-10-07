@@ -7,6 +7,9 @@ use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
 entity berzerk_sound_fx is
+generic (
+	CLK_DIV : integer range 1 to 8 := 4 -- module clock cycles per 6840 E-clock (4 = Berzerk's 3.58 MHz input)
+);
 port	(
 	clock  : in  std_logic;
 	reset  : in  std_logic;
@@ -23,7 +26,7 @@ end berzerk_sound_fx;
 
 architecture struct of berzerk_sound_fx is
 
-signal hdiv         : std_logic_vector(1 downto 0);
+signal hdiv         : integer range 0 to 7 := 0;
 signal ena_internal_clock  : std_logic;
 
 signal ptm6840_msb_buffer : std_logic_vector(7 downto 0);
@@ -61,6 +64,9 @@ signal noise_xor, noise_xor_r : std_logic;
 signal noise_shift_reg : std_logic_vector(127 downto 0) := (others => '1');
 signal noise_shift_reg_95_r : std_logic;
 signal ena_external_clock : std_logic;
+signal load1, load2, load3 : std_logic := '0'; -- counter loads the new period at once (6840 CR4 = 0)
+signal pre3 : unsigned(2 downto 0) := (others => '0'); -- timer 3 divide-by-8 prescaler (CR3 bit 0)
+signal raw3, tick3 : std_logic;
 
 begin
 
@@ -73,11 +79,11 @@ begin
 
 		-- ptm_6840 E input pin (internal clock)
 		-- board input clock divide by 4
-		if hdiv = "11" then
-			hdiv <= "00";
+		if hdiv = CLK_DIV - 1 then
+			hdiv <= 0;
 			ena_internal_clock <= '1';
 		else
-			hdiv <= std_logic_vector(unsigned(hdiv) + 1);
+			hdiv <= hdiv + 1;
 			ena_internal_clock <= '0';
 		end if;
 		
@@ -116,6 +122,7 @@ begin
 	
 	else
 		if rising_edge(clock) then
+			load1 <= '0'; load2 <= '0'; load3 <= '0';
 			if cs = '1' then
 							
 				case addr(2 downto 0) is
@@ -132,12 +139,15 @@ begin
 					
 				when "011" =>
 					ptm6840_max1 <= ptm6840_msb_buffer & di;
+					load1 <= not ptm6840_ctrl1(4);
 								
 				when "101" =>
 					ptm6840_max2 <= ptm6840_msb_buffer & di;
+					load2 <= not ptm6840_ctrl2(4);
 
 				when "111" =>
 					ptm6840_max3 <= ptm6840_msb_buffer & di;
+					load3 <= not ptm6840_ctrl3(4);
 					
 --				when "110" =>
 --					ptm6840_msb_buffer <= di;
@@ -190,7 +200,9 @@ begin
 			if ptm6840_ctrl1(0) = '0'  then
 			
 				-- counter #1
-				if  (ptm6840_ctrl1(1) = '1' and ena_internal_clock = '1') or
+				if load1 = '1' then
+					ptm6840_cnt1 <= ptm6840_max1;
+				elsif (ptm6840_ctrl1(1) = '1' and ena_internal_clock = '1') or
 					 (ptm6840_ctrl1(1) = '0' and ena_external_clock = '1') then
 					if ptm6840_cnt1 = X"0000" then
 						ptm6840_cnt1 <= ptm6840_max1;
@@ -201,7 +213,9 @@ begin
 				end if;
 				
 				-- counter #2
-				if  (ptm6840_ctrl2(1) = '1' and ena_internal_clock = '1') or
+				if load2 = '1' then
+					ptm6840_cnt2 <= ptm6840_max2;
+				elsif (ptm6840_ctrl2(1) = '1' and ena_internal_clock = '1') or
 					 (ptm6840_ctrl2(1) = '0' and ena_external_clock = '1') then
 					if ptm6840_cnt2 = X"0000" then
 						ptm6840_cnt2 <= ptm6840_max2;
@@ -212,8 +226,9 @@ begin
 				end if;
 
 				-- counter #3
-				if  (ptm6840_ctrl3(1) = '1' and ena_internal_clock = '1') or
-					 (ptm6840_ctrl3(1) = '0' and ena_external_clock = '1') then
+				if load3 = '1' then
+					ptm6840_cnt3 <= ptm6840_max3;
+				elsif tick3 = '1' then
 					if ptm6840_cnt3 = X"0000" then
 						ptm6840_cnt3 <= ptm6840_max3;
 						ptm6840_q3 <= not ptm6840_q3;
@@ -265,6 +280,22 @@ begin
 end process;
 
 -- noise generator
+-- timer 3 clock event and optional divide-by-8 prescale (6840 CR3 bit 0)
+raw3  <= '1' when (ptm6840_ctrl3(1) = '1' and ena_internal_clock = '1') or
+                  (ptm6840_ctrl3(1) = '0' and ena_external_clock = '1') else '0';
+tick3 <= raw3 when ptm6840_ctrl3(0) = '0' else (raw3 and '1') when pre3 = 7 else '0';
+
+prescale3 : process(clock, reset)
+begin
+	if reset = '1' then
+		pre3 <= (others => '0');
+	elsif rising_edge(clock) then
+		if raw3 = '1' and ptm6840_ctrl3(0) = '1' then
+			pre3 <= pre3 + 1;
+		end if;
+	end if;
+end process;
+
 noise_xor <= noise_shift_reg(127) xor noise_shift_reg(95);
 noise: process(clock, reset)
 begin

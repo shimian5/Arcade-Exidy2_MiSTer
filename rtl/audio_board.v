@@ -166,7 +166,9 @@ wire [11:0] U3D_6840_sound;
 wire [7:0] audio_data_PIAB_out,audio_data_io;
 wire signed [8:0] snd1,snd2,snd3;
 
-berzerk_sound_fx U3D_6840(
+// The module is clocked by the 0.898 MHz auPH0B pulse, which already is the 6840 E clock
+// (3.579545 MHz / 4): one E clock per module clock, no further division.
+berzerk_sound_fx #(.CLK_DIV(1)) U3D_6840(
 	.clock(auPH0B), //auPH0
 	.reset(!RESET_n_au),
 	.cs(!io28_2F & !audio_nWRITE),
