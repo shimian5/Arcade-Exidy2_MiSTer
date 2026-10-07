@@ -272,3 +272,9 @@ set_false_path -from [get_keepers {*exidyAB:sound_board|pia6821:PIA_8B|*}] -to [
 # Its first flop samples the cross-domain signal and is the synchronizer's
 # metastability stage, so it is exempt from setup/hold; the second flop is timed.
 set_false_path -to [get_keepers {*exidyAB:sound_board|exidyResetSync:audio_reset|rst_meta}]
+
+# Hardware-profile byte (MRA index 1, mod_other) is written only while a ROM is
+# downloading, with the core held in reset, then is static. The audio board reads
+# it (pcb[4] etc.) on the unrelated 14.37 MHz audio clock, so constrain only these
+# configuration-to-audio-board paths.
+set_false_path -from [get_keepers {*emu|mod_other[*]}] -to [get_keepers {*exidyAB:sound_board|*}]
