@@ -50,18 +50,21 @@ module tb_pia_return;
 		if (main_byte !== 8'h00) $fatal(1, "source reset did not clear/propagate zero");
 		audio_reset_n = 1;
 
-		// Destination reset clears its own register; release resumes from the
-		// still-live source-stage value, so system reset must assert both domains.
+		// Destination validity masks retained data asynchronously; the data FF
+		// itself remains normally clocked and is hidden until the first edge.
 		audio_byte = 8'hE7;
 		tick_audio();
+		tick_master();
+		if (main_byte !== 8'hE7) $fatal(1, "destination data capture failed before reset-mask test");
 		master_reset_n = 0;
 		#1;
-		if (main_byte !== 8'h00) $fatal(1, "destination reset did not clear output");
+		if (main_byte !== 8'h00) $fatal(1, "destination valid reset did not mask output");
+		if (dut.main_byte_data !== 8'hE7) $fatal(1, "destination data register unexpectedly reset");
 		master_reset_n = 1;
 		#1;
-		if (main_byte !== 8'h00) $fatal(1, "destination reset release changed output without a clock");
+		if (main_byte !== 8'h00) $fatal(1, "destination reset release exposed retained data without a clock");
 		tick_master();
-		if (main_byte !== 8'hE7) $fatal(1, "destination did not resume from source stage");
+		if (main_byte !== 8'hE7) $fatal(1, "destination valid did not expose data after first master edge");
 		master_reset_n = 0;
 		tick_master();
 		audio_reset_n = 0;

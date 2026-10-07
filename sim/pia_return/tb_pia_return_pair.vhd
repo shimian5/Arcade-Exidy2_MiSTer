@@ -13,6 +13,8 @@ architecture test of tb_pia_return_pair is
 	signal reset_m   : std_logic := '1';
 	signal reset_a   : std_logic := '1';
 	signal audio_stage_byte : std_logic_vector(7 downto 0) := x"00";
+	signal main_data_q : std_logic_vector(7 downto 0) := x"00";
+	signal main_byte_valid : std_logic := '0';
 	signal stage_byte : std_logic_vector(7 downto 0) := x"00";
 	signal cpu_databus : std_logic_vector(7 downto 0) := x"00";
 	signal cpu_enable : std_logic := '0';
@@ -73,14 +75,23 @@ begin
 		end if;
 	end process;
 
+	process(master_clk)
+	begin
+		if rising_edge(master_clk) then
+			main_data_q <= audio_stage_byte;
+		end if;
+	end process;
+
 	process(master_clk, reset_m)
 	begin
 		if reset_m = '1' then
-			stage_byte <= x"00";
+			main_byte_valid <= '0';
 		elsif rising_edge(master_clk) then
-			stage_byte <= audio_stage_byte;
+			main_byte_valid <= '1';
 		end if;
 	end process;
+
+	stage_byte <= main_data_q when main_byte_valid = '1' else x"00";
 
 	process(master_clk)
 	begin
@@ -276,6 +287,24 @@ begin
 		if a_cb2_o /= '1' then wait until a_cb2_o = '1'; end if;
 		write_audio("11", x"25");
 		send_and_check(x"96", x"96");
+
+		-- The masked data FF may retain an old complete byte through reset, but
+		-- PIA_9B must see zero immediately and until the next master capture.
+		assert stage_byte = x"96" report "expected final response before reset-mask test" severity failure;
+		wait until falling_edge(master_clk);
+		reset_m <= '1';
+		wait for 1 ns;
+		assert stage_byte = x"00" report "valid mask did not hide retained data on async reset" severity failure;
+		wait until rising_edge(master_clk);
+		wait for 1 ns;
+		assert main_data_q = x"96" and stage_byte = x"00"
+			report "reset mask did not hide stale complete byte while held" severity failure;
+		reset_m <= '0';
+		wait for 1 ns;
+		assert stage_byte = x"00" report "valid mask exposed stale data on reset release" severity failure;
+		wait until rising_edge(master_clk);
+		wait for 1 ns;
+		assert stage_byte = x"96" report "valid mask did not restore byte on first master edge" severity failure;
 
 		report "PASS paired production PIA return byte phase=" & integer'image(PHASE_NS) & "ns" severity note;
 		stop;
