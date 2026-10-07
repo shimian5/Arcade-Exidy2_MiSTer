@@ -1,0 +1,9 @@
+# Pause first-stage timing contract
+
+The completed `3341f08` flow reports audio setup -0.193 ns specifically from master-domain `pause_cpu` to `audio_pause|pause_meta`; stage-to-stage and audio CPU paths are separate. This source is a held single-bit pause level, registered by `rtl/pause.v`, sampled by the existing two-register `exidyPauseSync`. Only `pause_sync` drives CPU ready and mixer mute; `pause_meta` has no functional fanout beyond the second register.
+
+The next candidate forces synchronizer identification with `SYNCHRONIZER_IDENTIFICATION FORCED` on both stages. Quartus supports this per-register setting even when clocks are related; see the [Intel Standard Edition design guide](https://www.intel.com/programmable/technical-pdfs/683323.pdf). The previous `FORCED IF ASYNCHRONOUS` setting did not list the chain for these related PLL outputs.
+
+The SDC now exempts only the first-stage destination from setup/hold, with an explicit collection-size assertion requiring one register. This is an intentional single-bit synchronizer contract: the first sampled level can settle on a later destination cycle. It does not waive the second register or any data-byte transfer. Stage-to-stage setup/hold, physical settling time, chain identification and ready/mute consumers must be checked in the next complete flow. The PIA byte path remains normally timed and must meet setup/hold on every bit.
+
+Source-level simulation checks two-edge nominal latency and ready/mute alignment. It cannot model metastability; real transitions may take an extra edge. The level must remain available for destination sampling; this is unsuitable for a one-master-cycle event pulse. User toggle/OSD pause are held states; actual hiscore pause-request duration and pause/reset hardware behavior remain acceptance items. No aggregate MTBF or timing closure is claimed before the new fit.

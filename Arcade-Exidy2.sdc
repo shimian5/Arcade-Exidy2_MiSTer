@@ -223,6 +223,16 @@ set_false_path -from [get_keepers {*exidyAB:sound_board|pia6821:PIA_8B|*}] -to [
 # metastability stage, so it is exempt from setup/hold; the second flop is timed.
 set_false_path -to [get_keepers {*exidyAB:sound_board|exidyResetSync:audio_reset|rst_meta}]
 
+# Pause is a held single-bit level sampled by a two-register audio-domain
+# synchronizer. Only its first metastability stage may violate setup/hold;
+# the stage-to-stage path and the ready/mute consumers remain timed. Force
+# identification in RTL even though the two source PLL clocks are related.
+set pause_first_stage [get_keepers {*exidyAB:sound_board|exidyPauseSync:audio_pause|pause_meta}]
+if {[get_collection_size $pause_first_stage] != 1} {
+    error "Expected exactly one audio pause first-stage register"
+}
+set_false_path -to $pause_first_stage
+
 # Hardware-profile byte (MRA index 1, mod_other) is written only while a file is
 # downloading, with the core held in reset, then is static. The audio board reads
 # it (pcb[4] etc.) on the 14.37 MHz audio clock, so constrain only these
