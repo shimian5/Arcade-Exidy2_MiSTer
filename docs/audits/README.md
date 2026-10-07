@@ -65,3 +65,6 @@ The next three bounded units should prepare deterministic Venture/Targ/Spectar r
 - [Counter pulse plan](source/counter-clock-constraint-plan.md): source-guarded pulse recurrence and edge tuples, fitted pin/coverage validation pending.
 - [FAX input candidate](../design/fax-controls.md): profile-gated four-answer inputs and eventual MRA element; no production wiring yet.
 - [Mouse Trap speech reuse](../design/mousetrap-speech-reuse.md): local Z80 and CVSD candidate availability, with missing bus/clock/audio bindings.
+
+- [Teeter MRA candidate](mra/teeter-candidate.md) and [NMI contract](source/teeter-nmi-contract.md): 17-part loader metadata passes; missing periodic interrupt identified, production controls/NMI still open.
+- [Counter clock discovery](source/counter-clock-discovery.md): post-fit diagnostic helper with singleton collection guards; awaiting completed fit.

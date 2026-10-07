@@ -1,0 +1,40 @@
+<misterromdescription>
+  <name>Teeter Torture (integration candidate)</name>
+  <mameversion>0288</mameversion>
+  <setname>teetert</setname>
+  <year>1982</year>
+  <manufacturer>Exidy</manufacturer>
+  <category>Action</category>
+  <rbf>Exidy2</rbf>
+  <rotation>horizontal</rotation>
+  <!-- Requires Teeter controls and 600 Hz NMI integration; not a released game. -->
+  <buttons names="Fire,Unused 2,Unused 3,Unused 4,Start 1P,Start 2P,Coin A,Coin B,Pause" default="A,B,X,Y,Start,Select,L,R" />
+  <switches default="00,DE,FF,00,00,00,00,00">
+    <dip bits="9,10" name="Bonus Life" ids="50000,40000,30000,20000" />
+    <dip bits="11,12,15" name="Coinage" ids="Pence A 2C/1C B 1C/3C,1C/3C 2C/7C,Pence A 1C/1C B 1C/4C,Pence A 1C/1C B 1C/5C,1C/4C,1C/2C,2C/1C,1C/1C" />
+    <dip bits="13,14" name="Lives" ids="5,4,3,2" />
+  </switches>
+  <rom index="0" md5="none" zip="teetert.zip" type="merged|nonmerged">
+    <part repeat="0x8000">00</part>
+    <part name="13a-cpu" crc="f4e4d991" />
+    <part name="12a-cpu" crc="c6d8cb04" />
+    <part name="11a-cpu" crc="bac9b259" />
+    <part name="10a-cpu" crc="3ae7e445" />
+    <part name="9a-cpu" crc="0cba424d" />
+    <part name="8a-cpu" crc="68de66e7" />
+    <part name="7a-cpu" crc="84491333" />
+    <part name="6a-cpu" crc="3600d465" />
+    <part repeat="0x1800">FF</part>
+    <part name="3a-ac" crc="83b8836f" />
+    <part name="4a-ac" crc="5154c39e" />
+    <part name="5a-ac" crc="1e1e3916" />
+    <part name="6a-ac" crc="80f3357a" />
+    <part name="7a-ac" crc="466addc7" />
+    <part name="11d-cpu" crc="0fe70b00" />
+    <part name="tt5c.129" crc="43b35bb7" />
+    <part name="tt6d.123" crc="e26f9053" />
+    <part name="tt14h.123" crc="f76b4fcf" />
+  </rom>
+  <rom index="1"><part>D0</part></rom>
+  <rom index="2"><part>37</part></rom>
+</misterromdescription>
