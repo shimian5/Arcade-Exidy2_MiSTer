@@ -15,3 +15,7 @@ python3 -u tools/run_tests.py
 Result: Verilator 5.052; 8 results, 7 PASS, 0 FAIL, 1 SKIP. The passing results were audio mono mix, pause synchronizer and mute/ready alignment, audio-mix mutant rejection, interrupt cause profiles, audio reset synchronizer, reset release (including bridge and two negative controls), and connected expansion suite including ROM cases. Audio RAM MAME trace replay was skipped because no `--traces DIR` was supplied and the sequence traces were unavailable. No Quartus run was part of this change.
 
 Implementation evidence is simulation-level only. The runner test does not instantiate the full T65 or prove physical metastability resolution, placement, or timing closure. Add `rtl/pause_sync.v` to `rtl/index.qip` and verify the synchronizer-chain identification, first-stage exception scope if one is needed, and the former critical path in a fresh Quartus report. Keep the second-stage-to-consumer paths timed and avoid a broad pause or audio-clock exception.
+
+## Full-flow integration follow-up
+
+The module is now included in `rtl/index.qip`. The first full-flow attempt failed during elaboration because the multiword `SYNCHRONIZER_IDENTIFICATION` attribute value was unquoted. The value is now escaped and quoted inside the Verilog attribute string. This changes tool metadata only; full-flow verification follows. The functional test passed before the metadata repair, and no timing exception was added for pause.

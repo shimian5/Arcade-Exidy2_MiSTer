@@ -5,8 +5,8 @@ module exidyPauseSync (
 	input  pause_in,
 	output pause_audio
 );
-	(* altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED IF ASYNCHRONOUS" *) reg pause_meta = 1'b0;
-	(* altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED IF ASYNCHRONOUS" *) reg pause_sync = 1'b0;
+	(* altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION \"FORCED IF ASYNCHRONOUS\"" *) reg pause_meta = 1'b0;
+	(* altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION \"FORCED IF ASYNCHRONOUS\"" *) reg pause_sync = 1'b0;
 
 	always @(posedge audio_clk) begin
 		pause_meta <= pause_in;
