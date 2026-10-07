@@ -1,0 +1,11 @@
+# Fixed-PLL timing model repair — 2026-10-07
+
+`Arcade-Exidy2.sdc` now derives fixed PLL clocks from the implemented IP instead of manually overriding the core VCO and dividers with stale values. It also removes obsolete output-1 uncertainty settings and fixed-PLL uncertainty overrides, letting Quartus derive uncertainty. Nominal HDMI constraints are retained; runtime HDMI reconfiguration coverage remains open. Existing PIA/reset/profile exceptions are unchanged in scope.
+
+Source contract: [PLL audit](pll-constraint-contract.md). A read-only replay against the already fitted incoming image reports actual core periods of 22.146 ns (master) and 69.604 ns (audio). It exposes setup failures previously hidden by the audio clock's incorrect 183.333 ns model: PIA_8B data/DDR to the main CPU input register, worst -0.993 ns, and main pause to audio CPU, worst -0.776 ns in the top-eight sample. Hold in that replay remains positive (+0.168 ns minimum). This replay is diagnosis, not a full-flow build or final timing acceptance.
+
+Audio pause is corrected separately by `exidyPauseSync`; the PIA return-data path remains timed for a fresh fit to optimize before considering RTL changes. No additional false path or multicycle exception was added. Master/audio are outputs of the same PLL; old descriptions calling them unrelated FPGA oscillators were corrected.
+
+The helper `tools/timing/replay_constraints.tcl` reads an explicit root SDC and the framework SDC against an already completed project netlist. It writes ignored clock/top-path reports and does not perform fitting or assembly. Production acceptance always requires a complete unsandboxed PowerShell `quartus_sh --flow compile Arcade-Exidy2` after a change.
+
+Full-flow verification of this repair plus audio pause is the next gate. Generated-clock, data-event, programmable asynchronous-reset and PIA protocol issues remain separate acceptance items; a positive summary cannot establish complete setup/hold coverage.
