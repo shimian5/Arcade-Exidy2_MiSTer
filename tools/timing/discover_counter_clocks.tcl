@@ -54,7 +54,7 @@ proc find_q_pin {keeper_name leaf} {
         "*|${leaf}"]
     set found_names [list]
     foreach pattern $patterns {
-        set pins [get_pins -nowarn -hierarchical $pattern]
+        set pins [get_pins -nowarn $pattern]
         foreach_in_collection pin $pins {
             set name [get_node_info -name $pin]
             if {[lsearch -exact $found_names $name] < 0} { lappend found_names $name }
@@ -88,11 +88,11 @@ proc find_parent_clock {source_pin_name description} {
 }
 
 set specs [list \
-    [list BCLK  {*|exidy2:ex2|BCLK}  {*|pll|pll_inst|altera_pll_i|general\[0\].gpll~PLL_OUTPUT_COUNTER|divclk} {1 3 17}] \
-    [list PH_1  {*|exidy2:ex2|PH_1}  {*|pll|pll_inst|altera_pll_i|general\[0\].gpll~PLL_OUTPUT_COUNTER|divclk} {63 65 191}] \
-    [list PH_6  {*|exidy2:ex2|PH_6}  {*|pll|pll_inst|altera_pll_i|general\[0\].gpll~PLL_OUTPUT_COUNTER|divclk} {1 3 129}] \
-    [list auPH0 {*|exidyAB:sound_board|auPH0} {*|pll|pll_inst|altera_pll_i|general\[2\].gpll~PLL_OUTPUT_COUNTER|divclk} {1 3 33}] \
-    [list auPH0B {*|exidyAB:sound_board|auPH0B} {*|pll|pll_inst|altera_pll_i|general\[2\].gpll~PLL_OUTPUT_COUNTER|divclk} {3 5 35}]]
+    [list BCLK  {*|exidy2:ex2|BCLK}  {*|pll|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk} {1 3 17}] \
+    [list PH_1  {*|exidy2:ex2|PH_1}  {*|pll|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk} {63 65 191}] \
+    [list PH_6  {*|exidy2:ex2|PH_6}  {*|pll|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk} {1 3 129}] \
+    [list auPH0 {*|exidyAB:sound_board|auPH0} {*|pll|pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk} {1 3 33}] \
+    [list auPH0B {*|exidyAB:sound_board|auPH0B} {*|pll|pll_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk} {3 5 35}]]
 
 set detail_file [open [file join $report_dir discovery.txt] w]
 set candidate_file [open [file join $report_dir candidate-counter-clocks.sdc.txt] w]
@@ -102,15 +102,15 @@ report_clocks -file [file join $report_dir existing-clocks.rpt]
 
 foreach spec $specs {
     lassign $spec clock_name reg_pattern source_pattern edges
-    set keeper_collection [get_registers -nowarn -hierarchical $reg_pattern]
+    set keeper_collection [get_registers -nowarn $reg_pattern]
     set keeper [require_one "$clock_name register selector $reg_pattern" $keeper_collection]
     set keeper_name [object_name $keeper register]
     set leaf [lindex [split $keeper_name |] end]
     set q_pin_name [find_q_pin $keeper_name $leaf]
-    set q_pin_collection [get_pins -nowarn -hierarchical $q_pin_name]
+    set q_pin_collection [get_pins -nowarn $q_pin_name]
     set q_pin [require_one "$clock_name fitted Q pin $q_pin_name" $q_pin_collection]
 
-    set source_collection [get_pins -nowarn -hierarchical $source_pattern]
+    set source_collection [get_pins -nowarn $source_pattern]
     set source_pin [require_one "$clock_name PLL output source $source_pattern" $source_collection]
     set source_pin_name [object_name $source_pin pin]
     set parent_clock [find_parent_clock $source_pin_name $clock_name]

@@ -68,6 +68,27 @@ create_generated_clock -name {pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|f
 
 # Fixed PLL clocks come from implemented IP; preserve nominal HDMI constraints above.
 derive_pll_clocks
+# Registered divider pulses are real clocks on legacy board registers.
+# Source equations and fitted Q/source collections were independently checked.
+# Keep their relationships timed; do not convert hold failures into exceptions.
+proc exidy_counter_clock {name pll_index edges target_name} {
+    set source_name [format {emu|pll|pll_inst|altera_pll_i|general[%d].gpll~PLL_OUTPUT_COUNTER|divclk} $pll_index]
+    set source [get_pins $source_name]
+    set parent [get_clocks $source_name]
+    set target [get_pins $target_name]
+    foreach collection [list $source $parent $target] {
+        if {[get_collection_size $collection] != 1} {
+            error "Expected one source, parent and target for Exidy counter clock $name"
+        }
+    }
+    create_generated_clock -name $name -source $source -master_clock $parent -edges $edges $target
+}
+exidy_counter_clock BCLK   0 {1 3 17}    {emu|ex2|BCLK|q}
+exidy_counter_clock PH_1   0 {63 65 191} {emu|ex2|PH_1|q}
+exidy_counter_clock PH_6   0 {1 3 129}   {emu|ex2|PH_6|q}
+exidy_counter_clock auPH0  2 {1 3 33}    {emu|ex2|sound_board|auPH0|q}
+exidy_counter_clock auPH0B 2 {3 5 35}    {emu|ex2|sound_board|auPH0B|q}
+rename exidy_counter_clock {}
 derive_clock_uncertainty
 set_clock_uncertainty -rise_from [get_clocks {pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk}] -rise_to [get_clocks {pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk}] -setup 0.200  
 set_clock_uncertainty -rise_from [get_clocks {pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk}] -rise_to [get_clocks {pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk}] -hold 0.080  
