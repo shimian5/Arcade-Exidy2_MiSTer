@@ -101,6 +101,16 @@ dpram_dc #(.widthad_a(11)) AUDIO_RAM //expanded ram for a test
 wire PIB_IRQA,PIB_IRQB;
 wire PIA_8B_CA2_out,PIA_8B_CB2_out,PIA_9B_CA2_out,PIA_9B_CB2_out;
 wire [7:0] audio_DI_bus,audio_DO_bus;
+wire [7:0] audio_DO_bus_master;
+
+// Stage the complete return byte on the main PIA clock. The clocks are
+// related PLL outputs, so this input path remains subject to normal timing.
+exidyPiaReturn pia_return_data(
+	.master_clk(master_clock),
+	.reset_n(RESET_n),
+	.audio_byte(audio_DO_bus),
+	.main_byte(audio_DO_bus_master)
+);
 
 //The PIAs @9B & 8B of the audio expansion board provide a handshake between the main CPU and the audio CPU
 pia6821 PIA_9B( //MAIN CPU INTERFACE
@@ -114,7 +124,7 @@ pia6821 PIA_9B( //MAIN CPU INTERFACE
 	.irqa(),
 	.irqb(),
 
-	.pa_i(audio_DO_bus),
+	.pa_i(audio_DO_bus_master),
 	.pa_o(),
 	.pa_oe(),
 	.pa_ddr_ovrd(),
