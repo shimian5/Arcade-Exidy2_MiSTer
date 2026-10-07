@@ -1,6 +1,6 @@
 # Stopping point — 2026-10-07
 
-Branch `claude/nice-goodall-idlhs4`, commits authored as shimian5. Work continues in bounded blocks; Quartus runs happen on the owner's machine on request. No pull request has been opened.
+For the next agent start with [HANDOFF.md](HANDOFF.md). Branch `claude/nice-goodall-idlhs4`, commits authored as shimian5. Work continues in bounded blocks; Quartus runs happen on the owner's machine on request. No pull request has been opened.
 
 ## Production changes since the baseline (all unproven on hardware)
 
