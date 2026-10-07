@@ -21,6 +21,7 @@ Production edits compile together locally at `594b8dd`, but main setup timing fa
 | 5 | Timing: false paths for the PIA 9B↔8B handshake, static profile byte `mod_other[*]`, and the synchronizer's first flop; audio-clock reset synchronizer | `a768479`, `c4e70ba`, `70fb5df` | `Arcade-Exidy2.sdc`, `rtl/reset_sync.v`, `rtl/audio_board.v` |
 | 6 | Audio-domain pause sampling for CPU ready and mixer mute | `30dbc10`, attribute quoting `594b8dd` | `rtl/pause_sync.v`, `rtl/audio_board.v`, `rtl/index.qip` |
 | 7 | Derive actual fixed PLL clocks and uncertainty; remove stale clock overrides | `07a1f21` | `Arcade-Exidy2.sdc` |
+| 8 | Whole-byte PIA reply staging; one master-cycle latency; paired-PIA/CPU sampling tests pass, new full flow pending | `3341f08` | `rtl/pia_return.v`, `rtl/audio_board.v`, `rtl/index.qip` |
 
 Release MRAs and RBFs under `releases/` are untouched. Candidate MRAs enabling profile 1/2 are in `candidates/mra` (Venture index-1 byte `0x50`, Pepper II/Hard Hat `0xB0`; Teeter Torture would be `0xD0`; Mouse Trap stays `0x10`).
 
@@ -28,7 +29,7 @@ Isolated expansion adapter (CVSD/FAX loading, W02): increments 1-15 in `docs/des
 
 ## First actions (local)
 1. Read [corrected-clock build](docs/audits/source/local-corrected-clock-build-2026-10-07.md): compilation succeeded, master timing fails on PIA8 reply data/DDR to main CPU input; audio timing passes. Read the failing source and destination before modifying RTL/constraints. Keep this reply chain timed; establish byte coherence and latency before changing its behavior.
-2. Fresh local MAME RAM replay is complete: 11 PASS, 0 FAIL, 0 SKIP ([evidence](docs/audits/source/local-audio-ram-replay.md)). Finish/check the local GHDL 6840 replay, then remaining waveform/noise/level references. Portable tools need literal paths; absence from PATH does not mean unavailable.
+2. Fresh local MAME RAM replay is complete: 11 PASS, 0 FAIL, 0 SKIP ([evidence](docs/audits/source/local-audio-ram-replay.md)). Local guarded GHDL 6840 pitch replay is also complete; remaining waveform/noise/level references are open. Portable tools need literal paths; absence from PATH does not mean unavailable.
 3. After a repair, run a complete unsandboxed PowerShell Quartus flow. Generated clocks, programmable resets and existing PIA exceptions still require coverage review.
 4. When a timing-accepted candidate is ready, follow [hardware checklist](docs/audits/hardware/audio-irq-candidate-checklist.md) with HDMI and Direct Video/S-Video. Sprite fragment replay already passes; Venture arrow remains unresolved.
 

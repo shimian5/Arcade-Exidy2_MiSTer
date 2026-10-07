@@ -55,3 +55,6 @@ The next three bounded units should prepare deterministic Venture/Targ/Spectar r
 
 - [Local 6840 replay](source/local-6840-replay.md): guarded timer window, all three pitch medians0.997, source preparation helpers and limits.
 - [Teeter input contract](source/teeter-input-contract.md): callback shifting, per-read step semantics and actual local MAME input-address capture.
+
+- [PIA staging candidate](source/pia-return-register-candidate.md): all seven phases pass, including previous-register CPU sampling; new full-flow result pending.
+- [Teeter controls candidate](source/teeter-controls-candidate.md): standalone spinner/D-pad/analog and per-read event logic with registered-byte boundary checks; production/profile/MRA integration pending.
