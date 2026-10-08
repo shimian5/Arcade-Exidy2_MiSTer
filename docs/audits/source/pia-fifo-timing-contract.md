@@ -102,8 +102,11 @@ Production now selects the FIFO and forwarded CB2, with the corrected narrow
 constraints. Its independent ModelSim replay passes 16 paired PIA cases and
 16 saturated streams, including near-edge reset assertion and clock
 coincidence. Evidence: ignored
-`simulation/pia_return_mailbox/modelsim-20261007-232346-301/`. A fresh full
-production flow is required; the diagnostic replay is not full-flow signoff.
+`simulation/pia_return_mailbox/modelsim-20261007-232346-301/`. The fresh full
+production flow at `016b4c9` now passes all reported timing: master +2.377 ns,
+audio +16.331 ns. Bundle setup/hold is +15.228/+0.498 ns; local reset
+release and interstage D paths pass. See [full-flow build evidence](pia-fifo-build-2026-10-07.md).
+The first diagnostic replay is retained as historical investigation only.
 Release files remain unchanged. Remaining legacy event
 clocks/latches and exception coverage must be reported separately; this
 transport does not repair every unconstrained board event.
