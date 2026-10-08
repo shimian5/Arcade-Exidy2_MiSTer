@@ -66,9 +66,13 @@ waiver or clock-domain-wide exception is added.
 Installed Quartus 17 command help confirms `set_max_delay` is clock-relative
 and does not support `-datapath_only`. Consequently fitted path delay, skew,
 uncertainty and exception precedence must be inspected alongside slack; a
-positive summary alone does not establish the physical bundle bound. Narrow
-first-stage reset-conditioner exceptions do not excuse second-stage or local
-reset recovery/removal.
+positive summary alone does not establish the physical bundle bound. Only the four asynchronous-clear input pins of the reset conditioners are
+excepted. Both stages share the asynchronous reset assertion; their D paths
+remain timed, as do the local reset-release-to-state recovery/removal paths.
+This follows the reset synchronizer input constraint described in
+[Altera reset-synchronizer guidance](https://docs.altera.com/r/docs/683243/25.3/quartus-prime-pro-edition-user-guide-timing-analyzer/resolve-violation-asynchronous-reset-is-not-synchronized).
+The output mask uses only the local master reset-release register; a raw
+audio reset mask would reintroduce a cross-domain data path.
 
 ## Evidence gates
 
@@ -83,9 +87,23 @@ edge coincidence and its one-picosecond neighbors. These 16 streams delivered
 65,536 snapshots in total. Root evidence is ignored under
 `simulation/pia_return_mailbox/modelsim-20261007-230323-790/`.
 
-An isolated full-project Quartus flow is running under
-`simulation/pia-fifo-full-core/`. Production RTL, SDC and release files have
-not yet changed. Promotion requires the final functional replay plus fitted
-setup, hold, recovery/removal and bounded-path reports. Remaining legacy event
+The first isolated full-project flow under `simulation/pia-fifo-full-core/`
+completed with exit 3: the post-fit read-pointer collection includes a physical
+replica, so the original physical-count assertion rejected it. The corrected
+selector verifies all three logical Gray bits and includes replicas. A
+read-only replay on that completed fit gives bundle setup +15.143 ns and
+Gray-crossing setup +15.961/+16.075 ns; its remaining 11 setup failures all
+start at the raw audio-reset output mask. That mask has now been removed.
+The four recovery failures target only external reset inputs to conditioner
+release registers; their clear pins now have the explicit input exception.
+Local state recovery was already +67.930 ns audio/+19.598 ns master.
+
+Production now selects the FIFO and forwarded CB2, with the corrected narrow
+constraints. Its independent ModelSim replay passes 16 paired PIA cases and
+16 saturated streams, including near-edge reset assertion and clock
+coincidence. Evidence: ignored
+`simulation/pia_return_mailbox/modelsim-20261007-232346-301/`. A fresh full
+production flow is required; the diagnostic replay is not full-flow signoff.
+Release files remain unchanged. Remaining legacy event
 clocks/latches and exception coverage must be reported separately; this
 transport does not repair every unconstrained board event.

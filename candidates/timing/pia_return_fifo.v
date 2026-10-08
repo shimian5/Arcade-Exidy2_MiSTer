@@ -127,7 +127,9 @@ module exidyPiaReturnFifo (
 		end
 	end
 
-	assign main_byte = (combined_reset_n && master_reset_release) ? main_byte_data : 8'h00;
-	assign main_notify = (combined_reset_n && master_reset_release) ? main_notify_data : 1'b0;
+	// Local release clears asynchronously on either input reset. Do not bypass
+	// it with a raw audio-reset mask in the master-domain data/notification path.
+	assign main_byte = master_reset_release ? main_byte_data : 8'h00;
+	assign main_notify = master_reset_release ? main_notify_data : 1'b0;
 	assign overflow = overflow_sticky;
 endmodule

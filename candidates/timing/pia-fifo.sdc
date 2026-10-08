@@ -16,13 +16,38 @@ set pia_fifo_capture [pia_fifo_nodes {*exidyPiaReturn:pia_return_data|main_byte_
 set_max_delay -from $pia_fifo_words -to $pia_fifo_capture 20.000
 # Gray bus routing is shorter than either source period. First synchronizer
 # stages may encounter metastability; stage-to-stage paths stay normally timed.
-set pia_fifo_write [pia_fifo_nodes {*exidyPiaReturn:pia_return_data|write_gray[*]} 3]
-set pia_fifo_read [pia_fifo_nodes {*exidyPiaReturn:pia_return_data|read_gray[*]} 3]
+proc pia_fifo_gray_nodes {name} {
+    set pattern [format {*exidyPiaReturn:pia_return_data|%s[*]} $name]
+    set nodes [get_registers $pattern]
+    set bits {}
+    set expression [format {\|%s\[([0-2])\](~DUPLICATE[0-9]*)?$} $name]
+    foreach_in_collection node $nodes {
+        set full_name [get_register_info -name $node]
+        if {![regexp $expression $full_name unused bit]} {
+            error "Unexpected PIA FIFO Gray register: $full_name"
+        }
+        lappend bits $bit
+    }
+    if {[lsort -unique $bits] ne {0 1 2}} {
+        error "PIA FIFO $name is missing logical bits: $bits"
+    }
+    # Include physical replicas in the bound; do not silently drop their paths.
+    return $nodes
+}
+set pia_fifo_write [pia_fifo_gray_nodes write_gray]
+set pia_fifo_read [pia_fifo_gray_nodes read_gray]
 set pia_fifo_write_meta [pia_fifo_nodes {*exidyPiaReturn:pia_return_data|write_gray_meta[*]} 3]
 set pia_fifo_read_meta [pia_fifo_nodes {*exidyPiaReturn:pia_return_data|read_gray_meta[*]} 3]
 set_max_delay -from $pia_fifo_write -to $pia_fifo_write_meta 20.000
 set_max_delay -from $pia_fifo_read -to $pia_fifo_read_meta 20.000
-# Only the first stage of each reset conditioner samples an asynchronous level.
-set pia_fifo_reset_meta [pia_fifo_nodes {*exidyPiaReturn:pia_return_data|audio_reset_meta *exidyPiaReturn:pia_return_data|master_reset_meta} 2]
-set_false_path -to $pia_fifo_reset_meta
+# Raw reset asserts both conditioner stages asynchronously. Except ONLY their
+# asynchronous-clear input pins. Meta-to-release data and local release-to-state
+# recovery/removal remain timed. This is the reset synchronizer input contract,
+# not an exception on the synchronizer data chain or the FIFO state resets.
+set pia_fifo_reset_pins [get_pins -compatibility_mode {*|pia_return_data|audio_reset_meta|clrn *|pia_return_data|audio_reset_release|clrn *|pia_return_data|master_reset_meta|clrn *|pia_return_data|master_reset_release|clrn}]
+if {[get_collection_size $pia_fifo_reset_pins] != 4} {
+    error "PIA FIFO expected exactly four conditioner clear pins"
+}
+set_false_path -through $pia_fifo_reset_pins
 rename pia_fifo_nodes {}
+rename pia_fifo_gray_nodes {}

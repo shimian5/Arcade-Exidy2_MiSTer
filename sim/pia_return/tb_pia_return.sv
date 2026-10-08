@@ -6,7 +6,7 @@ module tb_pia_return;
 	logic [7:0] audio_byte = 0;
 	wire [7:0] main_byte;
 
-	exidyPiaReturn dut(.*);
+	exidyPiaReturnLegacy dut(.*);
 
 	task automatic tick_master;
 		master_clk = 1;

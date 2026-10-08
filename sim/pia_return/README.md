@@ -1,3 +1,7 @@
+# Historical reply-pipeline baseline
+
+These fixtures preserve the pre-FIFO pipeline and are no longer production acceptance. Run `pia-return-legacy` for the archived helper. Current production checks are in [../pia_return_mailbox/README.md](../pia_return_mailbox/README.md).
+
 # PIA return-byte candidate tests
 
 `tb_pia_return_pair.vhd` exercises the production `modules/pia/pia6821.vhd`

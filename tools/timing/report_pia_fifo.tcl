@@ -64,6 +64,30 @@ proc pia_keepers {signal_pattern expected} {
     return [require_count "PIA FIFO keepers {$signal_pattern}" $collection $expected]
 }
 
+proc pia_gray_registers {signal_pattern} {
+    # Quartus may duplicate a Gray pointer bit during fitting. Keep every
+    # physical source in timing reports, but require the three logical indices
+    # 0..2 and reject unexpected names or missing logical bits.
+    set collection [get_registers -nowarn [pia_patterns $signal_pattern]]
+    set logical [list]
+    set physical_names [list]
+    foreach_in_collection reg $collection {
+        set name [get_register_info -name $reg]
+        if {![regexp {\|read_gray\[([0-2])\](~DUPLICATE[0-9]*)?$} $name -> index duplicate]} {
+            error "Unexpected fitted read_gray register name: $name"
+        }
+        lappend physical_names $name
+        if {$duplicate eq "" && [lsearch -exact $logical $index] < 0} {
+            lappend logical $index
+        }
+    }
+    if {[llength $logical] != 3 || [lsort -integer -unique $logical] ne {0 1 2}} {
+        error "read_gray: expected logical bits 0, 1, and 2; found {$logical}; physical names={$physical_names}"
+    }
+    puts "PIA FIFO read_gray: logical=3 physical=[collection_count $collection] names={$physical_names}"
+    return $collection
+}
+
 proc report_pair {label from to npaths report_dir} {
     report_timing -setup -from $from -to $to -npaths $npaths -detail full_path \
         -file [file join $report_dir "$label-setup.rpt"]
@@ -91,6 +115,8 @@ puts $summary "Project SDCs: Arcade-Exidy2.sdc, sys/sys_top.sdc"
 puts $summary "No inline timing constraints or exceptions are applied by this script."
 puts $summary "If the loaded project SDC contains the FIFO's 20 ns max-delay bound, it is a bundled-data protocol bound distinct from the related PLL-edge setup/hold relationship. Confirm its presence and endpoints in exceptions.rpt."
 puts $summary "FIFO data reports reflect the loaded project constraints; this script does not false-path the bundle."
+puts $summary "If the FIFO SDC is loaded, its pin-level reset exception covers all four conditioner CLR inputs (meta and release flops in both domains). Do not interpret missing conditioner recovery/removal paths as timed; inspect exceptions.rpt."
+puts $summary "The meta-to-release D paths and local release-to-state recovery/removal paths are reported separately and remain timed under that exception."
 puts $summary "These reports do not prove FIFO occupancy/overflow behavior, protocol correctness, or hardware metastability probability."
 puts $summary ""
 
@@ -101,15 +127,16 @@ set fifo_capture [pia_registers {main_byte_data* pending_notify_value} 9]
 set write_gray [pia_registers {write_gray[*]} 3]
 set write_gray_meta [pia_registers {write_gray_meta[*]} 3]
 set write_gray_sync [pia_registers {write_gray_sync[*]} 3]
-set read_gray [pia_registers {read_gray[*]} 3]
+set read_gray [pia_gray_registers {read_gray[*]}]
 set read_gray_meta [pia_registers {read_gray_meta[*]} 3]
 set read_gray_sync [pia_registers {read_gray_sync[*]} 3]
 
 puts $summary "Resolved PIA FIFO collections: fifo_mem=[collection_count $fifo_mem] capture=[collection_count $fifo_capture]"
 puts $summary "Gray pointer collections: write=[collection_count $write_gray] write_meta=[collection_count $write_gray_meta] write_sync=[collection_count $write_gray_sync] read=[collection_count $read_gray] read_meta=[collection_count $read_gray_meta] read_sync=[collection_count $read_gray_sync]"
 
-# Reset conditioner selectors are reported without changing the loaded reset
-# exceptions. Recovery/removal results must be read alongside exceptions.rpt.
+# Reset conditioner selectors are reported without changing loaded reset
+# exceptions. A pin-level exception may suppress recovery/removal at both the
+# meta and release flops' CLR inputs; exceptions.rpt is authoritative.
 set audio_reset_meta [pia_registers {audio_reset_meta} 1]
 set audio_reset_release [pia_registers {audio_reset_release} 1]
 set master_reset_meta [pia_registers {master_reset_meta} 1]
@@ -125,16 +152,18 @@ report_timing -removal -npaths 30 -detail full_path -file [file join $report_dir
 report_pair pia-fifo-bundle $fifo_mem $fifo_capture 324 $report_dir
 puts $summary "Bundle hold report is the fitted minimum-delay check. A 20 ns set_max_delay, if present in the loaded project SDC, constrains setup only; it is not a hold allowance."
 report_pair pia-write-gray-to-meta $write_gray $write_gray_meta 9 $report_dir
-report_pair pia-read-gray-to-meta $read_gray $read_gray_meta 9 $report_dir
+report_pair pia-read-gray-to-meta $read_gray $read_gray_meta \
+    [expr {[collection_count $read_gray] * [collection_count $read_gray_meta]}] $report_dir
 report_pair pia-write-gray-sync-stages $write_gray_meta $write_gray_sync 9 $report_dir
 report_pair pia-read-gray-sync-stages $read_gray_meta $read_gray_sync 9 $report_dir
 
-# Reset conditioner data stages are normally timed; only the asynchronous
-# reset input to each first stage is excepted.
+# The meta-to-release D paths are normally timed. If the candidate pin-level
+# reset exception is loaded, asynchronous CLR inputs of both conditioner stages
+# in both domains are excepted; do not claim the second-stage CLR is timed.
 report_pair pia-audio-reset-meta-to-release $audio_reset_meta $audio_reset_release 1 $report_dir
 report_pair pia-master-reset-meta-to-release $master_reset_meta $master_reset_release 1 $report_dir
 set reset_conditioners [pia_registers {audio_reset_meta audio_reset_release master_reset_meta master_reset_release} 4]
-report_async_to pia-conditioner-reset $reset_conditioners 8 $report_dir
+report_async_to pia-conditioner-clr-reset $reset_conditioners 8 $report_dir
 
 # All resettable state groups are enumerated and cardinality-checked so local
 # reset recovery/removal paths cannot silently disappear after hierarchy change.
@@ -144,14 +173,18 @@ set audio_overflow [get_registers -nowarn [pia_patterns {overflow_sticky}]]
 if {[collection_count $audio_overflow] > 1} {
     error "PIA FIFO overflow state: expected zero or one fitted register, found [collection_count $audio_overflow]"
 }
-set master_state [require_range "PIA FIFO master resettable state" \
-    [get_registers -nowarn [pia_patterns {write_gray_meta[*] write_gray_sync[*] read_binary[*] read_gray[*] main_byte_data[*] main_notify_data pending_notify pending_notify_value pop_cooldown}]] 23 24]
-puts $summary "Resettable state counts: audio_core=[collection_count $audio_state_core] overflow=[collection_count $audio_overflow] master=[collection_count $master_state]"
+set master_state [get_registers -nowarn [pia_patterns {write_gray_meta[*] write_gray_sync[*] read_binary[*] read_gray[*] main_byte_data[*] main_notify_data pending_notify pending_notify_value pop_cooldown}]]
+set master_physical_count [collection_count $master_state]
+set master_logical_count [expr {$master_physical_count - ([collection_count $read_gray] - 3)}]
+if {$master_logical_count < 23 || $master_logical_count > 24} {
+    error "PIA FIFO master resettable state: expected 23 or 24 logical registers after accounting for read_gray duplicates, found $master_logical_count logical / $master_physical_count physical"
+}
+puts $summary "Resettable state counts: audio_core=[collection_count $audio_state_core] overflow=[collection_count $audio_overflow] master_logical=$master_logical_count master_physical=$master_physical_count read_gray_physical=[collection_count $read_gray]"
 report_async_pair pia-audio-release-to-state $audio_reset_release $audio_state_core 21 $report_dir
 if {[collection_count $audio_overflow] == 1} {
     report_async_pair pia-audio-release-to-overflow $audio_reset_release $audio_overflow 1 $report_dir
 }
-report_async_pair pia-master-release-to-state $master_reset_release $master_state 24 $report_dir
+report_async_pair pia-master-release-to-state $master_reset_release $master_state $master_physical_count $report_dir
 
 # Destination FIFO output and its reset mask feed the main CPU's registered bus
 # mux. This is ordinary same-master-domain setup/hold timing, separate from the

@@ -102,16 +102,20 @@ wire PIB_IRQA,PIB_IRQB;
 wire PIA_8B_CA2_out,PIA_8B_CB2_out,PIA_9B_CA2_out,PIA_9B_CB2_out;
 wire [7:0] audio_DI_bus,audio_DO_bus;
 wire [7:0] audio_DO_bus_master;
+wire audio_CB2_master;
 
-// First capture the DDR-masked audio PIA byte in its source domain, then
-// register it on the related main PIA clock. Both paths remain timed.
+// Transport every changed byte/CB2 snapshot in order. PIA9 sees the byte
+// before its notification; source storage and Gray crossings have timed bounds.
 exidyPiaReturn pia_return_data(
 	.audio_clk(audio_clk),
 	.master_clk(master_clock),
 	.audio_reset_n(RESET_n_au),
 	.master_reset_n(RESET_n),
 	.audio_byte(audio_DO_bus),
-	.main_byte(audio_DO_bus_master)
+	.audio_notify(PIA_8B_CB2_out),
+	.main_byte(audio_DO_bus_master),
+	.main_notify(audio_CB2_master),
+	.overflow()
 );
 
 //The PIAs @9B & 8B of the audio expansion board provide a handshake between the main CPU and the audio CPU
@@ -131,7 +135,7 @@ pia6821 PIA_9B( //MAIN CPU INTERFACE
 	.pa_oe(),
 	.pa_ddr_ovrd(),
 
-	.ca1(PIA_8B_CB2_out),
+	.ca1(audio_CB2_master),
 	.ca2_i(1'b0),
 	.ca2_o(PIA_9B_CA2_out),
 	.ca2_oe(),

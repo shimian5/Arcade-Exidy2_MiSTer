@@ -26,16 +26,23 @@ PIA_GHDL_DIR ?= ../../simulation/harness/pia_return_ghdl
 PIA_GHDL ?= $(GHDL)
 PIA_GHDL_LIB ?= $(GHDL_LIB)
 
-.PHONY: pia-return pia-return-negedge noise-contract
+.PHONY: pia-return pia-return-legacy pia-return-negedge noise-contract
 pia-return:
+	mkdir -p $(PIA_RETURN_DIR)
+	$(VERILATOR) --binary --timing --top-module tb_pia_fifo_stream -DPIA_PRODUCTION -Wno-fatal --Mdir $(PIA_RETURN_DIR) ../../sim/pia_return_mailbox/tb_pia_fifo_stream.sv ../../rtl/pia_return.v > $(PIA_RETURN_DIR)/fifo-build.log 2>&1
+	$(PIA_RETURN_DIR)/Vtb_pia_fifo_stream > $(PIA_RETURN_DIR)/fifo-run.log 2>&1
+	@grep -q "PASS FIFO saturated stream" $(PIA_RETURN_DIR)/fifo-run.log
+	@echo "PASS production FIFO source-rate stream; use ModelSim runner for actual PIA/full phase checks"
+
+pia-return-legacy:
 	mkdir -p $(PIA_RETURN_DIR) $(PIA_GHDL_DIR)
 	rm -f $(PIA_GHDL_DIR)/work-obj08.cf
 	LD_LIBRARY_PATH=$(PIA_GHDL_LIB) $(PIA_GHDL) -a --std=08 --ieee=synopsys --workdir=$(PIA_GHDL_DIR) ../../modules/pia/pia6821.vhd ../../sim/pia_return/tb_pia_return_pair.vhd
 	LD_LIBRARY_PATH=$(PIA_GHDL_LIB) $(PIA_GHDL) -e --std=08 --ieee=synopsys --workdir=$(PIA_GHDL_DIR) tb_pia_return_pair
 	@for phase in 0 1 2 3 4 5 6; do LD_LIBRARY_PATH=$(PIA_GHDL_LIB) $(PIA_GHDL) -r --std=08 --ieee=synopsys --workdir=$(PIA_GHDL_DIR) tb_pia_return_pair -gPHASE_NS=$$phase --assert-level=error > $(PIA_GHDL_DIR)/phase-$$phase.log 2>&1 || { cat $(PIA_GHDL_DIR)/phase-$$phase.log; exit 1; }; grep -q "PASS paired production PIA return byte phase=" $(PIA_GHDL_DIR)/phase-$$phase.log || { cat $(PIA_GHDL_DIR)/phase-$$phase.log; exit 1; }; done
-	$(VERILATOR) --binary --timing --top-module tb_pia_return -Wno-fatal --Mdir $(PIA_RETURN_DIR) ../../sim/pia_return/tb_pia_return.sv ../../rtl/pia_return.v > $(PIA_RETURN_DIR)/build.log 2>&1
+	$(VERILATOR) --binary --timing --top-module tb_pia_return -Wno-fatal --Mdir $(PIA_RETURN_DIR) ../../sim/pia_return/tb_pia_return.sv ../../candidates/timing/pia_return_pipeline_baseline.v > $(PIA_RETURN_DIR)/build.log 2>&1
 	$(PIA_RETURN_DIR)/Vtb_pia_return > $(PIA_RETURN_DIR)/run.log 2>&1
-	@echo "PASS paired production PIA handshake and staged-byte phase sweep plus production Verilog register test"
+	@echo "PASS historical staged-byte baseline and paired PIA model; not FIFO production acceptance"
 
 PIA_NEG_DIR ?= ../../simulation/harness/pia_return_negedge
 PIA_NEG_GHDL_DIR ?= ../../simulation/harness/pia_return_negedge_ghdl
