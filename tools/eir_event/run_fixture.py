@@ -19,8 +19,9 @@ TB = ROOT / "sim" / "eir_event" / "tb.sv"
 DEFAULT_RUN = ROOT / "simulation" / "eir_event"
 START = "reg cDET,rCPU_IRQ,COINT;"
 END = "always @(posedge rCPU_IRQ) EIR <="
-EXPECTED_ASSERTIONS = 14
-EXPECTED_CHECK_SITES = 10
+EXPECTED_ASSERTIONS = 34
+EXPECTED_CHECK_SITES = 13
+CANDIDATE = ROOT / "candidates" / "timing" / "irq_event_sticky.sv"
 
 
 def sha256(path: Path) -> str:
@@ -72,6 +73,8 @@ endmodule""")
         "rtlSha256": sha256(RTL),
         "collisionHelper": "rtl/int_cause.v",
         "collisionHelperSha256": sha256(CAUSE),
+        "candidate": "candidates/timing/irq_event_sticky.sv",
+        "candidateSha256": sha256(CANDIDATE),
         "template": "sim/eir_event/tb.sv",
         "templateSha256": sha256(TB),
         "sourceAnchors": {"start": START, "endPrefix": END},
@@ -111,7 +114,8 @@ def main() -> int:
         src = (run_dir / "extracted_eir_event.sv").as_posix().replace("C:/", "/mnt/c/")
         helper = CAUSE.as_posix().replace("C:/", "/mnt/c/")
         build = (exec_dir / "obj_dir").as_posix().replace("C:/", "/mnt/c/")
-        compile_args = ["verilator", "--binary", "--timing", "-Wno-fatal", "--Mdir", build, "--top-module", "tb", src, helper]
+        candidate = CANDIDATE.as_posix().replace("C:/", "/mnt/c/")
+        compile_args = ["verilator", "--binary", "--timing", "-Wno-fatal", "--Mdir", build, "--top-module", "tb", src, helper, candidate]
         compile_shell = "export MAKEFLAGS=OPT_FAST=-O0; exec " + shlex.join(compile_args)
         compile_proc = subprocess.run(["wsl.exe", "-d", "archlinux", "--", "bash", "-lc", compile_shell], cwd=ROOT, text=True, capture_output=True)
         (exec_dir / "compile.stdout.log").write_text(compile_proc.stdout, encoding="utf-8")

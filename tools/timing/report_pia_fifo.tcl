@@ -64,17 +64,21 @@ proc pia_keepers {signal_pattern expected} {
     return [require_count "PIA FIFO keepers {$signal_pattern}" $collection $expected]
 }
 
-proc pia_gray_registers {signal_pattern} {
+proc pia_gray_registers {pointer} {
     # Quartus may duplicate a Gray pointer bit during fitting. Keep every
     # physical source in timing reports, but require the three logical indices
     # 0..2 and reject unexpected names or missing logical bits.
+    if {$pointer ne "read_gray" && $pointer ne "write_gray"} {
+        error "Unknown Gray pointer $pointer"
+    }
+    set signal_pattern [format {%s[*]} $pointer]
     set collection [get_registers -nowarn [pia_patterns $signal_pattern]]
     set logical [list]
     set physical_names [list]
     foreach_in_collection reg $collection {
         set name [get_register_info -name $reg]
-        if {![regexp {\|read_gray\[([0-2])\](~DUPLICATE[0-9]*)?$} $name -> index duplicate]} {
-            error "Unexpected fitted read_gray register name: $name"
+        if {![regexp {\|(read_gray|write_gray)\[([0-2])\](~DUPLICATE[0-9]*)?$} $name -> base index duplicate] || $base ne $pointer} {
+            error "Unexpected fitted $pointer register name: $name"
         }
         lappend physical_names $name
         if {$duplicate eq "" && [lsearch -exact $logical $index] < 0} {
@@ -82,9 +86,9 @@ proc pia_gray_registers {signal_pattern} {
         }
     }
     if {[llength $logical] != 3 || [lsort -integer -unique $logical] ne {0 1 2}} {
-        error "read_gray: expected logical bits 0, 1, and 2; found {$logical}; physical names={$physical_names}"
+        error "$pointer: expected logical bits 0, 1, and 2; found {$logical}; physical names={$physical_names}"
     }
-    puts "PIA FIFO read_gray: logical=3 physical=[collection_count $collection] names={$physical_names}"
+    puts "PIA FIFO $pointer: logical=3 physical=[collection_count $collection] names={$physical_names}"
     return $collection
 }
 
@@ -124,10 +128,10 @@ puts $summary ""
 # destination captures are the 8 data bits plus the registered notification.
 set fifo_mem [pia_keepers {fifo_mem*} 36]
 set fifo_capture [pia_registers {main_byte_data* pending_notify_value} 9]
-set write_gray [pia_registers {write_gray[*]} 3]
+set write_gray [pia_gray_registers write_gray]
 set write_gray_meta [pia_registers {write_gray_meta[*]} 3]
 set write_gray_sync [pia_registers {write_gray_sync[*]} 3]
-set read_gray [pia_gray_registers {read_gray[*]}]
+set read_gray [pia_gray_registers read_gray]
 set read_gray_meta [pia_registers {read_gray_meta[*]} 3]
 set read_gray_sync [pia_registers {read_gray_sync[*]} 3]
 
@@ -151,7 +155,8 @@ report_timing -removal -npaths 30 -detail full_path -file [file join $report_dir
 
 report_pair pia-fifo-bundle $fifo_mem $fifo_capture 324 $report_dir
 puts $summary "Bundle hold report is the fitted minimum-delay check. A 20 ns set_max_delay, if present in the loaded project SDC, constrains setup only; it is not a hold allowance."
-report_pair pia-write-gray-to-meta $write_gray $write_gray_meta 9 $report_dir
+report_pair pia-write-gray-to-meta $write_gray $write_gray_meta \
+    [expr {[collection_count $write_gray] * [collection_count $write_gray_meta]}] $report_dir
 report_pair pia-read-gray-to-meta $read_gray $read_gray_meta \
     [expr {[collection_count $read_gray] * [collection_count $read_gray_meta]}] $report_dir
 report_pair pia-write-gray-sync-stages $write_gray_meta $write_gray_sync 9 $report_dir
@@ -167,7 +172,21 @@ report_async_to pia-conditioner-clr-reset $reset_conditioners 8 $report_dir
 
 # All resettable state groups are enumerated and cardinality-checked so local
 # reset recovery/removal paths cannot silently disappear after hierarchy change.
-set audio_state_core [require_range "PIA FIFO audio resettable state" \
+proc require_logical_range {description collection minimum maximum} {
+    set names [list]
+    foreach_in_collection reg $collection {
+        set name [get_register_info -name $reg]
+        regsub {~DUPLICATE[0-9]*$} $name {} logical_name
+        lappend names $logical_name
+    }
+    set logical_count [llength [lsort -unique $names]]
+    if {$logical_count < $minimum || $logical_count > $maximum} {
+        error "$description: expected $minimum..$maximum logical registers, found $logical_count"
+    }
+    puts "$description: logical=$logical_count physical=[collection_count $collection]"
+    return $collection
+}
+set audio_state_core [require_logical_range "PIA FIFO audio resettable state" \
     [get_registers -nowarn [pia_patterns {read_gray_meta[*] read_gray_sync[*] write_binary[*] write_gray[*] previous_snapshot[*]}]] 20 21]
 set audio_overflow [get_registers -nowarn [pia_patterns {overflow_sticky}]]
 if {[collection_count $audio_overflow] > 1} {
@@ -180,7 +199,8 @@ if {$master_logical_count < 23 || $master_logical_count > 24} {
     error "PIA FIFO master resettable state: expected 23 or 24 logical registers after accounting for read_gray duplicates, found $master_logical_count logical / $master_physical_count physical"
 }
 puts $summary "Resettable state counts: audio_core=[collection_count $audio_state_core] overflow=[collection_count $audio_overflow] master_logical=$master_logical_count master_physical=$master_physical_count read_gray_physical=[collection_count $read_gray]"
-report_async_pair pia-audio-release-to-state $audio_reset_release $audio_state_core 21 $report_dir
+report_async_pair pia-audio-release-to-state $audio_reset_release $audio_state_core \
+    [collection_count $audio_state_core] $report_dir
 if {[collection_count $audio_overflow] == 1} {
     report_async_pair pia-audio-release-to-overflow $audio_reset_release $audio_overflow 1 $report_dir
 }

@@ -10,10 +10,18 @@ module exidy_eir_event_fixture (
     output wire coint,
     output wire [4:2] cause,
     output wire collision_irq,
-    output wire collision_select
+    output wire collision_select,
+    output wire candidate_irq,
+    output wire [7:0] candidate_eir
 );
     reg [7:0] EIR;
     // The runner inserts the guarded source span here, unchanged.
+    exidy_irq_event_sticky_candidate candidate (
+        .BCLK(BCLK), .COINT(COINT), .nEIR(nEIR), .VL1(VL1),
+        .cDET_sel(cDET_sel),
+        .eir_payload({!vscnt[8],!m_coina,!m_coinb,int_cause[4:2],2'b00}),
+        .irq(candidate_irq), .eir(candidate_eir)
+    );
     // It includes declarations and assignments for cDET, rCPU_IRQ, COINT,
     // INT_CAUSE, cDET_sel, and the IRQ/EIR event blocks.
 endmodule
@@ -28,7 +36,10 @@ module tb;
     wire rCPU_IRQ, COINT;
     wire [4:2] int_cause;
     wire int_coll_irq,cDET_sel;
+    wire candidate_irq;
+    wire [7:0] candidate_eir;
     integer errors=0;
+    reg [7:0] expected_profile_eir;
 
     exidy_eir_event_fixture dut(
         .master_clock(master_clock),.BCLK(BCLK),.VL1(VL1),.nEIR(nEIR),
@@ -36,9 +47,18 @@ module tb;
         .nM01VDT(nM01VDT),.nM02VDT(nM02VDT),.nSGCVID(nSGCVID),
         .CBLB(CBLB),.nCBLB(nCBLB),.eir_state(EIR),.irq(rCPU_IRQ),
         .coint(COINT),.cause(int_cause),.collision_irq(int_coll_irq),
-        .collision_select(cDET_sel));
+        .collision_select(cDET_sel),.candidate_irq(candidate_irq),
+        .candidate_eir(candidate_eir));
 
     task automatic check(input bit ok, input string label);
+        if (candidate_irq !== rCPU_IRQ) begin
+            errors=errors+1;
+            $display("FAIL candidate IRQ diverged at %s reference=%b candidate=%b",label,rCPU_IRQ,candidate_irq);
+        end
+        if (candidate_eir !== EIR) begin
+            errors=errors+1;
+            $display("FAIL candidate EIR diverged at %s reference=%02h candidate=%02h",label,EIR,candidate_eir);
+        end
         if (!ok) begin errors=errors+1; $display("FAIL %s EIR=%02h IRQ=%b COINT=%b cause=%b",label,EIR,rCPU_IRQ,COINT,int_cause); end
         else $display("PASS %s EIR=%02h IRQ=%b COINT=%b cause=%b",label,EIR,rCPU_IRQ,COINT,int_cause);
     endtask
@@ -100,6 +120,25 @@ module tb;
         nEIR=0; VL1=1; bclk_fall();
         check(!rCPU_IRQ && EIR===8'h80,"source held during EIR read is not captured");
         nEIR=1; VL1=0; bclk_rise();
+
+        // Exercise collision IRQ routing through every board profile. Each
+        // profile gets a fresh source event and read-clear acknowledgment.
+        for (integer profile=0; profile<4; profile=profile+1) begin
+            pcb={profile[1:0],6'b0};
+            case (profile)
+                0: expected_profile_eir=8'h84;
+                1: expected_profile_eir=8'h80;
+                2: expected_profile_eir=8'h80;
+                default: expected_profile_eir=8'h88;
+            endcase
+            nM01VDT=0; nM02VDT=1; nSGCVID=0; CBLB=0; nCBLB=1;
+            #1; bclk_fall();
+            check(rCPU_IRQ,"profile collision sets IRQ");
+            check(EIR===expected_profile_eir,"profile collision snapshot value");
+            bclk_rise(); nM01VDT=1; nM02VDT=1; nSGCVID=1; CBLB=1;
+            rearm();
+            check(!rCPU_IRQ,"profile collision IRQ read-clear acknowledgment");
+        end
 
         if (errors==0) $display("PASS exidy eir event fixture");
         else $display("FAIL exidy eir event fixture errors=%0d",errors);
