@@ -1,6 +1,5 @@
 `timescale 1ns/1ps
-// Candidate Teeter Torture relative-dial controls and IN0 read adapter.
-// This module is intentionally not wired into the production core yet.
+// Teeter Torture relative-dial controls and IN0 read adapter.
 module teeterControls #(
     parameter DIAL_REVERSE = 1,
     parameter [7:0] ANALOG_DEADZONE = 8'd8

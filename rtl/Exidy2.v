@@ -27,6 +27,10 @@ module exidy2(
 	output V_BLANK,
 	input RESET_n,				
 	input pause,
+	input ce_frame,
+	input dpad_pos_mode,
+	input signed [7:0] analog_x,
+	input [8:0] spinner,
 	//joystick controls
 	input m_right,
 	input m_left,	
@@ -124,7 +128,11 @@ wire [7:0]  CPU_databus_out;
 reg  [4:0] M1R, M2R; 		 //W: h5100: Moving Object Rotation Latch
 reg  [7:0] CPL; 				 //W: h5101: Control Port Latch
 reg  [7:0] EIR; 				 //R: h5103: Interrupt condition latch
-wire [7:0] ESR={m_coina,m_down,m_up,m_fire,m_left,m_right,m_start2p,m_start1p}; //h5101: Controller Input Buffer
+wire [7:0] ESR_GENERIC={m_coina,m_down,m_up,m_fire,m_left,m_right,m_start2p,m_start1p}; //h5101 legacy input byte
+wire teeter_profile = (pcb == 8'hD0); // exact Teeter candidate MRA byte
+wire [7:0] teeter_in0_base={m_coina,2'b11,m_fire,2'b11,m_start2p,m_start1p}; // Teeter unused bits 5/3 read high
+wire [7:0] teeter_in0;
+wire [7:0] ESR = teeter_profile ? teeter_in0 : ESR_GENERIC;
 wire [7:0] DIPSWA={DIP1[7:1],!m_coinb}; //h5101: Controller Input Buffer
 
 wire nWM2V,nWM2H,nWM1V,nWM1H;
@@ -147,6 +155,43 @@ wire   nEIR  = !(!IOSEL & CPU_addrbus[1:0]==2'b11 & CPU_RWn); 	//$5103
 wire   nEAD  = !(!IOSEL & CPU_addrbus[1:0]==2'b10 & CPU_RWn); 	//$5102
 wire   nESR  = !(!IOSEL & CPU_addrbus[1:0]==2'b01 & CPU_RWn); 	//$5101
 wire   nDIP  = !(!IOSEL & CPU_addrbus[1:0]==2'b00 & CPU_RWn); 	//$5100
+
+// The byte mux is registered every master edge, while T65 consumes the
+// previous CPU_databus_in value only on PH_1 when RDY is asserted. Carry the
+// matching $5101-read qualifier alongside that registered byte.
+reg teeter_read_pending;
+always @(posedge master_clock) begin
+	if (!RESET_n) teeter_read_pending <= 1'b0;
+	// Mirror the read mux: all five earlier sources must be inactive before IN0 wins.
+	else teeter_read_pending <= teeter_profile && CPU_RWn && RAMSEL && ROMSEL && SRAMSEL && CHARSEL && EXTVID && !IOSEL && (CPU_addrbus[1:0] == 2'b01);
+end
+wire teeter_read_strobe = teeter_read_pending && PH_1 && !pause;
+teeterControls TEETER_CONTROLS(
+	.clk_sys(master_clock),
+	.reset(!RESET_n),
+	.paused(pause),
+	.ce_frame(ce_frame),
+	.dpad_position_mode(dpad_pos_mode),
+	.spinner(spinner),
+	.analog_x(analog_x),
+	.dpad_left(!m_left),
+	.dpad_right(!m_right),
+	.cpu_read_strobe(teeter_read_strobe),
+	.cpu_read_data(CPU_databus_in),
+	.in0_other(teeter_in0_base),
+	.dial_position(),
+	.dial_consumed(),
+	.in0_value(teeter_in0)
+);
+
+wire teeter_nmi_n;
+exidyTeeterNmi TEETER_NMI(
+	.clk(master_clock),
+	.reset_n(RESET_n),
+	.teeter_profile(teeter_profile),
+	.ph1_enable(PH_1),
+	.nmi_n(teeter_nmi_n)
+);
 
 //MOVING OBJECT (SPRITES) SELECTION
 assign nWM2V = (CPU_addrbus[15:0]==16'h50C0 & !CPU_RWn ); //$50C0
@@ -189,7 +234,7 @@ T65 M6502(
 	.rdy(~pause),
 	.abort_n(1),
 	.irq_n(!rCPU_IRQ),
-	.nmi_n(1),
+	.nmi_n(teeter_nmi_n),
 	.so_n(1),
 	.r_w_n(CPU_RWn),
 	.a(CPU_addrbus),

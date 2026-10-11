@@ -218,6 +218,8 @@ wire  [7:0] ioctl_index;
 wire        ioctl_wait;
 
 wire [15:0] joystick_0;
+wire [15:0] joystick_l_analog_0;
+wire [8:0] spinner_0;
 
 wire [21:0] gamma_bus;
 
@@ -263,6 +265,7 @@ localparam CONF_STR = {
 	"OTU,Aspect ratio,Original,Full Screen;",
 	"O2,Orientation,Horizontal,Vertical;",
 	"O35,Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;",
+	"O[24],D-pad steering,Velocity,Position;",
 //	"OV,Frequency,60,Original;",	
 	"-;",
 	"DIP;",
@@ -325,7 +328,9 @@ hps_io #(.CONF_STR(CONF_STR)) hps_io
 	//.sd_buff_din(sd_buff_din),
 	//.sd_buff_wr(sd_buff_wr),
 
-	.joystick_0(joystick_0)
+	.joystick_0(joystick_0),
+	.joystick_l_analog_0(joystick_l_analog_0),
+	.spinner_0(spinner_0)
 );
 
 ////////////////////   CLOCKS   ///////////////////
@@ -434,6 +439,11 @@ hiscore #(
 ///////////////////   GAME   ////////////////////
 wire rom_download = ioctl_download && (ioctl_index == 0);
 wire reset = (RESET | status[0] | buttons[1] | ioctl_download);
+
+// One pulse on the existing Exidy vertical-blank rising edge each frame.
+reg vblank_d;
+always @(posedge clk_sys) vblank_d <= vblank;
+wire ce_frame = !reset && vblank && !vblank_d;
 assign LED_USER = ioctl_download;
 wire core_pix_clk;
 
@@ -452,6 +462,10 @@ exidy2 ex2(
 	.V_BLANK(vblank),
 	.RESET_n(~reset),
 	.pause(pause_cpu),
+	.ce_frame(ce_frame),
+	.dpad_pos_mode(status[24]),
+	.analog_x(joystick_l_analog_0[7:0]),
+	.spinner(spinner_0),
 	.m_right(~joystick_0[0]),
 	.m_left(~joystick_0[1]),	
 	.m_down(~joystick_0[2]),   

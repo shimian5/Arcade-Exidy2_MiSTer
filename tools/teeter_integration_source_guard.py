@@ -8,6 +8,7 @@ patch/testbench stop modeling those same source-selection and sample contracts.
 from pathlib import Path
 import subprocess
 import sys
+import argparse
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -30,8 +31,11 @@ def positions_in_order(text: str, tokens: list[str], label: str) -> None:
 
 
 def main() -> int:
-    core = read_head("rtl/Exidy2.v")
-    top = read_head("Arcade-Exidy2.sv")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--production", action="store_true", help="check applied working-tree wiring instead of the historical candidate")
+    args = parser.parse_args()
+    core = (ROOT / "rtl/Exidy2.v").read_text(encoding="utf-8") if args.production else read_head("rtl/Exidy2.v")
+    top = (ROOT / "Arcade-Exidy2.sv").read_text(encoding="utf-8") if args.production else read_head("Arcade-Exidy2.sv")
     patch = (ROOT / "candidates/teeter-integration.patch").read_text(encoding="utf-8")
     bench = (ROOT / "sim/teeter_controls/tb_teeter_integration_mux.sv").read_text(encoding="utf-8")
     hps = (ROOT / "sys/hps_io.sv").read_text(encoding="utf-8")
@@ -58,6 +62,20 @@ def main() -> int:
         "teeter_profile && CPU_RWn && RAMSEL && ROMSEL && SRAMSEL && "
         "CHARSEL && EXTVID && !IOSEL && (CPU_addrbus[1:0] == 2'b01)"
     )
+    if args.production:
+        for token in (expected_pending,
+                      "wire teeter_read_strobe = teeter_read_pending && PH_1 && !pause;",
+                      ".cpu_read_data(CPU_databus_in)",
+                      "wire [7:0] ESR = teeter_profile ? teeter_in0 : ESR_GENERIC;",
+                      "wire teeter_profile = (pcb == 8'hD0);",
+                      ".nmi_n(teeter_nmi_n)"):
+            require(token in core, f"applied production binding missing: {token}")
+        for token in (".spinner_0(spinner_0)", ".joystick_l_analog_0(joystick_l_analog_0)",
+                      ".ce_frame(ce_frame)", ".dpad_pos_mode(status[24])"):
+            require(token in top, f"applied top-level binding missing: {token}")
+        qip = (ROOT / "rtl/index.qip").read_text(encoding="utf-8")
+        for filename in ("teeter_controls.v", "teeter_nmi.v"):
+            require(filename in qip, f"applied QIP missing {filename}")
     require(expected_pending in patch, "candidate pending qualifier no longer excludes mux priorities")
     require("wire teeter_read_strobe = teeter_read_pending && PH_1 && !pause;" in patch,
             "candidate read strobe no longer matches enabled, ready T65 edge")
@@ -86,7 +104,8 @@ def main() -> int:
     require("wire clk_sys=clkm_45MHZ;" in top and ".master_clock(clkm_45MHZ)" in top,
             "top-level HPS/core master clock relationship changed")
 
-    print("PASS Teeter source guard: production mux/T65 bindings match unapplied patch and boundary fixture")
+    print("PASS Teeter source guard: production mux/T65 bindings match " +
+          ("applied wiring" if args.production else "historical candidate") + " and boundary fixture")
     return 0
 
 
