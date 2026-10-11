@@ -6,7 +6,7 @@ Work is now on `main`, including production tree `55e3300`. Latest local results
 
 Production Teeter integration `020b2ae` passes a full unsandboxed PowerShell Quartus flow: zero errors, master +2.817 ns, audio +16.411 ns; targeted FIFO/reset/divider reports pass. RBF and hash are in STOPPING_POINT and the [build audit](docs/audits/source/teeter-build-2026-10-11.md). Legacy clock/latch coverage and hardware acceptance remain open. Candidate MRA uses D0; releases are unchanged.
 
-`1ae8ec4` selects normal low startup bit2 in the **unbound** FAX helper. Explicit MAME diagnostic captures now reach questions in both FAX versions; bank/input/loader production integration still remains. Speech native-domain T80/bridge reset proof passes without bridge RTL changes; unbound voice-I/O/R6532 exhaustive tests pass. Start the next speech unit at actual T80 I/O and RIOT callback joining, then qualify MC3417 decoding and production loader integration. See current STOPPING_POINT for audits and remaining work.
+`1ae8ec4` selects normal low startup bit2 in the **unbound** FAX helper. Explicit MAME diagnostic captures now reach questions in both FAX versions; bank/input/loader production integration still remains. Speech native-domain T80/bridge reset proof passes without bridge RTL changes; unbound voice-I/O/R6532 exhaustive tests pass. The actual T80 I/O/RIOT callback join now passes; see the 2026-10-11 joined audit. Pinned MOS6532 callback semantics corrected the provisional helper assumptions. Next qualify MC3417 decoding, then production command CDC/accepted-write qualification and loader integration. See current STOPPING_POINT for audits and remaining work.
 
 ## Prior timing repair
 

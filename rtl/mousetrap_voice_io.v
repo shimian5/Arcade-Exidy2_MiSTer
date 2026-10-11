@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 // Isolated Mouse Trap voice I/O/control helper. Not included in rtl/index.qip.
 // Port decode follows the pinned local MAME exidysound.cpp handlers; RIOT
-// inputs are resolved R6532 pin values, including its DDR behavior.
+// command input is the MAME-style PA output callback, including DDR pull-ups.
 module mousetrapVoiceIo (
     input  wire       clk,
     input  wire       state_reset_n,
@@ -14,10 +14,9 @@ module mousetrapVoiceIo (
     input  wire       cvsd_clock_state,
     output wire [7:0] io_data_out,
 
-    // Pulse after the RIOT PA write has updated its resolved output pins.
+    // Accepted PA callback pulse; consecutive pulses are separate updates.
     input  wire       riot_pa_write_commit,
     input  wire [7:0] riot_pa_write_data,
-    input  wire [7:0] riot_pa_pins,
     output reg  [7:0] cvsd_data,
     output wire       z80_reset,
     output wire       cvsd_decoder_reset_n,
@@ -26,9 +25,7 @@ module mousetrapVoiceIo (
     output reg        riot_pb0_in
 );
     reg io_wr_d;
-    reg riot_pa_write_d;
     wire io_write_accept = io_wr && !io_wr_d;
-    wire riot_pa_accept = riot_pa_write_commit && !riot_pa_write_d;
     wire [3:0] cvsd_status_nibble = {
         cvsd_data[3], cvsd_data[0], cvsd_data[2], cvsd_data[1]
     };
@@ -47,14 +44,12 @@ module mousetrapVoiceIo (
     always @(posedge clk or negedge state_reset_n) begin
         if (!state_reset_n) begin
             io_wr_d <= 1'b0;
-            riot_pa_write_d <= 1'b0;
             cvsd_data <= 8'h00; // pinned MAME device constructor state
             cvsd_digit <= 1'b0;
             riot_pb0_in <= 1'b0;
         end else begin
             io_wr_d <= io_wr;
-            riot_pa_write_d <= riot_pa_write_commit;
-            if (riot_pa_accept)
+            if (riot_pa_write_commit)
                 cvsd_data <= riot_pa_write_data;
             if (io_write_accept) begin
                 if (!io_addr[4]) cvsd_digit <= io_data_in[0];
@@ -63,9 +58,9 @@ module mousetrapVoiceIo (
         end
     end
 
-    // RIOT PA4 is the physical Z80 reset-release pin. PA direction and the
-    // input pin levels are already resolved by R6532's pa_out equation.
-    assign z80_reset = z80_global_reset || !riot_pa_pins[4];
+    // MAME resets the speech CPU from the saved PA callback byte, whose
+    // input-configured bits are pulled high regardless of the PA input pins.
+    assign z80_reset = z80_global_reset || !cvsd_data[4];
 
     // CVSD decoder reset is deliberately independent of the PA4-controlled
     // speech-CPU reset and is supplied by the integration's decoder lifecycle.

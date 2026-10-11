@@ -18,8 +18,8 @@ module tb_mousetrap_voice_io;
     wire riot_irq_n;
     logic [7:0] riot_pa_in = 8'hFF;
     wire [7:0] riot_pb_in = {7'h7F, riot_pb0_in};
-    logic riot_pa_write_pending = 0;
-    logic [7:0] riot_pa_write_pending_data = 0;
+    wire riot_pa_write_pending;
+    wire [7:0] riot_pa_write_pending_data;
     wire helper_pa_write_commit = inject_pa_commit | riot_pa_write_pending;
     wire [7:0] helper_pa_write_data = inject_pa_commit ? inject_pa_data : riot_pa_write_pending_data;
 
@@ -35,7 +35,7 @@ module tb_mousetrap_voice_io;
         .z80_global_reset(z80_global_reset), .io_addr(io_addr),
         .io_data_in(io_data_in), .io_wr(io_wr), .cvsd_clock_state(cvsd_clock_state),
         .io_data_out(io_data_out), .riot_pa_write_commit(helper_pa_write_commit),
-        .riot_pa_write_data(helper_pa_write_data), .riot_pa_pins(riot_pa_out),
+        .riot_pa_write_data(helper_pa_write_data),
         .cvsd_data(cvsd_data), .z80_reset(z80_reset),
         .cvsd_decoder_reset_n(cvsd_decoder_reset_n), .cvsd_digit(cvsd_digit),
         .riot_pb0_in(riot_pb0_in)
@@ -47,19 +47,12 @@ module tb_mousetrap_voice_io;
         .pa_in(riot_pa_in), .pa_out(riot_pa_out), .pb_in(riot_pb_in), .pb_out(riot_pb_out)
     );
 
-    // The R6532 accepts ORA on phi2 rising, then updates resolved port pins
-    // on phi2 falling. Delay the callback commit until those pins have settled.
-    always @(posedge clk or negedge riot_rst_n) begin
-        if (!riot_rst_n) begin
-            riot_pa_write_pending <= 1'b0;
-            riot_pa_write_pending_data <= 8'h00;
-        end else begin
-            riot_pa_write_pending <= riot_cs && !riot_rw_n &&
-                (riot_addr[2] == 1'b0) && (riot_addr[1:0] == 2'b00);
-            if (riot_cs && !riot_rw_n && (riot_addr[2] == 1'b0) && (riot_addr[1:0] == 2'b00))
-                riot_pa_write_pending_data <= riot_din;
-        end
-    end
+    mousetrapVoiceCommand command_adapter (
+        .clk(clk), .reset_n(riot_rst_n),
+        .accepted_write(riot_cs && !riot_rw_n), .address(riot_addr),
+        .data(riot_din), .command_commit(riot_pa_write_pending),
+        .command_data(riot_pa_write_pending_data)
+    );
 
     task automatic tick;
         begin @(posedge clk); #1; end
@@ -101,7 +94,7 @@ module tb_mousetrap_voice_io;
         state_reset_n = 1;
         riot_rst_n = 1;
         repeat (2) tick();
-        if (cvsd_data !== 8'h00 || cvsd_digit !== 1'b0 || riot_pb0_in !== 1'b0)
+        if (cvsd_data !== 8'hff || cvsd_digit !== 1'b0 || riot_pb0_in !== 1'b0)
             $fatal(1, "candidate state reset values are wrong");
 
         // Exhaustive read truth table: all status bytes, all 256 aliased ports,
@@ -148,18 +141,18 @@ module tb_mousetrap_voice_io;
             end
         end
 
-        // RIOT callback commit is an edge transaction too: changing the
-        // callback bus while its commit remains high must not rewrite status.
+        // Consecutive callback pulses must both be accepted, without requiring
+        // an intervening low clock. Each high edge is a distinct update.
         @(negedge clk); inject_pa_data = 8'hA5; inject_pa_commit = 1;
         tick();
         @(negedge clk); inject_pa_data = 8'h5A;
         repeat (3) tick();
-        if (cvsd_data !== 8'hA5) $fatal(1, "held RIOT PA callback repeated status write");
+        if (cvsd_data !== 8'h5A) $fatal(1, "consecutive PA callbacks lost latest status");
         @(negedge clk); inject_pa_commit = 0;
         tick();
 
         // The real R6532 resolves PA pins from ORA and DDRA; use its pa_out
-        // as the reset pin while the callback byte remains the raw ORA data.
+        // for physical pin checks; command/reset use the DDR-masked callback.
         z80_global_reset = 0;
         repeat (2) tick();
         if (z80_reset !== 1'b0) $fatal(1, "R6532 reset pin did not initially release Z80");
@@ -167,18 +160,18 @@ module tb_mousetrap_voice_io;
         if (riot_pa_out[4] !== 1'b0 || z80_reset !== 1'b1)
             $fatal(1, "DDRA output-low PA4 did not assert Z80 reset");
         riot_write(5'b00000, 8'h10); // ORA: PA4 high, callback captures byte
-        if (riot_pa_out[4] !== 1'b1 || z80_reset !== 1'b0 || cvsd_data !== 8'h10)
+        if (riot_pa_out[4] !== 1'b1 || z80_reset !== 1'b0 || cvsd_data !== 8'hff)
             $fatal(1, "PA4 output-high write did not release/reset-capture correctly");
         riot_write(5'b00000, 8'h00);
-        if (riot_pa_out[4] !== 1'b0 || z80_reset !== 1'b1 || cvsd_data !== 8'h00)
+        if (riot_pa_out[4] !== 1'b0 || z80_reset !== 1'b1 || cvsd_data !== 8'hef)
             $fatal(1, "PA4 output-low write did not assert/reset-capture correctly");
 
         // With PA4 configured as input, the physical pin follows PA_IN. The
-        // callback byte remains the written ORA byte, showing the two paths.
+        // callback has input bits pulled high independently of PA input levels.
         riot_pa_in = 8'hFF;
         riot_write(5'b00001, 8'h00); // DDRA: all inputs
         riot_write(5'b00000, 8'h00);
-        if (riot_pa_out[4] !== 1'b1 || z80_reset !== 1'b0 || cvsd_data !== 8'h00)
+        if (riot_pa_out[4] !== 1'b1 || z80_reset !== 1'b0 || cvsd_data !== 8'hff)
             $fatal(1, "R6532 input PA4 pin/callback data semantics diverged from fixture contract");
 
         // PB0 is an input writeback unless its DDR selects output; in output
@@ -193,11 +186,39 @@ module tb_mousetrap_voice_io;
         riot_write(5'b00011, 8'h00); // DDRB bit zero input
         if (riot_pb_out[0] !== 1'b1) $fatal(1, "R6532 PB0 input pin did not reflect helper writeback");
 
+        // Consecutive accepted PA writes have no low commit edge between
+        // them. Exercise the actual RIOT and callback pipeline together.
+        @(negedge clk); riot_cs=1; riot_rw_n=0; riot_addr=5'h19; riot_din=8'hff;
+        tick();
+        @(negedge clk); riot_addr=5'h18; riot_din=8'h96;
+        tick();
+        @(negedge clk); riot_cs=0; riot_rw_n=1;
+        repeat(3) tick();
+        if (cvsd_data !== 8'h96 || riot_pa_out !== 8'h96 || z80_reset !== 0)
+            $fatal(1,"back-to-back aliased DDRA/ORA callback lost latest write");
+        riot_write(5'h18,8'h00);
+        if (cvsd_data !== 0 || z80_reset !== 1)
+            $fatal(1,"aliased ORA write did not reset CPU");
+        riot_write(5'h19,8'h00);
+        if (cvsd_data !== 8'hff || z80_reset !== 0)
+            $fatal(1,"aliased DDRA input pull-ups did not release CPU");
+        riot_write(5'h04,8'h00); // edge control, not a PA callback
+        if (cvsd_data !== 8'hff) $fatal(1,"non-PA write corrupted command");
+
+        // Input-configured PA bits are pulled high in MAME's callback, even
+        // when the independent R6532 input pin is low. Catch pin-reset reuse.
+        riot_pa_in = 8'hef;
+        repeat (3) tick();
+        if (riot_pa_out[4] !== 0 || z80_reset !== 0 || cvsd_data !== 8'hff)
+            $fatal(1, "callback reset incorrectly followed a physical input pin");
+        riot_pa_in = 8'hff;
+        repeat (3) tick();
+
         // CPU reset does not reset the decoder lifecycle or voice I/O state.
         decoder_reset_n = 1;
         z80_global_reset = 1;
         #1;
-        if (z80_reset !== 1'b1 || cvsd_decoder_reset_n !== 1'b1 || cvsd_data !== 8'h00)
+        if (z80_reset !== 1'b1 || cvsd_decoder_reset_n !== 1'b1 || cvsd_data !== 8'hff)
             $fatal(1, "Z80 reset incorrectly altered decoder reset or CVSD state");
         decoder_reset_n = 0;
         #1;

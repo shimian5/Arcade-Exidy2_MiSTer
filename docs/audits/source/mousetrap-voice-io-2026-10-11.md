@@ -1,3 +1,5 @@
+> Corrected integration contract: see [actual-T80 join](mousetrap-t80-io-join-2026-10-11.md). The original fixture below established helper truth tables, but its raw-ORA-only callback and physical-pin reset assumptions were provisional and have been replaced by the pinned MOS6532 output callback. Current source captures `(ORA & DDRA) | ~DDRA` on reset, ORA and DDRA updates, accepts consecutive callback pulses and resets the CPU from the saved callback bit4. The original audit below is retained as historical evidence, not the current wiring contract.
+
 # Mouse Trap voice I/O/control helper — 2026-10-11
 
 ## Source contract

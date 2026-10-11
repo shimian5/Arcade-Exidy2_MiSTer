@@ -19,6 +19,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw "vcom failed with exit $LASTEXITCODE; see $runDir\vcom.log" }
     & (Join-Path $modelsimBin 'vlog.exe') -work work `
         (Join-Path $repoRoot 'rtl\mousetrap_voice_io.v') `
+        (Join-Path $repoRoot 'rtl\mousetrap_voice_command.v') `
         (Join-Path $repoRoot 'sim\mousetrap_voice_io\tb_mousetrap_voice_io.sv') *> vlog.log
     if ($LASTEXITCODE -ne 0) { throw "vlog failed with exit $LASTEXITCODE; see $runDir\vlog.log" }
     & (Join-Path $modelsimBin 'vsim.exe') -c -lib work work.tb_mousetrap_voice_io `

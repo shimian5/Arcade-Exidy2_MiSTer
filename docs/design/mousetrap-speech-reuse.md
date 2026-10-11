@@ -50,3 +50,7 @@ One behavior requires attention in the first integration design: RIOT PA output 
 5. **Close integration gates.** Add an explicit Mouse Trap speech profile based on the extended descriptor/index-6 validity, preserve Venture behavior despite their shared legacy index-1 byte, hold Z80 reset until the exact index-6 image is validated, synchronize reset release in each clock domain, and run full Quartus fit/timing plus voice-ROM reload/pause tests. None of these acceptance claims follow from the current isolated adapter model.
 
 Remaining hardware assumptions include the exact board CVSD analog transfer response, MC3417 versus HC55564 algorithm/clock polarity parity, the audio RIOT PA/PB electrical DDR defaults at reset, the CVSD timer's first phase, and the physical meaning of the HPS descriptor readiness during pause/reset. Keep those as open validation items rather than silently choosing values.
+
+## Qualified I/O boundary, 2026-10-11
+
+The [actual-T80 voice/RIOT join](../audits/source/mousetrap-t80-io-join-2026-10-11.md) now passes. Pinned MOS6532 source resolves the callback: `(ORA & DDRA) | ~DDRA`, invoked at reset and on both ORA and DDRA writes. The new unbound callback adapter implements this contract; the I/O helper uses saved callback bit4 for reset. Exhaustive helper tests and actual CPU IN/OUT, held-write, enable/wait and warm-reset checks pass. The remaining boundary is production clock-domain command delivery and accepted audio-CPU writes; next decoder unit must target MC3417, with filters/mix and full firmware still open.
