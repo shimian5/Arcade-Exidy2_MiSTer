@@ -2,7 +2,21 @@
 
 Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. Commits are authored as shimian5. The owner authorized local full Quartus flows in unsandboxed PowerShell. No PR has been opened.
 
-## Current checkpoint â€” PIA timing blocker closed
+## Current checkpoint — Teeter fitted; FAX reference gameplay reached
+
+Production Teeter controls and stretched NMI are integrated in `020b2ae`. Its completed full unsandboxed Quartus flow passes: **0 errors, 285 warnings**, master setup **+2.817 ns**, audio **+16.411 ns**; all 59 timing summaries pass, zero TNS. Read-only FIFO/reset/divider reports independently pass, including physical replicas. The development RBF is `simulation/full-core/020b2ae/Arcade-Exidy2.rbf`, SHA-256 `65F631ADD85143EF44408C22C9107AE816C456C1177FE93518F6CD3A3C4039B8`. [Build and coverage evidence](docs/audits/source/teeter-build-2026-10-11.md). Use the Teeter integration candidate MRA, profile D0; releases remain unchanged. Actual-T65 source-extracted control-bus and direct NMI fixtures pass; full Teeter ROM/gameplay/physical acceptance is open.
+
+FAX and FAX2 now reach visible questions in MAME with an explicit diagnostic forcing startup IN3 bit2 low. CPU tracing isolates the high-bit startup path entering a long processing loop before IRQ enable. The unbound FAX helper now defaults to the low startup strap, with the original high mode selectable, in `1ae8ec4`. Four answer buttons per player remain the input contract. This establishes usable reference gameplay; actual board strap meaning, production bank loader/map, MRAs and complete-game parity remain open. [FAX evidence](docs/audits/source/fax-startup-input-2026-10-11.md).
+
+Actual T80, speech ROM adapter, unchanged expansion bridge and loader now pass reset/drain and generation-handshake checks in the documented native speech-clock domain, including a stopped remote clock and unsampled request abort. An earlier main-clock caller experiment was invalid for the bridge's native port contract; no bridge CDC change was applied. The unbound Mouse Trap voice-I/O helper passes exhaustive read/write tests with actual R6532 DDR pins. Full T80/I/O/RIOT callback integration, MC3417 decoder, mix and production loader remain open. [Reset proof](docs/audits/source/speech-reset-closure-2026-10-11.md), [voice I/O proof](docs/audits/source/mousetrap-voice-io-2026-10-11.md).
+
+Remaining timing coverage is explicit: fresh fit has 3,265 no-clock objects (171 Exidy), 118 multiple-clock objects, 96 latches and one loop. A proposed sticky IRQ replacement passes 34 directed assertions but fails full isolated Quartus synthesis; rejected, production IRQ unchanged. Next timing unit needs a synthesizable parent-clock/event-capture contract, preserving coincident coin/vblank/clear semantics. W15 remains ACTIVE.
+
+Next bounded units, in order: actual T80 join to voice-I/O/RIOT callback; qualified MC3417 decoder and audio path; production expansion loader binding for speech/FAX with complete firmware regression and fresh full build. Alongside these, hardware-test the Teeter candidate and existing audio/IRQ edits. Venture room-arrow reproduction, Side Trak, clones/bootlegs, noise/levels, CRT/native video, per-game regression and release packaging remain tracked in WORKPLAN. Owner probe files are preserved. No ROM bytes, captures or build outputs are committed.
+
+## Historical checkpoint — PIA timing blocker closed
+
+
 
 Production `016b4c9` completed the full unsandboxed PowerShell Quartus flow on October 7 at 23:39:19: **0 errors, 283 warnings**. Master setup is **+2.377 ns**, audio setup **+16.331 ns**; all reported setup/hold/recovery/removal/minimum-pulse summaries pass with zero TNS. The ordered byte/CB2 FIFO replaces the failing continuous byte sampler. Its bundle and both Gray crossings are bounded to 20 ns; byte data remains timed. Only the four reset-conditioner clear inputs have the new reset exception. Local reset release and synchronizer D paths remain timed and pass.
 
@@ -28,7 +42,7 @@ Reviewed evidence:
 - PIA pipeline passes seven related-clock offsets and actual Verilog checks. Corrected callback-row analysis gives Venture 5,790/5,790 matches, Mouse Trap 88/88, Pepper II 1/1 and Hard Hat 1/1, with no mismatches or overwritten responses. Cross-CPU timestamps cannot establish physical response latency; zero-only/startup-limited coverage is still a limitation.
 - 6840 noise states match the independent MAME recurrence for 512 transitions, but literal tap event positions differ at 22 steps. Neither the electrically correct tap nor audible output is established. FAX archive-backed bank/PROM audit passes; MAME banks 24-31 point outside its region. FAX2 startup selects bank24 then resets to bank0 without an intervening read; independently reproduced. This does not establish global parity for the adapter's valid-zero policy. Actual timer3 ordering fixture also independently passes its internal checks but records 1,615 output-phase differences from the synthetic MAME model.
 - Unchanged 8253 passes mode 0/3, raw mode-7 alias, live divisor changes and warm reset. PCM equivalence remains open.
-- Standalone Teeter spinner/D-pad/analog and FAX four-button-per-player helpers pass. Teeter's 17-part MRA candidate passes metadata/loading audit; actual controls and 600 Hz NMI remain unwired; standalone NMI period and actual-T65 pause/vector fixtures pass. These are not working-game releases.
+- Standalone Teeter spinner/D-pad/analog and FAX four-button-per-player helpers pass. Teeter's 17-part MRA candidate passes metadata/loading audit; controls and stretched NMI are now fitted at 020b2ae; standalone NMI period and actual-T65 pause/vector fixtures pass. These are not working-game releases.
 - Actual T80 executes the synthetic ROM/wait/I/O/memory-write fixture and a manifest-guarded initial speech-ROM fetch/first-output boundary; independently replayed. Actual CPU/adapter joining now passes normal and delayed reads; the late-response reset race is reproduced. Full firmware, actual endpoint reset safety, CVSD and mix remain integration gates.
 - Profile-0 sprite replay passes; Venture inside-room arrow is still unreproduced.
 

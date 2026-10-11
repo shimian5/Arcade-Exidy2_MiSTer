@@ -1,4 +1,4 @@
-> Integration status, 2026-10-11: the reviewed patch is now applied to production. The source guard supports `--production` and checks working-tree bindings/QIP. The direct ModelSim generator-to-T65 join passes, including paused capture and resume vectoring. The integration full-flow build and Teeter firmware/game/hardware acceptance remain pending. The original candidate review below is historical design evidence.
+> Integration status, 2026-10-11: the reviewed patch is now applied to production. The source guard supports `--production` and checks working-tree bindings/QIP. The direct ModelSim generator-to-T65 join passes, including paused capture and resume vectoring. The full production Quartus flow passes at `020b2ae`; the source-extracted actual-T65 bus join also passes. Teeter firmware/game/hardware acceptance remains pending. See [build evidence](../audits/source/teeter-build-2026-10-11.md). The original candidate review below is historical design evidence.
 
 # Teeter production-integration patch proposal
 
