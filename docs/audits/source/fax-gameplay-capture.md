@@ -1,3 +1,5 @@
+> Follow-up 2026-10-11: [startup branch investigation](fax-startup-input-2026-10-11.md) identifies IN3 bit 2 as the branch selector before normal startup enables IRQs. An explicitly labeled low-bit diagnostic run reaches questions in both FAX versions. The unmodified high-bit captures below remain valid historical observations; they are not proof that gameplay is impossible.
+
 # FAX startup-to-gameplay reference capture
 
 Date: 2026-10-07. This is a separate 7,200-frame passive MAME capture for FAX and FAX 2. It extends the accepted bank capture with longer delayed input holds and screen snapshots. The Lua observer does not modify program memory, banking, or emulated input state beyond the declared MAME control fields. ROMs and all outputs remain below ignored `simulation/` directories.

@@ -1,7 +1,11 @@
 `timescale 1ns/1ps
 // Standalone FAX/FAX 2 answer-button input decoder candidate.
 // The core must give this selected read data priority over RAM/ROM reads.
-module faxControls (
+module faxControls #(
+    // Firmware tests IN3 bit 2 before enabling interrupts. Low selects the
+    // normal startup path; high preserves the long startup-check branch.
+    parameter STARTUP_CHECK = 1'b0
+) (
 	input             fax_enabled,
     input      [15:0] cpu_addr,
     input             cpu_read,
@@ -22,7 +26,7 @@ module faxControls (
         ~p1_answer_pressed[1],
         ~p1_answer_pressed[2],
         ~p1_answer_pressed[3],
-        2'b11,
+        1'b1, STARTUP_CHECK,
         ~p1_start1_pressed,
         ~p1_start2_pressed
     };

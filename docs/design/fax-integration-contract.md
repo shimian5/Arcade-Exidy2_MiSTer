@@ -1,3 +1,5 @@
+> Update 2026-10-11: [startup input discovery](../audits/source/fax-startup-input-2026-10-11.md) supersedes the earlier assumption that P1 bit 2 is always high. The helper now defaults `STARTUP_CHECK=0` (P1 idle `$fb`); `STARTUP_CHECK=1` retains the high-bit startup-check path. Both FAX reference games reach question screens in the explicitly altered-input MAME experiment. Bind this setting deliberately; physical pin/jumper semantics and complete FPGA support remain unverified.
+
 # FAX / FAX 2 input integration contract
 
 This is a source-backed integration proposal for the existing standalone [`faxControls`](../../rtl/fax_controls.v) helper. It does not change production RTL, QIP, or MRAs. Source review supports a distinct FAX/FAX 2 index-1 byte using currently unassigned `pcb[3:2]`, but those proposed metadata bytes still need owner/MRA and board-profile validation. The complete question-ROM loader contract is also still required.

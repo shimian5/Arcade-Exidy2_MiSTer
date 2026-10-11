@@ -10,6 +10,7 @@ module tb_fax_controls;
     reg p1_start2_pressed = 0;
     wire fax_selected;
     wire [7:0] read_data;
+    wire [7:0] startup_check_data;
     integer errors = 0;
     integer i;
     reg [7:0] expected;
@@ -20,6 +21,12 @@ module tb_fax_controls;
         .p1_answer_pressed(p1_answer_pressed), .p2_answer_pressed(p2_answer_pressed),
         .p1_start1_pressed(p1_start1_pressed), .p1_start2_pressed(p1_start2_pressed),
         .fax_selected(fax_selected), .read_data(read_data)
+    );
+    faxControls #(.STARTUP_CHECK(1'b1)) startup_check_dut(
+        .fax_enabled(fax_enabled), .cpu_addr(cpu_addr), .cpu_read(cpu_read),
+        .other_read_data(other_read_data), .p1_answer_pressed(p1_answer_pressed),
+        .p2_answer_pressed(p2_answer_pressed), .p1_start1_pressed(p1_start1_pressed),
+        .p1_start2_pressed(p1_start2_pressed), .fax_selected(), .read_data(startup_check_data)
     );
 
     task automatic check(input bit condition, input string message);
@@ -35,29 +42,31 @@ module tb_fax_controls;
         cpu_read = 1;
         cpu_addr = 16'h1c00;
         #1;
-        check(fax_selected && read_data == 8'hff, "P1 idle port and selected address");
+        check(fax_selected && read_data == 8'hfb, "P1 idle port selects normal startup");
+        check(startup_check_data == 8'hff, "explicit startup check preserves high bit 2");
         for (i = 0; i < 4; i = i + 1) begin
             p1_answer_pressed = 4'b0001 << i;
-            expected = 8'hff & ~(8'h80 >> i);
+            expected = 8'hfb & ~(8'h80 >> i);
             #1;
             check(fax_selected && read_data == expected, "each P1 answer maps independently to bits 7 through 4");
+            check(startup_check_data == (expected | 8'h04), "startup check retains each P1 answer bit");
         end
 
         p1_answer_pressed = 0;
         p1_start1_pressed = 1;
         #1;
-        check(read_data == 8'hfd, "P1 Start 1 is active-low bit 1");
+        check(read_data == 8'hf9, "P1 Start 1 is active-low bit 1");
         p1_start1_pressed = 0;
         p1_start2_pressed = 1;
         #1;
-        check(read_data == 8'hfe, "P1 Start 2 is active-low bit 0");
+        check(read_data == 8'hfa, "P1 Start 2 is active-low bit 0");
         p1_start1_pressed = 1;
         #1;
-        check(read_data == 8'hfc, "P1 starts combine independently");
+        check(read_data == 8'hf8, "P1 starts combine independently");
 
         p1_answer_pressed = 4'hf;
         #1;
-        check(read_data == 8'h0c, "P1 answer combo preserves starts and unused bits");
+        check(read_data == 8'h08, "P1 answer combo preserves starts and startup strap");
 
         cpu_addr = 16'h1a00;
         p1_answer_pressed = 0;
@@ -65,6 +74,7 @@ module tb_fax_controls;
         p1_start2_pressed = 0;
         #1;
         check(fax_selected && read_data == 8'hff, "P2 idle port selected independently");
+        check(startup_check_data == 8'hff, "startup strap does not change P2 port");
         for (i = 0; i < 4; i = i + 1) begin
             p2_answer_pressed = 4'b0001 << i;
             expected = 8'hff & ~(8'h80 >> i);
