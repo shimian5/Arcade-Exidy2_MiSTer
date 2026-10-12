@@ -239,7 +239,7 @@ reg [7:0] mod_shift  = 0;
 	
 always @(posedge clk_sys) begin
 
-	if (ioctl_wr & (ioctl_index==1)) mod_other <= ioctl_dout;
+	if (ioctl_wr & (ioctl_index==1)) mod_other <= ioctl_dout == 8'h90 ? 8'h10 : ioctl_dout;
 	if (ioctl_wr & (ioctl_index==2)) mod_shift <= ioctl_dout;
 	//mod_orientation<=!status[2];
 end
@@ -437,8 +437,20 @@ hiscore #(
 );
 
 ///////////////////   GAME   ////////////////////
-wire rom_download = ioctl_download && (ioctl_index == 0);
-wire reset = (RESET | status[0] | buttons[1] | ioctl_download);
+wire speech_read, speech_valid, speech_enable, loader_hold, base_wr;
+wire [13:0] speech_addr;
+wire [7:0] speech_data, base_data;
+wire [24:0] base_addr;
+exidySpeechLoader speech_loader(
+    .clk(clk_sys), .audio_clk(clk_audio), .reset_n(!RESET),
+    .raw_download(ioctl_download), .raw_wr(ioctl_wr), .raw_index(ioctl_index),
+    .raw_addr(ioctl_addr), .raw_data(ioctl_dout),
+    .speech_read(speech_read), .speech_addr(speech_addr),
+    .speech_data(speech_data), .speech_valid(speech_valid), .speech_enable(speech_enable),
+    .ioctl_wait(ioctl_wait), .base_wr(base_wr), .reset_hold(loader_hold),
+    .base_addr(base_addr), .base_data(base_data)
+);
+wire reset = (RESET | status[0] | buttons[1] | ioctl_download | loader_hold);
 
 // One pulse on the existing Exidy vertical-blank rising edge each frame.
 reg vblank_d;
@@ -450,6 +462,11 @@ wire core_pix_clk;
 exidy2 ex2(
 	.master_clock(clkm_45MHZ),
 	.audio_clk(clk_audio),
+	.speech_enable(speech_enable),
+	.speech_read(speech_read),
+	.speech_addr(speech_addr),
+	.speech_valid(speech_valid),
+	.speech_data(speech_data),
 	.pcb(mod_other),
 	.mod_shift(mod_shift),
 	.RED(r),
@@ -481,9 +498,9 @@ exidy2 ex2(
 	.DIP1(sw[1]), 
 	.DIP2(sw[2]),
 	.DIP3(sw[4]),	
-	.dn_addr(ioctl_addr),
-	.dn_data(ioctl_dout),
-	.dn_wr(ioctl_wr && rom_download), //& rom_download
+	.dn_addr(base_addr),
+	.dn_data(base_data),
+	.dn_wr(base_wr),
 	.audio_l(AUDIO_L),
 	.audio_r(AUDIO_R),
 	.hs_address(hs_address),

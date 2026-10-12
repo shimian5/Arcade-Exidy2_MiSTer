@@ -1,4 +1,9 @@
 module exidyAB (
+	input speech_enable,
+	output speech_read,
+	output [13:0] speech_addr,
+	input speech_valid,
+	input [7:0] speech_data,
 	input  PH_1,
 	input  audio_clk,
 	input  RESET_n,
@@ -82,6 +87,8 @@ R6532 A6532_RIOT(
     .irq_n(RIOT_IRQ),
     .add(audio_addrbus[4:0]),
     .din(audio_databus_out),		
+	 .pa_in(8'hff), .pa_out(),
+	 .pb_in({7'h7f, speech_enable ? speech_busy : 1'b1}), .pb_out(),
 	 .dout(audio_data_io)
 );
 
@@ -307,8 +314,29 @@ jtframe_jt49_filters u_filters2(
 //audio board output
 wire signed [15:0] audio_mono;
 exidyAudioMix audio_mix(.src_a(audio_snd),.src_b(audio_snd_ext),.mute(pause_au),.mono(audio_mono));
-assign audio_l=audio_mono;
-assign audio_r=audio_mono;
+// Capture the bus on the parent edge that raises registered auPH0. T65
+// does not advance until the next parent edge, matching R6532 acceptance.
+wire command_commit;
+wire [7:0] command_data;
+wire speech_busy;
+wire signed [15:0] speech_mono;
+mousetrapVoiceCommand speech_command(
+    .clk(audio_clk), .reset_n(RESET_n_au),
+    .accepted_write((cencnt_au == 4'd0) && !auPH0 && !io08_0F && !audio_nWRITE),
+    .address(audio_addrbus[4:0]), .data(audio_databus_out),
+    .command_commit(command_commit), .command_data(command_data)
+);
+mousetrapSpeechSubsystem speech(
+    .clk(audio_clk), .state_reset_n(RESET_n_au), .decoder_reset_n(RESET_n_au),
+    .global_reset(!RESET_n_au), .pause(pause_au),
+    .speech_enable(speech_enable), .image_ready(speech_enable),
+    .command_commit(command_commit), .command_data(command_data),
+    .rom_read(speech_read), .rom_addr(speech_addr),
+    .rom_ready(speech_valid), .rom_data(speech_data),
+    .audio_base(audio_mono), .mono(speech_mono), .busyPB0(speech_busy), .overflow()
+);
+assign audio_l=speech_mono;
+assign audio_r=speech_mono;
 
 //TARG Tone PROM
 eprom_5 HRA2B

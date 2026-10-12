@@ -26,6 +26,11 @@ module exidy2(
 	output H_BLANK,
 	output V_BLANK,
 	input RESET_n,				
+	input speech_enable,
+	output speech_read,
+	output [13:0] speech_addr,
+	input speech_valid,
+	input [7:0] speech_data,
 	input pause,
 	input ce_frame,
 	input dpad_pos_mode,
@@ -556,6 +561,11 @@ wire [7:0] audio_data_out;
 
 //audio board
 exidyAB sound_board(
+	.speech_enable(speech_enable),
+	.speech_read(speech_read),
+	.speech_addr(speech_addr),
+	.speech_valid(speech_valid),
+	.speech_data(speech_data),
 	.PH_1(PH_1),
 	.audio_clk(audio_clk),
 	.RESET_n(RESET_n),

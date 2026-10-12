@@ -313,3 +313,20 @@ if {[get_collection_size $pia_fifo_reset_pins] != 4} {
 set_false_path -through $pia_fifo_reset_pins
 rename pia_fifo_nodes {}
 rename pia_fifo_gray_nodes {}
+
+# Expansion control crosses as held levels or generation-tagged handshakes.
+# Exempt only the first sampling stage; subsequent synchronizer/state paths
+# and both ports of the actual dual-clock speech RAM remain timed normally.
+set speech_first_stages [get_keepers {*exidySpeechLoader:speech_loader|enable_meta *exidySpeechLoader:speech_loader|*|ack_meta *exidySpeechLoader:speech_loader|*|generation_meta *exidySpeechLoader:speech_loader|*|req_meta *exidySpeechLoader:speech_loader|*|gen_meta *exidySpeechLoader:speech_loader|*|cvsd_ready_meta}]
+if {[get_collection_size $speech_first_stages] != 6} {
+    error "Speech loader expected exactly six first-stage synchronizer registers"
+}
+set_false_path -to $speech_first_stages
+# Raw external RESET clears the conditioner pair in each domain and the enable
+# pair. Only those six asynchronous-clear pins are exempt; local release checks
+# on transport/loader/CPU state are retained.
+set speech_reset_pins [get_pins -compatibility_mode {*|speech_loader|bridge|main_reset|rst_meta|clrn *|speech_loader|bridge|main_reset|rst_sync|clrn *|speech_loader|bridge|cvsd_reset|rst_meta|clrn *|speech_loader|bridge|cvsd_reset|rst_sync|clrn *|speech_loader|enable_meta|clrn *|speech_loader|enable_sync|clrn}]
+if {[get_collection_size $speech_reset_pins] != 6} {
+    error "Speech loader expected exactly six conditioner clear pins"
+}
+set_false_path -through $speech_reset_pins
