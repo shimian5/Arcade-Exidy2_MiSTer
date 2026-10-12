@@ -40,7 +40,7 @@ module exidySpeechLoader (
     // Forward the normalized byte/address together with its delayed write pulse.
     assign base_addr = {1'b0,normalized_addr};
     wire enable_main = ready && active_profile == 8'd3 && !adapter_fault && !protocol_fault;
-    (* altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED_IF_ASYNCHRONOUS" *)
+    (* altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *)
     reg enable_meta, enable_sync;
     always @(posedge audio_clk or negedge reset_n) begin
         if (!reset_n) begin enable_meta <= 1'b0; enable_sync <= 1'b0; end

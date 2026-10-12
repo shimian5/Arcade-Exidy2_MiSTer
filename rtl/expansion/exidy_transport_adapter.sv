@@ -34,9 +34,9 @@ module exidy_transport_adapter (
     logic [26:0] pending_addr;
     logic [7:0] pending_data;
     logic cvsd_end_ok;
-    (* async_reg = "true" *) logic ack_meta;
-    (* async_reg = "true" *) logic ack_sync;
-    (* async_reg = "true" *) logic generation_meta, generation_sync;
+    (* async_reg = "true", altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *) logic ack_meta;
+    (* async_reg = "true", altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *) logic ack_sync;
+    (* async_reg = "true", altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *) logic generation_meta, generation_sync;
     wire handshake_ready = ack_sync && (generation_sync == quarantine_generation);
 
     wire start_event = raw_download && !download_d;
@@ -226,9 +226,9 @@ module exidy_cvsd_read_quarantine #(
     output logic quarantine_ack,
     output logic ack_generation
 );
-    (* async_reg = "true" *) logic req_meta;
-    (* async_reg = "true" *) logic req_sync;
-    (* async_reg = "true" *) logic gen_meta, gen_sync;
+    (* async_reg = "true", altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *) logic req_meta;
+    (* async_reg = "true", altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *) logic req_sync;
+    (* async_reg = "true", altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *) logic gen_meta, gen_sync;
     logic [READ_LATENCY-1:0] outstanding;
 
     always_comb begin

@@ -71,8 +71,8 @@ module exidy_expansion_loader (
     logic question_result_from_ram, cvsd_result_from_ram;
 
     logic cvsd_ready_clk;
-    (* async_reg = "true" *) logic cvsd_ready_meta;
-    (* async_reg = "true" *) logic cvsd_ready_sync;
+    (* async_reg = "true", altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *) logic cvsd_ready_meta;
+    (* async_reg = "true", altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *) logic cvsd_ready_sync;
 
     // Match the existing downloader's live index-0 write decode, including
     // malformed/progression-fault packets so the legacy path is never buffered.

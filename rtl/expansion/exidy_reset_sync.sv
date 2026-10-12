@@ -1,14 +1,14 @@
 `timescale 1ns/1ps
 // Per-domain reset conditioner: asynchronous assertion, synchronized release.
-// Registers are named rst_meta/rst_sync so the QSF can mark them with
-// SYNCHRONIZER_IDENTIFICATION (same scheme as the increment 11 probe).
+// Identify the actual local registers directly: Quartus 17 does not resolve
+// the bare instance-path QSF patterns used by the isolated probe.
 module exidy_reset_sync #(parameter int STAGES = 2) (
     input  logic clk,
     input  logic reset_n,      // asynchronous, active-low source (any domain)
     output logic reset_n_sync  // asserts with no clock; releases STAGES edges after reset_n
 );
-    logic rst_meta;
-    logic rst_sync;
+    (* altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *) logic rst_meta;
+    (* altera_attribute = "-name SYNCHRONIZER_IDENTIFICATION FORCED" *) logic rst_sync;
     always_ff @(posedge clk or negedge reset_n) begin
         if (!reset_n) begin
             rst_meta <= 1'b0;
