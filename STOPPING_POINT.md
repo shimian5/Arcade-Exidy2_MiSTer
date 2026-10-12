@@ -1,20 +1,26 @@
-# Stopping point â€” 2026-10-07
+# Stopping point - 2026-10-12
 
 Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. Commits are authored as shimian5. The owner authorized local full Quartus flows in unsandboxed PowerShell. No PR has been opened.
 
-## Latest increment — MC3417 bit-event decoder
+## Latest increment - actual speech firmware and decoder
+
+The private Mouse Trap speech image now runs through actual T80 instruction/bus logic, the verified ROM/I/O helpers and the unbound MC3417 decoder for 200 ms. Command 0x11 yields 3,093 samples; pinned MAME-method replay of the same sampled bits passes with maximum error 0.054932 PCM LSB. The idle FF run also passes 3,093 same-bit samples (0.006912 PCM LSB) and matches the first 3,093 native MAME digit writes in order/port/D0; clock phase and write times differ. The uninitialized T80 register-bank control is correctly rejected. Positive runs use an explicit simulation-only zero initialization matching MAME's constructor banks; production CPU source is unchanged. [Exact scope and boot limitation](docs/audits/source/mousetrap-firmware-decoder-2026-10-12.md), [native MAME capture](docs/audits/source/mousetrap-voice-reference-2026-10-12.md).
+
+Next increment: stream interpolation/stopped-clock silence, followed by filter/gain/mix qualification. Native game-issued phrase/bitstream equality and production boot values remain gates. Production command CDC/accepted RIOT writes, expansion loader/readiness/reset/pause, fresh full-core fit and hardware listening remain open. No fitted RTL or releases changed; production build remains `020b2ae`. Owner probe files remain untouched.
+
+## Previous increment â€” MC3417 bit-event decoder
 
 The unbound MC3417 candidate passes 91,924 rows against an oracle extracted from the pinned MAME method. Maximum decoded-sample difference is 0.375 of a 16-bit PCM step; the rising-edge negative control fails as required. Falling-edge sampling, sign, three-bit adaptation, leakage, held-clock behavior and cold/warm reset are covered. Full standalone Quartus flow passes: 204 ALMs, 100 registers, 12 DSP blocks; minimum setup/hold +45.552/+0.284 ns. Unit coverage has no no-clock objects, latches or loops; virtual I/O/reset timing remains an integration gate. This qualifies event state/next-sample arithmetic; PCM rendering, stopped-clock silence, board filtering, gain and audible voices remain open. [Decoder qualification](docs/audits/source/mc3417-decoder-2026-10-11.md).
 
 Next increment: join the actual speech firmware and verified I/O to decoder clock/status, then qualify rendering/filter/mix against MAME traces. Production command CDC/accepted RIOT writes, expansion loader/readiness, a fresh full-core build and hardware acceptance remain open. Production build remains `020b2ae`; the new decoder is outside QIP.
 
-## Previous increment — actual T80 voice-I/O join
+## Previous increment â€” actual T80 voice-I/O join
 
 The next speech step is complete as a bounded candidate unit: actual T80, voice-I/O helper, callback adapter and actual R6532 pass synthetic IN/OUT and warm-reset tests at continuous and divided enables, with pause/wait-stretched writes. The raw callback negative control fails as expected. Pinned MOS6532 source exposed and resolved the earlier helper assumption: command bytes include DDR pull-ups and update on both ORA and DDRA writes/reset. Exhaustive helper tests pass after correction. [Evidence and exact acceptance boundary](docs/audits/source/mousetrap-t80-io-join-2026-10-11.md).
 
 Next increment: qualify MC3417-compatible decoding against MAME. Full firmware, production command CDC/accepted-write wiring, clock/reset/image readiness, loader binding, filter/mix, full rebuild and hardware speech acceptance remain open. Production build is still `020b2ae`; both speech helpers are outside QIP. This increment changes no release files or fitted production inputs.
 
-## Current checkpoint — Teeter fitted; FAX reference gameplay reached
+## Current checkpoint â€” Teeter fitted; FAX reference gameplay reached
 
 Production Teeter controls and stretched NMI are integrated in `020b2ae`. Its completed full unsandboxed Quartus flow passes: **0 errors, 285 warnings**, master setup **+2.817 ns**, audio **+16.411 ns**; all 59 timing summaries pass, zero TNS. Read-only FIFO/reset/divider reports independently pass, including physical replicas. The development RBF is `simulation/full-core/020b2ae/Arcade-Exidy2.rbf`, SHA-256 `65F631ADD85143EF44408C22C9107AE816C456C1177FE93518F6CD3A3C4039B8`. [Build and coverage evidence](docs/audits/source/teeter-build-2026-10-11.md). Use the Teeter integration candidate MRA, profile D0; releases remain unchanged. Actual-T65 source-extracted control-bus and direct NMI fixtures pass; full Teeter ROM/gameplay/physical acceptance is open.
 
@@ -26,7 +32,7 @@ Remaining timing coverage is explicit: fresh fit has 3,265 no-clock objects (171
 
 Next bounded units, in order: qualified MC3417 decoder and audio path; production command CDC/accepted-write wiring; production expansion loader binding for speech/FAX with complete firmware regression and fresh full build. Alongside these, hardware-test the Teeter candidate and existing audio/IRQ edits. Venture room-arrow reproduction, Side Trak, clones/bootlegs, noise/levels, CRT/native video, per-game regression and release packaging remain tracked in WORKPLAN. Owner probe files are preserved. No ROM bytes, captures or build outputs are committed.
 
-## Historical checkpoint — PIA timing blocker closed
+## Historical checkpoint â€” PIA timing blocker closed
 
 
 

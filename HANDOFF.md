@@ -1,8 +1,10 @@
-# Handoff for the next (local) agent — 2026-10-07
+# Handoff for the next local agent - 2026-10-12
 
 Work is now on `main`, including production tree `55e3300`. Latest local results and timing work are in [STOPPING_POINT.md](STOPPING_POINT.md). Read in this order: this file, [STOPPING_POINT.md](STOPPING_POINT.md), [WORKPLAN.md](WORKPLAN.md), [docs/cloud-environment.md](docs/cloud-environment.md). Goal and completion rule are in WORKPLAN.md (every Exidy 6502 game working; evidence required, no unproven "done").
 
 ## Latest integrated result
+
+Latest candidate unit: actual Mouse Trap firmware drives T80/ROM/I/O/MC3417 for 200 ms; 3,093 decoded samples match the pinned MAME method within 0.054932 PCM LSB when replaying the same captured bits. The idle FF run additionally matches the first 3,093 native digit writes in order/port/D0, with different write timing/clock phase. This requires an explicit simulation-only zero-initialized register bank; the raw-bank negative control is rejected. No production CPU change or native phrase/bitstream equality is claimed. Read [firmware/decoder audit](docs/audits/source/mousetrap-firmware-decoder-2026-10-12.md) before continuing. Next: stream rendering/timeout, filter/gain/mix, native command parity, then production bindings/full fit/hardware.
 
 Production Teeter integration `020b2ae` passes a full unsandboxed PowerShell Quartus flow: zero errors, master +2.817 ns, audio +16.411 ns; targeted FIFO/reset/divider reports pass. RBF and hash are in STOPPING_POINT and the [build audit](docs/audits/source/teeter-build-2026-10-11.md). Legacy clock/latch coverage and hardware acceptance remain open. Candidate MRA uses D0; releases are unchanged.
 
