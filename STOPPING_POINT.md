@@ -2,7 +2,13 @@
 
 Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. Commits are authored as shimian5. The owner authorized local full Quartus flows in unsandboxed PowerShell. No PR has been opened.
 
-## Latest increment — actual T80 voice-I/O join
+## Latest increment — MC3417 bit-event decoder
+
+The unbound MC3417 candidate passes 91,924 rows against an oracle extracted from the pinned MAME method. Maximum decoded-sample difference is 0.375 of a 16-bit PCM step; the rising-edge negative control fails as required. Falling-edge sampling, sign, three-bit adaptation, leakage, held-clock behavior and cold/warm reset are covered. Full standalone Quartus flow passes: 204 ALMs, 100 registers, 12 DSP blocks; minimum setup/hold +45.552/+0.284 ns. Unit coverage has no no-clock objects, latches or loops; virtual I/O/reset timing remains an integration gate. This qualifies event state/next-sample arithmetic; PCM rendering, stopped-clock silence, board filtering, gain and audible voices remain open. [Decoder qualification](docs/audits/source/mc3417-decoder-2026-10-11.md).
+
+Next increment: join the actual speech firmware and verified I/O to decoder clock/status, then qualify rendering/filter/mix against MAME traces. Production command CDC/accepted RIOT writes, expansion loader/readiness, a fresh full-core build and hardware acceptance remain open. Production build remains `020b2ae`; the new decoder is outside QIP.
+
+## Previous increment — actual T80 voice-I/O join
 
 The next speech step is complete as a bounded candidate unit: actual T80, voice-I/O helper, callback adapter and actual R6532 pass synthetic IN/OUT and warm-reset tests at continuous and divided enables, with pause/wait-stretched writes. The raw callback negative control fails as expected. Pinned MOS6532 source exposed and resolved the earlier helper assumption: command bytes include DDR pull-ups and update on both ORA and DDRA writes/reset. Exhaustive helper tests pass after correction. [Evidence and exact acceptance boundary](docs/audits/source/mousetrap-t80-io-join-2026-10-11.md).
 

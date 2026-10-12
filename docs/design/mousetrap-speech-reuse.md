@@ -54,3 +54,7 @@ Remaining hardware assumptions include the exact board CVSD analog transfer resp
 ## Qualified I/O boundary, 2026-10-11
 
 The [actual-T80 voice/RIOT join](../audits/source/mousetrap-t80-io-join-2026-10-11.md) now passes. Pinned MOS6532 source resolves the callback: `(ORA & DDRA) | ~DDRA`, invoked at reset and on both ORA and DDRA writes. The new unbound callback adapter implements this contract; the I/O helper uses saved callback bit4 for reset. Exhaustive helper tests and actual CPU IN/OUT, held-write, enable/wait and warm-reset checks pass. The remaining boundary is production clock-domain command delivery and accepted audio-CPU writes; next decoder unit must target MC3417, with filters/mix and full firmware still open.
+
+## Qualified decoder event model, 2026-10-11
+
+The unbound `rtl/mc3417.v` now matches the pinned MAME bit-event model within half a 16-bit PCM step over 91,924 reference rows; [qualification evidence](../audits/source/mc3417-decoder-2026-10-11.md). The exact model samples falling edges, uses digit zero positive/one negative, and preserves filter/history state on warm clock reset. Neither adjacent Harris candidate was substituted. Event-state output is normalized signed Q24 before MAME stream interpolation/timeout and board filters/gain. Next units must join actual speech firmware and qualify clock/status plus PCM rendering/filter/mix before production binding.
