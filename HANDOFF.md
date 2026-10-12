@@ -4,6 +4,8 @@ Work is now on `main`, including production tree `55e3300`. Latest local results
 
 ## Latest integrated result
 
+Latest reference unit: extracted pinned MC3417 stream method passes 12 directed assertions and two specifically rejected controls. Private endpoint replay renders 44,414 diagnostic samples and an idle tail; callback segmentation affects MAME output. See [stream contract](docs/audits/source/mc3417-stream-contract-2026-10-12.md). Next implement the fixed-rate FPGA renderer, then filters/gain/mix; full [remaining checklist](docs/REMAINING_WORK.md) is current. Production build remains `020b2ae`, unchanged.
+
 Latest candidate unit: actual Mouse Trap firmware drives T80/ROM/I/O/MC3417 for 200 ms; 3,093 decoded samples match the pinned MAME method within 0.054932 PCM LSB when replaying the same captured bits. The idle FF run additionally matches the first 3,093 native digit writes in order/port/D0, with different write timing/clock phase. This requires an explicit simulation-only zero-initialized register bank; the raw-bank negative control is rejected. No production CPU change or native phrase/bitstream equality is claimed. Read [firmware/decoder audit](docs/audits/source/mousetrap-firmware-decoder-2026-10-12.md) before continuing. Next: stream rendering/timeout, filter/gain/mix, native command parity, then production bindings/full fit/hardware.
 
 Production Teeter integration `020b2ae` passes a full unsandboxed PowerShell Quartus flow: zero errors, master +2.817 ns, audio +16.411 ns; targeted FIFO/reset/divider reports pass. RBF and hash are in STOPPING_POINT and the [build audit](docs/audits/source/teeter-build-2026-10-11.md). Legacy clock/latch coverage and hardware acceptance remain open. Candidate MRA uses D0; releases are unchanged.

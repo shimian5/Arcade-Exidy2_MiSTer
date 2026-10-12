@@ -62,3 +62,7 @@ The unbound `rtl/mc3417.v` now matches the pinned MAME bit-event model within ha
 ## Actual firmware / decoder candidate, 2026-10-12
 
 The private speech image now runs through actual T80 instruction/bus logic into the unbound decoder: 3,093 samples pass same-bit pinned MAME-method replay within 0.054932 PCM LSB. [Acceptance boundary](../audits/source/mousetrap-firmware-decoder-2026-10-12.md). Idle FF first 3,093 digit writes match native MAME in order/low-byte port/D0, with timing/phase differences; idle stream is not audible phrase acceptance. Positive runs explicitly zero-initialize simulation-only register-bank declarations; original declarations are rejected on unknown firmware OUT. Production cold/warm register state and native game-issued phrase/bitstream parity remain unproven. Next qualify stream interpolation/timeout and filter/gain/mix before production clock/command/loader bindings and full fit/hardware.
+
+## Stream reference qualified, 2026-10-12
+
+The extracted pinned stream method passes 12 directed assertions and two targeted negative controls; [contract](../audits/source/mc3417-stream-contract-2026-10-12.md). A private endpoint replay renders diagnostic PCM and idle tail. MAME callback block size alters interpolation, so decoder equality does not imply fixed-rate PCM equality. Next implement a stated fixed-rate FPGA renderer/timeout contract, then both board filters/gain/mix and production binding.

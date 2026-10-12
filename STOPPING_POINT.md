@@ -2,7 +2,13 @@
 
 Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. Commits are authored as shimian5. The owner authorized local full Quartus flows in unsandboxed PowerShell. No PR has been opened.
 
-## Latest increment - actual speech firmware and decoder
+## Latest increment - MAME stream reference qualification
+
+The actual pinned MC3417 stream method now passes 12 directed assertions for interpolation, stopped-clock timeout, repeated edges and warm reset; both held-output and early-timeout negative controls fail for their intended reasons. A private 3,093-endpoint diagnostic replay produces 44,414 samples and settles to silence. MAME interpolation depends on callback block length, so this is a reference contract, not a fixed-rate FPGA renderer or native filtered PCM equality. [Contract and reproduction](docs/audits/source/mc3417-stream-contract-2026-10-12.md).
+
+Next increment: implement deterministic fixed-rate FPGA stream rendering/idle behavior, then the two board filters/gain/mix. Production command CDC/accepted writes, speech/FAX expansion binding, boot/reset/clock phase, native game-issued phrases, full fit and hardware remain open. Production build is still `020b2ae`; no fitted RTL changed. [Complete remaining checklist](docs/REMAINING_WORK.md).
+
+## Previous increment - actual speech firmware and decoder
 
 The private Mouse Trap speech image now runs through actual T80 instruction/bus logic, the verified ROM/I/O helpers and the unbound MC3417 decoder for 200 ms. Command 0x11 yields 3,093 samples; pinned MAME-method replay of the same sampled bits passes with maximum error 0.054932 PCM LSB. The idle FF run also passes 3,093 same-bit samples (0.006912 PCM LSB) and matches the first 3,093 native MAME digit writes in order/port/D0; clock phase and write times differ. The uninitialized T80 register-bank control is correctly rejected. Positive runs use an explicit simulation-only zero initialization matching MAME's constructor banks; production CPU source is unchanged. [Exact scope and boot limitation](docs/audits/source/mousetrap-firmware-decoder-2026-10-12.md), [native MAME capture](docs/audits/source/mousetrap-voice-reference-2026-10-12.md).
 
