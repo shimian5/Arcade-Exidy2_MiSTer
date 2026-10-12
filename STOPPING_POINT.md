@@ -1,8 +1,16 @@
 # Stopping point - 2026-10-12
 
+## Current batch — production speech binding (full build passed)
+
+The five-step production integration batch has completed RIOT/PB0, actual-firmware speech/audio and validated loader/MRA joins. Focused fixtures and the existing regression runner pass (seven PASS, zero FAIL, one optional capture SKIP). Full unsandboxed Quartus for production `7c69900` passes with zero errors/301 warnings; all 59 timing summaries are positive, master setup +2.393 ns and audio +15.912 ns. Targeted fitted synchronizer/coverage results are recorded in [the five-step checkpoint](docs/audits/source/speech-production-batch-2026-10-12.md).
+
+Development RBF: `simulation/full-core/speech-production-20261012/Arcade-Exidy2.rbf`, SHA256 `77a7d6ccecf5d9817468914aed1ed5752dfe1ea4de7e9505643c9722f2e1e303`. Build outputs remain ignored; Releases and owner dirty probe files are unchanged.
+
+Stopping point: production binding and bounded checks are complete; speech acceptance is open. Next establish production T80 cold/warm startup without simulation initialization, obtain complete native game-issued bark/meow/chomp command/bitstream/WAV evidence, then listen on HDMI and Direct Video hardware. Legacy clock/latch/loop coverage remains open. Follow [remaining checklist](docs/REMAINING_WORK.md) for FAX, other sets, graphics/audio and CRT work.
+
 Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. Commits are authored as shimian5. The owner authorized local full Quartus flows in unsandboxed PowerShell. No PR has been opened.
 
-## Latest increment - speech board filters and mono mix candidate
+## Previous increment - speech board filters and mono mix candidate
 
 Both 192 kHz low-pass stages and 0.3086 route gain now pass 63,903 extracted-MAME-method reference samples, including 44,927 actual firmware-renderer samples. Maximum difference is 0.33203125 PCM LSB. PCM/mix saturation, mute and overrun checks pass; wrong coefficient is rejected. Full isolated unsandboxed Quartus closes: 368 ALMs/517 registers/9 DSP, setup +49.639 ns/hold +0.170 ns; unit clock/latch/loop coverage is clean. [Scope and reproduction](docs/audits/source/mc3417-filter-qualification-2026-10-12.md).
 

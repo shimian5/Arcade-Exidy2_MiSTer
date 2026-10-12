@@ -1,16 +1,18 @@
 # Remaining core recovery work - 2026-10-12
 
-This is the current execution order. WORKPLAN remains the detailed issue/task tracker; completion requires production integration, complete game regression and hardware acceptance. The latest development production build is `020b2ae`, with zero errors, master setup +2.817 ns, audio +16.411 ns and all 59 timing summaries positive. Releases have not been replaced. No upstream PR has been opened.
+This is the current execution order. WORKPLAN remains the detailed issue/task tracker; completion requires production integration, complete game regression and hardware acceptance. The latest fitted development production build is `7c69900`, with zero errors/301 warnings, master setup +2.393 ns, audio +15.912 ns and all 59 timing summaries positive. Speech/game/hardware acceptance and legacy clock coverage remain open. Releases have not been replaced. No upstream PR has been opened.
 
 ## 1. Finish Mouse Trap speech and bind the expansion path
 
-- [x] Qualify the unbound deterministic fixed-rate PCM renderer and stopped-clock behavior: 2,867 assertions, actual firmware/tail and full isolated fit pass. Production sample cadence/binding remains open. Decoder event math and actual private T80 firmware are qualified separately. The MAME stream method is callback-block-dependent; the candidate implements a stated causal cadence and makes no exact MAME PCM claim. [Evidence](audits/source/mc3417-renderer-2026-10-12.md).
-- [x] Qualify unbound two-stage low-pass/0.3086 gain and saturated mono-mix candidates: 63,903 reference samples pass within half a PCM step; full isolated fit passes. [Evidence](audits/source/mc3417-filter-qualification-2026-10-12.md). Production cadence/mix binding and native WAV/hardware gain acceptance remain open.
+- [x] Qualify the unbound deterministic fixed-rate PCM renderer and stopped-clock behavior: 2,867 assertions, actual firmware/tail and full isolated fit pass. Production cadence/binding is now implemented and bounded-tested; boot/native-phrase acceptance remains open. Decoder event math and actual private T80 firmware are qualified separately. The MAME stream method is callback-block-dependent; the candidate implements a stated causal cadence and makes no exact MAME PCM claim. [Evidence](audits/source/mc3417-renderer-2026-10-12.md).
+- [x] Qualify unbound two-stage low-pass/0.3086 gain and saturated mono-mix candidates: 63,903 reference samples pass within half a PCM step; full isolated fit passes. [Evidence](audits/source/mc3417-filter-qualification-2026-10-12.md). Production cadence/mix binding is now implemented; native WAV/hardware gain acceptance remains open.
 - [ ] Reconcile initial clock phase and production T80 cold/warm boot state. Simulation currently uses explicitly zero-initialized register-bank declarations; production CPU RTL is unchanged. The idle initial digit prefix matches native MAME, but write times differ.
 - [ ] Obtain native game-issued bark/meow/chomp commands and verify complete phrases, command/busy/reset behavior and voice inventory. The current passive minute-long capture has only startup ORA/DDRA updates despite later normal inputs.
-- [ ] Bind accepted audio-CPU RIOT writes and command delivery across the actual clock domains. Preserve DDR pull-up callback semantics and ordered writes; qualify pause/reset/reload.
-- [ ] Wire expansion descriptor/index-6 validation, private voice image storage/readiness and ROM adapter into the production T80/speech path. Existing loader/bridge/native-domain reset proofs are candidate evidence, not this binding.
-- [ ] Run complete firmware regressions and a fresh full unsandboxed Quartus flow; then HDMI/Direct Video speech listening on hardware.
+- [x] Bind accepted audio-CPU RIOT callbacks and PB0 busy with DDR pull-up semantics; speech shares the actual audio clock. Production-source guarded write/DDR/pause/reset fixtures pass; derived-clock physical coverage remains open.
+- [x] Bind descriptor/index-6 validation, private voice storage/readiness and ROM adapter to production speech. Actual promoted-source wrapper passes all 84,288 base tuples, speech reads, B0/D0 compatibility, MRA XML order, fault/recovery and legacy reload. Full fit passes; hardware remains an acceptance gate.
+- [x] Run bounded joined actual speech firmware: 200 ms, varying ROM latency, 69,054 ordered reads, 3,093 decoder events and 38,399 filtered ticks with no overflow; positive test has explicit simulation-only zeroed register banks. Complete native game/phrase and production boot evidence remains open.
+- [x] Complete fresh full unsandboxed Quartus flow; targeted integration timing/coverage audit is recorded with the batch checkpoint.
+- [ ] HDMI/Direct Video speech listening on hardware, full phrase/reset/reload/pause and gain acceptance. [Five-step batch](audits/source/speech-production-batch-2026-10-12.md).
 
 ## 2. Complete missing games and board profiles
 
