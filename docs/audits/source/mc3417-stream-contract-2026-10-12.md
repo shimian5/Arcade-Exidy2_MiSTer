@@ -1,6 +1,7 @@
 # MC3417 stream contract (pinned MAME reference)
 
-Audit date: 2026-10-12  
+Audit date: 2026-10-12
+
 Sources: `simulation/reference_sources/hc55516.cpp`, `hc55516.h`, and `exidysound.cpp` in this checkout. This records the behavior of that source revision, not a claim about analog MC3417 hardware or parity with an FPGA core.
 
 ## Exidy wiring and event order
