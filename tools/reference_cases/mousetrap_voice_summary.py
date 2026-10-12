@@ -2,16 +2,24 @@
 """Summarize passive Mouse Trap MAME voice-bus captures."""
 import argparse
 import csv
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 
+def check_riot_capture_source():
+    source = Path(__file__).with_name("mousetrap_voice_capture.lua").read_text(encoding="utf-8")
+    predicate = '(a & 4)==0'
+    assert source.count(predicate) == 2, "both RIOT read and write taps must include mirrored aliases"
+    assert '(a & 0x1f)<=3' not in source, "obsolete filter drops 12 valid mirror offsets"
+
+
 def main():
+    check_riot_capture_source()
     ap = argparse.ArgumentParser()
     ap.add_argument("capture", type=Path, help="mousetrap_voice_bus.csv")
     args = ap.parse_args()
     counts = Counter()
-    first = {bus: [] for bus in ("z80io", "audio", "main")}
+    first = defaultdict(list)
     z80_writes = Counter()
     clock_reads = Counter()
     clock_state = None
@@ -41,12 +49,12 @@ def main():
                     clock_state = state
                 elif (address & 0x80) == 0:  # A7 low: command/status bits
                     command_reads[(r["address"], r["data"])] += 1
-            if bus == "audio" and kind == "W":
+            if bus == "audio" and kind == "W" and (int(r["address"], 16) & 4) == 0:
                 audio_writes.append(r)
     print(f"rows={row_count}")
     for (kind, bus), n in sorted(counts.items()):
         print(f"{bus} {kind}: {n}")
-    for bus in ("z80io", "audio", "main"):
+    for bus in ("z80io", "audio", "main", "in0", "in2"):
         if not first[bus]:
             continue
         print(f"\n[{bus}] first 20 events")
@@ -63,8 +71,16 @@ def main():
         print(f"state={int(r['data'],16) >> 7} {r['time_s']}s frame={r['frame']} pc={r['pc']} addr={r['address']} data={r['data']}")
     print("\n[z80io command/status reads (A7=0)]")
     print(command_reads)
-    # RIOT decode convention: register index in low address bits. Preserve raw
-    # addresses because mirrors and MAME device map semantics can vary by version.
+    # mos6530.cpp maps PA/DDR/PB/DDR at offsets 0-3, mirrored by 0x18.
+    # Across a 32-byte window that means bit 2 must be clear; low two bits
+    # select the register. This compact oracle catches the old <=3 filter,
+    # which incorrectly omitted offsets 8-11, 16-19, and 24-27.
+    alias_offsets = [a for a in range(32) if (a & 4) == 0]
+    expected_aliases = [0, 1, 2, 3, 8, 9, 10, 11, 16, 17, 18, 19, 24, 25, 26, 27]
+    assert alias_offsets == expected_aliases, (alias_offsets, expected_aliases)
+    print(f"\n[RIOT mirror oracle] accepted 32-byte offsets={alias_offsets}; excluded={[a for a in range(32) if (a & 4) != 0]}")
+    # Decode accepted ORA/DDRA callbacks; timer registers (bit 2 set) are
+    # excluded before low-two-bit register decoding.
     print("\n[audio RIOT write addresses]")
     print(Counter(r["address"] for r in audio_writes))
     ora, ddra = 0, 0

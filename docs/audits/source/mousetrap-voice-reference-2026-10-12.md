@@ -1,5 +1,7 @@
 # Mouse Trap speech I/O reference capture — 2026-10-12
 
+> **Historical first-pass capture.** The 3,600-frame file hash and counts below belong to the original run and remain useful as preserved evidence. The recorder's RIOT filter then accepted only offsets 0–3 in each 32-byte window, although the pinned MOS6532 map mirrors valid PA/DDRA/PB/DDRB registers at offsets 8–11, 16–19 and 24–27. The active-low field schedule was not accompanied by a screenshot proving entry into gameplay. See the corrected bounded capture and its input/screen findings in [mousetrap-native-phrases-2026-10-12.md](mousetrap-native-phrases-2026-10-12.md); conclusions about missing game-issued phrases should be based on that audit.
+
 This capture observes the Mouse Trap game with the pinned local MAME executable and uses only its normal game inputs. The Lua tap records ordered, timed reads and writes from the voice Z80 I/O bus, the sound 6502's RIOT window, and the game's sound communication window. It does not alter CPU memory, ROM, reset lines, or speech commands.
 
 ## Source basis
