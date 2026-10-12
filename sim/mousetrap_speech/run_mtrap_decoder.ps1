@@ -77,6 +77,7 @@ try {
         (Join-Path $repoRoot 'rtl\speech_rom_bus.v') `
         (Join-Path $repoRoot 'rtl\mousetrap_voice_io.v') `
         (Join-Path $repoRoot 'rtl\mc3417.v') `
+        (Join-Path $repoRoot 'rtl\mc3417_stream.v') `
         (Join-Path $repoRoot 'sim\mousetrap_speech\tb_t80_mtrap_decoder.sv') *> vlog.log
     if ($LASTEXITCODE -ne 0) { throw "vlog failed with exit $LASTEXITCODE; see $runDir\vlog.log" }
 
@@ -84,6 +85,7 @@ try {
         ('+ROM=' + $hexPath.Replace('\','/')) `
         ('+IO_LOG=' + (Join-Path $runDir 'io.csv').Replace('\','/')) `
         ('+SAMPLE_LOG=' + (Join-Path $runDir 'samples.csv').Replace('\','/')) `
+        ('+PCM_LOG=' + (Join-Path $runDir 'pcm.csv').Replace('\','/')) `
         ('+COMMAND=' + $Command) -do 'run -all; quit -f' *> vsim.log
     if ($LASTEXITCODE -ne 0) { throw "vsim failed with exit $LASTEXITCODE; see $runDir\vsim.log" }
     $pass = Select-String -LiteralPath (Join-Path $runDir 'vsim.log') -SimpleMatch 'PASS actual Mouse Trap ROM + T80 + I/O + decoder' | Select-Object -First 1
@@ -91,6 +93,9 @@ try {
         throw "Simulation exited without its PASS marker; see $runDir\vsim.log"
     }
     Write-Output $pass.Line.Trim()
+    $streamPass = Select-String -LiteralPath (Join-Path $runDir 'vsim.log') -SimpleMatch 'PASS actual firmware fixed-rate stream' | Select-Object -First 1
+    if ($null -eq $streamPass) { throw "Missing firmware stream PASS; see $runDir" }
+    Write-Output $streamPass.Line.Trim()
     Write-Output "Logs: $runDir"
 }
 finally {

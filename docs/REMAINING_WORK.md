@@ -4,7 +4,7 @@ This is the current execution order. WORKPLAN remains the detailed issue/task tr
 
 ## 1. Finish Mouse Trap speech and bind the expansion path
 
-- [ ] Implement a deterministic fixed-rate PCM renderer and stopped-clock behavior. Decoder event math and actual private T80 firmware are qualified separately. The newly tested MAME stream method is callback-block-dependent; FPGA rendering needs a stated sample cadence and interpolation contract, not an unsupported exact MAME PCM claim.
+- [x] Qualify the unbound deterministic fixed-rate PCM renderer and stopped-clock behavior: 2,867 assertions, actual firmware/tail and full isolated fit pass. Production sample cadence/binding remains open. Decoder event math and actual private T80 firmware are qualified separately. The MAME stream method is callback-block-dependent; the candidate implements a stated causal cadence and makes no exact MAME PCM claim. [Evidence](audits/source/mc3417-renderer-2026-10-12.md).
 - [ ] Add the two board low-pass stages, 0.3086 prefilter route gain and bounded mono mixing. Compare filtered levels/transients against reference samples and retain the board-model limitations.
 - [ ] Reconcile initial clock phase and production T80 cold/warm boot state. Simulation currently uses explicitly zero-initialized register-bank declarations; production CPU RTL is unchanged. The idle initial digit prefix matches native MAME, but write times differ.
 - [ ] Obtain native game-issued bark/meow/chomp commands and verify complete phrases, command/busy/reset behavior and voice inventory. The current passive minute-long capture has only startup ORA/DDRA updates despite later normal inputs.

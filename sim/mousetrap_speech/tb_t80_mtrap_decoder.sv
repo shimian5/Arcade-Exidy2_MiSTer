@@ -20,11 +20,26 @@ module tb_t80_mtrap_decoder;
     integer mem_writes=0, io_log, sample_log, command_code=17;
     reg prev_io_wr=0, prev_io_rd=0, prev_mem_wr=0;
     reg previous_clock=0, sampled_digit=0;
-    string rom_path, io_path, sample_path;
+    reg run_clock=1, stream_last_clock=0, stream_valid=0, sample_ce=0;
+    integer sample_phase=0, pcm_ticks=0, pcm_nonzero=0, pcm_log;
+    wire signed [31:0] pcm_q24;
+    wire stream_idle;
+    string rom_path, io_path, sample_path, pcm_path;
     // Nominal master = 4*3.579545 MHz; T80 enable /8 = 1.7897725 MHz.
     always #34.921279 clk=~clk;
     // Exact MAME Mouse Trap RC half-period; firmware sees the same clock state.
-    always #32321.520 clock_state=~clock_state;
+    always #32321.520 if(run_clock) clock_state=~clock_state;
+    always @(posedge clk) begin
+        stream_last_clock<=clock_state;
+        // Decoder output changes by NBA on the falling edge; deliver it to
+        // the renderer one master-clock later, without stale endpoint capture.
+        stream_valid<=cold_reset_n && stream_last_clock && !clock_state;
+        if (!cold_reset_n) begin sample_phase<=0; sample_ce<=0; end
+        else if (sample_phase+192000>=14318180) begin
+            sample_phase<=sample_phase+192000-14318180;
+            sample_ce<=1;
+        end else begin sample_phase<=sample_phase+192000; sample_ce<=0; end
+    end
     always @(posedge clk) begin
         divider <= divider==7 ? 0 : divider+1;
         rom_ready <= rom_read;
@@ -49,6 +64,19 @@ module tb_t80_mtrap_decoder;
         .clock_reset(1'b0), .cvsd_clock(clock_state), .digit(digit),
         .sample_q24(sample_q24), .history(history), .step_q24(step_q24),
         .integrator_q24(integrator_q24));
+    exidyMc3417Stream stream(.clk(clk), .cold_reset_n(cold_reset_n),
+        .sample_ce(sample_ce), .clock_transition(stream_last_clock!=clock_state),
+        .sample_valid(stream_valid), .sample_q24(sample_q24),
+        .pcm_q24(pcm_q24), .idle(stream_idle));
+    always @(posedge clk) begin
+        if(cold_reset_n && sample_ce) begin
+            #2;
+            if ($isunknown({pcm_q24,stream_idle})) $fatal(1,"unknown firmware PCM state");
+            pcm_ticks=pcm_ticks+1;
+            if(pcm_q24!=0) pcm_nonzero=pcm_nonzero+1;
+            $fdisplay(pcm_log,"%0t,%0d,%0d",$time,pcm_q24,stream_idle);
+        end
+    end
     always @(posedge clk) begin
         if(cold_reset_n) begin
             if(io_wr && !prev_io_wr && !cpu_reset) begin
@@ -80,21 +108,30 @@ module tb_t80_mtrap_decoder;
     initial begin
         if(!$value$plusargs("ROM=%s",rom_path) ||
            !$value$plusargs("IO_LOG=%s",io_path) ||
-           !$value$plusargs("SAMPLE_LOG=%s",sample_path))
+           !$value$plusargs("SAMPLE_LOG=%s",sample_path) ||
+           !$value$plusargs("PCM_LOG=%s",pcm_path))
             $fatal(1,"private ROM and output paths required");
         if($value$plusargs("COMMAND=%d",command_code)) begin end
         command_data=command_code;
         $readmemh(rom_path,rom);
         io_log=$fopen(io_path,"w"); sample_log=$fopen(sample_path,"w");
-        if(!io_log || !sample_log) $fatal(1,"could not create ignored output");
+        pcm_log=$fopen(pcm_path,"w");
+        if(!io_log || !sample_log || !pcm_log) $fatal(1,"could not create ignored output");
         $fdisplay(io_log,"time_ps,kind,address,data,clock");
         $fdisplay(sample_log,"time_ps,digit,history,step_q24,integrator_q24,sample_q24");
+        $fdisplay(pcm_log,"time_ps,pcm_q24,idle");
         repeat(5) @(posedge clk);
         @(negedge clk); cold_reset_n=1; command_commit=1;
         @(negedge clk); command_commit=0;
         @(negedge clk); global_reset=0;
         #200ms;
-        $fclose(io_log); $fclose(sample_log);
+        run_clock=0;
+        #34ms;
+        $fclose(io_log); $fclose(sample_log); $fclose(pcm_log);
+        if(!stream_idle || pcm_q24!=0 || pcm_ticks<44000 || pcm_nonzero<100)
+            $fatal(1,"firmware stream coverage/tail failed ticks=%0d nonzero=%0d idle=%0d pcm=%0d",
+                pcm_ticks,pcm_nonzero,stream_idle,pcm_q24);
+        $display("PASS actual firmware fixed-rate stream ticks=%0d nonzero=%0d stopped-clock tail=0",pcm_ticks,pcm_nonzero);
         if(rom_reads<100 || io_reads<100 || io_writes<100 ||
            samples<3000 || nonzero_samples<100)
             $fatal(1,"real speech ROM coverage too low ROM=%0d IN=%0d OUT=%0d samples=%0d nonzero=%0d",

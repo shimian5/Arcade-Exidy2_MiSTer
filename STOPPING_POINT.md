@@ -2,7 +2,13 @@
 
 Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. Commits are authored as shimian5. The owner authorized local full Quartus flows in unsandboxed PowerShell. No PR has been opened.
 
-## Latest increment - MAME stream reference qualification
+## Latest increment - fixed-rate speech renderer candidate
+
+The unbound Q24 renderer passes 2,867 directed assertions, including 200 independently modeled signed ramps and two specific negative controls. Joined actual speech firmware produces 44,927 PCM ticks and reaches zero after the stopped-clock timeout/tail. Its full isolated unsandboxed Quartus flow passes after replacing the failing divider with exact reciprocal arithmetic: 152 ALMs/113 registers/3 DSP, minimum setup +50.506 ns and hold +0.127 ns; unit clock/latch/loop coverage is clean. [Renderer evidence and explicit policy](docs/audits/source/mc3417-renderer-2026-10-12.md).
+
+Next increment: the two Mouse Trap board low-pass stages, gain and bounded mono mixing. Native game-issued phrase/clock-phase/boot evidence, production accepted RIOT writes/command CDC, speech/FAX expansion binding, full-core fit and hardware remain open. The renderer uses a fixed causal cadence, not MAME callback-dependent interpolation parity. Production build remains `020b2ae`; candidate stays outside QIP. [Remaining checklist](docs/REMAINING_WORK.md).
+
+## Previous increment - MAME stream reference qualification
 
 The actual pinned MC3417 stream method now passes 12 directed assertions for interpolation, stopped-clock timeout, repeated edges and warm reset; both held-output and early-timeout negative controls fail for their intended reasons. A private 3,093-endpoint diagnostic replay produces 44,414 samples and settles to silence. MAME interpolation depends on callback block length, so this is a reference contract, not a fixed-rate FPGA renderer or native filtered PCM equality. [Contract and reproduction](docs/audits/source/mc3417-stream-contract-2026-10-12.md).
 
