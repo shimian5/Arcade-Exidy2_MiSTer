@@ -4,6 +4,8 @@ Work is now on `main`, including production tree `55e3300`. Latest local results
 
 ## Latest integrated result
 
+Latest candidate unit: both board low-pass stages/route gain and bounded mono mix pass 63,903 extracted-C++ reference samples (max 0.33203125 PCM LSB), including the actual firmware-renderer trace. Full isolated Quartus: 368 ALMs/517 registers/9 DSP; setup +49.639/hold +0.170 ns; clean unit clock/latch/loop coverage. [Filter audit](docs/audits/source/mc3417-filter-qualification-2026-10-12.md). Next production RIOT command delivery and expansion binding/cadence, then fresh full-core/hardware; candidates outside QIP, production 020b2ae unchanged.
+
 Latest candidate unit: fixed-rate Q24 speech renderer passes 2,867 assertions and the actual-ROM firmware/tail join. Full isolated flow closes at setup +50.506 ns/hold +0.127 ns (152 ALMs, 113 registers, 3 DSP); generic divider was replaced with exact reciprocal multiplication. Read [renderer audit](docs/audits/source/mc3417-renderer-2026-10-12.md). Next board filters/gain/mix, then command/loader bindings and full-core/hardware gates. Production remains `020b2ae`; no release changes.
 
 Latest reference unit: extracted pinned MC3417 stream method passes 12 directed assertions and two specifically rejected controls. Private endpoint replay renders 44,414 diagnostic samples and an idle tail; callback segmentation affects MAME output. See [stream contract](docs/audits/source/mc3417-stream-contract-2026-10-12.md). Next implement the fixed-rate FPGA renderer, then filters/gain/mix; full [remaining checklist](docs/REMAINING_WORK.md) is current. Production build remains `020b2ae`, unchanged.

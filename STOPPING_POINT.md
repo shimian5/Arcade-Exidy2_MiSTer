@@ -2,7 +2,13 @@
 
 Work is on `main`, fast-forwarded to the incoming production tree at `55e3300`. Commits are authored as shimian5. The owner authorized local full Quartus flows in unsandboxed PowerShell. No PR has been opened.
 
-## Latest increment - fixed-rate speech renderer candidate
+## Latest increment - speech board filters and mono mix candidate
+
+Both 192 kHz low-pass stages and 0.3086 route gain now pass 63,903 extracted-MAME-method reference samples, including 44,927 actual firmware-renderer samples. Maximum difference is 0.33203125 PCM LSB. PCM/mix saturation, mute and overrun checks pass; wrong coefficient is rejected. Full isolated unsandboxed Quartus closes: 368 ALMs/517 registers/9 DSP, setup +49.639 ns/hold +0.170 ns; unit clock/latch/loop coverage is clean. [Scope and reproduction](docs/audits/source/mc3417-filter-qualification-2026-10-12.md).
+
+Next increment: accepted RIOT callback writes and ordered speech-command/reset/busy delivery across production clock domains, then voice-image/expansion endpoint binding and renderer/filter/mix cadence. Native game-issued phrase/phase/boot evidence, native WAV/rate and hardware listening remain open. Candidates remain outside QIP; production build is still `020b2ae`. Fresh full-core timing/resource/reset/reload/pause gates follow binding. [Remaining checklist](docs/REMAINING_WORK.md).
+
+## Previous increment - fixed-rate speech renderer candidate
 
 The unbound Q24 renderer passes 2,867 directed assertions, including 200 independently modeled signed ramps and two specific negative controls. Joined actual speech firmware produces 44,927 PCM ticks and reaches zero after the stopped-clock timeout/tail. Its full isolated unsandboxed Quartus flow passes after replacing the failing divider with exact reciprocal arithmetic: 152 ALMs/113 registers/3 DSP, minimum setup +50.506 ns and hold +0.127 ns; unit clock/latch/loop coverage is clean. [Renderer evidence and explicit policy](docs/audits/source/mc3417-renderer-2026-10-12.md).
 

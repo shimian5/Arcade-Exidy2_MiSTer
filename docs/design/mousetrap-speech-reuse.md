@@ -70,3 +70,7 @@ The extracted pinned stream method passes 12 directed assertions and two targete
 ## Fixed-rate renderer candidate qualified, 2026-10-12
 
 The unbound renderer passes 2,867 assertions and actual-ROM PCM/tail simulation; full isolated Quartus closes (152 ALMs/113 registers/3 DSP, setup +50.506 ns/hold +0.127 ns). [Exact policy and evidence](../audits/source/mc3417-renderer-2026-10-12.md). A 13-tick causal Q24 ramp and strict idle threshold are explicit choices; no native MAME interpolated PCM or analog timeout parity claim. Next both board filters/gain/mix, then production cadence/command/expansion binding, native phrase/boot/phase and fresh full-core/hardware gates.
+
+## Board filter/gain/mix candidate qualified, 2026-10-12
+
+Both 192 kHz low-pass sections, route gain and bounded mono mix pass 63,903 extracted-C++ reference samples (max 0.33203125 PCM LSB) and isolated full fit (368 ALMs/517 registers/9 DSP; setup +49.639/hold +0.170 ns). [Evidence](../audits/source/mc3417-filter-qualification-2026-10-12.md). Native MAME filters are adaptive-rate; matched-cadence agreement is distinct from native WAV/scheduler/hardware parity. Next accepted RIOT command delivery, production expansion/image readiness and cadence/mix binding, then native phrase/phase/boot and full-core/hardware gates.
