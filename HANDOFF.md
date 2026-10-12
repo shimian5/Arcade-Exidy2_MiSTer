@@ -2,6 +2,10 @@
 
 Work is now on `main`, including production tree `55e3300`. Latest local results and timing work are in [STOPPING_POINT.md](STOPPING_POINT.md). Read in this order: this file, [STOPPING_POINT.md](STOPPING_POINT.md), [WORKPLAN.md](WORKPLAN.md), [docs/cloud-environment.md](docs/cloud-environment.md). Goal and completion rule are in WORKPLAN.md (every Exidy 6502 game working; evidence required, no unproven "done").
 
+## Latest investigation checkpoint
+
+Read [startup/native batch](docs/audits/source/mousetrap-startup-native-batch-2026-10-12.md) first. CPU bank cold values remain unspecified; seeded warm-retention tests pass. Native recording now includes all RIOT port aliases and validates late inputs, but remains at Hall of Fame with only startup PA callbacks. Next resolve native credit/start/interrupt or declared Free Play route; full phrases and hardware are still open. No production RTL changed in this batch; `7c69900` remains the fitted build. Source fixtures are reproducible, generated evidence stays ignored.
+
 ## Latest integrated result
 
 Current production speech batch: accepted RIOT callbacks/PB0, actual T80/ROM/decoder/render/filter/mix and validated loader/MRA are now bound and focused fixtures pass. Full production Quartus for `7c69900` passes: zero errors/301 warnings, all 59 timing summaries positive, master +2.393 ns/audio +15.912 ns. Exact development RBF identity and fitted audit are in STOPPING_POINT.md. Read [the five-step checkpoint](docs/audits/source/speech-production-batch-2026-10-12.md). Cold/warm T80 boot is unqualified (positive fixture zeroes banks in a simulation-only copy); native game-issued phrases/phase/WAV and hardware remain open. Releases are unchanged.

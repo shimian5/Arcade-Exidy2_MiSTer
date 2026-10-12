@@ -1,6 +1,12 @@
 # Stopping point - 2026-10-12
 
-## Current batch — production speech binding (full build passed)
+## Current batch — startup and native speech investigation
+
+Five bounded investigation/checkpoint steps are complete; see [batch evidence and exact limits](docs/audits/source/mousetrap-startup-native-batch-2026-10-12.md). New CPU-bank startup/warm-reset tests, corrected RIOT mirror recording, validated late native inputs, complete available-stream comparison and the [hardware checklist](docs/reference_cases/mousetrap-speech-hardware.md) are tracked. No production RTL changed: fitted source/RBF remains `7c69900` with the hash below.
+
+Stopping point: selected seeded-bank tests retain all 128 bits on PA4 warm reset; cold initial-digit behavior is not guaranteed. The native game reaches Hall of Fame and sees inputs, but a playable board and game-issued phrase commands have not been demonstrated. All 3,093 available T80 digit writes match the final native prefix; 925,387 native writes are outside the T80 run. Next investigate native credit/start/interrupt state or separately labelled Free Play before attempting complete phrase replay. Hardware, legacy clock coverage, FAX/other sets and CRT acceptance remain open. Releases and owner probe files remain unchanged.
+
+## Previous batch — production speech binding (full build passed)
 
 The five-step production integration batch has completed RIOT/PB0, actual-firmware speech/audio and validated loader/MRA joins. Focused fixtures and the existing regression runner pass (seven PASS, zero FAIL, one optional capture SKIP). Full unsandboxed Quartus for production `7c69900` passes with zero errors/301 warnings; all 59 timing summaries are positive, master setup +2.393 ns and audio +15.912 ns. Targeted fitted synchronizer/coverage results are recorded in [the five-step checkpoint](docs/audits/source/speech-production-batch-2026-10-12.md).
 

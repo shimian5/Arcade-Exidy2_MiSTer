@@ -2,6 +2,8 @@
 
 This is the current execution order. WORKPLAN remains the detailed issue/task tracker; completion requires production integration, complete game regression and hardware acceptance. The latest fitted development production build is `7c69900`, with zero errors/301 warnings, master setup +2.393 ns, audio +15.912 ns and all 59 timing summaries positive. Speech/game/hardware acceptance and legacy clock coverage remain open. Releases have not been replaced. No upstream PR has been opened.
 
+Latest investigation: [startup/native batch](audits/source/mousetrap-startup-native-batch-2026-10-12.md). CPU warm-bank retention is proven for selected cases; mapped cold values are don't-care. Corrected native capture reaches Hall of Fame, sees controls and still has only startup PA callbacks. Resolve its credit/start route before claiming gameplay speech. [Hardware checklist](reference_cases/mousetrap-speech-hardware.md) is ready; owner results are pending.
+
 ## 1. Finish Mouse Trap speech and bind the expansion path
 
 - [x] Qualify the unbound deterministic fixed-rate PCM renderer and stopped-clock behavior: 2,867 assertions, actual firmware/tail and full isolated fit pass. Production cadence/binding is now implemented and bounded-tested; boot/native-phrase acceptance remains open. Decoder event math and actual private T80 firmware are qualified separately. The MAME stream method is callback-block-dependent; the candidate implements a stated causal cadence and makes no exact MAME PCM claim. [Evidence](audits/source/mc3417-renderer-2026-10-12.md).
