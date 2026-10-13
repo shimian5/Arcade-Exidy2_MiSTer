@@ -116,8 +116,17 @@ generate
 		assign B_in = frz ? 1'd0 : B;
 	end
 endgenerate"""
+    scoped = new.replace(
+        "// SIMULATION-COMPAT ONLY: module-scope nets replace generate-scope nets\n// that are referenced after the generate block by gamma_corr.",
+        "// Keep RGB nets visible to both gamma and bypass consumers below.\n// Branch-local declarations hide these names outside the generate scope.",
+    )
+    if text.count(scoped) == 1:
+        return source, {"source": "sys/video_mixer.sv", "sourceSha256": sha(source),
+                        "compatSha256": sha(source), "transformation": "none; production RGB nets are module-scoped",
+                        "purpose": "compile the exact production source without simulation normalization",
+                        "productionFileModified": False}
     if text.count(old) != 1:
-        raise RuntimeError("Expected exact single production video_mixer generated-net block; source changed")
+        raise RuntimeError("Expected one recognized video_mixer RGB declaration block; source changed")
     compat = text.replace(old, new, 1)
     out = OUT / "video_mixer_scope_compat.sv"
     OUT.mkdir(parents=True, exist_ok=True)
