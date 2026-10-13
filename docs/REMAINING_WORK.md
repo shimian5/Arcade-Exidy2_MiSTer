@@ -1,5 +1,18 @@
 # Remaining core recovery work - 2026-10-12
 
+## Live continuation — 2026-10-13
+
+- [x] Reproduce normal native Mouse Trap gameplay and actual game-issued speech commands.
+- [x] Replay complete second command interval through actual T80 and match 15,176 native digit bits.
+- [ ] Finish long third-interval replay, resolve reset-boundary/cold-state limits, and compare same-bit decoder/render/filter output before hardware audio acceptance.
+- [x] Full-fit production RGB fix `183f84a` with positive timing.
+- [x] Qualify both FAX MRA streams through the production download wrapper.
+- [ ] Finish FAX actual T65 read/control/RAM fixture and full production fit (currently running), then full-game/hardware tests.
+- [x] Qualify unbound CRT capture/transport and actual mixer join with independent pixel oracle.
+- [ ] Fit exact-ratio CRT PLL, implement controller/bind output, full-fit and test HDMI/Direct Video/S-Video.
+
+This supplements the detailed original issue list below; source-level passes do not close hardware or full-game gates.
+
 This is the current execution order. WORKPLAN remains the detailed issue/task tracker; completion requires production integration, complete game regression and hardware acceptance. The latest fitted development production build is `7c69900`, with zero errors/301 warnings, master setup +2.393 ns, audio +15.912 ns and all 59 timing summaries positive. Speech/game/hardware acceptance and legacy clock coverage remain open. Releases have not been replaced. No upstream PR has been opened.
 
 Latest investigation: [startup/native batch](audits/source/mousetrap-startup-native-batch-2026-10-12.md). CPU warm-bank retention is proven for selected cases; mapped cold values are don't-care. Corrected native capture reaches Hall of Fame, sees controls and still has only startup PA callbacks. Resolve its credit/start route before claiming gameplay speech. [Hardware checklist](reference_cases/mousetrap-speech-hardware.md) is ready; owner results are pending.

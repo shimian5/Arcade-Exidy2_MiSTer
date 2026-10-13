@@ -1,12 +1,12 @@
-# Stopping point - 2026-10-12
+# Stopping point - 2026-10-13
 
-## Current batch — startup and native speech investigation
+## Current batch â€” startup and native speech investigation
 
 Five bounded investigation/checkpoint steps are complete; see [batch evidence and exact limits](docs/audits/source/mousetrap-startup-native-batch-2026-10-12.md). New CPU-bank startup/warm-reset tests, corrected RIOT mirror recording, validated late native inputs, complete available-stream comparison and the [hardware checklist](docs/reference_cases/mousetrap-speech-hardware.md) are tracked. No production RTL changed: fitted source/RBF remains `7c69900` with the hash below.
 
 Stopping point: selected seeded-bank tests retain all 128 bits on PA4 warm reset; cold initial-digit behavior is not guaranteed. The native game reaches Hall of Fame and sees inputs, but a playable board and game-issued phrase commands have not been demonstrated. All 3,093 available T80 digit writes match the final native prefix; 925,387 native writes are outside the T80 run. Next investigate native credit/start/interrupt state or separately labelled Free Play before attempting complete phrase replay. Hardware, legacy clock coverage, FAX/other sets and CRT acceptance remain open. Releases and owner probe files remain unchanged.
 
-## Previous batch — production speech binding (full build passed)
+## Previous batch â€” production speech binding (full build passed)
 
 The five-step production integration batch has completed RIOT/PB0, actual-firmware speech/audio and validated loader/MRA joins. Focused fixtures and the existing regression runner pass (seven PASS, zero FAIL, one optional capture SKIP). Full unsandboxed Quartus for production `7c69900` passes with zero errors/301 warnings; all 59 timing summaries are positive, master setup +2.393 ns and audio +15.912 ns. Targeted fitted synchronizer/coverage results are recorded in [the five-step checkpoint](docs/audits/source/speech-production-batch-2026-10-12.md).
 
@@ -40,19 +40,19 @@ The private Mouse Trap speech image now runs through actual T80 instruction/bus 
 
 Next increment: stream interpolation/stopped-clock silence, followed by filter/gain/mix qualification. Native game-issued phrase/bitstream equality and production boot values remain gates. Production command CDC/accepted RIOT writes, expansion loader/readiness/reset/pause, fresh full-core fit and hardware listening remain open. No fitted RTL or releases changed; production build remains `020b2ae`. Owner probe files remain untouched.
 
-## Previous increment — MC3417 bit-event decoder
+## Previous increment â€” MC3417 bit-event decoder
 
 The unbound MC3417 candidate passes 91,924 rows against an oracle extracted from the pinned MAME method. Maximum decoded-sample difference is 0.375 of a 16-bit PCM step; the rising-edge negative control fails as required. Falling-edge sampling, sign, three-bit adaptation, leakage, held-clock behavior and cold/warm reset are covered. Full standalone Quartus flow passes: 204 ALMs, 100 registers, 12 DSP blocks; minimum setup/hold +45.552/+0.284 ns. Unit coverage has no no-clock objects, latches or loops; virtual I/O/reset timing remains an integration gate. This qualifies event state/next-sample arithmetic; PCM rendering, stopped-clock silence, board filtering, gain and audible voices remain open. [Decoder qualification](docs/audits/source/mc3417-decoder-2026-10-11.md).
 
 Next increment: join the actual speech firmware and verified I/O to decoder clock/status, then qualify rendering/filter/mix against MAME traces. Production command CDC/accepted RIOT writes, expansion loader/readiness, a fresh full-core build and hardware acceptance remain open. Production build remains `020b2ae`; the new decoder is outside QIP.
 
-## Previous increment — actual T80 voice-I/O join
+## Previous increment â€” actual T80 voice-I/O join
 
 The next speech step is complete as a bounded candidate unit: actual T80, voice-I/O helper, callback adapter and actual R6532 pass synthetic IN/OUT and warm-reset tests at continuous and divided enables, with pause/wait-stretched writes. The raw callback negative control fails as expected. Pinned MOS6532 source exposed and resolved the earlier helper assumption: command bytes include DDR pull-ups and update on both ORA and DDRA writes/reset. Exhaustive helper tests pass after correction. [Evidence and exact acceptance boundary](docs/audits/source/mousetrap-t80-io-join-2026-10-11.md).
 
 Next increment: qualify MC3417-compatible decoding against MAME. Full firmware, production command CDC/accepted-write wiring, clock/reset/image readiness, loader binding, filter/mix, full rebuild and hardware speech acceptance remain open. Production build is still `020b2ae`; both speech helpers are outside QIP. This increment changes no release files or fitted production inputs.
 
-## Current checkpoint — Teeter fitted; FAX reference gameplay reached
+## Current checkpoint â€” Teeter fitted; FAX reference gameplay reached
 
 Production Teeter controls and stretched NMI are integrated in `020b2ae`. Its completed full unsandboxed Quartus flow passes: **0 errors, 285 warnings**, master setup **+2.817 ns**, audio **+16.411 ns**; all 59 timing summaries pass, zero TNS. Read-only FIFO/reset/divider reports independently pass, including physical replicas. The development RBF is `simulation/full-core/020b2ae/Arcade-Exidy2.rbf`, SHA-256 `65F631ADD85143EF44408C22C9107AE816C456C1177FE93518F6CD3A3C4039B8`. [Build and coverage evidence](docs/audits/source/teeter-build-2026-10-11.md). Use the Teeter integration candidate MRA, profile D0; releases remain unchanged. Actual-T65 source-extracted control-bus and direct NMI fixtures pass; full Teeter ROM/gameplay/physical acceptance is open.
 
@@ -64,7 +64,7 @@ Remaining timing coverage is explicit: fresh fit has 3,265 no-clock objects (171
 
 Next bounded units, in order: qualified MC3417 decoder and audio path; production command CDC/accepted-write wiring; production expansion loader binding for speech/FAX with complete firmware regression and fresh full build. Alongside these, hardware-test the Teeter candidate and existing audio/IRQ edits. Venture room-arrow reproduction, Side Trak, clones/bootlegs, noise/levels, CRT/native video, per-game regression and release packaging remain tracked in WORKPLAN. Owner probe files are preserved. No ROM bytes, captures or build outputs are committed.
 
-## Historical checkpoint — PIA timing blocker closed
+## Historical checkpoint â€” PIA timing blocker closed
 
 
 
@@ -78,7 +78,7 @@ The preserved development artifact is `simulation/full-core/016b4c9/Arcade-Exidy
 
 Remaining original work: 6840 noise/event ordering and audio levels/PCM; Targ/Spectar/Side Trak audio; Mouse Trap complete firmware/command/CVSD/mix integration and endpoint reset cancellation; Teeter controls/NMI binding; FAX/FAX2 memory/profile/input/loader integration and reference gameplay; clone/bootleg profiles; expansion transport binding; Venture room-arrow reproduction; native/CRT renderer and CDC integration; full-game regressions, hardware acceptance and release packaging. No game acceptance box is cleared by a fixture alone.
 
-## Historical checkpoint — superseded by the FIFO build above
+## Historical checkpoint â€” superseded by the FIFO build above
 
 Previous production flow: `07a49c5`, zero compile errors, **master setup -0.439 ns**, audio +25.120 ns. All five added counter clocks pass reported setup/hold; minimum overall hold +0.252 ns. All eight negative setup paths are the registered audio byte to the master byte register. The isolated bit-5 placement flow completed: assignments honored, worst byte setup -0.330 ns, bit 5 -0.236 ns and byte hold +0.528 ns; all eight bits still fail setup. Its outputs are archived under ignored `simulation/placement-bit5/completed-placement-only/`. The tighter setup-target flow completed; original production-SDC replay still fails all eight byte paths at -0.431 ns, hold +0.565 ns. This fit is rejected. Opposite-edge data+valid passes isolated functional checks, but PLL edge-grid arithmetic halves its minimum setup window; rejected as a timing remedy without contrary STA evidence. Production QSF/RTL are unchanged. RBF remains unaccepted; releases are unchanged. [Latest production full-flow evidence](docs/audits/source/pia-data-valid-build-2026-10-07.md), [steering trial](docs/audits/source/pia-setup-steering-trial.md).
 
@@ -151,10 +151,10 @@ Generated ROM/media/binaries/logs remain ignored under `simulation/`; no ROM byt
 ## Broader work still pending
 
 - W02: complete FPGA transport/read path, FAX extra `fxl-12b` PROM/decoder routing and out-of-region bank parity, FAX/FAX2 board RAM/maps, fitted memory budget.
-- W03–W05: reference cases for remaining release games and missing/clone games; exact forum reproductions; sprites, collision/IRQ, mirrors and game-profile regressions through complete CPU execution and rendered frames.
-- W08–W09: shared audio accuracy and complete Mouse Trap CVSD hardware/command/ROM execution; capture/compare each missing voice/sound event.
-- W10–W12: Side Trak, Teeter Torture, FAX/FAX2 and clone/bootleg support, including controls and complete game acceptance. Existing ROM availability is not game support.
-- W13–W16: frontend/persistence/effects integration, full-flow Quartus builds/timing/resource review, physical acceptance and only then release packaging/regression.
+- W03â€“W05: reference cases for remaining release games and missing/clone games; exact forum reproductions; sprites, collision/IRQ, mirrors and game-profile regressions through complete CPU execution and rendered frames.
+- W08â€“W09: shared audio accuracy and complete Mouse Trap CVSD hardware/command/ROM execution; capture/compare each missing voice/sound event.
+- W10â€“W12: Side Trak, Teeter Torture, FAX/FAX2 and clone/bootleg support, including controls and complete game acceptance. Existing ROM availability is not game support.
+- W13â€“W16: frontend/persistence/effects integration, full-flow Quartus builds/timing/resource review, physical acceptance and only then release packaging/regression.
 
 Existing owner inputs remain supplied: NAS ROM library, local MAME and repository releases. Owner supplied the video paths and control requirements above; exact adapter/settings and physical acceptance remain needed at their dependent gates. For the arrow case, first derive a room-entry reproduction from MAME; request an exact owner sequence only if it remains necessary. No new input is required to resume the immediate isolated adapter work.
 
