@@ -2,6 +2,12 @@
 
 Work is now on `main`, including production tree `55e3300`. Latest local results and timing work are in [STOPPING_POINT.md](STOPPING_POINT.md). Read in this order: this file, [STOPPING_POINT.md](STOPPING_POINT.md), [WORKPLAN.md](WORKPLAN.md), [docs/cloud-environment.md](docs/cloud-environment.md). Goal and completion rule are in WORKPLAN.md (every Exidy 6502 game working; evidence required, no unproven "done").
 
+## Current stopping checkpoint — 2026-10-13
+
+Read [STOPPING_POINT.md](STOPPING_POINT.md) and [WORKPLAN.md](WORKPLAN.md) first. Production `2b9eb2b` meets all 59 reported timing summaries and guarded speech/reset inspection. Development RBF hash and isolated ten-MRA hardware package are recorded there. Legacy timing coverage, full-game/hardware acceptance and CRT production binding remain open. FAX production binding is complete; Side Trak map/character/palette and CRT/Native FX/PLL helpers remain unbound candidates. Native Mouse Trap BC snapshots and paired B-seed control explain the first two reset-entry differences; do not initialize production banks to force a match.
+
+The owner requested work until approximately 1% remaining usage, using Luna 6 workers. All source/tests/audits are saved under shimian5, no ROM/capture/RBF files tracked, Releases unchanged, owner probe files preserved. Resume with the concrete CRT integration guide, hardware checklists and remaining 28-set matrix. Previous checkpoints below are historical.
+
 ## Latest investigation checkpoint
 
 Read [startup/native batch](docs/audits/source/mousetrap-startup-native-batch-2026-10-12.md) first. CPU bank cold values remain unspecified; seeded warm-retention tests pass. Native recording now includes all RIOT port aliases and validates late inputs, but remains at Hall of Fame with only startup PA callbacks. Next resolve native credit/start/interrupt or declared Free Play route; full phrases and hardware are still open. No production RTL changed in this batch; `7c69900` remains the fitted build. Source fixtures are reproducible, generated evidence stays ignored.

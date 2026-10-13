@@ -1,21 +1,19 @@
 # Remaining core recovery work - 2026-10-12
 
-## Live continuation — 2026-10-13
+## Current checkpoint — 2026-10-13
 
-- [x] Reproduce normal native Mouse Trap gameplay and actual game-issued speech commands.
-- [x] Replay complete second command interval through actual T80 and match 15,176 native digit bits.
-- [ ] Finish long third-interval replay, resolve reset-boundary/cold-state limits, and compare same-bit decoder/render/filter output before hardware audio acceptance.
-- [x] Full-fit production RGB fix `183f84a` with positive timing.
-- [x] Qualify both FAX MRA streams through the production download wrapper.
-- [ ] Finish FAX actual T65 read/control/RAM fixture and full production fit (currently running), then full-game/hardware tests.
-- [x] Qualify unbound CRT capture/transport and actual mixer join with independent pixel oracle.
-- [ ] Fit exact-ratio CRT PLL, implement controller/bind output, full-fit and test HDMI/Direct Video/S-Video.
+- [x] Complete native Mouse Trap gameplay/command capture, long replay and retained-B boundary investigation.
+- [ ] Native filtered PCM/gain, physical speech, power-cycle/reset/reload acceptance.
+- [x] Full-fit production FAX binding with positive reported timing (`2b9eb2b`) and targeted speech/reset inspection.
+- [ ] FAX/FAX2 full game/graphics/input/bank hardware checks; resolve startup strap and missing dumps.
+- [x] CRT stream/actual mixer/Native phase/adaptive FX and real PLL/controller candidate qualification.
+- [ ] CRT common output/options join, production clock/CDC constraints, binding/full fit and HDMI/Direct Video/S-Video receiver tests.
+- [x] Side Trak native gameplay reference, exhaustive direct map and character/palette candidates.
+- [ ] Side Trak full renderer/sprite scheduling/discrete audio, binding and MRA.
+- [ ] Complete remaining titles/clones, Venture arrow/collision/graphics, sound comparisons and legacy timing coverage.
 
-This supplements the detailed original issue list below; source-level passes do not close hardware or full-game gates.
+The ignored hardware package contains the accepted development RBF and isolated test MRAs, no ROMs. Hardware and complete-game gates remain open; do not replace Releases or count candidate helpers as full game support.
 
-This is the current execution order. WORKPLAN remains the detailed issue/task tracker; completion requires production integration, complete game regression and hardware acceptance. The latest fitted development production build is `7c69900`, with zero errors/301 warnings, master setup +2.393 ns, audio +15.912 ns and all 59 timing summaries positive. Speech/game/hardware acceptance and legacy clock coverage remain open. Releases have not been replaced. No upstream PR has been opened.
-
-Latest investigation: [startup/native batch](audits/source/mousetrap-startup-native-batch-2026-10-12.md). CPU warm-bank retention is proven for selected cases; mapped cold values are don't-care. Corrected native capture reaches Hall of Fame, sees controls and still has only startup PA callbacks. Resolve its credit/start route before claiming gameplay speech. [Hardware checklist](reference_cases/mousetrap-speech-hardware.md) is ready; owner results are pending.
 
 ## 1. Finish Mouse Trap speech and bind the expansion path
 

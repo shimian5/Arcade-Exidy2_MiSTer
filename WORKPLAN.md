@@ -8,7 +8,22 @@ Deliver a fully working MiSTer core for every game and revision in the Exidy 650
 
 A task is complete only when its acceptance evidence is recorded. A game is not excluded because it needs additional hardware logic, ROM storage, controls, or reference research. An exclusion requires a documented technical barrier, alternatives investigated, and owner review. Missing evidence is an unresolved item, not proof of impossibility.
 
-Reported defects below are tracked against their recorded evidence; historical forum reports may differ from the current releases. Latest checkpoint: production `07a49c5` compiles but fails PIA byte setup (-0.439 ns). The isolated bit-5 placement fit improves the worst path to -0.330 ns and passes byte hold, yet all eight bits still miss setup. The tighter-target routing experiment completed but original production-SDC replay is worse at -0.431 ns (byte hold +0.565 ns); reject that fit. Opposite-edge data+valid passes bounded functional tests but halves the minimum setup separation; do not advance it as a timing fix without contrary STA evidence. Corrected MAME callback-order analysis resolves the seven apparent Venture response mismatches and withdraws previous cross-CPU latency claims. No new game, hardware, CRT or release acceptance is implied.
+Reported defects below remain tied to their recorded evidence. Current status is centralized in [STOPPING_POINT.md](STOPPING_POINT.md) and [remaining work](docs/REMAINING_WORK.md); historical timing investigations farther below are not the latest fitted state.
+
+## Current continuation — 2026-10-13
+
+- [x] Full-fit RGB fix `183f84a` with positive timing and guarded speech inspection.
+- [x] Reproduce normal native Mouse Trap gameplay and record real game-issued speech commands/WAV privately.
+- [x] Complete actual T80 second interval (15,176 digits match) and third interval (220,254 writes, two initial bits differ, remaining 220,252 equal in place). Preserve unresolved boundary/cold-state limits.
+- [x] Qualify FAX/FAX2 MRA downloads and actual T65 bank/input/work-RAM contracts; production binding `98ec95a`.
+- [x] Close reported FAX full-fit PH_6 hold failures: download phase repair plus seed-2 placement, all 59 summaries positive (`2b9eb2b`); targeted speech/reset inspection passes. Legacy coverage remains open.
+- [x] Qualify unbound CRT capture/stream, native phase sweep and adaptive FX full-frame transport.
+- [x] Qualify actual PLL/configuration/controller Native→CRT→Native simulation, including real START busy semantics; isolated Native/CRT fits meet timing with guarded first-stage/CLR constraints.
+- [ ] Qualify actual production reference-pin/framework clock routing, complete transport/options join, bind CRT, full-fit and test physical HDMI/Direct Video/S-Video.
+- [ ] Complete remaining game/clone profiles, graphics/collision/discrete audio and hardware matrix. Side Trak native gameplay and direct-map/character/palette candidates are qualified; production binding and sound remain open.
+
+Unit evidence links: [speech replay](docs/audits/source/mousetrap-native-replay-2026-10-13.md), [FAX join](docs/audits/source/fax-production-join-2026-10-13.md), [CRT transport](docs/audits/source/exidy-crt-transport-2026-10-13.md). These checkboxes close bounded units only; W07/W09/W15 and complete-game acceptance remain active.
+
 
 ## Locations and baseline
 
