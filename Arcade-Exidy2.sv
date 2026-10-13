@@ -217,7 +217,8 @@ wire  [7:0] ioctl_din;
 wire  [7:0] ioctl_index;
 wire        ioctl_wait;
 
-wire [15:0] joystick_0;
+wire [31:0] joystick_0, joystick_1;
+wire question_image_ready;
 wire [15:0] joystick_l_analog_0;
 wire [8:0] spinner_0;
 
@@ -239,7 +240,12 @@ reg [7:0] mod_shift  = 0;
 	
 always @(posedge clk_sys) begin
 
-	if (ioctl_wr & (ioctl_index==1)) mod_other <= ioctl_dout == 8'h90 ? 8'h10 : ioctl_dout;
+	if (ioctl_wr & (ioctl_index==1)) case (ioctl_dout)
+                8'h90: mod_other <= 8'h10;
+                8'hF4: mod_other <= 8'h74;
+                8'hF8: mod_other <= 8'h78;
+                default: mod_other <= ioctl_dout;
+            endcase
 	if (ioctl_wr & (ioctl_index==2)) mod_shift <= ioctl_dout;
 	//mod_orientation<=!status[2];
 end
@@ -266,6 +272,7 @@ localparam CONF_STR = {
 	"O2,Orientation,Horizontal,Vertical;",
 	"O35,Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;",
 	"O[24],D-pad steering,Velocity,Position;",
+	"H2O[23],FAX startup check,Skip,Run;",
 //	"OV,Frequency,60,Original;",	
 	"-;",
 	"DIP;",
@@ -300,7 +307,7 @@ hps_io #(.CONF_STR(CONF_STR)) hps_io
 
 	.buttons(buttons),
 	.status(status),
-	.status_menumask({~hs_configured,direct_video}),
+	.status_menumask({~question_image_ready,~hs_configured,direct_video}),
 
 	.forced_scandoubler(forced_scandoubler),
 	.gamma_bus(gamma_bus),
@@ -329,6 +336,7 @@ hps_io #(.CONF_STR(CONF_STR)) hps_io
 	//.sd_buff_wr(sd_buff_wr),
 
 	.joystick_0(joystick_0),
+	.joystick_1(joystick_1),
 	.joystick_l_analog_0(joystick_l_analog_0),
 	.spinner_0(spinner_0)
 );
@@ -440,6 +448,10 @@ hiscore #(
 wire speech_read, speech_valid, speech_enable, loader_hold, base_wr;
 wire [13:0] speech_addr;
 wire [7:0] speech_data, base_data;
+wire question_read, question_valid;
+wire [4:0] question_bank;
+wire [15:0] question_cpu_addr;
+wire [7:0] question_data;
 wire [24:0] base_addr;
 exidySpeechLoader speech_loader(
     .clk(clk_sys), .audio_clk(clk_audio), .reset_n(!RESET),
@@ -447,6 +459,8 @@ exidySpeechLoader speech_loader(
     .raw_addr(ioctl_addr), .raw_data(ioctl_dout),
     .speech_read(speech_read), .speech_addr(speech_addr),
     .speech_data(speech_data), .speech_valid(speech_valid), .speech_enable(speech_enable),
+    .question_read(question_read), .question_bank(question_bank), .question_cpu_addr(question_cpu_addr),
+    .question_data(question_data), .question_valid(question_valid), .question_image_ready(question_image_ready),
     .ioctl_wait(ioctl_wait), .base_wr(base_wr), .reset_hold(loader_hold),
     .base_addr(base_addr), .base_data(base_data)
 );
@@ -463,6 +477,11 @@ exidy2 ex2(
 	.master_clock(clkm_45MHZ),
 	.audio_clk(clk_audio),
 	.speech_enable(speech_enable),
+	.question_image_ready(question_image_ready),
+	.question_read(question_read), .question_bank(question_bank), .question_cpu_addr(question_cpu_addr),
+	.question_valid(question_valid), .question_data(question_data),
+	.fax_p2_answers(joystick_1[7:4]), .fax_p2_start_pressed(joystick_1[8]),
+	.fax_startup_check(status[23]),
 	.speech_read(speech_read),
 	.speech_addr(speech_addr),
 	.speech_valid(speech_valid),

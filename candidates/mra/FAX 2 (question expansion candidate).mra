@@ -1,0 +1,63 @@
+<misterromdescription>
+  <name>FAX 2 (question expansion candidate)</name>
+  <mameversion>0288</mameversion>
+  <setname>fax2</setname>
+  <parent>fax</parent>
+  <mratimestamp>202610120000</mratimestamp>
+  <year>1983</year><manufacturer>Exidy</manufacturer><category>Quiz</category>
+  <rbf>Exidy2</rbf><rotation>horizontal</rotation>
+  <buttons names="Answer 1,Answer 2,Answer 3,Answer 4,Start 1P,Start 2P,Coin A,Coin B,Pause" default="A,B,X,Y,Start,Select,L,R" />
+  <switches default="00,DC,FF,00,00,00,00,00">
+    <dip bits="9,10" name="Bonus Time" ids="8000,13000,18000,25000" />
+    <dip bits="13,14" name="Game/Bonus Times" ids=":32/:24,:48/:36,1:04/:48,1:12/1:04" />
+    <dip bits="11,12,15" name="Coinage" ids="2C/1C,Coin A 2C/1C B 1C/3C,1C/1C,Coin A 1C/1C B 1C/4C,Coin A 1C/1C B 1C/5C,1C/2C,1C/3C 2C/7C,1C/4C" />
+  </switches>
+  <!-- The referenced profile helper startup-bit-2-low setting is a diagnostic; no physical strap is claimed. -->
+  <!-- Marker carries provisional candidate identity PCB=0x78; loader/profile validation requires the shared integration patch. -->
+  <rom index="1"><part>f8</part></rom>
+  <rom index="7"><part>45 58 01 02 03 40 4A 01 00 00 03 00 00 00 00 00</part></rom>
+  <rom index="0" md5="none" zip="fax.zip" type="merged|nonmerged">
+    <part repeat="0x8000">00</part>
+    <part name="fxl8-13a.32" crc="8e30bf6b"/><part name="fxl8-12a.32" crc="60a41ff1"/>
+    <part name="fxl8-11a.32" crc="2c9cee8a"/><part name="fxl8-10a.32" crc="9b03938f"/>
+    <part name="fxl8-9a.32" crc="fb869f62"/><part name="fxl8-8a.32" crc="db3470bc"/>
+    <part name="fxl8-7a.32" crc="1471fef5"/><part name="fxl8-6a.32" crc="812e39f3"/>
+    <part repeat="0x2800">00</part>
+    <part name="fxa2-5a.16" crc="7c525aec"/><part name="fxa2-6a.16" crc="2b3bfc44"/><part name="fxa2-7a.16" crc="578c62b7"/>
+    <part name="fxl1-11d.32" crc="62083db2"/>
+    <part name="fxl-6b" crc="e1e867ae"/><part name="fxl-8b" crc="0da1bdf9"/><part name="fxl-11b" crc="f76b4fcf"/><part name="fxl-12b" crc="6b5aa3d7"/>
+  </rom>
+  <rom index="5" md5="none" zip="fax.zip|fax2.zip" type="merged|nonmerged">
+    <part name="fxdb1-1c.bin" crc="0e42a2a4"/>
+    <part name="fxdb1-2c.bin" crc="cef8d49a"/>
+    <part name="fxdb1-3c.bin" crc="96217b39"/>
+    <part name="fxdb1-4c.bin" crc="9f1522d8"/>
+    <part name="fxdb1-5c.bin" crc="4770eb04"/>
+    <part name="fxdb1-6c.bin" crc="07c742ab"/>
+    <part name="fxdb1-7c.bin" crc="f2f39ebb"/>
+    <part name="fxdb1-8c.bin" crc="00f73e30"/>
+    <part name="fxdb1-1b.bin" crc="e13341cf"/>
+    <part name="fxdb1-2b.bin" crc="300d7a6f"/>
+    <part name="fxdb1-3b.bin" crc="db9a6a3a"/>
+    <part name="fxdb1-4b.bin" crc="47faeb43"/>
+    <part name="fxdb1-5b.bin" crc="3ecf974f"/>
+    <part name="fxdb1-6b.bin" crc="526c4c0d"/>
+    <part name="fxdb1-7b.bin" crc="4cf8217c"/>
+    <part name="fxdb1-8b.bin" crc="99485e27"/>
+    <part name="fxdb1-1a.bin" crc="97c153b5"/>
+    <part name="fxdb1-2a.bin" crc="63258140"/>
+    <part name="fxdb1-3a.bin" crc="1c698727"/>
+    <part name="fxdb1-4a.bin" crc="8283d6fc"/>
+    <part name="fxdb1-5a.bin" crc="b69542d2"/>
+    <part name="fxdb1-6a.bin" crc="ff949367"/>
+    <part name="fxdb1-7a.bin" crc="0f97b874"/>
+    <part name="fxdb1-8a.bin" crc="1d055bea"/>
+  </rom>
+  <rom index="2"><part>37</part></rom>
+  <nvram index="4" size="2"/>
+</misterromdescription>
+
+
+
+
+

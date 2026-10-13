@@ -27,3 +27,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "
 set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "expansion/exidy_reset_sync.sv"]
 set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "expansion/exidy_expansion_loader_rr.sv"]
 set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) "../modules/cpu-t80/Z80.vhd"]
+
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "fax_controls.v"]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "fax_profile_controls.v"]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "fax_question_window.v"]

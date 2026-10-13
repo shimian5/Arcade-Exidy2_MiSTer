@@ -13,8 +13,13 @@ module tb_speech_loader;
     reg [7:0] raw_data = 0;
     reg speech_read = 0;
     reg [13:0] speech_addr = 0;
+    reg question_read = 0;
+    reg [4:0] question_bank = 0;
+    reg [15:0] question_cpu_addr = 0;
     wire [7:0] speech_data;
     wire speech_valid, speech_enable, ioctl_wait, base_wr, reset_hold;
+    wire [7:0] question_data;
+    wire question_valid, question_image_ready;
     wire [24:0] base_addr;
     wire [7:0] base_data;
 

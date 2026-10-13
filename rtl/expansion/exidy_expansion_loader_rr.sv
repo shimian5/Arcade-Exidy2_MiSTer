@@ -234,7 +234,9 @@ module exidy_expansion_loader (
                     if (transfer_count != 24'd1) begin
                         protocol_fault <= 1'b1;
                         extended_pending <= 1'b1;
-                    end else if (!marker_byte[7]) begin
+                    end else if ((marker_byte != 8'h90) &&
+                                 (marker_byte != 8'hF4) &&
+                                 (marker_byte != 8'hF8)) begin
                         clear_extension();
                     end else begin
                         marker_pcb <= marker_byte[6:0];
@@ -257,7 +259,9 @@ module exidy_expansion_loader (
                         expected_question_len <= descriptor_u24(8);
                         expected_cvsd_len <= descriptor_u24(11);
                         if ((descriptor[3] == 8'd1) || (descriptor[3] == 8'd2)) begin
-                            if ((descriptor[4] != 8'h03) || (marker_pcb != 7'h30) ||
+                            if ((descriptor[4] != 8'h03) ||
+                                ((descriptor[3] == 8'd1) && (marker_pcb != 7'h74)) ||
+                                ((descriptor[3] == 8'd2) && (marker_pcb != 7'h78)) ||
                                 (descriptor_u24(5) == 24'd0) ||
                                 (descriptor_u24(8) != QUESTION_BYTES) ||
                                 (descriptor_u24(11) != 24'd0)) begin

@@ -39,7 +39,7 @@ for ($i = 0; $i -lt $hexLines.Count; $i++) {
 }
 $imageManifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
 $sha = [System.Security.Cryptography.SHA256]::Create()
-try { $actualHash = [Convert]::ToHexString($sha.ComputeHash($romBytes)).ToLowerInvariant() }
+try { $actualHash = ([BitConverter]::ToString($sha.ComputeHash($romBytes))).Replace('-', '').ToLowerInvariant() }
 finally { $sha.Dispose() }
 if ($actualHash -ne $imageManifest.images.mtrap.sha256.ToLowerInvariant()) { throw 'Private Mouse Trap image hash does not match the reviewed ROM manifest' }
 

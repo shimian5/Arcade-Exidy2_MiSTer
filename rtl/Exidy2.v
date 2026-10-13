@@ -27,6 +27,15 @@ module exidy2(
 	output V_BLANK,
 	input RESET_n,				
 	input speech_enable,
+	input question_image_ready,
+	output question_read,
+	output [4:0] question_bank,
+	output [15:0] question_cpu_addr,
+	input question_valid,
+	input [7:0] question_data,
+	input [3:0] fax_p2_answers,
+	input fax_p2_start_pressed,
+	input fax_startup_check,
 	output speech_read,
 	output [13:0] speech_addr,
 	input speech_valid,
@@ -142,7 +151,27 @@ wire [7:0] DIPSWA={DIP1[7:1],!m_coinb}; //h5101: Controller Input Buffer
 
 wire nWM2V,nWM2H,nWM1V,nWM1H;
 wire RAMSEL,ROMSEL,VSEL,MISEL,IOSEL,ABSEL,SRAMSEL,CHARSEL,EXTVID;
-assign RAMSEL = CPU_addrbus[15:10]	==	6'b000000 	? 1'b0 : 1'b1;	//ZEROPAGE, SCRATCH RAM
+wire fax_enabled, fax_controls_selected, fax_question_selected;
+wire [7:0] fax_controls_data, fax_question_data;
+faxProfileControls #(.STARTUP_CHECK(1'b0)) FAX_CONTROLS(
+ .question_image_ready(question_image_ready), .pcb(pcb),
+ .cpu_addr(CPU_addrbus[15:0]), .cpu_read(CPU_RWn), .other_read_data(8'd0),
+ .p1_answer_pressed({!m_blu,!m_red,!m_yel,!m_fire}), .p2_answer_pressed(fax_p2_answers),
+ .p1_start1_pressed(!m_start1p), .p1_start2_pressed(!m_start2p || fax_p2_start_pressed),
+ .fax_enabled(fax_enabled), .fax_selected(fax_controls_selected), .read_data(fax_controls_data));
+faxQuestionWindow FAX_QUESTIONS(
+ .fax_enabled(fax_enabled), .cpu_clk(master_clock), .cpu_reset_n(RESET_n),
+ .cpu_addr(CPU_addrbus[15:0]), .cpu_read(CPU_RWn),
+ .cpu_write(PH_1 && !CPU_RWn), .cpu_write_data(CPU_databus_out),
+ .question_data(question_valid ? question_data : 8'd0), .other_read_data(8'd0),
+ .question_bank(question_bank), .question_read(question_read), .question_cpu_addr(question_cpu_addr),
+ .question_selected(fax_question_selected), .read_data(fax_question_data));
+wire [7:0] fax_input_byte = CPU_addrbus[15:0] == 16'h1c00 ?
+                           {fax_controls_data[7:3],fax_startup_check,fax_controls_data[1:0]} :
+                           fax_controls_data;
+
+assign RAMSEL = fax_enabled ? (CPU_addrbus[15:11] != 5'd0) :
+                              (CPU_addrbus[15:10] != 6'd0);	//ZEROPAGE, SCRATCH RAM
 assign SRAMSEL= CPU_addrbus[15:10]	==	6'b010000 	? 1'b0 : 1'b1;	//SCREEN RAM
 //assign CHARSEL= CPU_addrbus[15:11]	==	5'b01001 	? 1'b0 : 1'b1;	//Character RAM
 assign CHARSEL= pcb[5] ? (CPU_addrbus[15:11]	==	5'b01100 	? 1'b0 : 1'b1) : (CPU_addrbus[15:11]	==	5'b01001 	? 1'b0 : 1'b1);	//Character RAM
@@ -216,7 +245,9 @@ reg ADSEL;
 // ******* PRIMARY CPU IC SELECTION LOGIC FOR TILE, SPRITE, SOUND & GAME EXECUTION ********
 always @(posedge master_clock) begin
 
-		CPU_databus_in <=	   (!RAMSEL			 	 									& CPU_RWn) 	? CPU_RAM_out 		: //RAM
+		CPU_databus_in <=       fax_controls_selected ? fax_input_byte :
+                               fax_question_selected ? fax_question_data :
+                               (!RAMSEL			 	 									& CPU_RWn) 	? CPU_RAM_out 		: //RAM
 									(!ROMSEL  												& CPU_RWn) 	? CPU_PROM_out 	: //EPROM
 									(!SRAMSEL												& CPU_RWn) 	? VRAM_CPU_out 			: //SCREEN RAM
 									(!CHARSEL												& CPU_RWn) 	? VRAM_out_CSCG1_CPU 	: //CHARACTER RAM - 11C & 13C
@@ -262,18 +293,18 @@ eprom_0 PROGRAM_MEMORY
 	.WR(dn_wr)
 );
 
-//main CPU (6502) 1K of work RAM - dual port RAM for hi-score logic
+// Main CPU work RAM: FAX has 2 KiB; legacy profiles retain their 1 KiB address semantics.
 wire [7:0] CPU_RAM_out;
-dpram_dc #(.widthad_a(10)) U14_RAM_2016 //SJ
+dpram_dc #(.widthad_a(11)) U14_RAM_2016 //SJ
 (
 	.clock_a(master_clock),
-	.address_a(CPU_addrbus[9:0]),
+	.address_a(fax_enabled ? CPU_addrbus[10:0] : {1'b0,CPU_addrbus[9:0]}),
 	.data_a(CPU_databus_out),
 	.wren_a(!CPU_RWn & !RAMSEL), 
 	.q_a(CPU_RAM_out),
 
 	.clock_b(master_clock),
-	.address_b(hs_address[9:0]),
+	.address_b(fax_enabled ? hs_address[10:0] : {1'b0,hs_address[9:0]}),
 	.data_b(hs_data_in),
 	.wren_b(hs_write),
 	.q_b(hs_data_out)
