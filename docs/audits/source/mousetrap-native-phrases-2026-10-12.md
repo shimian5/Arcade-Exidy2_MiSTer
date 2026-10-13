@@ -6,6 +6,8 @@ The late-input 3,600-frame run got past the earlier startup wait: the main CPU w
 
 The first bounded 900-frame attempt had stopped before this later input/read window. I moved the genuine inputs after frame 1460, where the earlier capture first showed main-CPU input and sound activity. This change closed the early-boot ambiguity but did not produce speech commands. No memory, CPU register, RIOT port, or speech command was forced.
 
+The 2026-10-13 [native gameplay follow-up](mousetrap-native-gameplay-followup-2026-10-13.md) confirms the Coin 1 interrupt condition and correct Free Play DIP setting while retaining the conclusion that a playable board and native phrase boundary are unproven.
+
 Private capture products are under `simulation/mousetrap_voice_gameplay_lateBoot/`: `bus.csv`, `events.log`, `summary.txt`, `run-manifest.json` and the three screenshots. The Lua recorder and parameterized runner are [mousetrap_voice_gameplay.lua](../../../tools/mame/mousetrap_voice_gameplay.lua) and [mousetrap_voice_gameplay.ps1](../../../tools/mame/mousetrap_voice_gameplay.ps1). The parser and mirrored-register check are in [mousetrap_voice_summary.py](../../../tools/reference_cases/mousetrap_voice_summary.py).
 
 ## Reproducible late-input run
@@ -52,3 +54,9 @@ The earlier [voice reference audit](mousetrap-voice-reference-2026-10-12.md) pre
 ## Remaining gate
 
 To identify real bark, meow or chomp transitions, first reach and verify an actual game board, then observe a post-frame-322 PA/DDRA update and correlate it with the following digit/clock stream. The current run’s confirmed port activity and PIA writes are insufficient to name a speech phrase. Do not infer phrase identity from idle digit writes or from sound-PIA traffic alone.
+
+
+The [2026-10-13 native gameplay follow-up](mousetrap-native-gameplay-followup-2026-10-13.md) supersedes the earlier unresolved gate: ordinary coin/start reaches a verified maze and native post-start PA reset/release groups plus nonzero WAV are captured. These are source-backed callbacks and digit/clock evidence; phrase names remain unassigned pending replay and state correlation.
+
+
+The [2026-10-13 state-conditioned replay audit](mousetrap-native-replay-2026-10-13.md) then replays native PA callback groups through actual T80 and speech modules. Its extended F9 busy-tail interval has equal port-write counts and addresses, with two ordinal bit mismatches at the first two events and the remaining 220,252 bits equal. It separately checks sparse replay decoder samples against the pinned MC3417 arithmetic oracle; neither native MAME PCM equality nor phrase names are claimed.
