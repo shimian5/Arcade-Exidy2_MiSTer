@@ -320,7 +320,9 @@ eprom_1 U11D_gfx
 	.CLK(master_clock),
 	.DATA(MVD),
 	.ADDR_DL(dn_addr),
-	.CLK_DL(master_clock),
+	// Download tuples settle at the rising edge; write at the opposite edge.
+	// The gameplay read port and sprite scheduling remain on their existing clocks.
+	.CLK_DL(~master_clock),
 	.DATA_IN(dn_data),
 	.CS_DL(ep1_cs_i),
 	.WR(dn_wr)
